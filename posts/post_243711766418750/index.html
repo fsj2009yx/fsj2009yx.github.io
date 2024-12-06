@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  三门问题的python代码模拟和原理解释 · fsj2009yx
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="fsj2009yx">
+<meta name="description" content="对三门问题的概率论解释和python代码模拟">
+<meta name="keywords" content="blog,fsj2009yx,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="三门问题的python代码模拟和原理解释">
+  <meta name="twitter:description" content="对三门问题的概率论解释和python代码模拟">
+
+<meta property="og:url" content="http://localhost:1313/posts/post_243711766418750/">
+  <meta property="og:site_name" content="fsj2009yx">
+  <meta property="og:title" content="三门问题的python代码模拟和原理解释">
+  <meta property="og:description" content="对三门问题的概率论解释和python代码模拟">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-06T19:10:09+08:00">
+    <meta property="article:modified_time" content="2024-12-06T19:10:09+08:00">
+    <meta property="article:tag" content="概率论">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/post_243711766418750/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      fsj2009yx
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Category</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/post_243711766418750/">
+              三门问题的python代码模拟和原理解释
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-12-06T19:10:09&#43;08:00">
+                December 6, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              阅读时间：1 分钟
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/fsj2009yx/">Fsj2009yx</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="三门问题的python代码模拟和原理解释">
+  三门问题的python代码模拟和原理解释
+  <a class="heading-link" href="#%e4%b8%89%e9%97%a8%e9%97%ae%e9%a2%98%e7%9a%84python%e4%bb%a3%e7%a0%81%e6%a8%a1%e6%8b%9f%e5%92%8c%e5%8e%9f%e7%90%86%e8%a7%a3%e9%87%8a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h1>
+<p>刷视频时偶然刷到了<strong>三门问题</strong>，于是好奇的查阅了一下</p>
+<p>先给出三门问题的简单介绍（引用自百度）：</p>
+<blockquote>
+<p><a href="https://zhida.zhihu.com/search?content_id=166022502&amp;content_type=Article&amp;match_order=2&amp;q=%e4%b8%89%e9%97%a8%e9%97%ae%e9%a2%98&amp;zhida_source=entity"  class="external-link" target="_blank" rel="noopener">三门问题</a>（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let&rsquo;s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。</p>
+<p>参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。</p>
+<ul>
+<li>当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。</li>
+<li>主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门会否增加参赛者赢得汽车的机率。如果严格按照上述的条件，那么答案是会。不换门的话，赢得汽车的几率是1/3。换门的话，赢得汽车的几率是2/3。</li>
+</ul>
+<p>虽然该问题的答案在逻辑上并不自相矛盾，但十分违反直觉。</p>
+</blockquote>
+<p>开始和大多数人想的一样，会选择继续开第一扇门或者认为换和不换的概率都为$1/2$，答案显然不是。</p>
+<p>为更直观的看到三门问题的正确性，我写了一段python代码模拟这个过程</p>
+<hr>
+<h2 id="代码">
+  代码
+  <a class="heading-link" href="#%e4%bb%a3%e7%a0%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">random</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>num :int <span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">10000000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doors<span style="color:#ff7b72;font-weight:bold">=</span>[<span style="color:#a5d6ff">&#39;sheep&#39;</span>,<span style="color:#a5d6ff">&#39;sheep&#39;</span>,<span style="color:#a5d6ff">&#39;car&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>win_num :int <span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">for</span> i <span style="color:#ff7b72;font-weight:bold">in</span> range(num):
+</span></span><span style="display:flex;"><span>    random<span style="color:#ff7b72;font-weight:bold">.</span>shuffle(doors) <span style="color:#8b949e;font-style:italic">#随机打乱</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#8b949e;font-style:italic">#首先选择第一个门，主持人开启另一个门</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">#choice=doors[0]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">#展示另一个门为山羊</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> doors[<span style="color:#a5d6ff">1</span>]<span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#a5d6ff">&#39;sheep&#39;</span>:
+</span></span><span style="display:flex;"><span>        sheep<span style="color:#ff7b72;font-weight:bold">=</span>doors[<span style="color:#a5d6ff">1</span>]
+</span></span><span style="display:flex;"><span>        index<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>        sheep<span style="color:#ff7b72;font-weight:bold">=</span>doors[<span style="color:#a5d6ff">2</span>]
+</span></span><span style="display:flex;"><span>        index<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">#选择换门</span>
+</span></span><span style="display:flex;"><span>    choice<span style="color:#ff7b72;font-weight:bold">=</span>doors[index]
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> choice<span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#a5d6ff">&#39;car&#39;</span>:
+</span></span><span style="display:flex;"><span>        win_num<span style="color:#ff7b72;font-weight:bold">+=</span><span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;获奖的概率为</span><span style="color:#a5d6ff">{</span>win_num<span style="color:#ff7b72;font-weight:bold">/</span>num<span style="color:#ff7b72;font-weight:bold">*</span><span style="color:#a5d6ff">100</span><span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">%&#34;</span>)
+</span></span></code></pre></div><p>经过多次运行，在$10000000$次试验的环境下，最后的输出结果接近于$66.7%$，也就是$2/3$</p>
+<hr>
+<h2 id="原理解释">
+  原理解释
+  <a class="heading-link" href="#%e5%8e%9f%e7%90%86%e8%a7%a3%e9%87%8a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p>很显然这是一个概率论的问题，我们来构建更加具体的概率问题：</p>
+<blockquote>
+<p>问题简述：</p>
+<ul>
+<li>有三扇门，其中一扇门后面藏有一辆车，另外两扇门后面藏有山羊。</li>
+<li>你首先选择一扇门。</li>
+<li>主持人知道哪个门后面有车，之后会打开一扇没有车的门，通常是两扇你没选的门中的一扇。</li>
+<li>然后主持人会问你是否要换门。如果你换门，你会选择剩下的未被你选中且未被主持人打开的门。</li>
+</ul>
+<p>问题是：<strong>是否换门能增加获胜的概率？</strong></p>
+</blockquote>
+<p>假定<strong>选手选择第一扇门</strong></p>
+<ul>
+<li>A=第一扇门中是车</li>
+<li>B=第二扇门中是车</li>
+<li>C=第三扇门中是车</li>
+<li>D=主持人<strong>选择</strong>打开第三扇门</li>
+</ul>
+<p>在初始情况下：$P(A)=P(B)=P(C)=1/3$;</p>
+<p>然后，主持人打开了第三扇门，且我们知道第三扇门后面是山羊。</p>
+<p>此时注意：由于<strong>主持人并不是固定打开三号门，主持人需要选择不是车的那个门来打开</strong>，只是在事例中，我们事先假定了三号门为羊</p>
+<ul>
+<li>
+<p>如果第一扇门后面有车（事件A），也就是说主持人<strong>选择第二扇门和第三扇门</strong>都可以。所以，在事件A下，主持人选择打开第三扇门的概率是 $P(D|A)=1/2$，</p>
+</li>
+<li>
+<p>如果第二扇门后面有车（事件B），主持人只能打开第三扇门（因为第三扇门后有山羊）。因此，在事件B下，主持人打开第三扇门的概率是 1,即$P(D|B)=1$</p>
+</li>
+<li>
+<p>如果第三扇门后面有车（事件C），主持人就不能打开第三扇门了。因此，在事件C下，主持人只能选择打开第二扇门，$P(D|B)=0$</p>
+</li>
+</ul>
+<p>现在我们需要计算<strong>在主持人打开第三扇门的情况下，是否换门能够增加获胜的概率</strong>：</p>
+<ul>
+<li>在换门的情况下，最终选择第二扇门</li>
+<li>由<strong>贝叶斯公式</strong>，计算$P(B | D) = \frac{P(D | B)P(B)}{P(D)}$</li>
+<li>由全概率公式，计算$P(D)$=$P(D|A)P(A)+P(D|B)P(B)+P(D|C)P(C)=(1/2<em>1/3)+1</em>1/3+0=1/2$;</li>
+</ul>
+<p>由上面的条件知：$P(B | D) = \frac{P(D | B)P(B)}{P(D)}=(1*1/3)/(1/2)=2/3$;</p>
+<p>由此我们得知，在主持人打开了第三扇门的条件下，我们选择第二扇门的概率为$2/3$，因此，我们换门的获奖几率更大</p>
+<hr>
+<h2 id="总结">
+  总结
+  <a class="heading-link" href="#%e6%80%bb%e7%bb%93">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p>在这个场景中，我在思考<strong>主持人选择第三扇门</strong>的部分耗费了不少时间，原因是我没有理解到，<strong>主持人并不是固定打开三号门，只是在问题场景中打开了第三扇门，而第三扇门<!-- raw HTML omitted -->恰好为羊<!-- raw HTML omitted --></strong>。而实际上，主持人为了保证打开结果为羊的门，<strong>是否打开三号门是根据门后的物品排放来决定的</strong>。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2024
+     fsj2009yx 
+    ·
+    
+    技术支持 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

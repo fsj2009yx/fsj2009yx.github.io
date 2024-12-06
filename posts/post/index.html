@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   搜索结构 · fsj2009yx
 </title>
@@ -105,7 +105,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
 例如，如果目标元素 x 存在于表中，那么它将出现在某个位置 i，并且当 i 达到 CurrentSize 时，循环自然会停止。
 顺序搜索递归算法链接到标题template &lt;class E, class K&gt; int searchList&lt;E, K&gt;::SeqSearch1(const K x, int loc) const { //在搜索表中递归搜索其关键码与给定值x匹配的数据元素, //函数返回其表中位置。参数 loc 是在表中开始搜索位置，调用时赋初值1 if ( loc &gt; CurrentSize ) return 0; //搜索失败 else if ( Element[loc-1].key == x ) return loc; //搜索成功 else return SeqSearch1( x, loc&#43;1); //继续递归搜索 } 顺序搜索的平均搜索长度链接到标题">
 
-<meta property="og:url" content="http://fsj2009yx.github.io/posts/post/">
+<meta property="og:url" content="http://localhost:1313/posts/post/">
   <meta property="og:site_name" content="fsj2009yx">
   <meta property="og:title" content="搜索结构">
   <meta property="og:description" content="搜索结构链接到标题搜索方法取决于搜索结构中数据元素的组织方式。例如，电话号码簿的搜索，可建立分类目录，采用分块（索引顺序）搜索；英汉词典是有序表，可采用折半搜索（或分块搜索）。
@@ -128,7 +128,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
 
 
 
-<link rel="canonical" href="http://fsj2009yx.github.io/posts/post/">
+<link rel="canonical" href="http://localhost:1313/posts/post/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -138,7 +138,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.ed30115a76cdaa62f2229e973d5b1c89b2d3dd4b1d9c07a729baad06aa3b0cbe.css" integrity="sha256-7TARWnbNqmLyIp6XPVscibLT3UsdnAenKbqtBqo7DL4=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
 
 
 
@@ -148,7 +148,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
   
 
 
@@ -196,7 +196,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="http://fsj2009yx.github.io/">
+    <a class="navigation-title" href="http://localhost:1313/">
       fsj2009yx
     </a>
     
@@ -239,7 +239,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="http://fsj2009yx.github.io/posts/post/">
+            <a class="title-link" href="http://localhost:1313/posts/post/">
               搜索结构
             </a>
           </h1>
@@ -1261,7 +1261,7 @@ template &lt;class E, class K&gt; int searchList&lt;E, K&gt; :: SeqSearch(const 
 
   
   
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.js"></script>
   
 
   
