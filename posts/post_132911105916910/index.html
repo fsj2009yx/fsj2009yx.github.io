@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <title>
+  计算机网络计算 · fsj2009yx
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="fsj2009yx">
+<meta name="description" content="计算机网络中的一些计算题方法">
+<meta name="keywords" content="blog,fsj2009yx,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="计算机网络计算">
+  <meta name="twitter:description" content="计算机网络中的一些计算题方法">
+
+<meta property="og:url" content="http://fsj2009yx.github.io/posts/post_132911105916910/">
+  <meta property="og:site_name" content="fsj2009yx">
+  <meta property="og:title" content="计算机网络计算">
+  <meta property="og:description" content="计算机网络中的一些计算题方法">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-06T09:51:53+08:00">
+    <meta property="article:modified_time" content="2024-12-06T09:51:53+08:00">
+    <meta property="article:tag" content="计算机网络">
+
+
+
+
+<link rel="canonical" href="http://fsj2009yx.github.io/posts/post_132911105916910/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.ed30115a76cdaa62f2229e973d5b1c89b2d3dd4b1d9c07a729baad06aa3b0cbe.css" integrity="sha256-7TARWnbNqmLyIp6XPVscibLT3UsdnAenKbqtBqo7DL4=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://fsj2009yx.github.io/">
+      fsj2009yx
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Category</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://fsj2009yx.github.io/posts/post_132911105916910/">
+              计算机网络计算
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-12-06T09:51:53&#43;08:00">
+                December 6, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              阅读时间：4 分钟
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/fsj2009yx/">Fsj2009yx</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/">基础课程</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="计算机网络计算">
+  计算机网络计算
+  <a class="heading-link" href="#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e8%ae%a1%e7%ae%97">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h1>
+<h2 id="时延">
+  时延
+  <a class="heading-link" href="#%e6%97%b6%e5%bb%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p>总时延=处理时延+排队时延+传输时延+传播时延</p>
+<ul>
+<li>
+<p><strong>处理时延</strong></p>
+<ul>
+<li>处理时延的计算通常依赖于设备的处理能力，与数据包的大小有关</li>
+</ul>
+</li>
+<li>
+<p><strong>排队时延</strong></p>
+<ul>
+<li>分组在进入路由器后要现在输入<a href="https://edu.csdn.net/course/detail/40020?utm_source=glcblog&amp;spm=1001.2101.3001.7020"  class="external-link" target="_blank" rel="noopener">队列</a>中排队等待处理。在路由器确定了转发接口后，还要在输出队列中排队等待转发</li>
+</ul>
+</li>
+<li>
+<p><strong>传输时延（发送时延）</strong></p>
+<ul>
+<li>是主机或<a href="https://so.csdn.net/so/search?q=%e8%b7%af%e7%94%b1%e5%99%a8&amp;spm=1001.2101.3001.7020"  class="external-link" target="_blank" rel="noopener">路由器</a>发送数据帧所需要的时间，也就是从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需的时间</li>
+<li><strong>计算公式：数据帧长度(b) / 信道带宽(b/s)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>传播时延</strong></p>
+<ul>
+<li>电磁波在信道中传播一定的距离需要花费的时间</li>
+<li><strong>计算公式： 信道长度(m) / 电磁波在信道上的传播速率(m/s)</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="例题">
+  例题：
+  <a class="heading-link" href="#%e4%be%8b%e9%a2%98">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<blockquote>
+<p>【例】考虑两台主机A和主机B由一条带宽为R bps、长度为M米的链路互连，信号传播速率为V m/s。假设主机A从t=0时刻开始向主机B发送分组，分组长度为L比特。试求：</p>
+<ol>
+<li>
+<p>传播延迟（时延）dp；</p>
+</li>
+<li>
+<p>传输延迟dt；</p>
+</li>
+<li>
+<p>若忽略结点处理延迟和排队延迟，则端到端延迟de是多少？</p>
+</li>
+<li>
+<p>若dp&gt;dt，则t=dt时刻，分组的第一个比特在哪里？</p>
+</li>
+<li>
+<p>若V=250000km/s，L=512比特，R=100 Mbps，则使带宽时延积刚好为一个分组长度（即512比特）的链路长度M是多少？</p>
+</li>
+</ol>
+<p>(注：1k=10^3,1M=10^6)</p>
+</blockquote>
+<h3 id="解答">
+  解答：
+  <a class="heading-link" href="#%e8%a7%a3%e7%ad%94">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>【解】1）传播时延dp = <strong>信道长度(m) / 电磁波在信道上的传播速率(m/s)</strong> = <strong>M / V</strong></p>
+<p>2）传输延迟dt = 数据帧长度(b) / 信道带宽(b/s) = <strong>L / R</strong></p>
+<p>3）总延迟de = <strong>传播时延 + 传输延迟</strong> = <strong>M / V + L / R</strong></p>
+<p>4）dp &gt; dt意味着最早发送的信号没有到达目的主机之前，数据分组的最后一个比特已经发送出来了，所以<strong>分组的第一个比特在距离主机的V * dt米的链路上</strong></p>
+<p>5）<strong>时延带宽积 = 传播时延 * 带宽 = M / V * R = 512</strong>，解之得<strong>M = 1280米</strong></p>
+<hr>
+<h2 id="流量强度">
+  流量强度
+  <a class="heading-link" href="#%e6%b5%81%e9%87%8f%e5%bc%ba%e5%ba%a6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<h3 id="定义">
+  定义：
+  <a class="heading-link" href="#%e5%ae%9a%e4%b9%89">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><strong>若R=链路带宽（链路宽度），L=分组长度（一个分组的大小），a=分组到达队列的平均速率（分组数量），流量强度公式 ：$I = La/R$</strong></p>
+<p>对于流量强度的理解：</p>
+<ul>
+<li>计算机网络中的<strong>流量强度</strong>通常是指在给定时间内网络中传输的数据量，反映了网络的负载程度和资源使用情况。</li>
+<li><strong>高流量强度</strong>：网络中传输的数据量大，可能导致带宽饱和，进而引起延迟、丢包等问题，影响用户体验。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412052345286.png" alt="image-20241205234505995"></p>
+<p>由图，如果流量强度$≥1$，<strong>排队延时会占总延时的主导，甚至让排队延时趋于无穷大</strong></p>
+<p>所以我们不能让流量强度$＞1$;</p>
+<hr>
+<h2 id="gbnsr和tcp">
+  GBN，SR和TCP
+  <a class="heading-link" href="#gbnsr%e5%92%8ctcp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p>我们以一个具体的事例来展示三种协议的工作流程：</p>
+<blockquote>
+<p>假设有两台服务器，A和B，它们之间通过不可靠的网络传输数据。A服务器需要向B服务器发送5个数据分组：P1, P2, P3, P4, P5。在传输过程中，由于网络问题，P3丢失了。以下是三种协议处理这种情况的具体示例：</p>
+</blockquote>
+<h3 id="回退n步go-back-n-gbn">
+  回退N步（Go-Back-N, GBN）
+  <a class="heading-link" href="#%e5%9b%9e%e9%80%80n%e6%ad%a5go-back-n-gbn">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>A发送P1, P2, P3, P4, P5。</li>
+<li>B接收到P1和P2，但由于P3丢失，B不会确认P2及之后的任何分组。</li>
+<li>A的定时器超时，未收到P3的确认。</li>
+<li>A从P3开始重新发送所有未确认的分组，即P3, P4, P5。</li>
+<li>B接收到P3, P4, P5，并发送确认。</li>
+<li>A收到P3, P4, P5的确认，继续后续数据传输。</li>
+</ol>
+<p><strong>注意</strong>：GBN会回退到上一个已知正确的分组（P2），然后重新发送之后的所有分组。</p>
+<h3 id="选择重传selective-repeat-sr">
+  选择重传（Selective Repeat, SR）
+  <a class="heading-link" href="#%e9%80%89%e6%8b%a9%e9%87%8d%e4%bc%a0selective-repeat-sr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>A发送P1, P2, P3, P4, P5。</li>
+<li>B接收到P1和P2，但由于P3丢失，B只确认P1和P2。</li>
+<li>A的定时器超时，未收到P3的确认。</li>
+<li>A仅重传P3。</li>
+<li>B接收到P3，并发送确认。</li>
+<li>A收到P3的确认，继续后续数据传输。</li>
+</ol>
+<p><strong>注意</strong>：SR只会重传丢失的分组（P3），而不需要重传P3之后的其他分组。</p>
+<h3 id="tcp协议">
+  TCP协议
+  <a class="heading-link" href="#tcp%e5%8d%8f%e8%ae%ae">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>A与B建立TCP连接，进行三次握手。</li>
+<li>A发送P1, P2, P3, P4, P5。</li>
+<li>B接收到P1和P2，并发送确认ACK2。</li>
+<li>A发送窗口滑动，继续发送P3, P4, P5。</li>
+<li>B<strong>发现P3丢失，不会发送ACK3</strong>。</li>
+<li>A的<strong>定时器超时</strong>，未收到P3的确认。</li>
+<li>A<strong>重传P3</strong>。</li>
+<li>B接收到P3，并发送确认ACK3。</li>
+<li>A收到ACK3，窗口滑动，继续发送P4和P5。</li>
+<li>B接收到P4和P5，并发送确认ACK5。</li>
+<li>A收到ACK5，数据传输完成。</li>
+<li>A与B断开连接，进行四次挥手。</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：TCP使用序列号、确认号、滑动窗口、超时重传等机制来确保数据的可靠传输。在上述示例中，TCP会针对每个丢失的分组进行单独重传，并维护序列号和确认号来确保数据的顺序和完整性。</p>
+</blockquote>
+<hr>
+<h2 id="tcp超时重传定时器的选择">
+  TCP超时重传定时器的选择
+  <a class="heading-link" href="#tcp%e8%b6%85%e6%97%b6%e9%87%8d%e4%bc%a0%e5%ae%9a%e6%97%b6%e5%99%a8%e7%9a%84%e9%80%89%e6%8b%a9">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<h3 id="samplertt样本往返时间">
+  SampleRTT(样本往返时间)
+  <a class="heading-link" href="#samplertt%e6%a0%b7%e6%9c%ac%e5%be%80%e8%bf%94%e6%97%b6%e9%97%b4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>sampleRTT（样本往返时间）是指在TCP连接中，<strong>测量数据包从发送方发送到接收方并返回的时间</strong>。</p>
+<p>sampleRTT通常是<strong>动态的</strong>;</p>
+<h3 id="estimatedrtt估计往返时间">
+  estimatedRTT（估计往返时间）
+  <a class="heading-link" href="#estimatedrtt%e4%bc%b0%e8%ae%a1%e5%be%80%e8%bf%94%e6%97%b6%e9%97%b4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>estimatedRTT（估计往返时间）是TCP协议中用于预测网络延迟的一个重要指标。它基于多个sampleRTT（样本往返时间）值的加权平均计算，旨在<strong>提供一个更稳定和可靠的RTT估计</strong>，以便用于调整重传定时器（RTO）。</p>
+<blockquote>
+<p><strong>注意</strong>：EstimatedRTT的计算公式是一个<strong>编程语法</strong>，即<strong>右值赋值给左边</strong>，而且<strong>每一次的SampleRTT是最新的测量数据</strong>，因为最近的样本能更好的反映网络的当前拥塞状况，称为<strong>指数加权移动平均</strong></p>
+</blockquote>
+<p>测量RTT的变化也是有价值的，DevRTT用于估测RTT的变化</p>
+<h3 id="计算公式">
+  计算公式：
+  <a class="heading-link" href="#%e8%ae%a1%e7%ae%97%e5%85%ac%e5%bc%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<h4 id="estimatedrtt-估算rtt">
+  EstimatedRTT 估算RTT：
+  <a class="heading-link" href="#estimatedrtt-%e4%bc%b0%e7%ae%97rtt">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>$\text{EstimatedRTT} = (1 - \alpha) \times \text{EstimatedRTT} + \alpha \times \text{SampleRTT}$</p>
+<h4 id="devrtt-rtt偏差">
+  DevRTT RTT偏差：
+  <a class="heading-link" href="#devrtt-rtt%e5%81%8f%e5%b7%ae">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>$\text{DevRTT} = (1 - \beta) \times \text{DevRTT} + \beta \times \left| \text{SampleRTT} - \text{EstimatedRTT} \right|$</p>
+<h4 id="timeoutinterval-超时时间间隔">
+  TimeoutInterval 超时时间间隔：
+  <a class="heading-link" href="#timeoutinterval-%e8%b6%85%e6%97%b6%e6%97%b6%e9%97%b4%e9%97%b4%e9%9a%94">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>$\text{TimeoutInterval} = \text{EstimatedRTT} + 4 \times \text{DevRTT}$</p>
+<hr>
+<h3 id="例题-1">
+  例题
+  <a class="heading-link" href="#%e4%be%8b%e9%a2%98-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<blockquote>
+<p>假设有5个 <strong>SampleRTT</strong>（样本往返时延）测量值，且已知：</p>
+<ul>
+<li><strong>已获得前5个样本之后，EstimatedRTT</strong> 的初始值为 <strong>100ms</strong>，</li>
+<li><strong>已获得前5个样本之后，DevRTT</strong> 的初始值为 <strong>5ms</strong>，</li>
+<li><strong>SampleRTT</strong> 的测量值分别为： <strong>90ms, 110ms, 95ms, 105ms, 100ms</strong>。</li>
+</ul>
+<p>假设使用标准的加权因子：</p>
+<ul>
+<li><strong>α=0.125\alpha = 0.125</strong>（用于计算 <strong>EstimatedRTT</strong>），</li>
+<li><strong>β=0.25\beta = 0.25</strong>（用于计算 <strong>DevRTT</strong>）。</li>
+</ul>
+<p><strong>问题：</strong> 计算 <strong>TimeoutInterval</strong>，即超时时间间隔。</p>
+</blockquote>
+<h3 id="解答步骤">
+  解答步骤：
+  <a class="heading-link" href="#%e8%a7%a3%e7%ad%94%e6%ad%a5%e9%aa%a4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<ol>
+<li>
+<p><strong>计算新的 EstimatedRTT：</strong></p>
+<p>使用 <strong>EstimatedRTT</strong> 的更新公式：</p>
+<p>$\text{EstimatedRTT} = (1 - \alpha) \times \text{EstimatedRTT}_{\text{old}} + \alpha \times \text{SampleRTT}$</p>
+<p>其中 $\text{EstimatedRTT}_{\text{old}}$是初始值 <strong>100ms</strong>，而 <strong>SampleRTT</strong> 为每次测量的值。</p>
+<p>计算步骤如下：</p>
+<p>$\text{EstimatedRTT}_1 = (1 - 0.125) \times 100 + 0.125 \times 90 = 98.75 , \text{ms}$</p>
+<p>$\text{EstimatedRTT}_2 = (1 - 0.125) \times 98.75 + 0.125 \times 110 = 99.84 , \text{ms}$</p>
+<p>$\text{EstimatedRTT}_3 = (1 - 0.125) \times 99.84 + 0.125 \times 95 = 98.88 , \text{ms}$</p>
+<p>$\text{EstimatedRTT}_4 = (1 - 0.125) \times 98.88 + 0.125 \times 105 = 100.16 , \text{ms}$</p>
+<p>$\text{EstimatedRTT}_5 = (1 - 0.125) \times 100.16 + 0.125 \times 100 = 100.12 , \text{ms}$</p>
+<p>所以，最终的 <strong>EstimatedRTT</strong> 为 <strong>100.12ms</strong>。</p>
+<hr>
+</li>
+<li>
+<p><strong>计算新的 DevRTT：</strong></p>
+<p>使用 <strong>DevRTT</strong> 的更新公式：</p>
+<p>$\text{DevRTT} = (1 - \beta) \times \text{DevRTT}_{\text{old}} + \beta \times \left| \text{SampleRTT} - \text{EstimatedRTT} \right|$</p>
+<p>初始的 <strong>DevRTT</strong> 为 <strong>5ms</strong>。现在逐步计算每个样本的偏差：</p>
+<p>$\text{DevRTT}_1 = (1 - 0.25) \times 5 + 0.25 \times \left| 90 - 98.75 \right| = 5 + 0.25 \times 8.75 = 6.19 , \text{ms}$</p>
+<p>$\text{DevRTT}_2 = (1 - 0.25) \times 6.19 + 0.25 \times \left| 110 - 99.84 \right| = 5.24 + 0.25 \times 10.16 = 6.81 , \text{ms}$</p>
+<p>$\text{DevRTT}_3 = (1 - 0.25) \times 6.81 + 0.25 \times \left| 95 - 98.88 \right| = 5.10 + 0.25 \times 3.88 = 6.10 , \text{ms}$</p>
+<p>$\text{DevRTT}_4 = (1 - 0.25) \times 6.10 + 0.25 \times \left| 105 - 100.16 \right| = 4.58 + 0.25 \times 4.84 = 6.00 , \text{ms}$</p>
+<p>$\text{DevRTT}_5 = (1 - 0.25) \times 6.00 + 0.25 \times \left| 100 - 100.12 \right| = 4.50 + 0.25 \times 0.12 = 4.53 , \text{ms}$</p>
+<p>所以，最终的 <strong>DevRTT</strong> 为 <strong>4.53ms</strong>。</p>
+<hr>
+</li>
+<li>
+<p><strong>计算 TimeoutInterval：</strong></p>
+<p>使用 <strong>TimeoutInterval</strong> 的计算公式：</p>
+<p>$\text{TimeoutInterval} = \text{EstimatedRTT} + 4 \times \text{DevRTT}$</p>
+<p>将上面得到的 <strong>EstimatedRTT</strong> 和 <strong>DevRTT</strong> 代入公式：</p>
+<p>$\text{TimeoutInterval} = 100.12 + 4 \times 4.53 = 100.12 + 18.12 = 118.24 , \text{ms}$</p>
+</li>
+</ol>
+<h4 id="答案">
+  答案：
+  <a class="heading-link" href="#%e7%ad%94%e6%a1%88">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>最终的 <strong>TimeoutInterval</strong> 为 <strong>118.24ms</strong></p>
+<hr>
+<h2 id="tcp拥塞控制">
+  TCP拥塞控制
+  <a class="heading-link" href="#tcp%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><a href="https://blog.csdn.net/m0_59749089/article/details/131130334?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=TCP%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-131130334.nonecase&amp;spm=1018.2226.3001.4187"  class="external-link" target="_blank" rel="noopener">TCP拥塞控制-CSDN博客</a></p>
+<p>要点：</p>
+<ul>
+<li>拥塞窗口cwnd的值是几，就能发送几个数据报文段</li>
+<li>在一个发送方中未被确认的数据量不会超过cwnd与rwnd的最小值。因为在上面<strong>假设了接收方的接收缓存足够大</strong>，所以<strong>可以忽略接收窗口rwnd的限制</strong>，因此在<strong>发送方中未被确认的报文段仅受限于cwnd</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412051006403.png" alt="1ee3844a49efc6d33f9099a0889ab82f"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412051006070.png" alt="6979d6fe2f957912523320b09c13fdf1"></p>
+<h3 id="例题-2">
+  例题
+  <a class="heading-link" href="#%e4%be%8b%e9%a2%98-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<blockquote>
+<p>考虑仅有一条单一的TCP连接使用一条10Mbps的链路[1],且该链路没有缓存任何数据，假设这条链路是发送主机和接收主机之间的唯一拥塞链路。假定某TCP发送方向接收方有一个大文件要发送，而接收方的接收缓存比拥塞窗口[2]要大得多。假设每个TCP报文段长度为1500字节；该连接的双向传播时延是120ms;假设该TCP连接能够取得的最大发送窗口长度(以报文段计) 是100，并且该TCP连接总是处于拥塞避免阶段(即忽略了慢启动[3]),拥塞后执行快速恢复算法。请回答以下问题，要求写出具体分析计算过程，只有结果且结果正确得2分。</p>
+<p>(1)这条TCP连接的平均窗口长度(以报文段计)和平均吞吐量(单位Mbps，保留1位小数)是多少？平均信道利用率是多少？</p>
+<p>(2)这条TCP连接在从丢包恢复后，忽略发送时延的情况下，再次到达其最大窗口要经历多长时间(单位ms)?</p>
+</blockquote>
+<p>解答：</p>
+<ul>
+<li>（1）最大窗口是100，然后降为50，平均窗口长度为（100+50）/2=75，&mdash;&mdash;&mdash;&mdash;&ndash;2分</li>
+</ul>
+<p>发送一个报文段时间是1500<em>8/10^7=1.2ms，一个周期的时间是120ms+1.2=121.2ms 均吞吐量为： 75</em>1500<em>8/(121.2</em>10^-3)=7.4Mbps， &mdash;&mdash;&mdash;&mdash;2分</p>
+<p>信道利用率=75*1.2/121.2=74.3% &mdash;&mdash;&mdash;&mdash;2分</p>
+<p>（2）当数据报[4]丢包后，执行快速恢复算法，拥塞窗口变为原来的1/2即50， &mdash;&mdash;&mdash;&ndash;2分 *</p>
+<p>再次恢复到最大窗口执行拥塞避免算法，每一个轮次拥塞窗口增加1，需要100-50=50个轮次，所以需要120ms*50=6000ms. &mdash;&mdash;&mdash;-2分</p>
+<hr>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412050950859.jpg" alt="082243c629037e974b7c7c200c799eca_720"></p>
+</blockquote>
+<p>以下是问题的详细解析：</p>
+<hr>
+<h3 id="问题描述">
+  问题描述：
+  <a class="heading-link" href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<ol>
+<li><strong>带宽</strong>：链路带宽为 10 Mbps，无缓存数据。</li>
+<li><strong>TCP 报文段</strong>：每个报文段长度为 1500 字节。</li>
+<li><strong>双向传播时延</strong>：RTT = 150 ms。</li>
+<li><strong>TCP 初始阶段</strong>：假设 TCP 始终处于拥塞避免阶段。</li>
+</ol>
+<hr>
+<h3 id="a-最大窗口长度以报文段计算是多少">
+  <strong>a. 最大窗口长度（以报文段计算）是多少？</strong>
+  <a class="heading-link" href="#a-%e6%9c%80%e5%a4%a7%e7%aa%97%e5%8f%a3%e9%95%bf%e5%ba%a6%e4%bb%a5%e6%8a%a5%e6%96%87%e6%ae%b5%e8%ae%a1%e7%ae%97%e6%98%af%e5%a4%9a%e5%b0%91">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><strong>公式</strong>：
+最大窗口长度$ W_{max} $是由**带宽时延积（BDP）**决定的：
+$W_{max} = \frac{\text{带宽} \times \text{RTT}}{\text{每个报文段的大小}}$</p>
+<p><strong>计算</strong>：</p>
+<ul>
+<li>带宽 =$10 , \text{Mbps} = 10^7 , \text{bps}$</li>
+<li>RTT =$ 150 , \text{ms} = 0.15 , \text{s}$</li>
+<li>每个报文段大小 =$1500 , \text{字节} = 1500 \times 8 , \text{bits} = 12000 , \text{bits}$</li>
+</ul>
+<p>带宽时延积（BDP）：
+$\text{BDP} = \text{带宽} \times \text{RTT} = 10^7 \times 0.15 = 1.5 \times 10^6 , \text{bits}$</p>
+<p>最大窗口长度（报文段数）：
+$W_{max} = \frac{\text{BDP}}{\text{报文段大小}} = \frac{1.5 \times 10^6}{12000} = 125 , \text{报文段}$</p>
+<p><strong>答案</strong>：最大窗口长度是 <strong>125 报文段</strong>。</p>
+<hr>
+<h3 id="b-平均窗口长度报文段与吞吐量bps是多少">
+  <strong>b. 平均窗口长度（报文段）与吞吐量（bps）是多少？</strong>
+  <a class="heading-link" href="#b-%e5%b9%b3%e5%9d%87%e7%aa%97%e5%8f%a3%e9%95%bf%e5%ba%a6%e6%8a%a5%e6%96%87%e6%ae%b5%e4%b8%8e%e5%90%9e%e5%90%90%e9%87%8fbps%e6%98%af%e5%a4%9a%e5%b0%91">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>在 <strong>拥塞避免阶段</strong>，窗口大小会<strong>在 1 到最大窗口之间线性增长</strong>，因此平均窗口长度为：
+$W_{avg} = \frac{W_{max}}{2} = \frac{125}{2} = 62.5 , \text{报文段}$</p>
+<p>吞吐量公式：
+$\text{吞吐量} = \frac{W_{avg} \times \text{报文段大小}}{\text{RTT}}$</p>
+<p><strong>计算</strong>：</p>
+<ul>
+<li>$W_{avg} = 62.5 , \text{报文段}$</li>
+<li>$每个报文段大小 =1500 , \text{字节} = 12000 , \text{bits}$</li>
+<li>RTT =$0.15 , \text{s}$</li>
+</ul>
+<p>$\text{吞吐量} = \frac{62.5 \times 12000}{0.15} = 5 \times 10^6 , \text{bps}$</p>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>平均窗口长度：<strong>62.5 报文段</strong></li>
+<li>吞吐量：<strong>5 Mbps</strong></li>
+</ul>
+<hr>
+<h3 id="c-从丢包恢复到达到最大窗口要经历多长时间">
+  <strong>c. 从丢包恢复到达到最大窗口要经历多长时间？</strong>
+  <a class="heading-link" href="#c-%e4%bb%8e%e4%b8%a2%e5%8c%85%e6%81%a2%e5%a4%8d%e5%88%b0%e8%be%be%e5%88%b0%e6%9c%80%e5%a4%a7%e7%aa%97%e5%8f%a3%e8%a6%81%e7%bb%8f%e5%8e%86%e5%a4%9a%e9%95%bf%e6%97%b6%e9%97%b4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>在丢包后，TCP Reno 的窗口会减半，从$W_{max}/2 开始，并以线性增长至 W_{max}。$
+需要时间计算如下：
+$\text{时间} = \frac{W_{max}/2}{RTT}$</p>
+<p><strong>计算</strong>：</p>
+<ul>
+<li>$W_{max} = 125 , \text{报文段}$</li>
+<li>RTT =$0.15 , \text{s}$</li>
+</ul>
+<p>时间：
+$\text{时间} = \frac{125/2}{0.15} = 62.5 \times 0.15 = 9.375 , \text{s}$</p>
+<p><strong>答案</strong>：需要 <strong>9.375 秒</strong>。</p>
+<hr>
+<h3 id="总结答案">
+  总结答案：
+  <a class="heading-link" href="#%e6%80%bb%e7%bb%93%e7%ad%94%e6%a1%88">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>a. 最大窗口长度：<strong>125 报文段</strong>
+b. 平均窗口长度：<strong>62.5 报文段</strong>，吞吐量：<strong>5 Mbps</strong>
+c. 恢复到最大窗口需要：<strong>9.375 秒</strong></p>
+<h2 id="子网分配">
+  子网分配
+  <a class="heading-link" href="#%e5%ad%90%e7%bd%91%e5%88%86%e9%85%8d">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<blockquote>
+<p>考虑一个具有前缀128.119.40.128/26的子网。给出能被分配给该网络的一个IP地址(形式为xXX.xXX.xXX.xXx)的例子，假定一个ISP拥有形式为128.119.40.64/26的地址块。假定它要从该地址块生成4个子网，每块具有相同数量的IP地址。这4个子网(形式为a.b.c.d/x)的前缀</p>
+</blockquote>
+<ol>
+<li>
+<p> 为前缀<code>128.119.40.128/26</code><strong>指定一个IP地址</strong>:
+任何IP地址，其前26位与<code>128.119.40.128</code>相同，但其余位可变均可以。例如，<code>128.119.40.129</code> 就是一个合适的IP地址。</p>
+</li>
+<li>
+<p> 从<code>128.119.40.64/26</code><strong>划分出4个子网</strong>:</p>
+<p>由于<code>2²=4</code>，我们需要增加2位子网位来得到4个子网。所以，新的子网掩码应为<code>/28</code>。
+根据这个新的子网掩码，我们可以得到以下4个子网的前缀：
+<code>128.119.40.64/28</code> 
+<code>128.119.40.80/28</code>
+<code>128.119.40.96/28</code>
+<code>128.119.40.112/28</code>
+每个子网都有16个IP地址，但需要注意的是，<strong>每个子网的第一个地址是网络地址，最后一个地址是广播地址</strong>，中间的地址可以分配给主机。</p>
+</li>
+</ol>
+<hr>
+<h2 id="rip协议">
+  RIP协议
+  <a class="heading-link" href="#rip%e5%8d%8f%e8%ae%ae">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><a href="https://blog.csdn.net/qq_43992949/article/details/106087019"  class="external-link" target="_blank" rel="noopener">解释RIP协议为什么会有“好消息传得快，坏消息传得慢。”的现象？（解释超详细）_绘图表示为什么“好消息传的快,坏消息传的慢”-CSDN博客</a></p>
+<hr>
+<h2 id="轮询协议">
+  轮询协议
+  <a class="heading-link" href="#%e8%bd%ae%e8%af%a2%e5%8d%8f%e8%ae%ae">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><a href="https://blog.csdn.net/shulianghan/article/details/108118579?ops_request_misc=%7B%22request%5Fid%22%3A%229ca329c7ef153b0efc1a07c81ca46135%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=9ca329c7ef153b0efc1a07c81ca46135&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-108118579-null-null.142%5ev100%5epc_search_result_base3&amp;utm_term=%e9%93%be%e8%b7%af%e5%b1%82%e8%bd%ae%e8%af%a2&amp;spm=1018.2226.3001.4187"  class="external-link" target="_blank" rel="noopener">【计算机网络】数据链路层 : 轮询访问 介质访问控制 ( 轮询协议 | 令牌传递协议 )_multiple access control-CSDN博客</a></p>
+<h3 id="轮询协议的工作原理">
+  轮询协议的工作原理：
+  <a class="heading-link" href="#%e8%bd%ae%e8%af%a2%e5%8d%8f%e8%ae%ae%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<ol>
+<li><strong>中央控制节点</strong>： 轮询协议通常有一个<strong>主节点</strong>，称为<strong>轮询节点</strong>。这个节点负责控制访问信道的顺序，轮流让每个节点发送数据。轮询节点按照预定的顺序，逐个询问网络中的各个节点，是否有数据要发送。</li>
+<li><strong>节点响应</strong>： 每当轮询节点轮到某个节点时，轮到的节点可以检查是否有待发送的数据。<!-- raw HTML omitted -->如果有数据要发送，节点将数据发送到信道；如果没有数据要发送，节点将直接跳过，等待下次轮询。<!-- raw HTML omitted --></li>
+<li><strong>时间分配</strong>： 每个节点在轮询周期内有一个固定的时间窗口，通常称为<strong>轮询时隙</strong>（polling slot）。在这个时隙内，节点可以发送最多一定数量的数据。如果节点没有数据要发送，该时隙就被空闲浪费。</li>
+<li><strong>轮询周期</strong>： 所有节点都会轮流被询问，这个过程会不断循环。每完成一次轮询，称为<strong>一个轮询周期</strong>。每个节点在其轮询时隙内必须完成数据发送，或者在没有数据时等待下次轮询。</li>
+</ol>
+<h3 id="例题-3">
+  例题：
+  <a class="heading-link" href="#%e4%be%8b%e9%a2%98-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<blockquote>
+<p>考虑有N个节点和传输速率为Rbps的一个广播信道。假设该广播信道为多路访问而使用轮询[1(有一个附加的轮询节点)。假设从某节点完成传输到后续节点允许传输的时间量(即轮询时延)是$d_{poll}$。假设在一个轮询周期中，一个给定的节点允许传输至多Q比特。该广播信道的最大吞吐量是多少？</p>
+</blockquote>
+<h3 id="解答-1">
+  解答：
+  <a class="heading-link" href="#%e8%a7%a3%e7%ad%94-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<ul>
+<li>由题可知：<strong>轮询时延</strong>为$d_{poll}$，每个节点传输耗费的时间$t=Q/R$,那么<strong>一个轮询周期</strong>即为$N(Q/R+d_{poll})$;</li>
+<li>一周期传输总比特为$NQ$，由此可得<strong>吞吐量</strong>：$NQ/N(Q/R+d_{poll})=\frac{Q}{\frac{Q}{R} + d_{\text{poll}}}$；</li>
+</ul>
+<blockquote>
+<p>吞吐量：吞吐量一般表示为<strong>每单位时间成功传输的数据量</strong></p>
+</blockquote>
+<hr>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2024
+     fsj2009yx 
+    ·
+    
+    技术支持 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <title>
+  JAVA流对象 · fsj2009yx
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="fsj2009yx">
+<meta name="description" content="
+  JAVA流对象
+  
+    
+    链接到标题
+  
+
+
+  Stream流
+  
+    
+    链接到标题
+  
+
+Stream是Java 8 API添加的一个新的抽象，称为流Stream，以一种声明性方式处理数据集合（侧重对于源数据计算能力的封装，并且支持序列与并行两种操作方式）
+
+1、代码简洁：函数式编程写出的代码简洁且意图明确，使用stream接口让你从此告别for循环
+2、多核友好：Java函数式编程使得编写并行程序如此简单，就是调用一下方法
+
+Java中的Stream流是一种用于处理集合数据的高级API，它引入于Java 8，并大大简化了集合数据的操作。通过流，您可以以声明性方式（而非命令式方式）处理数据，从而使代码更加简洁、可读和易于并行化。以下是Stream的一些基本使用示例：
+
+  创建流
+  
+    
+    链接到标题
+  
+
+流可以通过不同方式创建，最常见的有通过集合的stream()方法或通过Stream.of()方法。
+import java.util.*;
+import java.util.stream.*;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        // 从集合创建流
+        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Stream&lt;Integer&gt; numberStream = numbers.stream();
+
+        // 使用Stream.of()创建流
+        Stream&lt;String&gt; stringStream = Stream.of(&#34;a&#34;, &#34;b&#34;, &#34;c&#34;);
+    }
+}
+
+  中间操作（Intermediate Operations）
+  
+    
+    链接到标题
+  
+
+流的中间操作是惰性执行的，只有在流被消费时才会实际执行。常用的中间操作有filter(), map(), sorted(), distinct()等。">
+<meta name="keywords" content="blog,fsj2009yx,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JAVA流对象">
+  <meta name="twitter:description" content="JAVA流对象链接到标题Stream流链接到标题Stream是Java 8 API添加的一个新的抽象，称为流Stream，以一种声明性方式处理数据集合（侧重对于源数据计算能力的封装，并且支持序列与并行两种操作方式）
+1、代码简洁：函数式编程写出的代码简洁且意图明确，使用stream接口让你从此告别for循环
+2、多核友好：Java函数式编程使得编写并行程序如此简单，就是调用一下方法
+Java中的Stream流是一种用于处理集合数据的高级API，它引入于Java 8，并大大简化了集合数据的操作。通过流，您可以以声明性方式（而非命令式方式）处理数据，从而使代码更加简洁、可读和易于并行化。以下是Stream的一些基本使用示例：
+创建流链接到标题流可以通过不同方式创建，最常见的有通过集合的stream()方法或通过Stream.of()方法。
+import java.util.*; import java.util.stream.*; public class StreamExample { public static void main(String[] args) { // 从集合创建流 List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5); Stream&lt;Integer&gt; numberStream = numbers.stream(); // 使用Stream.of()创建流 Stream&lt;String&gt; stringStream = Stream.of(&#34;a&#34;, &#34;b&#34;, &#34;c&#34;); } } 中间操作（Intermediate Operations）链接到标题流的中间操作是惰性执行的，只有在流被消费时才会实际执行。常用的中间操作有filter(), map(), sorted(), distinct()等。">
+
+<meta property="og:url" content="http://fsj2009yx.github.io/posts/post_16852325024037/">
+  <meta property="og:site_name" content="fsj2009yx">
+  <meta property="og:title" content="JAVA流对象">
+  <meta property="og:description" content="JAVA流对象链接到标题Stream流链接到标题Stream是Java 8 API添加的一个新的抽象，称为流Stream，以一种声明性方式处理数据集合（侧重对于源数据计算能力的封装，并且支持序列与并行两种操作方式）
+1、代码简洁：函数式编程写出的代码简洁且意图明确，使用stream接口让你从此告别for循环
+2、多核友好：Java函数式编程使得编写并行程序如此简单，就是调用一下方法
+Java中的Stream流是一种用于处理集合数据的高级API，它引入于Java 8，并大大简化了集合数据的操作。通过流，您可以以声明性方式（而非命令式方式）处理数据，从而使代码更加简洁、可读和易于并行化。以下是Stream的一些基本使用示例：
+创建流链接到标题流可以通过不同方式创建，最常见的有通过集合的stream()方法或通过Stream.of()方法。
+import java.util.*; import java.util.stream.*; public class StreamExample { public static void main(String[] args) { // 从集合创建流 List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5); Stream&lt;Integer&gt; numberStream = numbers.stream(); // 使用Stream.of()创建流 Stream&lt;String&gt; stringStream = Stream.of(&#34;a&#34;, &#34;b&#34;, &#34;c&#34;); } } 中间操作（Intermediate Operations）链接到标题流的中间操作是惰性执行的，只有在流被消费时才会实际执行。常用的中间操作有filter(), map(), sorted(), distinct()等。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-04T12:16:49+08:00">
+    <meta property="article:modified_time" content="2024-12-04T12:16:49+08:00">
+    <meta property="article:tag" content="Java">
+
+
+
+
+<link rel="canonical" href="http://fsj2009yx.github.io/posts/post_16852325024037/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.ed30115a76cdaa62f2229e973d5b1c89b2d3dd4b1d9c07a729baad06aa3b0cbe.css" integrity="sha256-7TARWnbNqmLyIp6XPVscibLT3UsdnAenKbqtBqo7DL4=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://fsj2009yx.github.io/">
+      fsj2009yx
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Category</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://fsj2009yx.github.io/posts/post_16852325024037/">
+              JAVA流对象
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-12-04T12:16:49&#43;08:00">
+                December 4, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              阅读时间：9 分钟
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/fsj2009yx/">Fsj2009yx</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/">专业技术</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/java/">Java</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="java流对象">
+  JAVA流对象
+  <a class="heading-link" href="#java%e6%b5%81%e5%af%b9%e8%b1%a1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h1>
+<h2 id="stream流">
+  Stream流
+  <a class="heading-link" href="#stream%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><strong>Stream</strong>是Java 8 API添加的一个新的抽象，称为流Stream，以一种声明性方式处理数据集合（侧重对于源数据计算能力的封装，并且支持序列与并行两种操作方式）</p>
+<blockquote>
+<p><strong>1、代码简洁</strong>：函数式编程写出的代码简洁且意图明确，使用<em>stream</em>接口让你从此告别<em>for</em>循环</p>
+<p><strong>2、多核友好</strong>：Java函数式编程使得编写并行程序如此简单，就是调用一下方法</p>
+</blockquote>
+<p>Java中的<code>Stream</code>流是一种用于处理集合数据的高级API，它引入于Java 8，并大大简化了集合数据的操作。通过流，您可以以声明性方式（而非命令式方式）处理数据，从而使代码更加简洁、可读和易于并行化。以下是<code>Stream</code>的一些基本使用示例：</p>
+<h3 id="创建流">
+  创建流
+  <a class="heading-link" href="#%e5%88%9b%e5%bb%ba%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>流可以通过不同方式创建，最常见的有通过集合的<code>stream()</code>方法或通过<code>Stream.of()</code>方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.stream.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">StreamExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 从集合创建流</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Stream<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numberStream<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 使用Stream.of()创建流</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Stream<span style="color:#ff7b72;font-weight:bold">&lt;</span>String<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>stringStream<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Stream.of(<span style="color:#a5d6ff">&#34;a&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;b&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;c&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="中间操作intermediate-operations">
+  中间操作（Intermediate Operations）
+  <a class="heading-link" href="#%e4%b8%ad%e9%97%b4%e6%93%8d%e4%bd%9cintermediate-operations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>流的中间操作是<strong>惰性执行</strong>的，只有在流被消费时才会实际执行。常用的中间操作有<code>filter()</code>, <code>map()</code>, <code>sorted()</code>, <code>distinct()</code>等。</p>
+<h4 id="filter-过滤">
+  <code>filter()</code>: 过滤
+  <a class="heading-link" href="#filter-%e8%bf%87%e6%bb%a4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<ul>
+<li>
+<p><strong>筛选符合条件的元素</strong>：<code>filter()</code> 通过给定的条件来筛选流中的元素，仅保留符合条件的元素。</p>
+</li>
+<li>
+<p><strong>惰性执行</strong>：流的操作是惰性执行的，即只有在执行终止操作时（例如 <code>collect()</code>、<code>forEach()</code>）才会真正执行过滤操作。</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5,<span style="color:#6e7681"> </span>6);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>evenNumbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                    </span>.filter(n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-&gt;</span><span style="color:#6e7681"> </span>n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">%</span><span style="color:#6e7681"> </span>2<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>0)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                    </span>.collect(Collectors.toList());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(evenNumbers);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// [2, 4, 6]</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p><strong>收集方法</strong>collect负责收集流，<strong>将collect(Collectors.toList()收集为List。</strong></p>
+<h4 id="map-转换">
+  <code>map()</code>: 转换
+  <a class="heading-link" href="#map-%e8%bd%ac%e6%8d%a2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<ul>
+<li><strong>元素转换</strong>：<code>map()</code> 的作用是将流中的每个元素应用一个函数，从而转换成另一种类型或形态的元素。</li>
+<li><strong>映射操作</strong>：通过传递一个函数给 <code>map()</code>，该函数会被应用于流中的每个元素，从而生成一个新的元素。</li>
+<li><strong>惰性执行</strong>：<code>map()</code> 是惰性执行的，只有在流的终止操作（如 <code>collect()</code>、<code>forEach()</code> 等）触发时，映射操作才会真正执行。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>String<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>words<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(<span style="color:#a5d6ff">&#34;apple&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;banana&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;cherry&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>wordLengths<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>words.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                 </span>.map(String::length)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                 </span>.collect(Collectors.toList());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(wordLengths);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// [5, 6, 6]</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="sorted-排序">
+  <code>sorted()</code>: 排序
+  <a class="heading-link" href="#sorted-%e6%8e%92%e5%ba%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(3,<span style="color:#6e7681"> </span>1,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>1,<span style="color:#6e7681"> </span>5,<span style="color:#6e7681"> </span>9);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>sortedNumbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                     </span>.sorted()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                     </span>.collect(Collectors.toList());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(sortedNumbers);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// [1, 1, 3, 4, 5, 9]</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="distinct-去重">
+  <code>distinct()</code>: 去重
+  <a class="heading-link" href="#distinct-%e5%8e%bb%e9%87%8d">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>distinctNumbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                       </span>.distinct()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                                       </span>.collect(Collectors.toList());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(distinctNumbers);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// [1, 2, 3, 4, 5]</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="终止操作terminal-operations">
+  终止操作（Terminal Operations）
+  <a class="heading-link" href="#%e7%bb%88%e6%ad%a2%e6%93%8d%e4%bd%9cterminal-operations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>流的<strong>终止操作触发流的计算</strong>，常见的终止操作有<code>forEach()</code>, <code>collect()</code>, <code>reduce()</code>, <code>count()</code>, <code>anyMatch()</code>等。</p>
+<h4 id="foreach-遍历">
+  <code>forEach()</code>: 遍历
+  <a class="heading-link" href="#foreach-%e9%81%8d%e5%8e%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">       </span>.forEach(System.out::println);<span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="collect-收集">
+  <code>collect()</code>: 收集
+  <a class="heading-link" href="#collect-%e6%94%b6%e9%9b%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>String<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>words<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(<span style="color:#a5d6ff">&#34;apple&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;banana&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;cherry&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>Set<span style="color:#ff7b72;font-weight:bold">&lt;</span>String<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>wordSet<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>words.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                           </span>.collect(Collectors.toSet());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(wordSet);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// [banana, apple, cherry]</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="reduce-聚合">
+  <code>reduce()</code>: 聚合
+  <a class="heading-link" href="#reduce-%e8%81%9a%e5%90%88">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>sum<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                 </span>.reduce(0,<span style="color:#6e7681"> </span>Integer::sum);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(sum);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// 15</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="anymatch-匹配">
+  <code>anyMatch()</code>: 匹配
+  <a class="heading-link" href="#anymatch-%e5%8c%b9%e9%85%8d">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">boolean</span><span style="color:#6e7681"> </span>anyEven<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                         </span>.anyMatch(n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-&gt;</span><span style="color:#6e7681"> </span>n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">%</span><span style="color:#6e7681"> </span>2<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>0);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(anyEven);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="并行流">
+  并行流
+  <a class="heading-link" href="#%e5%b9%b6%e8%a1%8c%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>流支持并行处理，可以使用<code>parallelStream()</code>来替代<code>stream()</code>，让操作并行执行，充分利用多核CPU的优势。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5,<span style="color:#6e7681"> </span>6);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>sum<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.parallelStream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                 </span>.reduce(0,<span style="color:#6e7681"> </span>Integer::sum);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(sum);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// 21</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="链式调用">
+  链式调用
+  <a class="heading-link" href="#%e9%93%be%e5%bc%8f%e8%b0%83%e7%94%a8">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>流的操作可以链式调用，这使得代码更加简洁、易读。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>numbers<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>Arrays.asList(1,<span style="color:#6e7681"> </span>2,<span style="color:#6e7681"> </span>3,<span style="color:#6e7681"> </span>4,<span style="color:#6e7681"> </span>5,<span style="color:#6e7681"> </span>6,<span style="color:#6e7681"> </span>7,<span style="color:#6e7681"> </span>8,<span style="color:#6e7681"> </span>9);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>result<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>numbers.stream()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                              </span>.filter(n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-&gt;</span><span style="color:#6e7681"> </span>n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">%</span><span style="color:#6e7681"> </span>2<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>0)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                              </span>.map(n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-&gt;</span><span style="color:#6e7681"> </span>n<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">*</span><span style="color:#6e7681"> </span>n)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                              </span>.sorted()<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                              </span>.collect(Collectors.toList());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>System.out.println(result);<span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic">// [4, 16, 36, 64]</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="示例">
+  示例
+  <a class="heading-link" href="#%e7%a4%ba%e4%be%8b">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412022247089.png" alt="e7dcaf228188bf8df2b0c4fab1ee36cf"></p>
+<p>如图所示，将list转为stream流后，先用<code>filter</code>条件筛选出<strong>以<code>张</code>开头的（1）长度为3的（2）<strong>字符串元素，使用forEach方法遍历输出并</strong>终止流的计算</strong></p>
+<h3 id="收集方法collection">
+  收集方法<code>collection</code>
+  <a class="heading-link" href="#%e6%94%b6%e9%9b%86%e6%96%b9%e6%b3%95collection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><a href="https://blog.csdn.net/weixin_44750143/article/details/106420231?ops_request_misc=%7B%22request%5Fid%22%3A%22d82433b3a8814a9f74da025300c98420%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=d82433b3a8814a9f74da025300c98420&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-106420231-null-null.142%5ev100%5epc_search_result_base3&amp;utm_term=%e6%94%b6%e9%9b%86%e6%96%b9%e6%b3%95collect&amp;spm=1018.2226.3001.4187"  class="external-link" target="_blank" rel="noopener">Stream流操作===“集合”===收集方法collect_stream流collect-CSDN博客</a></p>
+<h3 id="总结">
+  总结
+  <a class="heading-link" href="#%e6%80%bb%e7%bb%93">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>Java的<code>Stream</code> API提供了丰富的功能来简化集合的操作。它不仅支持常见的操作如过滤、映射和排序，还允许您进行更复杂的数据转换和聚合。通过中间操作和终止操作的组合，您可以写出简洁且高效的数据处理代码。</p>
+<hr>
+<h2 id="io流">
+  IO流
+  <a class="heading-link" href="#io%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><a href="https://blog.csdn.net/mu_wind/article/details/108674284?ops_request_misc=%7B%22request%5Fid%22%3A%22f0d87a110168077342863b4841c84ac2%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=f0d87a110168077342863b4841c84ac2&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-108674284-null-null.142%5ev100%5epc_search_result_base3&amp;utm_term=javaIO%e6%b5%81&amp;spm=1018.2226.3001.4187"  class="external-link" target="_blank" rel="noopener">【Java基础-3】吃透Java IO：字节流、字符流、缓冲流_javaio-CSDN博客</a></p>
+<p>Java IO（输入/输出）流是 Java 中用于处理输入和输出操作的一种机制，它允许程序与外部世界（如文件、网络、内存等）进行数据交换。Java IO 流是一种抽象概念，它允许程序对数据进行读写操作，不关心数据的来源或去向。</p>
+<p>IO 流分为两大类：</p>
+<ol>
+<li><strong>字节流（Byte Streams）</strong>：以字节为单位进行读写操作。</li>
+<li><strong>字符流（Character Streams）</strong>：以字符为单位进行读写操作，通常用于处理文本文件。</li>
+</ol>
+<p>对于不同类型的文件，有不同的读取方式：</p>
+<ul>
+<li>对于纯文本文件（如<code>.txt</code>、<code>.md</code>）通常<strong>建议使用字符流</strong>读取，因为<strong>字符流能自动处理读取时的编码问题</strong></li>
+<li>对于<code>.doc</code>等文件，它们其实属于<strong>二进制文件</strong>，需要使用<strong>字节流读取</strong>并利用<strong>特定解析库</strong>解析内容</li>
+</ul>
+<h3 id="java-io-流的分类">
+  Java IO 流的分类
+  <a class="heading-link" href="#java-io-%e6%b5%81%e7%9a%84%e5%88%86%e7%b1%bb">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<h4 id="1-字节流byte-streams">
+  1. 字节流（Byte Streams）
+  <a class="heading-link" href="#1-%e5%ad%97%e8%8a%82%e6%b5%81byte-streams">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>字节流是以字节为单位进行数据传输，它可以处理所有类型的 I/O 操作（包括图片、音频等二进制数据）。字节流有两个主要的抽象类：<code>InputStream</code> 和 <code>OutputStream</code>，它们分别表示输入流和输出流。</p>
+<ul>
+<li><strong><code>InputStream</code></strong>：用于从数据源读取字节流。</li>
+<li><strong><code>OutputStream</code></strong>：用于向目标写入字节流。</li>
+</ul>
+<p>常见的字节流类：</p>
+<ul>
+<li><strong>FileInputStream</strong> 和 <strong>FileOutputStream</strong>：用于文件的字节输入和输出。</li>
+<li><strong>BufferedInputStream</strong> 和 <strong>BufferedOutputStream</strong>：用于缓冲输入和输出流，以提高读取和写入效率。</li>
+<li><strong>DataInputStream</strong> 和 <strong>DataOutputStream</strong>：用于读取和写入基本数据类型（如 <code>int</code>、<code>float</code>、<code>double</code> 等）。</li>
+<li><strong>ObjectInputStream</strong> 和 <strong>ObjectOutputStream</strong>：用于读取和写入对象。</li>
+</ul>
+<h4 id="2-字符流character-streams">
+  2. 字符流（Character Streams）
+  <a class="heading-link" href="#2-%e5%ad%97%e7%ac%a6%e6%b5%81character-streams">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>字符流是以字符为单位进行数据传输，专门用于处理文本数据。字符流在内部使用了默认的字符编码（如 UTF-8、ISO-8859-1 等），适合处理文本文件。</p>
+<ul>
+<li><strong><code>Reader</code></strong>：用于从字符输入流读取字符。</li>
+<li><strong><code>Writer</code></strong>：用于向字符输出流写入字符。</li>
+</ul>
+<p>常见的字符流类：</p>
+<ul>
+<li><strong>FileReader</strong> 和 <strong>FileWriter</strong>：用于文件的字符输入和输出。</li>
+<li><strong>BufferedReader</strong> 和 <strong>BufferedWriter</strong>：用于缓冲字符输入和输出，以提高性能。</li>
+<li><strong>PrintWriter</strong>：用于格式化输出，并提供更方便的打印方法。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412030007807.png" alt="f43bbe364a8e83661c0b5de26636615a"></p>
+<p><strong>字节流和字符流</strong>的其他区别：</p>
+<ul>
+<li>字节流一般用来处理图像、视频、音频、PPT、Word等类型的文件。字符流一般用于处理纯文本类型的文件，如TXT文件等，但不能处理图像视频等非文本文件。<strong>（用一句话说就是：字节流可以处理一切文件，而字符流只能处理纯文本文件）</strong></li>
+<li>字节流本身没有缓冲区，缓冲字节流相对于字节流，效率提升非常高。而字符流本身就带有缓冲区，缓冲字符流相对于字符流效率提升就不是那么大了。详见文末效率对比。</li>
+</ul>
+<h4 id="3字符缓冲流">
+  3.字符缓冲流
+  <a class="heading-link" href="#3%e5%ad%97%e7%ac%a6%e7%bc%93%e5%86%b2%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>在诸多处理流中，有一个非常重要，那就是<strong>缓冲流。</strong></p>
+<p>我们知道，程序与磁盘的交互相对于内存运算是很慢的，容易成为程序的性能瓶颈。减少程序与磁盘的交互，是提升程序效率一种有效手段。缓冲流，就应用这种思路：<strong>普通流每次读写一个字节，而缓冲流在内存中设置一个缓存区</strong>，缓冲区先存储足够的待操作数据后，再与内存或磁盘进行交互。这样，在总数据量不变的情况下，通过提高每次交互的数据量，减少了交互次数。</p>
+<p>字符缓冲流是在字符流基础上进行的封装，字符流负责将字节转换为字符，而缓冲流则负责提供缓冲区，减少 I/O 操作的次数。缓冲流通过<strong>将数据读取到内存中的缓冲区里，再从缓冲区中读取和写入</strong>，从而优化了性能。</p>
+<ul>
+<li><strong><code>BufferedReader</code></strong>：用于从文件读取文本数据。它将数据一次性读取到缓冲区，然后按行逐个返回。</li>
+<li><strong><code>BufferedWriter</code></strong>：用于将文本数据写入文件。它将数据一次性写入缓冲区，然后批量写入文件。</li>
+</ul>
+<p><strong><code>BufferedReader</code> 示例：读取文本文件</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.BufferedReader</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.FileReader</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.IOException</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">BufferedReaderExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>filePath<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;example.txt&#34;</span>;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 文件路径</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 使用 BufferedReader 逐行读取文件</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(BufferedReader<span style="color:#6e7681"> </span>br<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>BufferedReader(<span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileReader(filePath)))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>String<span style="color:#6e7681"> </span>line;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#8b949e;font-style:italic">// 逐行读取文件内容</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((line<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>br.readLine())<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">null</span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>System.out.println(line);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 打印每一行</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 异常处理</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><p><strong><code>BufferedWriter</code> 示例：写入文本文件</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.BufferedWriter</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.FileWriter</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.IOException</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">BufferedWriterExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>filePath<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;output.txt&#34;</span>;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 输出文件路径</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>content<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;Hello, World! This is a test.&#34;</span>;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 要写入的文本内容</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 使用 BufferedWriter 将文本内容写入文件</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(BufferedWriter<span style="color:#6e7681"> </span>bw<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>BufferedWriter(<span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileWriter(filePath)))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>bw.write(content);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 写入单行内容</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>bw.newLine();<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 写入换行符</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>bw.write(<span style="color:#a5d6ff">&#34;This is a new line.&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 异常处理</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><p><strong>字符缓冲流的工作原理</strong>：</p>
+<ul>
+<li><strong>读取过程（<code>BufferedReader</code>）</strong>：
+<ol>
+<li><code>BufferedReader</code> 使用 <code>FileReader</code> 将文件内容按字符读取。</li>
+<li>它将字符读取到内存中的缓冲区，通常一次读取的字符数比直接使用 <code>FileReader</code> 更大（默认大小为 8192 字节）。</li>
+<li><code>BufferedReader</code> 提供的 <code>readLine()</code> 方法使得按行读取更加高效，不需要频繁从硬盘读取每一行。</li>
+</ol>
+</li>
+<li><strong>写入过程（<code>BufferedWriter</code>）</strong>：
+<ol>
+<li><code>BufferedWriter</code> 使用 <code>FileWriter</code> 将字符数据写入文件。</li>
+<li>它将字符数据先写入到缓冲区中，直到缓冲区满了或者调用 <code>flush()</code> 或 <code>close()</code> 方法，才将缓冲区中的数据一次性写入文件。</li>
+<li>这种方式减少了磁盘写入操作的次数，提高了效率。</li>
+</ol>
+</li>
+</ul>
+<p><strong>为什么使用字符缓冲流</strong>：</p>
+<ul>
+<li><strong>性能优化</strong>：缓冲流通过内部的缓冲区来减少每次读写文件时的物理 I/O 操作，使得在处理大文件或高频繁 I/O 操作时，性能会有明显的提升。</li>
+<li><strong>简化编码</strong>：字符缓冲流可以自动处理字符编码，而不需要手动转换字节与字符之间的关系。</li>
+<li><strong>按行读取/写入</strong>：<code>BufferedReader</code> 提供了 <code>readLine()</code> 方法，使得按行读取文件变得非常简单和高效，而 <code>BufferedWriter</code> 可以通过 <code>newLine()</code> 方法写入换行符。</li>
+</ul>
+<hr>
+<h2 id="字符集">
+  字符集
+  <a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e9%9b%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412022159758.png" alt="ec6acc59a842f2523b05abb65fae294a"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412022202418.png" alt="8eb732e98ef8c700f9915870b7c18c99"></p>
+<hr>
+<h3 id="乱码">
+  乱码
+  <a class="heading-link" href="#%e4%b9%b1%e7%a0%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>乱码通常发生在<strong>编码与解码不一致</strong>时。为了理解乱码的原因，我们需要了解字符编码、字节流和字符流是如何工作的，以及它们是如何影响我们处理文本文件时的数据表示的。</p>
+<h4 id="1-字符编码和字符集">
+  1. <strong>字符编码和字符集</strong>
+  <a class="heading-link" href="#1-%e5%ad%97%e7%ac%a6%e7%bc%96%e7%a0%81%e5%92%8c%e5%ad%97%e7%ac%a6%e9%9b%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p><strong>字符编码</strong>是将字符（例如字母、数字、符号等）映射为字节的规则。不同的字符编码使用不同数量的字节来表示一个字符。常见的字符编码包括：</p>
+<ul>
+<li><strong>ASCII</strong>：使用 7 位来表示字符，只能表示 128 个字符（包括英文字符、数字、符号等）。</li>
+<li><strong>UTF-8</strong>：可变长度编码，1 到 4 个字节来表示一个字符，广泛用于网页和现代应用程序，兼容 ASCII。</li>
+<li><strong>UTF-16</strong>：使用 2 或 4 个字节表示字符，广泛用于 Windows 系统。</li>
+</ul>
+<p>字符集是字符的集合，而字符编码是如何将这些字符映射为字节的标准。</p>
+<h4 id="2-乱码的根本原因">
+  2. <strong>乱码的根本原因</strong>
+  <a class="heading-link" href="#2-%e4%b9%b1%e7%a0%81%e7%9a%84%e6%a0%b9%e6%9c%ac%e5%8e%9f%e5%9b%a0">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>乱码发生的根本原因通常是<strong>字符编码和解码不一致</strong>，即：文件或数据的编码方式与读取时使用的编码方式不一致。</p>
+<h4 id="示例-1">
+  示例：
+  <a class="heading-link" href="#%e7%a4%ba%e4%be%8b-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p>假设有一个文件是用 <strong>UTF-8</strong> 编码的，但你用 <strong>ISO-8859-1</strong> 编码来读取它。读取过程中，字符的字节流会被错误地解码，从而导致乱码。</p>
+<ol>
+<li>
+<p><strong>写入文件时使用 UTF-8 编码</strong>： 例如，写入文本 <code>&quot;你好&quot;</code>，在 UTF-8 编码下，它会被存储为一系列的字节（例如：<code>E4 BD A0 E5 A5 BD</code>）。</p>
+</li>
+<li>
+<p><strong>用错误的编码读取文件（比如用 ISO-8859-1 解码）</strong>： 当你使用 ISO-8859-1 解码时，它不会按照 UTF-8 的方式来解码字节，而是会将每个字节直接映射到字符。ISO-8859-1 只支持 256 个字符，它无法正确解码 UTF-8 的字节序列。因此，字节 <code>E4</code> 会被错误地解析为某个特定字符（如 <code>ä</code>），接下来的字节 <code>BD</code>、<code>A0</code> 等也会被错误地映射成其他字符，最终显示为乱码。</p>
+</li>
+<li>
+<p><strong>常见的乱码情况</strong></p>
+</li>
+</ol>
+<ul>
+<li><strong>读取文件时的编码不一致</strong>：例如，文件用 UTF-8 编码保存，但使用其他编码（如 ISO-8859-1 或 GBK）读取，导致字节被误解码成错误的字符。</li>
+<li><strong>写入文件时的编码不一致</strong>：例如，你用 UTF-8 编码写入文件，但将它以 GBK 编码打开，或者相反，也会导致乱码。</li>
+</ul>
+<h4 id="4-乱码示例">
+  4. <strong>乱码示例</strong>
+  <a class="heading-link" href="#4-%e4%b9%b1%e7%a0%81%e7%a4%ba%e4%be%8b">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<p><strong>例子 1：UTF-8 编码的文件，错误地用 GBK 编码读取：</strong></p>
+<p>假设有一个 UTF-8 编码的文本文件，其中包含中文字符 <code>你好</code>，该字符在 UTF-8 中的字节是：</p>
+<pre tabindex="0"><code>E4 BD A0 E5 A5 BD
+</code></pre><p>如果你错误地用 GBK 编码来读取这个文件，那么 GBK 会按它自己的规则解码这些字节，而不是按照 UTF-8 来处理。这时，你会看到一串无法识别的字符，像是 <code>ä½ çœŸ</code> 这样的乱码。</p>
+<p><strong>例子 2：字节流和字符流使用不当：</strong></p>
+<ul>
+<li><strong>字节流</strong>：如 <code>FileInputStream</code> 和 <code>FileOutputStream</code>，这些流以字节为单位读取和写入数据，通常不进行编码或解码。如果你用字节流读取文本文件，你会得到原始的字节数据，必须手动使用合适的编码格式进行转换（例如：<code>InputStreamReader</code>）。</li>
+<li><strong>字符流</strong>：如 <code>FileReader</code> 和 <code>BufferedReader</code>，这些流以字符为单位读取和写入数据，并会根据字符编码（如 UTF-8、GBK）自动进行解码。如果你用字符流读取文件，而文件的编码与流的默认编码不一致，也会导致乱码。</li>
+</ul>
+<hr>
+<h2 id="转换流">
+  转换流
+  <a class="heading-link" href="#%e8%bd%ac%e6%8d%a2%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<h3 id="转换流定义">
+  转换流定义
+  <a class="heading-link" href="#%e8%bd%ac%e6%8d%a2%e6%b5%81%e5%ae%9a%e4%b9%89">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>首先来看看<a href="https://so.csdn.net/so/search?q=%e8%bd%ac%e6%8d%a2%e6%b5%81&amp;spm=1001.2101.3001.7020"  class="external-link" target="_blank" rel="noopener">转换流</a>在 <code>IO体系</code> 中的位置。</p>
+<p>转换流属于<a href="https://so.csdn.net/so/search?q=%e5%ad%97%e7%ac%a6%e6%b5%81&amp;spm=1001.2101.3001.7020"  class="external-link" target="_blank" rel="noopener">字符流</a>，它本身也是一种高级流，用来包装基本流的。</p>
+<p>其中<a href="https://so.csdn.net/so/search?q=%e8%be%93%e5%85%a5%e6%b5%81&amp;spm=1001.2101.3001.7020"  class="external-link" target="_blank" rel="noopener">输入流</a>叫做 <code>InputStreamReader</code>，输出流叫做 <code>OutputStreamWriter</code>。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/4a5a3e7654098638ad1ac8613265a9f4.png" alt="csdn"></p>
+<p><strong>转换流：是字符流和字节流之间的桥梁。</strong></p>
+<p>首先我们来看读取数据，读取数据首先要有一个数据源，在读取的时候就是将数据源的数据读取到内存中。</p>
+<p>当我们创建了转换流对象的时候，其实是需要包装一个 <strong>字节输入流</strong> 的。在包装之后<strong>这个字节流就变成字符流了，就可以拥有字符流的特性</strong>了。</p>
+<p>例如：读取数据不会乱码了、可以指定字符集一次读取多个字节。</p>
+<p>转换流主要用于将字节流（如 <code>InputStream</code>、<code>OutputStream</code>）转换为字符流（如 <code>Reader</code>、<code>Writer</code>），以便处理字符编码问题。</p>
+<ul>
+<li><strong><code>InputStreamReader</code></strong>：将字节输入流（<code>InputStream</code>）转换为字符输入流（<code>Reader</code>）。</li>
+<li><strong><code>OutputStreamWriter</code></strong>：将字符输出流（<code>Writer</code>）转换为字节输出流（<code>OutputStream</code>）。</li>
+</ul>
+<hr>
+<h3 id="inputstreamreader-示例将字节流转换为字符流">
+  <strong><code>InputStreamReader</code> 示例：将字节流转换为字符流</strong>
+  <a class="heading-link" href="#inputstreamreader-%e7%a4%ba%e4%be%8b%e5%b0%86%e5%ad%97%e8%8a%82%e6%b5%81%e8%bd%ac%e6%8d%a2%e4%b8%ba%e5%ad%97%e7%ac%a6%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><code>InputStreamReader</code> 将字节输入流（如 <code>FileInputStream</code>）转换为字符输入流（<code>Reader</code>）。它负责将字节流中的字节数据解码成字符数据，通常使用某种字符编码（如 UTF-8）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.FileInputStream</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.InputStreamReader</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.BufferedReader</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.IOException</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">InputStreamReaderExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>filePath<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;example.txt&#34;</span>;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 文件路径</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 使用 InputStreamReader 将字节流转换为字符流</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(FileInputStream<span style="color:#6e7681"> </span>fis<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileInputStream(filePath);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">             </span>InputStreamReader<span style="color:#6e7681"> </span>isr<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>InputStreamReader(fis,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;UTF-8&#34;</span>);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 使用 UTF-8 编码</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">             </span>BufferedReader<span style="color:#6e7681"> </span>br<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>BufferedReader(isr))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>String<span style="color:#6e7681"> </span>line;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#8b949e;font-style:italic">// 逐行读取文件内容</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((line<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>br.readLine())<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">null</span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>System.out.println(line);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 打印每一行</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 异常处理</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="代码说明">
+  代码说明：
+  <a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e8%af%b4%e6%98%8e">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<ol>
+<li><strong><code>FileInputStream</code></strong>：读取字节流数据。</li>
+<li><strong><code>InputStreamReader</code></strong>：将 <code>FileInputStream</code>（字节流）转换为 <code>InputStreamReader</code>（字符流），并使用 UTF-8 编码进行字符解码。</li>
+<li><strong><code>BufferedReader</code></strong>：提供高效的逐行读取功能。</li>
+<li><strong><code>readLine()</code></strong>：按行读取文件内容，直到文件结束。</li>
+</ol>
+<h3 id="outputstreamwriter-示例将字符流转换为字节流">
+  <strong><code>OutputStreamWriter</code> 示例：将字符流转换为字节流</strong>
+  <a class="heading-link" href="#outputstreamwriter-%e7%a4%ba%e4%be%8b%e5%b0%86%e5%ad%97%e7%ac%a6%e6%b5%81%e8%bd%ac%e6%8d%a2%e4%b8%ba%e5%ad%97%e8%8a%82%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><code>OutputStreamWriter</code> 将字符输出流（如 <code>FileWriter</code>）转换为字节输出流（<code>OutputStream</code>）。它负责将字符数据编码成字节数据，通常使用某种字符编码（如 UTF-8）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.FileOutputStream</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.OutputStreamWriter</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.BufferedWriter</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.IOException</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">OutputStreamWriterExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>filePath<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;output.txt&#34;</span>;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 输出文件路径</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>content<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;Hello, World! 这是一个测试。&#34;</span>;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 要写入的内容</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 使用 OutputStreamWriter 将字符流转换为字节流</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(FileOutputStream<span style="color:#6e7681"> </span>fos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileOutputStream(filePath);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">             </span>OutputStreamWriter<span style="color:#6e7681"> </span>osw<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>OutputStreamWriter(fos,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;UTF-8&#34;</span>);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 使用 UTF-8 编码</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">             </span>BufferedWriter<span style="color:#6e7681"> </span>bw<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>BufferedWriter(osw))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>bw.write(content);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 写入字符数据</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>bw.newLine();<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 写入换行符</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>bw.write(<span style="color:#a5d6ff">&#34;新的一行内容&#34;</span>);<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 写入新的一行</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 异常处理</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h4 id="代码说明-1">
+  代码说明：
+  <a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e8%af%b4%e6%98%8e-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<ol>
+<li><strong><code>FileOutputStream</code></strong>：将数据写入字节流。</li>
+<li><strong><code>OutputStreamWriter</code></strong>：将 <code>FileOutputStream</code>（字节流）转换为 <code>OutputStreamWriter</code>（字符流），并使用 UTF-8 编码将字符数据编码为字节。</li>
+<li><strong><code>BufferedWriter</code></strong>：提供高效的逐行写入功能。</li>
+<li><strong><code>write()</code></strong>：将字符写入文件。</li>
+<li><strong><code>newLine()</code></strong>：写入平台特定的换行符。</li>
+</ol>
+<h3 id="字符编码的选择">
+  <strong>字符编码的选择</strong>
+  <a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e7%bc%96%e7%a0%81%e7%9a%84%e9%80%89%e6%8b%a9">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>转换流（<code>InputStreamReader</code> 和 <code>OutputStreamWriter</code>）可以指定字符编码。常见的字符编码包括：</p>
+<ul>
+<li><strong>UTF-8</strong>：一种变长的编码方式，能够表示所有 Unicode 字符，常用于网页和大多数现代应用程序。</li>
+<li><strong>GBK</strong>：一种常用于中文的编码方式，兼容 GB2312。</li>
+<li><strong>ISO-8859-1</strong>：西欧字符集，通常用于英语和西欧语言。</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li><code>InputStreamReader isr = new InputStreamReader(fis, &quot;UTF-8&quot;);</code></li>
+<li><code>OutputStreamWriter osw = new OutputStreamWriter(fos, &quot;UTF-8&quot;);</code></li>
+</ul>
+<p>如果不指定编码，Java 默认使用操作系统的默认字符编码，但建议始终明确指定编码，以避免不同操作系统间的兼容性问题。</p>
+<h3 id="转换流的作用">
+  <strong>转换流的作用</strong>
+  <a class="heading-link" href="#%e8%bd%ac%e6%8d%a2%e6%b5%81%e7%9a%84%e4%bd%9c%e7%94%a8">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<ul>
+<li><strong>字节流与字符流的桥梁</strong>：转换流是字节流与字符流之间的桥梁，用于处理不同字符编码的数据。</li>
+<li><strong>自动编码解码</strong>：转换流自动处理字节和字符之间的转换，并根据指定的编码格式进行字符解码或编码，简化了代码。</li>
+<li><strong>支持多种编码格式</strong>：通过指定不同的字符编码，可以支持多种编码格式的数据处理，避免字符乱码问题。</li>
+</ul>
+<hr>
+<h2 id="序列化和反序列化流">
+  序列化和反序列化流
+  <a class="heading-link" href="#%e5%ba%8f%e5%88%97%e5%8c%96%e5%92%8c%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<h3 id="序列化流">
+  序列化流
+  <a class="heading-link" href="#%e5%ba%8f%e5%88%97%e5%8c%96%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>序列化流的作用是<strong>直接将java对象写入文件中</strong>，通常是<strong>二进制或文本格式</strong>。序列化流使得对象能够：</p>
+<ol>
+<li><strong>存储</strong>：将对象的状态存储到磁盘、数据库或其他持久化存储中。</li>
+<li><strong>传输</strong>：通过网络传输对象，以便在不同的系统之间交换数据。比如，在分布式系统中，通过网络传输对象，或者将对象存储在文件中后，另一个程序可以读取并反序列化它。</li>
+<li><strong>对象克隆</strong>：通过序列化和反序列化的过程，可以实现对象的深度复制（克隆），这通常用于复制复杂对象。</li>
+<li><strong>跨平台和语言间的兼容性</strong>：将对象转换为平台无关的格式（如JSON、XML、Protobuf等），使得不同平台和编程语言的程序可以共享数据。</li>
+</ol>
+<p>序列化生成的文件是无法直接读取数据的，需要通过<strong>反序列流</strong>还原。</p>
+<hr>
+<h3 id="反序列化流">
+  反序列化流
+  <a class="heading-link" href="#%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>反序列化流（Deserialization Stream）的作用是将之前序列化存储或传输的字节流或文本数据恢复成原始对象的状态。具体来说，反序列化流的作用包括：</p>
+<ol>
+<li><strong>恢复对象的状态</strong>：将存储在磁盘、数据库或通过网络传输的字节流或文本数据反向转换回对象，使得程序能够继续使用这些对象。</li>
+<li><strong>数据传输</strong>：在分布式系统或网络通信中，通过反序列化流可以将远程发送的对象恢复为本地可操作的对象。通常，在客户端和服务器之间交换数据时，数据会通过序列化传输，而接收方通过反序列化将数据还原为对象。</li>
+<li><strong>兼容性</strong>：反序列化流支持不同平台、不同编程语言之间的数据交换。通过反序列化，将在一种平台或语言中序列化的对象恢复到另一种平台或语言中所能理解的对象结构。例如，JSON、XML等格式的数据可以在不同的系统和编程语言中使用反序列化恢复成相应的对象。</li>
+</ol>
+<ul>
+<li><strong>序列化流</strong>（<code>ObjectOutputStream</code>）将对象转化为字节流并保存到文件中。</li>
+<li><strong>反序列化流</strong>（<code>ObjectInputStream</code>）从文件中读取字节流并恢复对象。</li>
+</ul>
+<p>通过这种方式，Java 可以**将对象的状态持久化（即保存到文件）**或在网络上传输对象，而无需显式地管理内存。</p>
+<hr>
+<h3 id="代码示例">
+  代码示例：
+  <a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>序列化流：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">package</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">IOtest</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Person</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">implements</span><span style="color:#6e7681"> </span>Serializable<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span>name;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>age;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// 构造函数</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">Person</span>(String<span style="color:#6e7681"> </span>name,<span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>age)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">this</span>.name<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>name;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">this</span>.age<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>age;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// Getter 方法</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">getName</span>()<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>name;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">getAge</span>()<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>age;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// 重写 toString 方法</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#d2a8ff;font-weight:bold">@Override</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">toString</span>()<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;Person{name=&#39;&#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>name<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;&#39;, age=&#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>age<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;}&#39;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">SerializationExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 创建一个 Person 对象</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Person<span style="color:#6e7681"> </span>person<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>Person(<span style="color:#a5d6ff">&#34;Alice&#34;</span>,<span style="color:#6e7681"> </span>30);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 序列化对象到文件</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(ObjectOutputStream<span style="color:#6e7681"> </span>oos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ObjectOutputStream(<span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileOutputStream(<span style="color:#a5d6ff">&#34;person.ser&#34;</span>)))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>oos.writeObject(person);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>System.out.println(<span style="color:#a5d6ff">&#34;对象已成功序列化！&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><p>由此，生成了一个<code>.per</code>文件，其中的内容是序列化生成的，<strong>不可直接读取</strong></p>
+<p>反序列化流：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">package</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">IOtest</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">DeserializationExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 反序列化对象从文件</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(ObjectInputStream<span style="color:#6e7681"> </span>ois<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ObjectInputStream(<span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileInputStream(<span style="color:#a5d6ff">&#34;person.ser&#34;</span>)))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>Person<span style="color:#6e7681"> </span>person<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>(Person)<span style="color:#6e7681"> </span>ois.readObject();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>System.out.println(<span style="color:#a5d6ff">&#34;反序列化对象：&#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>person);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">|</span><span style="color:#6e7681"> </span>ClassNotFoundException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><blockquote>
+<p><strong>注意：<strong>要序列化的对象的类需要实现</strong>Serializable</strong>接口，表示该对象可以序列化</p>
+<p><strong>Serializable</strong>接口本身没有任何方法，它属于一种<strong>标记接口</strong></p>
+</blockquote>
+<hr>
+<h3 id="序列号javabean版本号serialversionuid">
+  序列号/Javabean版本号<code>serialVersionUID</code>
+  <a class="heading-link" href="#%e5%ba%8f%e5%88%97%e5%8f%b7javabean%e7%89%88%e6%9c%ac%e5%8f%b7serialversionuid">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><code>serialVersionUID</code> 是 Java 序列化机制的一部分，用于确保在反序列化过程中，反序列化的类和序列化的类之间的兼容性。</p>
+<p>在 Java 中，当对象被序列化时，类的信息（包括字段和方法的签名）被保存下来。如果反序列化时，类的结构发生了变化（例如，添加、删除或修改字段），Java 反序列化机制会通过 <code>serialVersionUID</code> 来验证版本是否匹配。</p>
+<ul>
+<li>如果 <strong>版本号一致</strong>，即 <code>serialVersionUID</code> 相同，则可以安全地反序列化。</li>
+<li>如果 <strong>版本号不一致</strong>，即 <code>serialVersionUID</code> 不同，通常会抛出 <code>InvalidClassException</code> 异常，表示类结构发生了不兼容的变化。</li>
+</ul>
+<blockquote>
+<p>如果javabean类的代码<strong>被修改</strong>，java底层会重新计算出一个<code>serialVersionUID</code>，<strong>导致版本号不匹配，不能反序列化</strong></p>
+</blockquote>
+<p>为了处理这种冲突，我们可以<strong>显示指定版本号</strong></p>
+<p>示例如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Person</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">implements</span><span style="color:#6e7681"> </span>Serializable<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// 2. 显式指定 serialVersionUID，确保版本的一致性</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#d2a8ff;font-weight:bold">@Serial</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">final</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">long</span><span style="color:#6e7681"> </span>serialVersionUID<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>123456789L;<span style="color:#6e7681">  </span><span style="color:#8b949e;font-style:italic">// 指定版本号</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span>name;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>age;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// 构造函数</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">Person</span>(String<span style="color:#6e7681"> </span>name,<span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>age)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">this</span>.name<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>name;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">this</span>.age<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>age;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// getter 和 setter</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">getName</span>()<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>name;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">getAge</span>()<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>age;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#8b949e;font-style:italic">// toString 方法</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#d2a8ff;font-weight:bold">@Override</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">toString</span>()<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;Person{name=&#39;&#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>name<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;&#39;, age=&#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>age<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;}&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><p>其中，我们显示指定了<code>private static final long serialVersionUID</code>的变量值，以<strong>保证该类的所有对象都共享这一固定的<code>serialVersionUID</code></strong></p>
+<ul>
+<li>
+<p><strong>final</strong>：<code>final</code> 关键字修饰的变量表示<strong>它是一个常量</strong>，即值<strong>一旦被初始化，就无法再改变</strong>。在 <code>serialVersionUID</code> 的例子中，<code>final</code> 确保了 <code>serialVersionUID</code> 的值在类加载后不会发生变化。</p>
+</li>
+<li>
+<p>代码中<code>serialVersionUID</code><strong>不可以使用其他的变量名</strong>，否则将无法被编译器识别</p>
+</li>
+<li>
+<p>java16之后引入了<strong>注解</strong>@Serial，它可以放在<code>serialVersionUID</code>之前以表明该变量与对象的序列化有关，增强了代码的可读性</p>
+</li>
+</ul>
+<p>如果<strong>使用不同版本的类反序列化文件</strong>，会产生报错，如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412032114270.png" alt="76521431caf43afaf9a58b9435dd226e"></p>
+<hr>
+<h2 id="打印流">
+  打印流
+  <a class="heading-link" href="#%e6%89%93%e5%8d%b0%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p><a href="https://blog.csdn.net/qq_72935001/article/details/128708807?ops_request_misc=%7B%22request%5Fid%22%3A%22bf357b7c87c335c929d052ae9ac1fe2a%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=bf357b7c87c335c929d052ae9ac1fe2a&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-128708807-null-null.142%5ev100%5epc_search_result_base3&amp;utm_term=java%e6%89%93%e5%8d%b0%e6%b5%81&amp;spm=1018.2226.3001.4187"  class="external-link" target="_blank" rel="noopener">Java打印流（PrintStream/PrintWriter）-CSDN博客</a></p>
+<hr>
+<h2 id="压缩流解压缩流">
+  压缩流/解压缩流
+  <a class="heading-link" href="#%e5%8e%8b%e7%bc%a9%e6%b5%81%e8%a7%a3%e5%8e%8b%e7%bc%a9%e6%b5%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p>在 Java 中，压缩和解压缩操作通常涉及到 <strong>流（Streams）</strong>。Java 提供了几种常见的类和库来处理文件的压缩与解压缩，常用的有 <strong><code>java.util.zip</code> 包</strong>，它包含了处理 <strong>ZIP</strong> 文件和其他压缩格式的类。以下是常用的压缩和解压缩流的介绍与示例：</p>
+<h3 id="1-压缩流compression-streams">
+  1. <strong>压缩流（Compression Streams）</strong>
+  <a class="heading-link" href="#1-%e5%8e%8b%e7%bc%a9%e6%b5%81compression-streams">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>压缩流用于将数据流中的内容压缩，常见的压缩格式包括 <code>ZIP</code>、<code>GZIP</code>、<code>Deflate</code> 等。Java 提供了以下几种压缩流：</p>
+<ul>
+<li><strong><code>GZIPOutputStream</code></strong>：用于将数据流压缩为 <code>.gz</code> 格式。</li>
+<li><strong><code>ZipOutputStream</code></strong>：用于将多个文件压缩成 <code>.zip</code> 文件。</li>
+<li><strong><code>DeflaterOutputStream</code></strong>：用于将数据流压缩为 <code>Deflate</code> 格式。</li>
+</ul>
+<h4 id="示例使用-gzipoutputstream-进行压缩">
+  示例：使用 <code>GZIPOutputStream</code> 进行压缩
+  <a class="heading-link" href="#%e7%a4%ba%e4%be%8b%e4%bd%bf%e7%94%a8-gzipoutputstream-%e8%bf%9b%e8%a1%8c%e5%8e%8b%e7%bc%a9">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.GZIPOutputStream</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">GzipCompressionExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>inputFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;example.txt&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>outputFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;example.txt.gz&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>FileInputStream<span style="color:#6e7681"> </span>fis<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileInputStream(inputFile);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>FileOutputStream<span style="color:#6e7681"> </span>fos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileOutputStream(outputFile);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>GZIPOutputStream<span style="color:#6e7681"> </span>gzipOS<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>GZIPOutputStream(fos)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>buffer<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[</span>1024<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>len;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((len<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>fis.read(buffer))<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span>1)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>gzipOS.write(buffer,<span style="color:#6e7681"> </span>0,<span style="color:#6e7681"> </span>len);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>System.out.println(<span style="color:#a5d6ff">&#34;File successfully compressed.&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="2-解压缩流decompression-streams">
+  2. <strong>解压缩流（Decompression Streams）</strong>
+  <a class="heading-link" href="#2-%e8%a7%a3%e5%8e%8b%e7%bc%a9%e6%b5%81decompression-streams">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>解压缩流用于读取和解压缩压缩文件。常见的解压缩流类包括：</p>
+<ul>
+<li><strong><code>GZIPInputStream</code></strong>：用于解压缩 <code>.gz</code> 格式的文件。</li>
+<li><strong><code>ZipInputStream</code></strong>：用于解压缩 <code>.zip</code> 格式的文件。</li>
+<li><strong><code>InflaterInputStream</code></strong>：用于解压缩 <code>Deflate</code> 格式的文件。</li>
+</ul>
+<h4 id="示例使用-gzipinputstream-解压缩文件">
+  示例：使用 <code>GZIPInputStream</code> 解压缩文件
+  <a class="heading-link" href="#%e7%a4%ba%e4%be%8b%e4%bd%bf%e7%94%a8-gzipinputstream-%e8%a7%a3%e5%8e%8b%e7%bc%a9%e6%96%87%e4%bb%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.GZIPInputStream</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">GzipDecompressionExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>inputFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;example.txt.gz&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>outputFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;example.txt&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>FileInputStream<span style="color:#6e7681"> </span>fis<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileInputStream(inputFile);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>GZIPInputStream<span style="color:#6e7681"> </span>gzipIS<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>GZIPInputStream(fis);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>FileOutputStream<span style="color:#6e7681"> </span>fos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileOutputStream(outputFile)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>buffer<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[</span>1024<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>len;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((len<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>gzipIS.read(buffer))<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span>1)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>fos.write(buffer,<span style="color:#6e7681"> </span>0,<span style="color:#6e7681"> </span>len);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>System.out.println(<span style="color:#a5d6ff">&#34;File successfully decompressed.&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="3-使用-zipoutputstream-压缩多个文件成一个-zip-文件">
+  3. <strong>使用 <code>ZipOutputStream</code> 压缩多个文件成一个 <code>.zip</code> 文件</strong>
+  <a class="heading-link" href="#3-%e4%bd%bf%e7%94%a8-zipoutputstream-%e5%8e%8b%e7%bc%a9%e5%a4%9a%e4%b8%aa%e6%96%87%e4%bb%b6%e6%88%90%e4%b8%80%e4%b8%aa-zip-%e6%96%87%e4%bb%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><code>ZipOutputStream</code> 可以将多个文件压缩成一个 <code>.zip</code> 文件。每个文件会被封装成一个压缩条目（entry）。</p>
+<h4 id="示例压缩多个文件成-zip">
+  示例：压缩多个文件成 <code>.zip</code>
+  <a class="heading-link" href="#%e7%a4%ba%e4%be%8b%e5%8e%8b%e7%bc%a9%e5%a4%9a%e4%b8%aa%e6%96%87%e4%bb%b6%e6%88%90-zip">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.ZipEntry</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.ZipOutputStream</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">ZipCompressionExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>outputFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;archive.zip&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>filesToZip<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>{<span style="color:#a5d6ff">&#34;file1.txt&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;file2.txt&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;file3.txt&#34;</span>};<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>FileOutputStream<span style="color:#6e7681"> </span>fos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileOutputStream(outputFile);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>ZipOutputStream<span style="color:#6e7681"> </span>zipOS<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ZipOutputStream(fos)<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">for</span><span style="color:#6e7681"> </span>(String<span style="color:#6e7681"> </span>fileName<span style="color:#6e7681"> </span>:<span style="color:#6e7681"> </span>filesToZip)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>File<span style="color:#6e7681"> </span>file<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>File(fileName);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(FileInputStream<span style="color:#6e7681"> </span>fis<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileInputStream(file))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>ZipEntry<span style="color:#6e7681"> </span>zipEntry<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ZipEntry(file.getName());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>zipOS.putNextEntry(zipEntry);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>buffer<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[</span>1024<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>len;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((len<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>fis.read(buffer))<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span>1)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                        </span>zipOS.write(buffer,<span style="color:#6e7681"> </span>0,<span style="color:#6e7681"> </span>len);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>zipOS.closeEntry();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>System.out.println(<span style="color:#a5d6ff">&#34;Files successfully zipped.&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="4-解压-zip-文件">
+  4. <strong>解压 <code>.zip</code> 文件</strong>
+  <a class="heading-link" href="#4-%e8%a7%a3%e5%8e%8b-zip-%e6%96%87%e4%bb%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p><code>ZipInputStream</code> 用于读取 <code>.zip</code> 文件，提取每个条目（file entry）。</p>
+<h4 id="示例解压-zip-文件">
+  示例：解压 <code>.zip</code> 文件
+  <a class="heading-link" href="#%e7%a4%ba%e4%be%8b%e8%a7%a3%e5%8e%8b-zip-%e6%96%87%e4%bb%b6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.ZipEntry</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.ZipInputStream</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">ZipDecompressionExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>zipFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;archive.zip&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>outputDir<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;output/&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(FileInputStream<span style="color:#6e7681"> </span>fis<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileInputStream(zipFile);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">             </span>ZipInputStream<span style="color:#6e7681"> </span>zipIS<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ZipInputStream(fis))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>ZipEntry<span style="color:#6e7681"> </span>entry;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((entry<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>zipIS.getNextEntry())<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">null</span>)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>String<span style="color:#6e7681"> </span>fileName<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>entry.getName();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>File<span style="color:#6e7681"> </span>outputFile<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>File(outputDir<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>fileName);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#8b949e;font-style:italic">// 创建目录结构（如果需要）</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">if</span><span style="color:#6e7681"> </span>(entry.isDirectory())<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>outputFile.mkdirs();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">else</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#8b949e;font-style:italic">// 解压文件</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>(FileOutputStream<span style="color:#6e7681"> </span>fos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>FileOutputStream(outputFile))<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                        </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>buffer<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[</span>1024<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                        </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>len;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                        </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>((len<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>zipIS.read(buffer))<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span>1)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                            </span>fos.write(buffer,<span style="color:#6e7681"> </span>0,<span style="color:#6e7681"> </span>len);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>zipIS.closeEntry();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>System.out.println(<span style="color:#a5d6ff">&#34;Files successfully extracted.&#34;</span>);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(IOException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h3 id="5-其他压缩与解压缩类">
+  5. <strong>其他压缩与解压缩类</strong>
+  <a class="heading-link" href="#5-%e5%85%b6%e4%bb%96%e5%8e%8b%e7%bc%a9%e4%b8%8e%e8%a7%a3%e5%8e%8b%e7%bc%a9%e7%b1%bb">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<ul>
+<li>
+<p><strong><code>Deflater</code> 和 <code>Inflater</code> 类</strong>：它们分别实现了 <code>Deflate</code> 压缩算法的压缩和解压缩功能。</p>
+<ul>
+<li><code>Deflater</code> 负责数据的压缩。</li>
+<li><code>Inflater</code> 负责数据的解压缩。</li>
+</ul>
+<p>示例代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.io.*</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.Deflater</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">import</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">java.util.zip.Inflater</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">DeflateExample</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">void</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">main</span>(String<span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>args)<span style="color:#6e7681"> </span><span style="color:#ff7b72">throws</span><span style="color:#6e7681"> </span>IOException<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>data<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;This is the data that needs to be compressed using Deflate.&#34;</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 压缩</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>compressedData<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>compress(data);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>System.out.println(<span style="color:#a5d6ff">&#34;Compressed data: &#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>String(compressedData));<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#8b949e;font-style:italic">// 解压</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>String<span style="color:#6e7681"> </span>decompressedData<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>decompress(compressedData);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>System.out.println(<span style="color:#a5d6ff">&#34;Decompressed data: &#34;</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>decompressedData);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">compress</span>(String<span style="color:#6e7681"> </span>data)<span style="color:#6e7681"> </span><span style="color:#ff7b72">throws</span><span style="color:#6e7681"> </span>IOException<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Deflater<span style="color:#6e7681"> </span>deflater<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>Deflater();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>deflater.setInput(data.getBytes());<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>deflater.finish();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>ByteArrayOutputStream<span style="color:#6e7681"> </span>baos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ByteArrayOutputStream();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>buffer<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[</span>1024<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>(<span style="color:#ff7b72;font-weight:bold">!</span>deflater.finished())<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>count<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>deflater.deflate(buffer);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>baos.write(buffer,<span style="color:#6e7681"> </span>0,<span style="color:#6e7681"> </span>count);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>baos.close();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>baos.toByteArray();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">private</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">static</span><span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">decompress</span>(<span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>compressedData)<span style="color:#6e7681"> </span><span style="color:#ff7b72">throws</span><span style="color:#6e7681"> </span>IOException<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Inflater<span style="color:#6e7681"> </span>inflater<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>Inflater();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>inflater.setInput(compressedData);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>ByteArrayOutputStream<span style="color:#6e7681"> </span>baos<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ByteArrayOutputStream();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>buffer<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">byte</span><span style="color:#ff7b72;font-weight:bold">[</span>1024<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">try</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span><span style="color:#6e7681"> </span>(<span style="color:#ff7b72;font-weight:bold">!</span>inflater.finished())<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>count<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>inflater.inflate(buffer);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>baos.write(buffer,<span style="color:#6e7681"> </span>0,<span style="color:#6e7681"> </span>count);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>baos.close();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681"> </span><span style="color:#ff7b72">catch</span><span style="color:#6e7681"> </span>(DataFormatException<span style="color:#6e7681"> </span>e)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>e.printStackTrace();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>baos.toString();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div></li>
+</ul>
+<h3 id="总结-1">
+  总结
+  <a class="heading-link" href="#%e6%80%bb%e7%bb%93-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h3>
+<p>在 Java 中，压缩和解压缩操作常常使用 <strong><code>java.util.zip</code></strong> 包中的类来实现：</p>
+<ul>
+<li><strong><code>GZIPOutputStream</code></strong> 和 <strong><code>GZIPInputStream</code></strong>：用于 <code>.gz</code> 格式。</li>
+<li><strong><code>ZipOutputStream</code></strong> 和 <strong><code>ZipInputStream</code></strong>：用于 <code>.zip</code> 格式。</li>
+<li><strong><code>DeflaterOutputStream</code></strong> 和 <strong><code>InflaterInputStream</code></strong>：用于 <code>Deflate</code> 格式。</li>
+</ul>
+<p>你可以根据需求选择合适的类来进行文件压缩和解压缩。</p>
+<hr>
+<h2 id="commons-io">
+  Commons-io
+  <a class="heading-link" href="#commons-io">
+    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
+    <span class="sr-only">链接到标题</span>
+  </a>
+</h2>
+<p>Commoms-io是apache提供的有关IO操作的工具包</p>
+<p>作用：提高IO流的开发效率</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2024
+     fsj2009yx 
+    ·
+    
+    技术支持 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
