@@ -1,288 +1,390 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="自治系统内部的路由选择\r路由信息协议（RIP）\r路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。\n该协议的规定及工作原理：\r网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：\rRIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：\r仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转\r当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。\n然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。\n例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。\n毒性逆转的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为无穷大，以避免对方将该信息再次传播回来，从而有效避免路由振荡和环路问题。\n开放最短路径优先（OSPF）协议\r开放最短路径优先（OSPF）协议是使用分布式链路状态路由算法的典型代表，也是内部网关协议(IGP)的一种。\n当网络规模扩大时，路由器的路由表成比例地增大。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用更多的带宽来交换路由状态信息。因此路由选择必须按照层次的方式进行。\n如图，每个链路状态分组仅在它所属的区域内泛洪，从而限制了链路状态分组泛洪的范围和数量\nBackbone 指的是主干区域（Backbone Area），通常被标记为 Area 0。它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信。\n">
+<meta name="keywords" content="计算机网络, 路由选择协议"><title>自治系统内部的路由选择</title>
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>
-  自治系统内部的路由选择 · fsj2009yx
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<link rel='canonical' href='https://example.com/posts/post_301732386019327/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="自治系统内部的路由选择">
+<meta property='og:description' content="自治系统内部的路由选择\r路由信息协议（RIP）\r路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。\n该协议的规定及工作原理：\r网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：\rRIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：\r仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转\r当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。\n然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。\n例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。\n毒性逆转的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为无穷大，以避免对方将该信息再次传播回来，从而有效避免路由振荡和环路问题。\n开放最短路径优先（OSPF）协议\r开放最短路径优先（OSPF）协议是使用分布式链路状态路由算法的典型代表，也是内部网关协议(IGP)的一种。\n当网络规模扩大时，路由器的路由表成比例地增大。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用更多的带宽来交换路由状态信息。因此路由选择必须按照层次的方式进行。\n如图，每个链路状态分组仅在它所属的区域内泛洪，从而限制了链路状态分组泛洪的范围和数量\nBackbone 指的是主干区域（Backbone Area），通常被标记为 Area 0。它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信。\n">
+<meta property='og:url' content='https://example.com/posts/post_301732386019327/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='计算机网络' /><meta property='article:published_time' content='2024-12-06T22:27:00&#43;08:00'/><meta property='article:modified_time' content='2024-12-06T22:27:00&#43;08:00'/>
+<meta name="twitter:title" content="自治系统内部的路由选择">
+<meta name="twitter:description" content="自治系统内部的路由选择\r路由信息协议（RIP）\r路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。\n该协议的规定及工作原理：\r网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：\rRIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：\r仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转\r当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。\n然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。\n例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。\n毒性逆转的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为无穷大，以避免对方将该信息再次传播回来，从而有效避免路由振荡和环路问题。\n开放最短路径优先（OSPF）协议\r开放最短路径优先（OSPF）协议是使用分布式链路状态路由算法的典型代表，也是内部网关协议(IGP)的一种。\n当网络规模扩大时，路由器的路由表成比例地增大。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用更多的带宽来交换路由状态信息。因此路由选择必须按照层次的方式进行。\n如图，每个链路状态分组仅在它所属的区域内泛洪，从而限制了链路状态分组泛洪的范围和数量\nBackbone 指的是主干区域（Backbone Area），通常被标记为 Area 0。它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
 
 
 
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
 
-<meta name="author" content="fsj2009yx">
-<meta name="description" content="
-  自治系统内部的路由选择
-  
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://example.com/en/" >English</option>
+                                
+                                    <option value="https://example.com/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#路由信息协议rip"><strong>路由信息协议（RIP）</strong></a>
+      <ol>
+        <li><a href="#该协议的规定及工作原理"><strong>该协议的规定及工作原理：</strong></a></li>
+        <li><a href="#rip协议缺点"><strong>RIP协议缺点：</strong></a></li>
+        <li><a href="#rip协议特点"><strong>RIP协议特点：</strong></a></li>
+        <li><a href="#毒性逆转"><strong>毒性逆转</strong></a></li>
+      </ol>
+    </li>
+    <li><a href="#开放最短路径优先ospf协议"><strong>开放最短路径优先（OSPF）协议</strong></a></li>
+    <li><a href="#层次路由与自治系统"><strong>层次路由与自治系统</strong></a>
+      <ol>
+        <li><a href="#层次路由方法"><strong>层次路由方法</strong></a></li>
+        <li><a href="#自治系统autonomous-systemas"><strong>自治系统(Autonomous System，AS):</strong></a></li>
+      </ol>
+    </li>
+    <li><a href="#边界网关协议bgp"><strong>边界网关协议（BGP）</strong></a>
+      <ol>
+        <li><a href="#bgp路径选择"><strong>BGP路径选择</strong></a></li>
+        <li><a href="#热土豆路由选择"><strong>热土豆路由选择</strong></a>
+          <ol>
+            <li><a href="#热土豆路由选择的准则"><strong>热土豆路由选择的准则</strong>：</a></li>
+          </ol>
+        </li>
+        <li><a href="#通过路径通告执行策略"><strong>通过路径通告执行策略</strong></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
     
-    链接到标题
-  
-
-
-
-  路由信息协议（RIP）
-  
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" >
+                基础课程
+            </a>
+        
+    </header>
     
-    链接到标题
-  
 
-
-路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。
-
-
-  该协议的规定及工作原理：
-  
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_301732386019327/">自治系统内部的路由选择</a>
+        </h2>
     
-    链接到标题
-  
+        
+    </div>
 
-
-网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。
-距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。
-RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。
-RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。
-RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。
-在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。
-
-
-  RIP协议缺点：
-  
-    
-    链接到标题
-  
-
-
-RIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。
-路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。
-网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长
-
-
-  RIP协议特点：
-  
-    
-    链接到标题
-  
-
-
-仅和相邻路由器交换信息。
-路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。
-按固定的时间间隔交换路由信息，如每隔30秒。
-
-
-
-  毒性逆转
-  
-    
-    链接到标题
-  
-
-当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。
-然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。
-例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。">
-<meta name="keywords" content="blog,fsj2009yx,personal">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="自治系统内部的路由选择">
-  <meta name="twitter:description" content="自治系统内部的路由选择链接到标题路由信息协议（RIP）链接到标题路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。
-该协议的规定及工作原理：链接到标题网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：链接到标题RIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：链接到标题仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转链接到标题当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。
-然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。
-例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。">
-
-<meta property="og:url" content="http://localhost:1313/posts/post_301732386019327/">
-  <meta property="og:site_name" content="fsj2009yx">
-  <meta property="og:title" content="自治系统内部的路由选择">
-  <meta property="og:description" content="自治系统内部的路由选择链接到标题路由信息协议（RIP）链接到标题路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。
-该协议的规定及工作原理：链接到标题网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：链接到标题RIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：链接到标题仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转链接到标题当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。
-然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。
-例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-12-06T22:27:00+08:00">
-    <meta property="article:modified_time" content="2024-12-06T22:27:00+08:00">
-    <meta property="article:tag" content="计算机网络">
-
-
-
-
-<link rel="canonical" href="http://localhost:1313/posts/post_301732386019327/">
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.css" media="screen">
-
-
-
-
-
-
-  
     
     
-    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
-  
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 06, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
 
 
 
- 
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
 
-
-
-
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
+    
 </div>
 
+</header>
 
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="http://localhost:1313/">
-      fsj2009yx
-    </a>
+    <section class="article-content">
     
     
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/categories/">Category</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/tags/">Tags</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/about/">About</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="http://localhost:1313/posts/post_301732386019327/">
-              自治系统内部的路由选择
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2024-12-06T22:27:00&#43;08:00">
-                December 6, 2024
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              阅读时间：1 分钟
-            </span>
-          </div>
-          <div class="authors">
-  <i class="fa-solid fa-user" aria-hidden="true"></i>
-    <a href="/authors/fsj2009yx/">Fsj2009yx</a></div>
-
-          <div class="categories">
-  <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/">基础课程</a></div>
-
-          <div class="tags">
-  <i class="fa-solid fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-    </span></div>
-
-        </div>
-      </header>
-
-      <div class="post-content">
-        
-        <h1 id="自治系统内部的路由选择">
-  自治系统内部的路由选择
-  <a class="heading-link" href="#%e8%87%aa%e6%b2%bb%e7%b3%bb%e7%bb%9f%e5%86%85%e9%83%a8%e7%9a%84%e8%b7%af%e7%94%b1%e9%80%89%e6%8b%a9">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h1>
-<hr>
-<h2 id="路由信息协议rip">
-  <strong>路由信息协议（RIP）</strong>
-  <a class="heading-link" href="#%e8%b7%af%e7%94%b1%e4%bf%a1%e6%81%af%e5%8d%8f%e8%ae%aerip">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<blockquote>
+    <h1 id="自治系统内部的路由选择">自治系统内部的路由选择
+</h1><hr>
+<h2 id="路由信息协议rip"><strong>路由信息协议（RIP）</strong>
+</h2><blockquote>
 <p><strong>路由信息协议</strong>（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种<strong>分布式</strong>的<strong>基于距离向量的</strong>路由选择协议，其最大优点就是<strong>简单</strong>。</p>
 </blockquote>
-<h3 id="该协议的规定及工作原理">
-  <strong>该协议的规定及工作原理：</strong>
-  <a class="heading-link" href="#%e8%af%a5%e5%8d%8f%e8%ae%ae%e7%9a%84%e8%a7%84%e5%ae%9a%e5%8f%8a%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<ol>
+<h3 id="该协议的规定及工作原理"><strong>该协议的规定及工作原理：</strong>
+</h3><ol>
 <li>网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。</li>
 <li>距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。</li>
 <li>RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。</li>
@@ -290,55 +392,47 @@ RIP限制了网络的规模，它能使用的最大距离为15（16表示不可�
 <li>RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。</li>
 <li>在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。</li>
 </ol>
-<h3 id="rip协议缺点">
-  <strong>RIP协议缺点：</strong>
-  <a class="heading-link" href="#rip%e5%8d%8f%e8%ae%ae%e7%bc%ba%e7%82%b9">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<ul>
+<h3 id="rip协议缺点"><strong>RIP协议缺点：</strong>
+</h3><ul>
 <li>RIP限制了网络的规模，<strong>它能使用的最大距离为15（16表示不可达)</strong>。</li>
 <li>路由器之间交换的是路由器中的完整路由表，因此<strong>网络规模越大，开销也越大</strong>。</li>
 <li>网络出现故障时，会出现<strong>慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)</strong>，俗称“坏消息传得慢”，使更新过程的收敛时间长</li>
 </ul>
-<h3 id="rip协议特点">
-  <strong>RIP协议特点：</strong>
-  <a class="heading-link" href="#rip%e5%8d%8f%e8%ae%ae%e7%89%b9%e7%82%b9">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<ul>
+<h3 id="rip协议特点"><strong>RIP协议特点：</strong>
+</h3><ul>
 <li>仅和相邻路由器交换信息。</li>
 <li>路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。</li>
 <li>按固定的时间间隔交换路由信息，如每隔30秒。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170921028.png" alt="9d36bf39f8c442d5e323c61b375dc0df"></p>
-<h3 id="毒性逆转">
-  <strong>毒性逆转</strong>
-  <a class="heading-link" href="#%e6%af%92%e6%80%a7%e9%80%86%e8%bd%ac">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<p>当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170921028.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="9d36bf39f8c442d5e323c61b375dc0df"
+	
+	
+></p>
+<h3 id="毒性逆转"><strong>毒性逆转</strong>
+</h3><p>当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。</p>
 <p>然而，在毒性逆转中，<strong>路由器会将这个不可达的路由信息发送回给原来的邻居路由器</strong>，但是将距离值设置为无穷大。这样做的<strong>目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器</strong>。</p>
 <p>例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在<strong>普通的距离向量路由选择算法</strong>中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在<strong>毒性逆转</strong>中，路由器 A 会将目的地 D 的距离值设置为无穷大，<strong>并将这个更新消息发送回给路由器 B</strong>。这样一来，路由器 B 就知道了目的地 D 不可达，并且<strong>不会再将数据发送给路由器 A</strong>。</p>
 <p><strong>毒性逆转</strong>的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为<strong>无穷大</strong>，以避免对方将该信息再次传播回来，从而<strong>有效避免路由振荡和环路问题</strong>。</p>
 <hr>
-<h2 id="开放最短路径优先ospf协议">
-  <strong>开放最短路径优先（OSPF）协议</strong>
-  <a class="heading-link" href="#%e5%bc%80%e6%94%be%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e4%bc%98%e5%85%88ospf%e5%8d%8f%e8%ae%ae">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<blockquote>
+<h2 id="开放最短路径优先ospf协议"><strong>开放最短路径优先（OSPF）协议</strong>
+</h2><blockquote>
 <p><strong>开放最短路径优先</strong>（OSPF）协议是使用<strong>分布式链路状态路由算法</strong>的典型代表，也是内部网关协议(IGP)的一种。</p>
 </blockquote>
 <p>当<strong>网络规模扩大</strong>时，路由器的<strong>路由表成比例地增大</strong>。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用<strong>更多的带宽</strong>来交换路由状态信息。因此路由选择必须按照<strong>层次的方式</strong>进行。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170929856.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170929856.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>如图，每个链路状态分组<strong>仅在它所属的区域内泛洪</strong>，从而<strong>限制了链路状态分组泛洪的范围和数量</strong></p>
 <p><strong>Backbone</strong> 指的是主干区域（Backbone Area），通常被标记为 Area 0。<strong>它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信</strong>。</p>
 <p>如果是<strong>跨区域通信</strong>，需要以下流程：</p>
@@ -347,93 +441,130 @@ RIP限制了网络的规模，它能使用的最大距离为15（16表示不可�
 <li>由边界路由器路由到<strong>backbone</strong></li>
 <li>由<strong>backbone</strong>路由到<strong>目标区域</strong>，再在目标区域内由<strong>边界路由器</strong>路由到<strong>目标子网路由器</strong></li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170937512.png" alt="cfae13885ed24861b8e22f2abd45ccde"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170937512.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cfae13885ed24861b8e22f2abd45ccde"
+	
+	
+></p>
 <hr>
-<h2 id="层次路由与自治系统">
-  <strong>层次路由与自治系统</strong>
-  <a class="heading-link" href="#%e5%b1%82%e6%ac%a1%e8%b7%af%e7%94%b1%e4%b8%8e%e8%87%aa%e6%b2%bb%e7%b3%bb%e7%bb%9f">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<h3 id="层次路由方法">
-  <strong>层次路由方法</strong>
-  <a class="heading-link" href="#%e5%b1%82%e6%ac%a1%e8%b7%af%e7%94%b1%e6%96%b9%e6%b3%95">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<ul>
+<h2 id="层次路由与自治系统"><strong>层次路由与自治系统</strong>
+</h2><h3 id="层次路由方法"><strong>层次路由方法</strong>
+</h3><ul>
 <li>因特网将整个互联网划分为<strong>较小的自治系统</strong>（一个自治系统中包含很多局域网)，<strong>每个自治系统内部有自己的路由选择协议</strong>。</li>
 <li>如果两个自治系统需要通信，则<strong>需要自治系统之间的协议</strong>来屏蔽掉这些差异，在下一个部分会介绍响应的路由协议。</li>
 </ul>
-<h3 id="自治系统autonomous-systemas">
-  <strong>自治系统(Autonomous System，AS):</strong>
-  <a class="heading-link" href="#%e8%87%aa%e6%b2%bb%e7%b3%bb%e7%bb%9fautonomous-systemas">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<p>单一技术管理下的一组路由器，这些路由器使用一种<strong>AS内部的路由选择协议</strong>和共同的度量来确定分组在该AS内的路由，同时还使用一种<strong>AS之间的路由选择协议</strong>来确定分组在AS之间的路由。
+<h3 id="自治系统autonomous-systemas"><strong>自治系统(Autonomous System，AS):</strong>
+</h3><p>单一技术管理下的一组路由器，这些路由器使用一种<strong>AS内部的路由选择协议</strong>和共同的度量来确定分组在该AS内的路由，同时还使用一种<strong>AS之间的路由选择协议</strong>来确定分组在AS之间的路由。
 注：
 一个自治系统内的所有网络都由一个行政单位管辖，一个自治系统的所有路由器在本自治系统内都必须是<strong>连通</strong>的。</p>
 <p><strong>OPSF协议就是一种层次路由协议</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170947233.png" alt="1b232b6e90dc0115ae29a09d8016b96e"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170947233.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1b232b6e90dc0115ae29a09d8016b96e"
+	
+	
+></p>
 <hr>
-<h2 id="边界网关协议bgp">
-  <strong>边界网关协议（BGP）</strong>
-  <a class="heading-link" href="#%e8%be%b9%e7%95%8c%e7%bd%91%e5%85%b3%e5%8d%8f%e8%ae%aebgp">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<blockquote>
+<h2 id="边界网关协议bgp"><strong>边界网关协议（BGP）</strong>
+</h2><blockquote>
 <p><strong>边界网关协议</strong>（Border Gateway Protocol，BGP)是<strong>不同自治系统的路由器之间交换路由信息</strong>的协议，是一种外部网关协议，<strong>基于距离矢量（DV）算法</strong>。边界网关协议常用于互联网的网关之间。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170949245.png" alt="249a77ad785a3e4ec863fa2aa24fc0b1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170949245.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="249a77ad785a3e4ec863fa2aa24fc0b1"
+	
+	
+></p>
 <ul>
 <li><strong>eBGP</strong>：<strong>AS区域之间</strong>的路由选择协议</li>
 <li><strong>iGBP</strong>：<strong>AS区域内部</strong>的路由选择协议</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170955119.png" alt="1af8420b08930083e6a6e1000a655376"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170955119.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1af8420b08930083e6a6e1000a655376"
+	
+	
+></p>
 <p>如图，1c，2a，2c，3a分别为所属AS区域的<strong>网关</strong>，一方面<strong>参与AS区域内部的路由选择运算</strong>，收集内部AS子网可达信息</p>
 <p>另一方面<strong>将子网可达信息传递给相邻的AS区域</strong></p>
 <p>例如2c和3a，2c可以告诉<strong>它自己所属区域AS2的子网可达信息</strong>，也可以告诉3a<strong>通过1c&mdash;2a传递过来的AS1子网可达信息</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171002730.png" alt="6b5f9066ad411289ab29fc8d09c686af"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171004869.png" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171006725.png" alt="5f3297d68c9c0d54ca3fd4674266fcb3"></p>
-<h3 id="bgp路径选择">
-  <strong>BGP路径选择</strong>
-  <a class="heading-link" href="#bgp%e8%b7%af%e5%be%84%e9%80%89%e6%8b%a9">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171029525.png" alt="dea384621aea07a2f7ce7b952575da17"></p>
-<h3 id="热土豆路由选择">
-  <strong>热土豆路由选择</strong>
-  <a class="heading-link" href="#%e7%83%ad%e5%9c%9f%e8%b1%86%e8%b7%af%e7%94%b1%e9%80%89%e6%8b%a9">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171002730.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6b5f9066ad411289ab29fc8d09c686af"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171004869.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171006725.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5f3297d68c9c0d54ca3fd4674266fcb3"
+	
+	
+></p>
+<h3 id="bgp路径选择"><strong>BGP路径选择</strong>
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171029525.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="dea384621aea07a2f7ce7b952575da17"
+	
+	
+></p>
+<h3 id="热土豆路由选择"><strong>热土豆路由选择</strong>
+</h3><blockquote>
 <p>热土豆路由选择算法 (Hot Potato Routing) 是一种<strong>简单的、分布式</strong>的路由算法，主要用于局域网环境，特别是那些具有广播能力的网络，例如以太网。它的核心思想是<strong>尽快将数据包“扔出去”</strong>，而不是选择最佳路径。</p>
 </blockquote>
 <p>当一个节点需要发送数据包到另一个节点时，它会检查其<strong>直接相连的邻居节点</strong>。如果<strong>其中一个邻居节点更接近目标节点</strong>（这个“接近”通常是指物理距离或跳数，但并不一定精确计算），则<strong>立即将数据包转发给该邻居</strong>。否则，它会随机选择一个邻居节点转发数据包。</p>
 <p>它不尝试寻找最佳路径，而是<strong>优先选择任何一个看起来更近的节点，尽力让数据包尽快离开自己</strong>。 就好比烫手的山芋，尽快扔给别人</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171013283.png" alt="9d73ffb5c55b7a24877e3d85398cbad9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171013283.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="9d73ffb5c55b7a24877e3d85398cbad9"
+	
+	
+></p>
 <p>如图，2d通过iBGP获取到信息，了解到可以通过<strong>2a</strong>或者<strong>2c</strong>网关到达X</p>
 <p>由于2d和2c与2d直接相连，直接将分组转给<strong>2a和2c中能离开本地网络开销最小</strong>的那一个，<strong>即使是选择另一个到达X的跳数更多</strong>（201&lt;263，即选择2a）</p>
 <p>也就是说热土豆路由选择是一种<strong>局部最优，不考虑全局最优</strong>的路由选择策略</p>
-<h4 id="热土豆路由选择的准则">
-  <strong>热土豆路由选择的准则</strong>：
-  <a class="heading-link" href="#%e7%83%ad%e5%9c%9f%e8%b1%86%e8%b7%af%e7%94%b1%e9%80%89%e6%8b%a9%e7%9a%84%e5%87%86%e5%88%99">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="热土豆路由选择的准则"><strong>热土豆路由选择的准则</strong>：
+</h4><ul>
 <li>一个节点拥有多个可能的出口（通常通往不同的外部网络或自治系统）。</li>
 <li>节点会基于<strong>转发数据包的代价</strong>（例如链路延迟、跳数、距离等）来选择出口。</li>
 <li>选择的出口是：
@@ -442,138 +573,241 @@ RIP限制了网络的规模，它能使用的最大距离为15（16表示不可�
 </ul>
 </li>
 </ul>
-<h3 id="通过路径通告执行策略">
-  <strong>通过路径通告执行策略</strong>
-  <a class="heading-link" href="#%e9%80%9a%e8%bf%87%e8%b7%af%e5%be%84%e9%80%9a%e5%91%8a%e6%89%a7%e8%a1%8c%e7%ad%96%e7%95%a5">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171031485.png" alt="image-20241117103117428"></p>
+<h3 id="通过路径通告执行策略"><strong>通过路径通告执行策略</strong>
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171031485.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20241117103117428"
+	
+	
+></p>
 
-      </div>
+</section>
 
 
-      <footer>
+    <footer class="article-footer">
+    
+    <section class="article-tags">
         
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+        
+    </section>
 
 
-        <div id="disqus_thread"></div>
-<script>
-  window.disqus_config = function () {
     
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
     
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-    
-    document.addEventListener('themeChanged', function (e) { 
-        if (document.readyState == 'complete') {
-          DISQUS.reset({ reload: true, config: disqus_config });
-        }
-    });
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
 </script>
-        
-        
-        
-        
-        
-        
-      </footer>
-    </article>
+    
+</article>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
-  
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
-    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
-    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body,
-      {
-        delimiters: [
-          {left: '$$', right: '$$', display:true},
-          {left: '$', right: '$', display:false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ]
-      }
-    );"></script>
-  </section>
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/post_132911105916910/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_16861929726775/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">IPV4</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">搜索结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
 
     </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-      2019 -
-    
-    2024
-     fsj2009yx 
-    ·
-    
-    技术支持 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
-    
-  </section>
-</footer>
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
-  </main>
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-  
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
 
-  
-  
-  <script src="/js/coder.js"></script>
-  
+        document.head.appendChild(customFont);
+    }());
+</script>
 
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
+    </body>
 </html>

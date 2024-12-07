@@ -1,237 +1,473 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="网络层模型中IP知识点">
+<meta name="keywords" content="计算机网络, IPV4"><title>IPV4</title>
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>
-  IPV4 · fsj2009yx
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<link rel='canonical' href='https://example.com/posts/post_16861929726775/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="IPV4">
+<meta property='og:description' content="网络层模型中IP知识点">
+<meta property='og:url' content='https://example.com/posts/post_16861929726775/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='计算机网络' /><meta property='article:published_time' content='2024-12-04T23:25:47&#43;08:00'/><meta property='article:modified_time' content='2024-12-04T23:25:47&#43;08:00'/>
+<meta name="twitter:title" content="IPV4">
+<meta name="twitter:description" content="网络层模型中IP知识点">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
 
 
 
-
-<meta name="author" content="fsj2009yx">
-<meta name="description" content="网络层模型中IP知识点">
-<meta name="keywords" content="blog,fsj2009yx,personal">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="IPV4">
-  <meta name="twitter:description" content="网络层模型中IP知识点">
-
-<meta property="og:url" content="http://localhost:1313/posts/post_16861929726775/">
-  <meta property="og:site_name" content="fsj2009yx">
-  <meta property="og:title" content="IPV4">
-  <meta property="og:description" content="网络层模型中IP知识点">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-12-04T23:25:47+08:00">
-    <meta property="article:modified_time" content="2024-12-04T23:25:47+08:00">
-    <meta property="article:tag" content="计算机网络">
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
 
 
 
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
 
-<link rel="canonical" href="http://localhost:1313/posts/post_16861929726775/">
 
 
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
 
 
-  
-  
-  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://example.com/en/" >English</option>
+                                
+                                    <option value="https://example.com/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
 
 
 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
 
 
 
-  
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#ip数据报"><strong>IP数据报</strong></a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#1-版本-version">1. <strong>版本 (Version)</strong></a></li>
+            <li><a href="#2-头部长度-ihl---internet-header-length">2. <strong>头部长度 (IHL - Internet Header Length)</strong></a></li>
+            <li><a href="#3-服务类型-type-of-service-tos">3. <strong>服务类型 (Type of Service, ToS)</strong></a></li>
+            <li><a href="#4-总长度-total-length">4. <strong>总长度 (Total Length)</strong></a></li>
+            <li><a href="#5-标识符-identification">5. <strong>标识符 (Identification)</strong></a></li>
+            <li><a href="#6-标志-flags">6. <strong>标志 (Flags)</strong></a></li>
+            <li><a href="#7-片偏移-fragment-offset">7. <strong>片偏移 (Fragment Offset)</strong></a></li>
+            <li><a href="#8-生存时间-time-to-live-ttl">8. <strong>生存时间 (Time to Live, TTL)</strong></a></li>
+            <li><a href="#9-协议-protocol">9. <strong>协议 (Protocol)</strong></a></li>
+            <li><a href="#10-头部校验和-header-checksum">10. <strong>头部校验和 (Header Checksum)</strong></a></li>
+            <li><a href="#11-源-ip-地址-source-ip-address">11. <strong>源 IP 地址 (Source IP Address)</strong></a></li>
+            <li><a href="#12-目的-ip-地址-destination-ip-address">12. <strong>目的 IP 地址 (Destination IP Address)</strong></a></li>
+            <li><a href="#13-选项-options-可选字段">13. <strong>选项 (Options)</strong> <em>(可选字段)</em></a></li>
+            <li><a href="#14-填充-padding">14. <strong>填充 (Padding)</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#ip编址"><strong>IP编址</strong></a></li>
+    <li><a href="#子网"><strong>子网</strong></a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#子网掩码"><strong>子网掩码</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#ip地址的分类"><strong>IP地址的分类</strong></a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#abc类地址"><strong>ABC类地址</strong></a></li>
+            <li><a href="#一些特定的ip地址"><strong>一些特定的IP地址</strong></a></li>
+            <li><a href="#内网专用ip地址"><strong>内网（专用）IP地址</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#cidr"><strong>CIDR</strong></a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#下一跳next-hop"><strong>下一跳（Next Hop）</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#ip地址的获取"><strong>IP地址的获取</strong></a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#dhcp"><strong>DHCP</strong></a></li>
+            <li><a href="#1-dhcp-discover客户端请求">1. <strong>DHCP Discover（客户端请求）</strong></a></li>
+            <li><a href="#2-dhcp-offer服务器提供ip">2. <strong>DHCP Offer（服务器提供IP）</strong></a></li>
+            <li><a href="#3-dhcp-request客户端确认">3. <strong>DHCP Request（客户端确认）</strong></a></li>
+            <li><a href="#4-dhcp-ack服务器确认">4. <strong>DHCP ACK（服务器确认）</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#网络地址转换nat技术"><strong>网络地址转换NAT技术</strong></a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#技术原理"><strong>技术原理</strong></a></li>
+            <li><a href="#nat穿越问题"><strong>NAT穿越问题</strong></a></li>
+            <li><a href="#1-静态nat转换表">1. <strong>静态NAT转换表</strong></a></li>
+            <li><a href="#2-动态nat转换表">2. <strong>动态NAT转换表</strong></a></li>
+            <li><a href="#3-端口地址转换patport-address-translation">3. <strong>端口地址转换（PAT，Port Address Translation）</strong></a></li>
+            <li><a href="#4-双向natbi-directional-nat">4. <strong>双向NAT（Bi-directional NAT）</strong></a></li>
+            <li><a href="#nat技术的争议和不足"><strong>nat技术的争议和不足</strong></a></li>
+            <li><a href="#1-nat与端到端通信模型的冲突">1. <strong>NAT与端到端通信模型的冲突</strong></a></li>
+            <li><a href="#2-nat穿越问题">2. <strong>NAT穿越问题</strong></a></li>
+            <li><a href="#3-ip地址和端口号的混淆">3. <strong>IP地址和端口号的混淆</strong></a></li>
+            <li><a href="#4-网络性能的潜在影响">4. <strong>网络性能的潜在影响</strong></a></li>
+            <li><a href="#5-安全性问题">5. <strong>安全性问题</strong></a></li>
+            <li><a href="#6-ipv6的挑战">6. <strong>IPv6的挑战</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" >
+                基础课程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_16861929726775/">IPV4</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            网络层模型中IP知识点
+        </h3>
+        
+    </div>
+
     
     
-    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
-  
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 04, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
 
 
 
- 
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
 
-
-
-
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
+    
 </div>
 
+</header>
 
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="http://localhost:1313/">
-      fsj2009yx
-    </a>
+    <section class="article-content">
     
     
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/categories/">Category</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/tags/">Tags</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/about/">About</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="http://localhost:1313/posts/post_16861929726775/">
-              IPV4
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2024-12-04T23:25:47&#43;08:00">
-                December 4, 2024
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              阅读时间：3 分钟
-            </span>
-          </div>
-          <div class="authors">
-  <i class="fa-solid fa-user" aria-hidden="true"></i>
-    <a href="/authors/fsj2009yx/">Fsj2009yx</a></div>
-
-          <div class="categories">
-  <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/">基础课程</a></div>
-
-          <div class="tags">
-  <i class="fa-solid fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-    </span></div>
-
-        </div>
-      </header>
-
-      <div class="post-content">
-        
-        <h1 id="ipv4">
-  IPV4
-  <a class="heading-link" href="#ipv4">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h1>
-<hr>
-<h2 id="ip数据报">
-  <strong>IP数据报</strong>
-  <a class="heading-link" href="#ip%e6%95%b0%e6%8d%ae%e6%8a%a5">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<p><strong>TCP</strong>的数据传输基于<strong>字节流</strong>，而网络层的分组称为<strong>数据报：</strong></p>
+    <h1 id="ipv4">IPV4
+</h1><hr>
+<h2 id="ip数据报"><strong>IP数据报</strong>
+</h2><p><strong>TCP</strong>的数据传输基于<strong>字节流</strong>，而网络层的分组称为<strong>数据报：</strong></p>
 <p>一个标准的 IPv4 数据报总共有** 20 字节的头部**（不包括可选字段），以及<strong>可变长度的数据部分</strong>。下面是 IPv4 数据报头部各字段的详细解释：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042331075.png" alt="image-20241204233113947"></p>
-<h4 id="1-版本-version">
-  1. <strong>版本 (Version)</strong>
-  <a class="heading-link" href="#1-%e7%89%88%e6%9c%ac-version">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042331075.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20241204233113947"
+	
+	
+></p>
+<h4 id="1-版本-version">1. <strong>版本 (Version)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 4 位</li>
 <li><strong>含义</strong>: 指定 IP 协议的版本。IPv4 中该字段的值为 <code>4</code>（即 <code>0100</code> 二进制），表示使用 IPv4 协议。</li>
 </ul>
-<h4 id="2-头部长度-ihl---internet-header-length">
-  2. <strong>头部长度 (IHL - Internet Header Length)</strong>
-  <a class="heading-link" href="#2-%e5%a4%b4%e9%83%a8%e9%95%bf%e5%ba%a6-ihl---internet-header-length">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="2-头部长度-ihl---internet-header-length">2. <strong>头部长度 (IHL - Internet Header Length)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 4 位</li>
 <li><strong>含义</strong>: 指定 IPv4 头部的长度（单位是 4 字节）。最小值是 5，表示头部长度为 5 × 4 = 20 字节。若有可选字段，则该值会更大。</li>
 </ul>
-<h4 id="3-服务类型-type-of-service-tos">
-  3. <strong>服务类型 (Type of Service, ToS)</strong>
-  <a class="heading-link" href="#3-%e6%9c%8d%e5%8a%a1%e7%b1%bb%e5%9e%8b-type-of-service-tos">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="3-服务类型-type-of-service-tos">3. <strong>服务类型 (Type of Service, ToS)</strong>
+</h4><ul>
 <li>
 <p><strong>大小</strong>: 8 位</p>
 </li>
@@ -246,36 +482,18 @@
 </ul>
 </li>
 </ul>
-<h4 id="4-总长度-total-length">
-  4. <strong>总长度 (Total Length)</strong>
-  <a class="heading-link" href="#4-%e6%80%bb%e9%95%bf%e5%ba%a6-total-length">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="4-总长度-total-length">4. <strong>总长度 (Total Length)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 16 位</li>
 <li><strong>含义</strong>: 数据报的总长度，包括头部和数据部分，单位是字节。最大长度为 65535 字节。</li>
 </ul>
-<h4 id="5-标识符-identification">
-  5. <strong>标识符 (Identification)</strong>
-  <a class="heading-link" href="#5-%e6%a0%87%e8%af%86%e7%ac%a6-identification">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="5-标识符-identification">5. <strong>标识符 (Identification)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 16 位</li>
 <li><strong>含义</strong>: 用于唯一标识一个数据报，特别是在数据包分片时。分片的各部分会使用相同的标识符，以便接收方将它们重新组装成完整的数据报。</li>
 </ul>
-<h4 id="6-标志-flags">
-  6. <strong>标志 (Flags)</strong>
-  <a class="heading-link" href="#6-%e6%a0%87%e5%bf%97-flags">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="6-标志-flags">6. <strong>标志 (Flags)</strong>
+</h4><ul>
 <li>
 <p><strong>大小</strong>: 3 位</p>
 </li>
@@ -288,36 +506,18 @@
 </ul>
 </li>
 </ul>
-<h4 id="7-片偏移-fragment-offset">
-  7. <strong>片偏移 (Fragment Offset)</strong>
-  <a class="heading-link" href="#7-%e7%89%87%e5%81%8f%e7%a7%bb-fragment-offset">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="7-片偏移-fragment-offset">7. <strong>片偏移 (Fragment Offset)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 13 位</li>
 <li><strong>含义</strong>: 如果数据包被分片，这个字段表示当前分片相对于原始数据报的偏移量，单位是 8 字节。这个字段帮助接收方重组分片。</li>
 </ul>
-<h4 id="8-生存时间-time-to-live-ttl">
-  8. <strong>生存时间 (Time to Live, TTL)</strong>
-  <a class="heading-link" href="#8-%e7%94%9f%e5%ad%98%e6%97%b6%e9%97%b4-time-to-live-ttl">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="8-生存时间-time-to-live-ttl">8. <strong>生存时间 (Time to Live, TTL)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 8 位</li>
 <li><strong>含义</strong>: 控制数据包在网络中能够经过的最大跳数。每经过一个路由器，该值减 1，当值为 0 时，数据包被丢弃。防止数据包在网络中无限循环。</li>
 </ul>
-<h4 id="9-协议-protocol">
-  9. <strong>协议 (Protocol)</strong>
-  <a class="heading-link" href="#9-%e5%8d%8f%e8%ae%ae-protocol">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="9-协议-protocol">9. <strong>协议 (Protocol)</strong>
+</h4><ul>
 <li>
 <p><strong>大小</strong>: 8 位</p>
 </li>
@@ -331,70 +531,34 @@
 </ul>
 </li>
 </ul>
-<h4 id="10-头部校验和-header-checksum">
-  10. <strong>头部校验和 (Header Checksum)</strong>
-  <a class="heading-link" href="#10-%e5%a4%b4%e9%83%a8%e6%a0%a1%e9%aa%8c%e5%92%8c-header-checksum">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="10-头部校验和-header-checksum">10. <strong>头部校验和 (Header Checksum)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 16 位</li>
 <li><strong>含义</strong>: 用于检测头部数据的错误。发送方计算并加入这个值，接收方也会重新计算，若校验和不一致，则丢弃数据包。</li>
 </ul>
-<h4 id="11-源-ip-地址-source-ip-address">
-  11. <strong>源 IP 地址 (Source IP Address)</strong>
-  <a class="heading-link" href="#11-%e6%ba%90-ip-%e5%9c%b0%e5%9d%80-source-ip-address">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="11-源-ip-地址-source-ip-address">11. <strong>源 IP 地址 (Source IP Address)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 32 位</li>
 <li><strong>含义</strong>: 指示数据包的发送者的 IP 地址。</li>
 </ul>
-<h4 id="12-目的-ip-地址-destination-ip-address">
-  12. <strong>目的 IP 地址 (Destination IP Address)</strong>
-  <a class="heading-link" href="#12-%e7%9b%ae%e7%9a%84-ip-%e5%9c%b0%e5%9d%80-destination-ip-address">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="12-目的-ip-地址-destination-ip-address">12. <strong>目的 IP 地址 (Destination IP Address)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 32 位</li>
 <li><strong>含义</strong>: 指示数据包的接收者的 IP 地址。</li>
 </ul>
-<h4 id="13-选项-options-可选字段">
-  13. <strong>选项 (Options)</strong> <em>(可选字段)</em>
-  <a class="heading-link" href="#13-%e9%80%89%e9%a1%b9-options-%e5%8f%af%e9%80%89%e5%ad%97%e6%ae%b5">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="13-选项-options-可选字段">13. <strong>选项 (Options)</strong> <em>(可选字段)</em>
+</h4><ul>
 <li><strong>大小</strong>: 可变</li>
 <li><strong>含义</strong>: 用于实现某些特殊功能，如时间戳、源路由等。选项字段不常用，且通常只有当头部长度大于 20 字节时才出现。</li>
 </ul>
-<h4 id="14-填充-padding">
-  14. <strong>填充 (Padding)</strong>
-  <a class="heading-link" href="#14-%e5%a1%ab%e5%85%85-padding">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="14-填充-padding">14. <strong>填充 (Padding)</strong>
+</h4><ul>
 <li><strong>大小</strong>: 可变</li>
 <li><strong>含义</strong>: 确保头部长度为 4 字节的倍数。如果选项字段的大小不是 4 字节的倍数，就会使用填充位来补齐。</li>
 </ul>
 <hr>
-<h2 id="ip编址">
-  <strong>IP编址</strong>
-  <a class="heading-link" href="#ip%e7%bc%96%e5%9d%80">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<p>首先理解IP地址和接口：</p>
+<h2 id="ip编址"><strong>IP编址</strong>
+</h2><p>首先理解IP地址和接口：</p>
 <ul>
 <li>
 <p><strong>IP地址</strong>：<strong>32位的二进制标识</strong>，对主机或者路由器的<strong>接口</strong>编址</p>
@@ -409,37 +573,46 @@
 </li>
 </ul>
 <p>一台路由器上有多个接口，不同的接口分配不同的IP地址，而如果<strong>主机上有多个网卡或者使用虚拟网卡（如VMware）</strong>，也可以具有多个网络接口</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132217203.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132217203.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>由图，一台路由器的三个网络接口连接了三个不同的IP地址，分别是<code>223.1.1.x</code>、<code>223.1.2.x</code> 和 <code>223.1.3.x</code></p>
 <p>以左上角的三台主机为例，它们共用了一个路由器接口，而且<strong>IP地址中最左侧的24比特相同</strong></p>
 <p>说明该网络可能由一个<strong>不包含路由器的网络</strong>互联，可能是通过<strong>以太网交换机</strong>或者<strong>无线网络WIFI</strong>实现</p>
 <p>在IP的术语中，这3个主机的网络接口和1个路由器接口构成了一个<strong>子网</strong></p>
 <hr>
-<h2 id="子网">
-  <strong>子网</strong>
-  <a class="heading-link" href="#%e5%ad%90%e7%bd%91">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<p>一个子网有这两点性质：</p>
+<h2 id="子网"><strong>子网</strong>
+</h2><p>一个子网有这两点性质：</p>
 <ul>
 <li>一个子网内的节点（主机或者路由器），它们的<strong>IP地址高位部分相同</strong>，这些节点构成的网络叫做子网</li>
 <li>子网内各主机可以在物理上相互直接到达，<strong>无需借助路由器</strong></li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132218317.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132218317.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>判断子网的方法：</p>
 <p>为了确定子网，分开主机和路由器的每个接口，<strong>产生几个隔离的网络岛</strong>，使用接口端连接这些隔离的网络的端点</p>
 <p><strong>这些隔离的网络中的每一个都是一个子网</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132218241.png" alt=""></p>
-<h4 id="子网掩码">
-  <strong>子网掩码</strong>
-  <a class="heading-link" href="#%e5%ad%90%e7%bd%91%e6%8e%a9%e7%a0%81">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p>子网掩码可以分离出IP地址中的网络地址和主机地址，因为两台主机要通信，<strong>首先要判断是否处于同一网段，即网络地址是否相同</strong>。如果相同，那么可以把数据包直接发送到目标主机，否则就需要路由网关将数据包转发送到目的地。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132218241.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h4 id="子网掩码"><strong>子网掩码</strong>
+</h4><p>子网掩码可以分离出IP地址中的网络地址和主机地址，因为两台主机要通信，<strong>首先要判断是否处于同一网段，即网络地址是否相同</strong>。如果相同，那么可以把数据包直接发送到目标主机，否则就需要路由网关将数据包转发送到目的地。</p>
 <p><strong>子网掩码的表示方法：</strong></p>
 <ol>
 <li><strong>点分十进制表示法</strong><br>
@@ -454,21 +627,9 @@
 <p>++形如++<strong>++223.1.1.0/24++</strong>++的子网地址，其中的++<strong>++/24++</strong>++即++<strong>++子网掩码++</strong>++,表示32个比特中++<strong>++最左侧的24比特++</strong>++定义了++<strong>++子网的地址++</strong>++，后面的++<strong>++8比特++</strong>++定义了++<strong>++子网内主机的地址++</strong>++，即++<strong>++网络地址++</strong>++和++<strong>++主机地址++</strong></p>
 <p>223.1.1.0即网络地址也可以称为该IP地址的<strong>前缀</strong></p>
 <hr>
-<h2 id="ip地址的分类">
-  <strong>IP地址的分类</strong>
-  <a class="heading-link" href="#ip%e5%9c%b0%e5%9d%80%e7%9a%84%e5%88%86%e7%b1%bb">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<h4 id="abc类地址">
-  <strong>ABC类地址</strong>
-  <a class="heading-link" href="#abc%e7%b1%bb%e5%9c%b0%e5%9d%80">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p><strong>A类IP地址：</strong></p>
+<h2 id="ip地址的分类"><strong>IP地址的分类</strong>
+</h2><h4 id="abc类地址"><strong>ABC类地址</strong>
+</h4><p><strong>A类IP地址：</strong></p>
 <ul>
 <li>
 <p><strong>网络地址范围</strong>：<code>0.0.0.0</code> 到 <code>127.255.255.255</code></p>
@@ -531,38 +692,43 @@
 <li>B类IP：16,384个网络，每个网络有 <code>65,534</code> 个主机。</li>
 <li>C类IP：2,097,152个网络，每个网络有 <code>254</code> 个主机。</li>
 </ul>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/08eec5221f7a43db0aac7cd32ec94b7e.png" alt="image"></p>
-<h4 id="一些特定的ip地址">
-  <strong>一些特定的IP地址</strong>
-  <a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e7%89%b9%e5%ae%9a%e7%9a%84ip%e5%9c%b0%e5%9d%80">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/08eec5221f7a43db0aac7cd32ec94b7e.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image"
+	
+	
+></p>
+<h4 id="一些特定的ip地址"><strong>一些特定的IP地址</strong>
+</h4><ul>
 <li><strong>子网部分</strong>:全为 0&mdash;本网络</li>
 <li><strong>主机部分</strong>:全为0&mdash;本主机</li>
 <li><strong>主机部分</strong>:全为1&ndash;广播地址，这个网络的所有主机</li>
 </ul>
-<h4 id="内网专用ip地址">
-  <strong>内网（专用）IP地址</strong>
-  <a class="heading-link" href="#%e5%86%85%e7%bd%91%e4%b8%93%e7%94%a8ip%e5%9c%b0%e5%9d%80">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132219363.png" alt=""></p>
+<h4 id="内网专用ip地址"><strong>内网（专用）IP地址</strong>
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132219363.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p><strong>++这些IP地址只在局部网络中有意义，且不会当作公用地址来分配++</strong></p>
 <hr>
-<h2 id="cidr">
-  <strong>CIDR</strong>
-  <a class="heading-link" href="#cidr">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<p>**CIDR（无类域间路由，Classless Inter-Domain Routing）**是一种用于 IP 地址分配和路由的方式，取代了早期基于 A、B、C 类网络的方式，使 IP 地址分配更灵活和高效。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132226702.png" alt=""></p>
+<h2 id="cidr"><strong>CIDR</strong>
+</h2><p>**CIDR（无类域间路由，Classless Inter-Domain Routing）**是一种用于 IP 地址分配和路由的方式，取代了早期基于 A、B、C 类网络的方式，使 IP 地址分配更灵活和高效。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132226702.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p><strong>CIDR 表示法：</strong></p>
 <p>CIDR 表示法通常写成 <code>IP地址/前缀长度</code>，例如 <code>192.168.1.0/24</code>。其中：</p>
 <ul>
@@ -571,18 +737,19 @@
 </ul>
 <p>在 <code>192.168.1.0/24</code> 中，<code>/24</code> 表示前 24 位是网络位，剩下的 8 位是主机位。这表示一个包含 256 个地址的网络范围（从 <code>192.168.1.0</code> 到 <code>192.168.1.255</code>）</p>
 <p><strong>CIDR的转发表和转发算法：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132219721.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132219721.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>其中的默认表项也称为<strong>默认网关</strong></p>
 <p><strong>默认网关（Default Gateway）</strong> 是指在计算机网络中，当计算机需要与其他网络（如互联网）上的设备通信时，无法直接找到目的地的IP地址时，<strong>计算机会将数据包发送到目的路由器或网关设备。</strong></p>
 <p><strong>它充当了一个桥梁，帮助本地网络与外部网络（如互联网）进行通信</strong></p>
-<h4 id="下一跳next-hop">
-  <strong>下一跳（Next Hop）</strong>
-  <a class="heading-link" href="#%e4%b8%8b%e4%b8%80%e8%b7%b3next-hop">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p>下一跳（Next Hop）指的是数据包在传输过程中经过的下一个路由器或网络设备。它是数据包从源设备到目标设备之间的一个转发步骤、</p>
+<h4 id="下一跳next-hop"><strong>下一跳（Next Hop）</strong>
+</h4><p>下一跳（Next Hop）指的是数据包在传输过程中经过的下一个路由器或网络设备。它是数据包从源设备到目标设备之间的一个转发步骤、</p>
 <p>在<strong>路由器的路由表</strong>中，每一条路由规则都指定了一个<strong>目标网络</strong>和一个<strong>下一跳地址</strong>。下一跳是数据包在经过当前路由器后需要发送的下一个路由器或网络设备的IP地址。</p>
 <p>下一跳通常出现在分组访问互联网或者同一路由器的不同子网访问之间：</p>
 <ol>
@@ -611,26 +778,14 @@
 </li>
 </ol>
 <hr>
-<h2 id="ip地址的获取">
-  <strong>IP地址的获取</strong>
-  <a class="heading-link" href="#ip%e5%9c%b0%e5%9d%80%e7%9a%84%e8%8e%b7%e5%8f%96">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<p>有两种方法可以获取到IP地址：</p>
+<h2 id="ip地址的获取"><strong>IP地址的获取</strong>
+</h2><p>有两种方法可以获取到IP地址：</p>
 <ul>
 <li>由网络管理员分配IP地址到你的主机，通常配置在一个系统文件中</li>
 <li>通过<strong>DHCP</strong>从服务器中<strong>动态获取IP地址</strong></li>
 </ul>
-<h4 id="dhcp">
-  <strong>DHCP</strong>
-  <a class="heading-link" href="#dhcp">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p>作用：允许主机在加入网络时，<strong>动态地从服务器中获取IP地址</strong></p>
+<h4 id="dhcp"><strong>DHCP</strong>
+</h4><p>作用：允许主机在加入网络时，<strong>动态地从服务器中获取IP地址</strong></p>
 <p>网络管理员能够配置DHCP，以使某给定主机每次与网络连接时能得到一个<strong>相同的IP地址</strong>，或者某主机被分配<strong>一个临时的IP地址</strong></p>
 <p>除了主机IP地址分配外， DHCP还允许一台主机得到其他信息，比如子网掩码，第一跳路由器地址，和本地DNS服务器地址</p>
 <p><strong>DHCP作用及特点：</strong></p>
@@ -640,19 +795,34 @@
 <li>DHCP一般不为服务器分配IP，因为他们要使用固定IP，所以DHCP一般只为办公环境的主机分配IP。 </li>
 <li>DHCP服务器和客户端需要在一个局域网内，在为客户端分配IP的时候需要进行多次广播。但DHCP也可以为其他网段内主机分配IP，只要连接两个网段中间的路由器能转发DHCP配置请求即可，但这要求路由器配置中继功能。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042329797.jpg" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142123969.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042329797.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142123969.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>下面是一个使用DHCP协议配置IP地址的示例：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142141549.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142141549.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <p>DHCP（动态主机配置协议）分配IP地址的过程涉及以下几个步骤：</p>
-<h4 id="1-dhcp-discover客户端请求">
-  1. <strong>DHCP Discover（客户端请求）</strong>
-  <a class="heading-link" href="#1-dhcp-discover%e5%ae%a2%e6%88%b7%e7%ab%af%e8%af%b7%e6%b1%82">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="1-dhcp-discover客户端请求">1. <strong>DHCP Discover（客户端请求）</strong>
+</h4><ul>
 <li>
 <p><strong>背景</strong>：当一个新的设备（客户端）接入网络时，它不知道自己的IP地址，因此需要通过DHCP来自动获取一个可用的IP地址。</p>
 </li>
@@ -663,14 +833,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-dhcp-offer服务器提供ip">
-  2. <strong>DHCP Offer（服务器提供IP）</strong>
-  <a class="heading-link" href="#2-dhcp-offer%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%8f%90%e4%be%9bip">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="2-dhcp-offer服务器提供ip">2. <strong>DHCP Offer（服务器提供IP）</strong>
+</h4><ul>
 <li>
 <p><strong>背景</strong>：当网络中的DHCP服务器收到 <strong>DHCP Discover</strong> 请求后，它会根据服务器的IP地址池选择一个可用的IP地址，并返回一个 <strong>DHCP Offer（DHCP提供报文）</strong> 消息给客户端。</p>
 </li>
@@ -688,14 +852,8 @@
 <p>这个过程是由DHCP服务器针对客户端的 <strong>DHCP Discover</strong> 消息做出的响应。重要的是，多个DHCP服务器可能会对同一个客户端的请求作出响应，因此客户端可能会收到多个 <strong>DHCP Offer</strong> 消息。</p>
 </li>
 </ul>
-<h4 id="3-dhcp-request客户端确认">
-  3. <strong>DHCP Request（客户端确认）</strong>
-  <a class="heading-link" href="#3-dhcp-request%e5%ae%a2%e6%88%b7%e7%ab%af%e7%a1%ae%e8%ae%a4">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="3-dhcp-request客户端确认">3. <strong>DHCP Request（客户端确认）</strong>
+</h4><ul>
 <li>
 <p><strong>背景</strong>：客户端收到一个或多个 <strong>DHCP Offer</strong> 后，会选择一个提供的IP地址，并通知所有DHCP服务器它选择了哪一个。</p>
 </li>
@@ -710,14 +868,8 @@
 <p>在这个阶段，客户端告诉DHCP服务器它接受某个 <strong>DHCP Offer</strong> 中的IP地址，并且请求分配该IP地址。其他DHCP服务器收到这个请求后，会知道该客户端已经选择了其他服务器的IP，因此不再做回应。</p>
 </li>
 </ul>
-<h4 id="4-dhcp-ack服务器确认">
-  4. <strong>DHCP ACK（服务器确认）</strong>
-  <a class="heading-link" href="#4-dhcp-ack%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%a1%ae%e8%ae%a4">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="4-dhcp-ack服务器确认">4. <strong>DHCP ACK（服务器确认）</strong>
+</h4><ul>
 <li>
 <p><strong>背景</strong>：当DHCP服务器收到客户端的 <strong>DHCP Request</strong> 消息后，表示客户端已经确认接受了该服务器提供的IP地址。服务器会确认并完成地址分配过程。</p>
 </li>
@@ -731,23 +883,11 @@
 </li>
 </ul>
 <hr>
-<h2 id="网络地址转换nat技术">
-  <strong>网络地址转换NAT技术</strong>
-  <a class="heading-link" href="#%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2nat%e6%8a%80%e6%9c%af">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h2>
-<p>网络地址转换技术NAT（Network Address Translation）主要用于实现位于内部网络的主机访问外部网络的功能。</p>
+<h2 id="网络地址转换nat技术"><strong>网络地址转换NAT技术</strong>
+</h2><p>网络地址转换技术NAT（Network Address Translation）主要用于实现位于内部网络的主机访问外部网络的功能。</p>
 <p>当局域网内的主机需要访问外部网络时，通过NAT技术可以<strong>将其私网地址转换为公网地址</strong>，并且<strong>多个私网用户可以共用一个公网地址</strong>，这样既可保证网络互通，又节省了公网地址。</p>
-<h4 id="技术原理">
-  <strong>技术原理</strong>
-  <a class="heading-link" href="#%e6%8a%80%e6%9c%af%e5%8e%9f%e7%90%86">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p>NAT通过<strong>转换数据包中的源IP地址或目标IP地址</strong>，使得多个设备能够通过一个公网IP访问互联网。</p>
+<h4 id="技术原理"><strong>技术原理</strong>
+</h4><p>NAT通过<strong>转换数据包中的源IP地址或目标IP地址</strong>，使得多个设备能够通过一个公网IP访问互联网。</p>
 <p>这通常用于私有网络（如家庭或公司网络），其中内部设备使用私有IP地址，而公网IP地址由网络的NAT设备进行共享。</p>
 <ul>
 <li>NAT使能路由器对外界来说不像路由器，它对外界的行为如同一个<strong>具有单一IP地址的单一设备。</strong></li>
@@ -755,25 +895,20 @@
 <li>NAT路由器对外隐藏了家庭网络（内网）的细节</li>
 </ul>
 <p>即家庭网络设备<strong>共享同一个IPV4地址</strong>，它们的内网地址为<strong>私有地址</strong>，或者是32位<strong>子网地址</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142206824.png" alt=""></p>
-<h4 id="nat穿越问题">
-  <strong>NAT穿越问题</strong>
-  <a class="heading-link" href="#nat%e7%a9%bf%e8%b6%8a%e9%97%ae%e9%a2%98">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p>NAT穿越问题是指在NAT（网络地址转换）环境下，<strong>如何让位于私有网络中的设备能够与外部网络（通常是互联网）中的设备直接通信。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142206824.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h4 id="nat穿越问题"><strong>NAT穿越问题</strong>
+</h4><p>NAT穿越问题是指在NAT（网络地址转换）环境下，<strong>如何让位于私有网络中的设备能够与外部网络（通常是互联网）中的设备直接通信。</strong></p>
 <p>由于NAT在处理数据包时会修改源IP地址和端口号，这可能会导致内部设备无法直接被外部设备访问，从而阻碍了某些类型的通信，<strong>特别是端到端（P2P）通信</strong></p>
 <p>NAT（网络地址转换）转换表的实现方式主要有几种方案，具体取决于NAT类型、使用的协议以及应用的需求。不同的方案对于IP地址和端口的映射方式有所不同。以下是常见的几种NAT转换表方案：</p>
-<h4 id="1-静态nat转换表">
-  1. <strong>静态NAT转换表</strong>
-  <a class="heading-link" href="#1-%e9%9d%99%e6%80%81nat%e8%bd%ac%e6%8d%a2%e8%a1%a8">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="1-静态nat转换表">1. <strong>静态NAT转换表</strong>
+</h4><ul>
 <li>
 <p><strong>概述</strong>：在静态NAT中，内网的私有IP地址被永久映射到外网的一个公网IP地址。这种映射是一对一的，即每个私有IP地址始终对应一个公网IP地址。</p>
 </li>
@@ -798,14 +933,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-动态nat转换表">
-  2. <strong>动态NAT转换表</strong>
-  <a class="heading-link" href="#2-%e5%8a%a8%e6%80%81nat%e8%bd%ac%e6%8d%a2%e8%a1%a8">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="2-动态nat转换表">2. <strong>动态NAT转换表</strong>
+</h4><ul>
 <li>
 <p><strong>概述</strong>：动态NAT将内网设备的私有IP地址映射到一个公网IP池中的公网IP地址。每当内网设备请求外部连接时，NAT设备会从公网IP池中分配一个公网IP地址给其使用，映射可能会在会话结束后解除。</p>
 </li>
@@ -830,14 +959,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="3-端口地址转换patport-address-translation">
-  3. <strong>端口地址转换（PAT，Port Address Translation）</strong>
-  <a class="heading-link" href="#3-%e7%ab%af%e5%8f%a3%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2patport-address-translation">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="3-端口地址转换patport-address-translation">3. <strong>端口地址转换（PAT，Port Address Translation）</strong>
+</h4><ul>
 <li>
 <p><strong>概述</strong>：PAT（也叫做过载NAT）是动态NAT的一种特殊形式，多个内网设备共享一个公网IP地址，通过不同的端口号来区分每个会话。它通过对端口号进行映射，允许多个内网设备同时使用一个公网IP地址访问外部网络。</p>
 </li>
@@ -864,14 +987,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="4-双向natbi-directional-nat">
-  4. <strong>双向NAT（Bi-directional NAT）</strong>
-  <a class="heading-link" href="#4-%e5%8f%8c%e5%90%91natbi-directional-nat">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="4-双向natbi-directional-nat">4. <strong>双向NAT（Bi-directional NAT）</strong>
+</h4><ul>
 <li>
 <p><strong>概述</strong>：双向NAT是一种更复杂的转换方式，通常用于需要双向通信的场景（如P2P连接）。双向NAT允许在两个NAT设备之间的连接时，进行双向IP和端口映射。</p>
 </li>
@@ -891,69 +1008,47 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142215321.png" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142216932.png" alt=""></p>
-<h4 id="nat技术的争议和不足">
-  <strong>nat技术的争议和不足</strong>
-  <a class="heading-link" href="#nat%e6%8a%80%e6%9c%af%e7%9a%84%e4%ba%89%e8%ae%ae%e5%92%8c%e4%b8%8d%e8%b6%b3">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<p>NAT（网络地址转换）技术广泛应用于解决IPv4地址短缺问题，它通过将内网设备的私有IP地址映射到公网IP地址，从而使多个内网设备共享一个公网IP。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142215321.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142216932.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h4 id="nat技术的争议和不足"><strong>nat技术的争议和不足</strong>
+</h4><p>NAT（网络地址转换）技术广泛应用于解决IPv4地址短缺问题，它通过将内网设备的私有IP地址映射到公网IP地址，从而使多个内网设备共享一个公网IP。</p>
 <p>这种技术的普及，尤其是在家庭和企业网络中，有许多好处，但也存在一些争议和不足：</p>
-<h4 id="1-nat与端到端通信模型的冲突">
-  1. <strong>NAT与端到端通信模型的冲突</strong>
-  <a class="heading-link" href="#1-nat%e4%b8%8e%e7%ab%af%e5%88%b0%e7%ab%af%e9%80%9a%e4%bf%a1%e6%a8%a1%e5%9e%8b%e7%9a%84%e5%86%b2%e7%aa%81">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="1-nat与端到端通信模型的冲突">1. <strong>NAT与端到端通信模型的冲突</strong>
+</h4><ul>
 <li><strong>争议点</strong>：<strong>NAT技术的最大争议之一在于它破坏了传统的“端到端”通信模型</strong>。在没有NAT的情况下，互联网中的每个设备都可以直接访问其他设备，确保了点对点通信的透明性。NAT通过修改IP地址和端口号，将内网设备隐藏在一个公网IP地址后面，从而阻止了外部设备直接访问内网设备。</li>
 <li><strong>不足之处</strong>：这种干预使得许多基于端到端通信的协议（如某些P2P协议、VoIP、FTP等）无法正常工作，或者需要复杂的NAT穿越技术来确保通信的畅通。这样不仅增加了通信的复杂性，还可能带来性能下降和安全问题。</li>
 </ul>
-<h4 id="2-nat穿越问题">
-  2. <strong>NAT穿越问题</strong>
-  <a class="heading-link" href="#2-nat%e7%a9%bf%e8%b6%8a%e9%97%ae%e9%a2%98">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="2-nat穿越问题">2. <strong>NAT穿越问题</strong>
+</h4><ul>
 <li><strong>争议点</strong>：NAT穿越是指如何使得位于NAT背后的内网设备能够与外部设备进行直接通信。为了实现NAT穿越，通常需要使用额外的技术（如STUN、TURN、UPnP等），但这些技术并非总是有效，尤其是在更复杂的NAT类型（如对称NAT）下。</li>
 <li><strong>不足之处</strong>：NAT穿越问题使得P2P通信、VoIP通话、远程桌面等应用变得复杂且不稳定，特别是当NAT设备的配置无法灵活调整时。此外，很多NAT穿越技术（如STUN）在某些网络环境下并不起作用，这导致了用户在尝试进行某些类型的连接时遇到困难。</li>
 </ul>
-<h4 id="3-ip地址和端口号的混淆">
-  3. <strong>IP地址和端口号的混淆</strong>
-  <a class="heading-link" href="#3-ip%e5%9c%b0%e5%9d%80%e5%92%8c%e7%ab%af%e5%8f%a3%e5%8f%b7%e7%9a%84%e6%b7%b7%e6%b7%86">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="3-ip地址和端口号的混淆">3. <strong>IP地址和端口号的混淆</strong>
+</h4><ul>
 <li><strong>争议点</strong>：NAT通过将内网设备的私有IP地址和端口号映射到公网IP地址和端口号，导致了IP地址和端口号之间的混淆。特别是在端口地址转换（PAT）中，多个内网设备会共享一个公网IP地址，不同的设备通过不同的端口进行区分。这种方式虽然节省了公网IP地址，但也带来了端口管理的复杂性。</li>
 <li><strong>不足之处</strong>：端口号的映射带来了许多挑战，包括端口冲突（当多个设备尝试使用相同的端口号时）、端口跟踪问题（例如在多个会话同时进行时难以跟踪每个会话的状态）以及性能瓶颈。此外，某些协议对端口映射的依赖可能会导致数据包在NAT设备前后出现不一致，从而影响协议的正确性。</li>
 </ul>
-<h4 id="4-网络性能的潜在影响">
-  4. <strong>网络性能的潜在影响</strong>
-  <a class="heading-link" href="#4-%e7%bd%91%e7%bb%9c%e6%80%a7%e8%83%bd%e7%9a%84%e6%bd%9c%e5%9c%a8%e5%bd%b1%e5%93%8d">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="4-网络性能的潜在影响">4. <strong>网络性能的潜在影响</strong>
+</h4><ul>
 <li><strong>争议点</strong>：NAT的使用虽然减少了对公网IP地址的需求，但也可能影响网络性能，特别是在使用PAT（端口地址转换）时。NAT设备需要对每个数据包进行地址和端口号的修改，可能会导致一定的延迟。</li>
 <li><strong>不足之处</strong>：当多个内网设备同时访问外部网络时，NAT设备可能会成为瓶颈，导致性能下降。特别是在使用NAT时，数据包的处理、映射表的管理以及会话跟踪可能需要消耗较多的CPU和内存资源，增加了网络的延迟和复杂性。</li>
 </ul>
-<h4 id="5-安全性问题">
-  5. <strong>安全性问题</strong>
-  <a class="heading-link" href="#5-%e5%ae%89%e5%85%a8%e6%80%a7%e9%97%ae%e9%a2%98">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="5-安全性问题">5. <strong>安全性问题</strong>
+</h4><ul>
 <li>
 <p><strong>争议点</strong>：虽然NAT可以隐藏内网设备的真实IP地址，从而在一定程度上提供了“安全性”，但它并不是一种有效的安全机制。NAT并没有从根本上解决网络攻击问题，反而可能带来一些隐性风险。</p>
 </li>
@@ -966,142 +1061,236 @@
 </ul>
 </li>
 </ul>
-<h4 id="6-ipv6的挑战">
-  6. <strong>IPv6的挑战</strong>
-  <a class="heading-link" href="#6-ipv6%e7%9a%84%e6%8c%91%e6%88%98">
-    <i class="fa-solid fa-link" aria-hidden="true" title="链接到标题"></i>
-    <span class="sr-only">链接到标题</span>
-  </a>
-</h4>
-<ul>
+<h4 id="6-ipv6的挑战">6. <strong>IPv6的挑战</strong>
+</h4><ul>
 <li><strong>争议点</strong>：IPv6设计之初就不依赖NAT，因为IPv6提供了几乎无限的IP地址空间，可以为每个设备分配一个独立的公网IP，这样就不需要NAT。然而，在IPv6逐步普及之前，NAT依然是IPv4环境中的主要解决方案。</li>
 <li><strong>不足之处</strong>：虽然NAT可以延缓IPv4地址枯竭，但它并没有从根本上解决IPv4的地址空间问题。而且，<strong>随着IPv6的普及，NAT的存在被认为是一种过渡技术</strong>，并不符合现代网络架构的要求。尽管IPv6解决了IP地址分配问题，但要实现全球范围的IPv6迁移仍然需要时间和努力。</li>
 </ul>
 <hr>
 
-      </div>
+</section>
 
 
-      <footer>
+    <footer class="article-footer">
+    
+    <section class="article-tags">
         
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+        
+    </section>
 
 
-        <div id="disqus_thread"></div>
-<script>
-  window.disqus_config = function () {
     
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
     
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-    
-    document.addEventListener('themeChanged', function (e) { 
-        if (document.readyState == 'complete') {
-          DISQUS.reset({ reload: true, config: disqus_config });
-        }
-    });
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
 </script>
-        
-        
-        
-        
-        
-        
-      </footer>
-    </article>
+    
+</article>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
-    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
-  
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
-    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
-    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body,
-      {
-        delimiters: [
-          {left: '$$', right: '$$', display:true},
-          {left: '$', right: '$', display:false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ]
-      }
-    );"></script>
-  </section>
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/post_301732386019327/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">自治系统内部的路由选择</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_132911105916910/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">搜索结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
 
     </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-      2019 -
-    
-    2024
-     fsj2009yx 
-    ·
-    
-    技术支持 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
-    
-  </section>
-</footer>
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
-  </main>
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-  
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
 
-  
-  
-  <script src="/js/coder.js"></script>
-  
+        document.head.appendChild(customFont);
+    }());
+</script>
 
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
+    </body>
 </html>

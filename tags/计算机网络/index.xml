@@ -1,33 +1,1237 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>计算机网络 on fsj2009yx</title>
-    <link>http://localhost:1313/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
-    <description>Recent content in 计算机网络 on fsj2009yx</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Dec 2024 22:27:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>自治系统内部的路由选择</title>
-      <link>http://localhost:1313/posts/post_301732386019327/</link>
-      <pubDate>Fri, 06 Dec 2024 22:27:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/post_301732386019327/</guid>
-      <description>&lt;h1 id=&#34;自治系统内部的路由选择&#34;&gt;&#xD;&#xA;  自治系统内部的路由选择&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e8%87%aa%e6%b2%bb%e7%b3%bb%e7%bb%9f%e5%86%85%e9%83%a8%e7%9a%84%e8%b7%af%e7%94%b1%e9%80%89%e6%8b%a9&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;路由信息协议rip&#34;&gt;&#xD;&#xA;  &lt;strong&gt;路由信息协议（RIP）&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e8%b7%af%e7%94%b1%e4%bf%a1%e6%81%af%e5%8d%8f%e8%ae%aerip&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;路由信息协议&lt;/strong&gt;（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种&lt;strong&gt;分布式&lt;/strong&gt;的&lt;strong&gt;基于距离向量的&lt;/strong&gt;路由选择协议，其最大优点就是&lt;strong&gt;简单&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;该协议的规定及工作原理&#34;&gt;&#xD;&#xA;  &lt;strong&gt;该协议的规定及工作原理：&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e8%af%a5%e5%8d%8f%e8%ae%ae%e7%9a%84%e8%a7%84%e5%ae%9a%e5%8f%8a%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。&lt;/li&gt;&#xA;&lt;li&gt;距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。&lt;/li&gt;&#xA;&lt;li&gt;RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。&lt;/li&gt;&#xA;&lt;li&gt;RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。&lt;/li&gt;&#xA;&lt;li&gt;RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。&lt;/li&gt;&#xA;&lt;li&gt;在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;rip协议缺点&#34;&gt;&#xD;&#xA;  &lt;strong&gt;RIP协议缺点：&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#rip%e5%8d%8f%e8%ae%ae%e7%bc%ba%e7%82%b9&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;RIP限制了网络的规模，&lt;strong&gt;它能使用的最大距离为15（16表示不可达)&lt;/strong&gt;。&lt;/li&gt;&#xA;&lt;li&gt;路由器之间交换的是路由器中的完整路由表，因此&lt;strong&gt;网络规模越大，开销也越大&lt;/strong&gt;。&lt;/li&gt;&#xA;&lt;li&gt;网络出现故障时，会出现&lt;strong&gt;慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)&lt;/strong&gt;，俗称“坏消息传得慢”，使更新过程的收敛时间长&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;rip协议特点&#34;&gt;&#xD;&#xA;  &lt;strong&gt;RIP协议特点：&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#rip%e5%8d%8f%e8%ae%ae%e7%89%b9%e7%82%b9&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;仅和相邻路由器交换信息。&lt;/li&gt;&#xA;&lt;li&gt;路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。&lt;/li&gt;&#xA;&lt;li&gt;按固定的时间间隔交换路由信息，如每隔30秒。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170921028.png&#34; alt=&#34;9d36bf39f8c442d5e323c61b375dc0df&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;毒性逆转&#34;&gt;&#xD;&#xA;  &lt;strong&gt;毒性逆转&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e6%af%92%e6%80%a7%e9%80%86%e8%bd%ac&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。&lt;/p&gt;&#xA;&lt;p&gt;然而，在毒性逆转中，&lt;strong&gt;路由器会将这个不可达的路由信息发送回给原来的邻居路由器&lt;/strong&gt;，但是将距离值设置为无穷大。这样做的&lt;strong&gt;目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在&lt;strong&gt;普通的距离向量路由选择算法&lt;/strong&gt;中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在&lt;strong&gt;毒性逆转&lt;/strong&gt;中，路由器 A 会将目的地 D 的距离值设置为无穷大，&lt;strong&gt;并将这个更新消息发送回给路由器 B&lt;/strong&gt;。这样一来，路由器 B 就知道了目的地 D 不可达，并且&lt;strong&gt;不会再将数据发送给路由器 A&lt;/strong&gt;。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>计算机网络计算</title>
-      <link>http://localhost:1313/posts/post_132911105916910/</link>
-      <pubDate>Fri, 06 Dec 2024 09:51:53 +0800</pubDate>
-      <guid>http://localhost:1313/posts/post_132911105916910/</guid>
-      <description>&lt;h1 id=&#34;计算机网络计算&#34;&gt;&#xD;&#xA;  计算机网络计算&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e8%ae%a1%e7%ae%97&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;时延&#34;&gt;&#xD;&#xA;  时延&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e6%97%b6%e5%bb%b6&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;总时延=处理时延+排队时延+传输时延+传播时延&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;处理时延&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;处理时延的计算通常依赖于设备的处理能力，与数据包的大小有关&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;排队时延&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;分组在进入路由器后要现在输入&lt;a href=&#34;https://edu.csdn.net/course/detail/40020?utm_source=glcblog&amp;amp;spm=1001.2101.3001.7020&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;队列&lt;/a&gt;中排队等待处理。在路由器确定了转发接口后，还要在输出队列中排队等待转发&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;传输时延（发送时延）&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;是主机或&lt;a href=&#34;https://so.csdn.net/so/search?q=%e8%b7%af%e7%94%b1%e5%99%a8&amp;amp;spm=1001.2101.3001.7020&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;路由器&lt;/a&gt;发送数据帧所需要的时间，也就是从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需的时间&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;计算公式：数据帧长度(b) / 信道带宽(b/s)&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;传播时延&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;电磁波在信道中传播一定的距离需要花费的时间&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;计算公式： 信道长度(m) / 电磁波在信道上的传播速率(m/s)&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;例题&#34;&gt;&#xD;&#xA;  例题：&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e4%be%8b%e9%a2%98&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;【例】考虑两台主机A和主机B由一条带宽为R bps、长度为M米的链路互连，信号传播速率为V m/s。假设主机A从t=0时刻开始向主机B发送分组，分组长度为L比特。试求：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;传播延迟（时延）dp；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;传输延迟dt；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;若忽略结点处理延迟和排队延迟，则端到端延迟de是多少？&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;若dp&amp;gt;dt，则t=dt时刻，分组的第一个比特在哪里？&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;若V=250000km/s，L=512比特，R=100 Mbps，则使带宽时延积刚好为一个分组长度（即512比特）的链路长度M是多少？&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;(注：1k=10^3,1M=10^6)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;解答&#34;&gt;&#xD;&#xA;  解答：&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#%e8%a7%a3%e7%ad%94&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;【解】1）传播时延dp = &lt;strong&gt;信道长度(m) / 电磁波在信道上的传播速率(m/s)&lt;/strong&gt; = &lt;strong&gt;M / V&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;2）传输延迟dt = 数据帧长度(b) / 信道带宽(b/s) = &lt;strong&gt;L / R&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;3）总延迟de = &lt;strong&gt;传播时延 + 传输延迟&lt;/strong&gt; = &lt;strong&gt;M / V + L / R&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>IPV4</title>
-      <link>http://localhost:1313/posts/post_16861929726775/</link>
-      <pubDate>Wed, 04 Dec 2024 23:25:47 +0800</pubDate>
-      <guid>http://localhost:1313/posts/post_16861929726775/</guid>
-      <description>&lt;h1 id=&#34;ipv4&#34;&gt;&#xD;&#xA;  IPV4&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ipv4&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ip数据报&#34;&gt;&#xD;&#xA;  &lt;strong&gt;IP数据报&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ip%e6%95%b0%e6%8d%ae%e6%8a%a5&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;&lt;strong&gt;TCP&lt;/strong&gt;的数据传输基于&lt;strong&gt;字节流&lt;/strong&gt;，而网络层的分组称为&lt;strong&gt;数据报：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;一个标准的 IPv4 数据报总共有** 20 字节的头部**（不包括可选字段），以及&lt;strong&gt;可变长度的数据部分&lt;/strong&gt;。下面是 IPv4 数据报头部各字段的详细解释：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042331075.png&#34; alt=&#34;image-20241204233113947&#34;&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;1-版本-version&#34;&gt;&#xD;&#xA;  1. &lt;strong&gt;版本 (Version)&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#1-%e7%89%88%e6%9c%ac-version&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h4&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 4 位&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指定 IP 协议的版本。IPv4 中该字段的值为 &lt;code&gt;4&lt;/code&gt;（即 &lt;code&gt;0100&lt;/code&gt; 二进制），表示使用 IPv4 协议。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;2-头部长度-ihl---internet-header-length&#34;&gt;&#xD;&#xA;  2. &lt;strong&gt;头部长度 (IHL - Internet Header Length)&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#2-%e5%a4%b4%e9%83%a8%e9%95%bf%e5%ba%a6-ihl---internet-header-length&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h4&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 4 位&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指定 IPv4 头部的长度（单位是 4 字节）。最小值是 5，表示头部长度为 5 × 4 = 20 字节。若有可选字段，则该值会更大。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;3-服务类型-type-of-service-tos&#34;&gt;&#xD;&#xA;  3. &lt;strong&gt;服务类型 (Type of Service, ToS)&lt;/strong&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#3-%e6%9c%8d%e5%8a%a1%e7%b1%bb%e5%9e%8b-type-of-service-tos&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;链接到标题&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;链接到标题&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h4&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;大小&lt;/strong&gt;: 8 位&lt;/p&gt;</description>
-    </item>
-  </channel>
+    <channel>
+        <title>计算机网络 on fsj2009yx</title>
+        <link>https://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+        <description>Recent content in 计算机网络 on fsj2009yx</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Fri, 06 Dec 2024 22:27:00 +0800</lastBuildDate><atom:link href="https://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>自治系统内部的路由选择</title>
+        <link>https://example.com/posts/post_301732386019327/</link>
+        <pubDate>Fri, 06 Dec 2024 22:27:00 +0800</pubDate>
+        
+        <guid>https://example.com/posts/post_301732386019327/</guid>
+        <description>&lt;h1 id=&#34;自治系统内部的路由选择&#34;&gt;自治系统内部的路由选择
+&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&#34;路由信息协议rip&#34;&gt;&lt;strong&gt;路由信息协议（RIP）&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;路由信息协议&lt;/strong&gt;（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种&lt;strong&gt;分布式&lt;/strong&gt;的&lt;strong&gt;基于距离向量的&lt;/strong&gt;路由选择协议，其最大优点就是&lt;strong&gt;简单&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;该协议的规定及工作原理&#34;&gt;&lt;strong&gt;该协议的规定及工作原理：&lt;/strong&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。&lt;/li&gt;
+&lt;li&gt;距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。&lt;/li&gt;
+&lt;li&gt;RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。&lt;/li&gt;
+&lt;li&gt;RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。&lt;/li&gt;
+&lt;li&gt;RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。&lt;/li&gt;
+&lt;li&gt;在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;rip协议缺点&#34;&gt;&lt;strong&gt;RIP协议缺点：&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;RIP限制了网络的规模，&lt;strong&gt;它能使用的最大距离为15（16表示不可达)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;路由器之间交换的是路由器中的完整路由表，因此&lt;strong&gt;网络规模越大，开销也越大&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;网络出现故障时，会出现&lt;strong&gt;慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)&lt;/strong&gt;，俗称“坏消息传得慢”，使更新过程的收敛时间长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;rip协议特点&#34;&gt;&lt;strong&gt;RIP协议特点：&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;仅和相邻路由器交换信息。&lt;/li&gt;
+&lt;li&gt;路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。&lt;/li&gt;
+&lt;li&gt;按固定的时间间隔交换路由信息，如每隔30秒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170921028.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;9d36bf39f8c442d5e323c61b375dc0df&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;毒性逆转&#34;&gt;&lt;strong&gt;毒性逆转&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。&lt;/p&gt;
+&lt;p&gt;然而，在毒性逆转中，&lt;strong&gt;路由器会将这个不可达的路由信息发送回给原来的邻居路由器&lt;/strong&gt;，但是将距离值设置为无穷大。这样做的&lt;strong&gt;目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在&lt;strong&gt;普通的距离向量路由选择算法&lt;/strong&gt;中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在&lt;strong&gt;毒性逆转&lt;/strong&gt;中，路由器 A 会将目的地 D 的距离值设置为无穷大，&lt;strong&gt;并将这个更新消息发送回给路由器 B&lt;/strong&gt;。这样一来，路由器 B 就知道了目的地 D 不可达，并且&lt;strong&gt;不会再将数据发送给路由器 A&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;毒性逆转&lt;/strong&gt;的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为&lt;strong&gt;无穷大&lt;/strong&gt;，以避免对方将该信息再次传播回来，从而&lt;strong&gt;有效避免路由振荡和环路问题&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;开放最短路径优先ospf协议&#34;&gt;&lt;strong&gt;开放最短路径优先（OSPF）协议&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;开放最短路径优先&lt;/strong&gt;（OSPF）协议是使用&lt;strong&gt;分布式链路状态路由算法&lt;/strong&gt;的典型代表，也是内部网关协议(IGP)的一种。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当&lt;strong&gt;网络规模扩大&lt;/strong&gt;时，路由器的&lt;strong&gt;路由表成比例地增大&lt;/strong&gt;。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用&lt;strong&gt;更多的带宽&lt;/strong&gt;来交换路由状态信息。因此路由选择必须按照&lt;strong&gt;层次的方式&lt;/strong&gt;进行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170929856.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如图，每个链路状态分组&lt;strong&gt;仅在它所属的区域内泛洪&lt;/strong&gt;，从而&lt;strong&gt;限制了链路状态分组泛洪的范围和数量&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Backbone&lt;/strong&gt; 指的是主干区域（Backbone Area），通常被标记为 Area 0。&lt;strong&gt;它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果是&lt;strong&gt;跨区域通信&lt;/strong&gt;，需要以下流程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;链路状态分组首先路由到&lt;strong&gt;边界路由器&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;由边界路由器路由到&lt;strong&gt;backbone&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;由&lt;strong&gt;backbone&lt;/strong&gt;路由到&lt;strong&gt;目标区域&lt;/strong&gt;，再在目标区域内由&lt;strong&gt;边界路由器&lt;/strong&gt;路由到&lt;strong&gt;目标子网路由器&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170937512.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cfae13885ed24861b8e22f2abd45ccde&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;层次路由与自治系统&#34;&gt;&lt;strong&gt;层次路由与自治系统&lt;/strong&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;层次路由方法&#34;&gt;&lt;strong&gt;层次路由方法&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;因特网将整个互联网划分为&lt;strong&gt;较小的自治系统&lt;/strong&gt;（一个自治系统中包含很多局域网)，&lt;strong&gt;每个自治系统内部有自己的路由选择协议&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;如果两个自治系统需要通信，则&lt;strong&gt;需要自治系统之间的协议&lt;/strong&gt;来屏蔽掉这些差异，在下一个部分会介绍响应的路由协议。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;自治系统autonomous-systemas&#34;&gt;&lt;strong&gt;自治系统(Autonomous System，AS):&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;单一技术管理下的一组路由器，这些路由器使用一种&lt;strong&gt;AS内部的路由选择协议&lt;/strong&gt;和共同的度量来确定分组在该AS内的路由，同时还使用一种&lt;strong&gt;AS之间的路由选择协议&lt;/strong&gt;来确定分组在AS之间的路由。
+注：
+一个自治系统内的所有网络都由一个行政单位管辖，一个自治系统的所有路由器在本自治系统内都必须是&lt;strong&gt;连通&lt;/strong&gt;的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OPSF协议就是一种层次路由协议&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170947233.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1b232b6e90dc0115ae29a09d8016b96e&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;边界网关协议bgp&#34;&gt;&lt;strong&gt;边界网关协议（BGP）&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;边界网关协议&lt;/strong&gt;（Border Gateway Protocol，BGP)是&lt;strong&gt;不同自治系统的路由器之间交换路由信息&lt;/strong&gt;的协议，是一种外部网关协议，&lt;strong&gt;基于距离矢量（DV）算法&lt;/strong&gt;。边界网关协议常用于互联网的网关之间。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170949245.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;249a77ad785a3e4ec863fa2aa24fc0b1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;eBGP&lt;/strong&gt;：&lt;strong&gt;AS区域之间&lt;/strong&gt;的路由选择协议&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;iGBP&lt;/strong&gt;：&lt;strong&gt;AS区域内部&lt;/strong&gt;的路由选择协议&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411170955119.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1af8420b08930083e6a6e1000a655376&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如图，1c，2a，2c，3a分别为所属AS区域的&lt;strong&gt;网关&lt;/strong&gt;，一方面&lt;strong&gt;参与AS区域内部的路由选择运算&lt;/strong&gt;，收集内部AS子网可达信息&lt;/p&gt;
+&lt;p&gt;另一方面&lt;strong&gt;将子网可达信息传递给相邻的AS区域&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;例如2c和3a，2c可以告诉&lt;strong&gt;它自己所属区域AS2的子网可达信息&lt;/strong&gt;，也可以告诉3a&lt;strong&gt;通过1c&amp;mdash;2a传递过来的AS1子网可达信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171002730.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6b5f9066ad411289ab29fc8d09c686af&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171004869.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171006725.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;5f3297d68c9c0d54ca3fd4674266fcb3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bgp路径选择&#34;&gt;&lt;strong&gt;BGP路径选择&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171029525.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;dea384621aea07a2f7ce7b952575da17&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;热土豆路由选择&#34;&gt;&lt;strong&gt;热土豆路由选择&lt;/strong&gt;
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;热土豆路由选择算法 (Hot Potato Routing) 是一种&lt;strong&gt;简单的、分布式&lt;/strong&gt;的路由算法，主要用于局域网环境，特别是那些具有广播能力的网络，例如以太网。它的核心思想是&lt;strong&gt;尽快将数据包“扔出去”&lt;/strong&gt;，而不是选择最佳路径。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当一个节点需要发送数据包到另一个节点时，它会检查其&lt;strong&gt;直接相连的邻居节点&lt;/strong&gt;。如果&lt;strong&gt;其中一个邻居节点更接近目标节点&lt;/strong&gt;（这个“接近”通常是指物理距离或跳数，但并不一定精确计算），则&lt;strong&gt;立即将数据包转发给该邻居&lt;/strong&gt;。否则，它会随机选择一个邻居节点转发数据包。&lt;/p&gt;
+&lt;p&gt;它不尝试寻找最佳路径，而是&lt;strong&gt;优先选择任何一个看起来更近的节点，尽力让数据包尽快离开自己&lt;/strong&gt;。 就好比烫手的山芋，尽快扔给别人&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171013283.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;9d73ffb5c55b7a24877e3d85398cbad9&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如图，2d通过iBGP获取到信息，了解到可以通过&lt;strong&gt;2a&lt;/strong&gt;或者&lt;strong&gt;2c&lt;/strong&gt;网关到达X&lt;/p&gt;
+&lt;p&gt;由于2d和2c与2d直接相连，直接将分组转给&lt;strong&gt;2a和2c中能离开本地网络开销最小&lt;/strong&gt;的那一个，&lt;strong&gt;即使是选择另一个到达X的跳数更多&lt;/strong&gt;（201&amp;lt;263，即选择2a）&lt;/p&gt;
+&lt;p&gt;也就是说热土豆路由选择是一种&lt;strong&gt;局部最优，不考虑全局最优&lt;/strong&gt;的路由选择策略&lt;/p&gt;
+&lt;h4 id=&#34;热土豆路由选择的准则&#34;&gt;&lt;strong&gt;热土豆路由选择的准则&lt;/strong&gt;：
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;一个节点拥有多个可能的出口（通常通往不同的外部网络或自治系统）。&lt;/li&gt;
+&lt;li&gt;节点会基于&lt;strong&gt;转发数据包的代价&lt;/strong&gt;（例如链路延迟、跳数、距离等）来选择出口。&lt;/li&gt;
+&lt;li&gt;选择的出口是：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;离开本地网络代价最小的出口&lt;/code&gt;&lt;/strong&gt;&lt;code&gt;。&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;通过路径通告执行策略&#34;&gt;&lt;strong&gt;通过路径通告执行策略&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411171031485.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20241117103117428&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>计算机网络计算</title>
+        <link>https://example.com/posts/post_132911105916910/</link>
+        <pubDate>Fri, 06 Dec 2024 09:51:53 +0800</pubDate>
+        
+        <guid>https://example.com/posts/post_132911105916910/</guid>
+        <description>&lt;h1 id=&#34;计算机网络计算&#34;&gt;计算机网络计算
+&lt;/h1&gt;&lt;h2 id=&#34;时延&#34;&gt;时延
+&lt;/h2&gt;&lt;p&gt;总时延=处理时延+排队时延+传输时延+传播时延&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;处理时延&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;处理时延的计算通常依赖于设备的处理能力，与数据包的大小有关&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;排队时延&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分组在进入路由器后要现在输入&lt;a class=&#34;link&#34; href=&#34;https://edu.csdn.net/course/detail/40020?utm_source=glcblog&amp;amp;spm=1001.2101.3001.7020&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;队列&lt;/a&gt;中排队等待处理。在路由器确定了转发接口后，还要在输出队列中排队等待转发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;传输时延（发送时延）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是主机或&lt;a class=&#34;link&#34; href=&#34;https://so.csdn.net/so/search?q=%e8%b7%af%e7%94%b1%e5%99%a8&amp;amp;spm=1001.2101.3001.7020&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;路由器&lt;/a&gt;发送数据帧所需要的时间，也就是从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需的时间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算公式：数据帧长度(b) / 信道带宽(b/s)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;传播时延&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电磁波在信道中传播一定的距离需要花费的时间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算公式： 信道长度(m) / 电磁波在信道上的传播速率(m/s)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;例题&#34;&gt;例题：
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;【例】考虑两台主机A和主机B由一条带宽为R bps、长度为M米的链路互连，信号传播速率为V m/s。假设主机A从t=0时刻开始向主机B发送分组，分组长度为L比特。试求：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;传播延迟（时延）dp；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;传输延迟dt；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若忽略结点处理延迟和排队延迟，则端到端延迟de是多少？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若dp&amp;gt;dt，则t=dt时刻，分组的第一个比特在哪里？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若V=250000km/s，L=512比特，R=100 Mbps，则使带宽时延积刚好为一个分组长度（即512比特）的链路长度M是多少？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(注：1k=10^3,1M=10^6)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;解答&#34;&gt;解答：
+&lt;/h3&gt;&lt;p&gt;【解】1）传播时延dp = &lt;strong&gt;信道长度(m) / 电磁波在信道上的传播速率(m/s)&lt;/strong&gt; = &lt;strong&gt;M / V&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2）传输延迟dt = 数据帧长度(b) / 信道带宽(b/s) = &lt;strong&gt;L / R&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;3）总延迟de = &lt;strong&gt;传播时延 + 传输延迟&lt;/strong&gt; = &lt;strong&gt;M / V + L / R&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;4）dp &amp;gt; dt意味着最早发送的信号没有到达目的主机之前，数据分组的最后一个比特已经发送出来了，所以&lt;strong&gt;分组的第一个比特在距离主机的V * dt米的链路上&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;5）&lt;strong&gt;时延带宽积 = 传播时延 * 带宽 = M / V * R = 512&lt;/strong&gt;，解之得&lt;strong&gt;M = 1280米&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;流量强度&#34;&gt;流量强度
+&lt;/h2&gt;&lt;h3 id=&#34;定义&#34;&gt;定义：
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;若R=链路带宽（链路宽度），L=分组长度（一个分组的大小），a=分组到达队列的平均速率（分组数量），流量强度公式 ：$I = La/R$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于流量强度的理解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算机网络中的&lt;strong&gt;流量强度&lt;/strong&gt;通常是指在给定时间内网络中传输的数据量，反映了网络的负载程度和资源使用情况。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高流量强度&lt;/strong&gt;：网络中传输的数据量大，可能导致带宽饱和，进而引起延迟、丢包等问题，影响用户体验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412052345286.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20241205234505995&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由图，如果流量强度$≥1$，&lt;strong&gt;排队延时会占总延时的主导，甚至让排队延时趋于无穷大&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;所以我们不能让流量强度$＞1$;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gbnsr和tcp&#34;&gt;GBN，SR和TCP
+&lt;/h2&gt;&lt;p&gt;我们以一个具体的事例来展示三种协议的工作流程：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;假设有两台服务器，A和B，它们之间通过不可靠的网络传输数据。A服务器需要向B服务器发送5个数据分组：P1, P2, P3, P4, P5。在传输过程中，由于网络问题，P3丢失了。以下是三种协议处理这种情况的具体示例：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;回退n步go-back-n-gbn&#34;&gt;回退N步（Go-Back-N, GBN）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;步骤&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A发送P1, P2, P3, P4, P5。&lt;/li&gt;
+&lt;li&gt;B接收到P1和P2，但由于P3丢失，B不会确认P2及之后的任何分组。&lt;/li&gt;
+&lt;li&gt;A的定时器超时，未收到P3的确认。&lt;/li&gt;
+&lt;li&gt;A从P3开始重新发送所有未确认的分组，即P3, P4, P5。&lt;/li&gt;
+&lt;li&gt;B接收到P3, P4, P5，并发送确认。&lt;/li&gt;
+&lt;li&gt;A收到P3, P4, P5的确认，继续后续数据传输。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：GBN会回退到上一个已知正确的分组（P2），然后重新发送之后的所有分组。&lt;/p&gt;
+&lt;h3 id=&#34;选择重传selective-repeat-sr&#34;&gt;选择重传（Selective Repeat, SR）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;步骤&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A发送P1, P2, P3, P4, P5。&lt;/li&gt;
+&lt;li&gt;B接收到P1和P2，但由于P3丢失，B只确认P1和P2。&lt;/li&gt;
+&lt;li&gt;A的定时器超时，未收到P3的确认。&lt;/li&gt;
+&lt;li&gt;A仅重传P3。&lt;/li&gt;
+&lt;li&gt;B接收到P3，并发送确认。&lt;/li&gt;
+&lt;li&gt;A收到P3的确认，继续后续数据传输。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：SR只会重传丢失的分组（P3），而不需要重传P3之后的其他分组。&lt;/p&gt;
+&lt;h3 id=&#34;tcp协议&#34;&gt;TCP协议
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;步骤&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A与B建立TCP连接，进行三次握手。&lt;/li&gt;
+&lt;li&gt;A发送P1, P2, P3, P4, P5。&lt;/li&gt;
+&lt;li&gt;B接收到P1和P2，并发送确认ACK2。&lt;/li&gt;
+&lt;li&gt;A发送窗口滑动，继续发送P3, P4, P5。&lt;/li&gt;
+&lt;li&gt;B&lt;strong&gt;发现P3丢失，不会发送ACK3&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;A的&lt;strong&gt;定时器超时&lt;/strong&gt;，未收到P3的确认。&lt;/li&gt;
+&lt;li&gt;A&lt;strong&gt;重传P3&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;B接收到P3，并发送确认ACK3。&lt;/li&gt;
+&lt;li&gt;A收到ACK3，窗口滑动，继续发送P4和P5。&lt;/li&gt;
+&lt;li&gt;B接收到P4和P5，并发送确认ACK5。&lt;/li&gt;
+&lt;li&gt;A收到ACK5，数据传输完成。&lt;/li&gt;
+&lt;li&gt;A与B断开连接，进行四次挥手。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：TCP使用序列号、确认号、滑动窗口、超时重传等机制来确保数据的可靠传输。在上述示例中，TCP会针对每个丢失的分组进行单独重传，并维护序列号和确认号来确保数据的顺序和完整性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tcp超时重传定时器的选择&#34;&gt;TCP超时重传定时器的选择
+&lt;/h2&gt;&lt;h3 id=&#34;samplertt样本往返时间&#34;&gt;SampleRTT(样本往返时间)
+&lt;/h3&gt;&lt;p&gt;sampleRTT（样本往返时间）是指在TCP连接中，&lt;strong&gt;测量数据包从发送方发送到接收方并返回的时间&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;sampleRTT通常是&lt;strong&gt;动态的&lt;/strong&gt;;&lt;/p&gt;
+&lt;h3 id=&#34;estimatedrtt估计往返时间&#34;&gt;estimatedRTT（估计往返时间）
+&lt;/h3&gt;&lt;p&gt;estimatedRTT（估计往返时间）是TCP协议中用于预测网络延迟的一个重要指标。它基于多个sampleRTT（样本往返时间）值的加权平均计算，旨在&lt;strong&gt;提供一个更稳定和可靠的RTT估计&lt;/strong&gt;，以便用于调整重传定时器（RTO）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：EstimatedRTT的计算公式是一个&lt;strong&gt;编程语法&lt;/strong&gt;，即&lt;strong&gt;右值赋值给左边&lt;/strong&gt;，而且&lt;strong&gt;每一次的SampleRTT是最新的测量数据&lt;/strong&gt;，因为最近的样本能更好的反映网络的当前拥塞状况，称为&lt;strong&gt;指数加权移动平均&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;测量RTT的变化也是有价值的，DevRTT用于估测RTT的变化&lt;/p&gt;
+&lt;h3 id=&#34;计算公式&#34;&gt;计算公式：
+&lt;/h3&gt;&lt;h4 id=&#34;estimatedrtt-估算rtt&#34;&gt;EstimatedRTT 估算RTT：
+&lt;/h4&gt;&lt;p&gt;$\text{EstimatedRTT} = (1 - \alpha) \times \text{EstimatedRTT} + \alpha \times \text{SampleRTT}$&lt;/p&gt;
+&lt;h4 id=&#34;devrtt-rtt偏差&#34;&gt;DevRTT RTT偏差：
+&lt;/h4&gt;&lt;p&gt;$\text{DevRTT} = (1 - \beta) \times \text{DevRTT} + \beta \times \left| \text{SampleRTT} - \text{EstimatedRTT} \right|$&lt;/p&gt;
+&lt;h4 id=&#34;timeoutinterval-超时时间间隔&#34;&gt;TimeoutInterval 超时时间间隔：
+&lt;/h4&gt;&lt;p&gt;$\text{TimeoutInterval} = \text{EstimatedRTT} + 4 \times \text{DevRTT}$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;例题-1&#34;&gt;例题
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;假设有5个 &lt;strong&gt;SampleRTT&lt;/strong&gt;（样本往返时延）测量值，且已知：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;已获得前5个样本之后，EstimatedRTT&lt;/strong&gt; 的初始值为 &lt;strong&gt;100ms&lt;/strong&gt;，&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;已获得前5个样本之后，DevRTT&lt;/strong&gt; 的初始值为 &lt;strong&gt;5ms&lt;/strong&gt;，&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SampleRTT&lt;/strong&gt; 的测量值分别为： &lt;strong&gt;90ms, 110ms, 95ms, 105ms, 100ms&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;假设使用标准的加权因子：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;α=0.125\alpha = 0.125&lt;/strong&gt;（用于计算 &lt;strong&gt;EstimatedRTT&lt;/strong&gt;），&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;β=0.25\beta = 0.25&lt;/strong&gt;（用于计算 &lt;strong&gt;DevRTT&lt;/strong&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;问题：&lt;/strong&gt; 计算 &lt;strong&gt;TimeoutInterval&lt;/strong&gt;，即超时时间间隔。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;解答步骤&#34;&gt;解答步骤：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;计算新的 EstimatedRTT：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;strong&gt;EstimatedRTT&lt;/strong&gt; 的更新公式：&lt;/p&gt;
+&lt;p&gt;$\text{EstimatedRTT} = (1 - \alpha) \times \text{EstimatedRTT}_{\text{old}} + \alpha \times \text{SampleRTT}$&lt;/p&gt;
+&lt;p&gt;其中 $\text{EstimatedRTT}_{\text{old}}$是初始值 &lt;strong&gt;100ms&lt;/strong&gt;，而 &lt;strong&gt;SampleRTT&lt;/strong&gt; 为每次测量的值。&lt;/p&gt;
+&lt;p&gt;计算步骤如下：&lt;/p&gt;
+&lt;p&gt;$\text{EstimatedRTT}_1 = (1 - 0.125) \times 100 + 0.125 \times 90 = 98.75 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{EstimatedRTT}_2 = (1 - 0.125) \times 98.75 + 0.125 \times 110 = 99.84 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{EstimatedRTT}_3 = (1 - 0.125) \times 99.84 + 0.125 \times 95 = 98.88 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{EstimatedRTT}_4 = (1 - 0.125) \times 98.88 + 0.125 \times 105 = 100.16 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{EstimatedRTT}_5 = (1 - 0.125) \times 100.16 + 0.125 \times 100 = 100.12 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;所以，最终的 &lt;strong&gt;EstimatedRTT&lt;/strong&gt; 为 &lt;strong&gt;100.12ms&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;计算新的 DevRTT：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;strong&gt;DevRTT&lt;/strong&gt; 的更新公式：&lt;/p&gt;
+&lt;p&gt;$\text{DevRTT} = (1 - \beta) \times \text{DevRTT}_{\text{old}} + \beta \times \left| \text{SampleRTT} - \text{EstimatedRTT} \right|$&lt;/p&gt;
+&lt;p&gt;初始的 &lt;strong&gt;DevRTT&lt;/strong&gt; 为 &lt;strong&gt;5ms&lt;/strong&gt;。现在逐步计算每个样本的偏差：&lt;/p&gt;
+&lt;p&gt;$\text{DevRTT}_1 = (1 - 0.25) \times 5 + 0.25 \times \left| 90 - 98.75 \right| = 5 + 0.25 \times 8.75 = 6.19 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{DevRTT}_2 = (1 - 0.25) \times 6.19 + 0.25 \times \left| 110 - 99.84 \right| = 5.24 + 0.25 \times 10.16 = 6.81 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{DevRTT}_3 = (1 - 0.25) \times 6.81 + 0.25 \times \left| 95 - 98.88 \right| = 5.10 + 0.25 \times 3.88 = 6.10 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{DevRTT}_4 = (1 - 0.25) \times 6.10 + 0.25 \times \left| 105 - 100.16 \right| = 4.58 + 0.25 \times 4.84 = 6.00 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;$\text{DevRTT}_5 = (1 - 0.25) \times 6.00 + 0.25 \times \left| 100 - 100.12 \right| = 4.50 + 0.25 \times 0.12 = 4.53 , \text{ms}$&lt;/p&gt;
+&lt;p&gt;所以，最终的 &lt;strong&gt;DevRTT&lt;/strong&gt; 为 &lt;strong&gt;4.53ms&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;计算 TimeoutInterval：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;strong&gt;TimeoutInterval&lt;/strong&gt; 的计算公式：&lt;/p&gt;
+&lt;p&gt;$\text{TimeoutInterval} = \text{EstimatedRTT} + 4 \times \text{DevRTT}$&lt;/p&gt;
+&lt;p&gt;将上面得到的 &lt;strong&gt;EstimatedRTT&lt;/strong&gt; 和 &lt;strong&gt;DevRTT&lt;/strong&gt; 代入公式：&lt;/p&gt;
+&lt;p&gt;$\text{TimeoutInterval} = 100.12 + 4 \times 4.53 = 100.12 + 18.12 = 118.24 , \text{ms}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;答案&#34;&gt;答案：
+&lt;/h4&gt;&lt;p&gt;最终的 &lt;strong&gt;TimeoutInterval&lt;/strong&gt; 为 &lt;strong&gt;118.24ms&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tcp拥塞控制&#34;&gt;TCP拥塞控制
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/m0_59749089/article/details/131130334?ops_request_misc=&amp;amp;request_id=&amp;amp;biz_id=102&amp;amp;utm_term=TCP%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6&amp;amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-131130334.nonecase&amp;amp;spm=1018.2226.3001.4187&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TCP拥塞控制-CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;要点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;拥塞窗口cwnd的值是几，就能发送几个数据报文段&lt;/li&gt;
+&lt;li&gt;在一个发送方中未被确认的数据量不会超过cwnd与rwnd的最小值。因为在上面&lt;strong&gt;假设了接收方的接收缓存足够大&lt;/strong&gt;，所以&lt;strong&gt;可以忽略接收窗口rwnd的限制&lt;/strong&gt;，因此在&lt;strong&gt;发送方中未被确认的报文段仅受限于cwnd&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412051006403.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1ee3844a49efc6d33f9099a0889ab82f&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412051006070.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6979d6fe2f957912523320b09c13fdf1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;例题-2&#34;&gt;例题
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;考虑仅有一条单一的TCP连接使用一条10Mbps的链路[1],且该链路没有缓存任何数据，假设这条链路是发送主机和接收主机之间的唯一拥塞链路。假定某TCP发送方向接收方有一个大文件要发送，而接收方的接收缓存比拥塞窗口[2]要大得多。假设每个TCP报文段长度为1500字节；该连接的双向传播时延是120ms;假设该TCP连接能够取得的最大发送窗口长度(以报文段计) 是100，并且该TCP连接总是处于拥塞避免阶段(即忽略了慢启动[3]),拥塞后执行快速恢复算法。请回答以下问题，要求写出具体分析计算过程，只有结果且结果正确得2分。&lt;/p&gt;
+&lt;p&gt;(1)这条TCP连接的平均窗口长度(以报文段计)和平均吞吐量(单位Mbps，保留1位小数)是多少？平均信道利用率是多少？&lt;/p&gt;
+&lt;p&gt;(2)这条TCP连接在从丢包恢复后，忽略发送时延的情况下，再次到达其最大窗口要经历多长时间(单位ms)?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解答：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;（1）最大窗口是100，然后降为50，平均窗口长度为（100+50）/2=75，&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;2分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;发送一个报文段时间是1500&lt;em&gt;8/10^7=1.2ms，一个周期的时间是120ms+1.2=121.2ms 均吞吐量为： 75&lt;/em&gt;1500&lt;em&gt;8/(121.2&lt;/em&gt;10^-3)=7.4Mbps， &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;2分&lt;/p&gt;
+&lt;p&gt;信道利用率=75*1.2/121.2=74.3% &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;2分&lt;/p&gt;
+&lt;p&gt;（2）当数据报[4]丢包后，执行快速恢复算法，拥塞窗口变为原来的1/2即50， &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;2分 *&lt;/p&gt;
+&lt;p&gt;再次恢复到最大窗口执行拥塞避免算法，每一个轮次拥塞窗口增加1，需要100-50=50个轮次，所以需要120ms*50=6000ms. &amp;mdash;&amp;mdash;&amp;mdash;-2分&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412050950859.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;082243c629037e974b7c7c200c799eca_720&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以下是问题的详细解析：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;问题描述&#34;&gt;问题描述：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;带宽&lt;/strong&gt;：链路带宽为 10 Mbps，无缓存数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TCP 报文段&lt;/strong&gt;：每个报文段长度为 1500 字节。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双向传播时延&lt;/strong&gt;：RTT = 150 ms。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TCP 初始阶段&lt;/strong&gt;：假设 TCP 始终处于拥塞避免阶段。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;a-最大窗口长度以报文段计算是多少&#34;&gt;&lt;strong&gt;a. 最大窗口长度（以报文段计算）是多少？&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;公式&lt;/strong&gt;：
+最大窗口长度$ W_{max} $是由**带宽时延积（BDP）**决定的：
+$W_{max} = \frac{\text{带宽} \times \text{RTT}}{\text{每个报文段的大小}}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;计算&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;带宽 =$10 , \text{Mbps} = 10^7 , \text{bps}$&lt;/li&gt;
+&lt;li&gt;RTT =$ 150 , \text{ms} = 0.15 , \text{s}$&lt;/li&gt;
+&lt;li&gt;每个报文段大小 =$1500 , \text{字节} = 1500 \times 8 , \text{bits} = 12000 , \text{bits}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;带宽时延积（BDP）：
+$\text{BDP} = \text{带宽} \times \text{RTT} = 10^7 \times 0.15 = 1.5 \times 10^6 , \text{bits}$&lt;/p&gt;
+&lt;p&gt;最大窗口长度（报文段数）：
+$W_{max} = \frac{\text{BDP}}{\text{报文段大小}} = \frac{1.5 \times 10^6}{12000} = 125 , \text{报文段}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答案&lt;/strong&gt;：最大窗口长度是 &lt;strong&gt;125 报文段&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;b-平均窗口长度报文段与吞吐量bps是多少&#34;&gt;&lt;strong&gt;b. 平均窗口长度（报文段）与吞吐量（bps）是多少？&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;在 &lt;strong&gt;拥塞避免阶段&lt;/strong&gt;，窗口大小会&lt;strong&gt;在 1 到最大窗口之间线性增长&lt;/strong&gt;，因此平均窗口长度为：
+$W_{avg} = \frac{W_{max}}{2} = \frac{125}{2} = 62.5 , \text{报文段}$&lt;/p&gt;
+&lt;p&gt;吞吐量公式：
+$\text{吞吐量} = \frac{W_{avg} \times \text{报文段大小}}{\text{RTT}}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;计算&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$W_{avg} = 62.5 , \text{报文段}$&lt;/li&gt;
+&lt;li&gt;$每个报文段大小 =1500 , \text{字节} = 12000 , \text{bits}$&lt;/li&gt;
+&lt;li&gt;RTT =$0.15 , \text{s}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$\text{吞吐量} = \frac{62.5 \times 12000}{0.15} = 5 \times 10^6 , \text{bps}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答案&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;平均窗口长度：&lt;strong&gt;62.5 报文段&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;吞吐量：&lt;strong&gt;5 Mbps&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;c-从丢包恢复到达到最大窗口要经历多长时间&#34;&gt;&lt;strong&gt;c. 从丢包恢复到达到最大窗口要经历多长时间？&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;在丢包后，TCP Reno 的窗口会减半，从$W_{max}/2 开始，并以线性增长至 W_{max}。$
+需要时间计算如下：
+$\text{时间} = \frac{W_{max}/2}{RTT}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;计算&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$W_{max} = 125 , \text{报文段}$&lt;/li&gt;
+&lt;li&gt;RTT =$0.15 , \text{s}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;时间：
+$\text{时间} = \frac{125/2}{0.15} = 62.5 \times 0.15 = 9.375 , \text{s}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答案&lt;/strong&gt;：需要 &lt;strong&gt;9.375 秒&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;总结答案&#34;&gt;总结答案：
+&lt;/h3&gt;&lt;p&gt;a. 最大窗口长度：&lt;strong&gt;125 报文段&lt;/strong&gt;
+b. 平均窗口长度：&lt;strong&gt;62.5 报文段&lt;/strong&gt;，吞吐量：&lt;strong&gt;5 Mbps&lt;/strong&gt;
+c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;子网分配&#34;&gt;子网分配
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;考虑一个具有前缀128.119.40.128/26的子网。给出能被分配给该网络的一个IP地址(形式为xXX.xXX.xXX.xXx)的例子，假定一个ISP拥有形式为128.119.40.64/26的地址块。假定它要从该地址块生成4个子网，每块具有相同数量的IP地址。这4个子网(形式为a.b.c.d/x)的前缀&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt; 为前缀&lt;code&gt;128.119.40.128/26&lt;/code&gt;&lt;strong&gt;指定一个IP地址&lt;/strong&gt;:
+任何IP地址，其前26位与&lt;code&gt;128.119.40.128&lt;/code&gt;相同，但其余位可变均可以。例如，&lt;code&gt;128.119.40.129&lt;/code&gt; 就是一个合适的IP地址。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt; 从&lt;code&gt;128.119.40.64/26&lt;/code&gt;&lt;strong&gt;划分出4个子网&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;由于&lt;code&gt;2²=4&lt;/code&gt;，我们需要增加2位子网位来得到4个子网。所以，新的子网掩码应为&lt;code&gt;/28&lt;/code&gt;。
+根据这个新的子网掩码，我们可以得到以下4个子网的前缀：
+&lt;code&gt;128.119.40.64/28&lt;/code&gt; 
+&lt;code&gt;128.119.40.80/28&lt;/code&gt;
+&lt;code&gt;128.119.40.96/28&lt;/code&gt;
+&lt;code&gt;128.119.40.112/28&lt;/code&gt;
+每个子网都有16个IP地址，但需要注意的是，&lt;strong&gt;每个子网的第一个地址是网络地址，最后一个地址是广播地址&lt;/strong&gt;，中间的地址可以分配给主机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;rip协议&#34;&gt;RIP协议
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_43992949/article/details/106087019&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;解释RIP协议为什么会有“好消息传得快，坏消息传得慢。”的现象？（解释超详细）_绘图表示为什么“好消息传的快,坏消息传的慢”-CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;轮询协议&#34;&gt;轮询协议
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/shulianghan/article/details/108118579?ops_request_misc=%7B%22request%5Fid%22%3A%229ca329c7ef153b0efc1a07c81ca46135%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;amp;request_id=9ca329c7ef153b0efc1a07c81ca46135&amp;amp;biz_id=0&amp;amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-108118579-null-null.142%5ev100%5epc_search_result_base3&amp;amp;utm_term=%e9%93%be%e8%b7%af%e5%b1%82%e8%bd%ae%e8%af%a2&amp;amp;spm=1018.2226.3001.4187&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【计算机网络】数据链路层 : 轮询访问 介质访问控制 ( 轮询协议 | 令牌传递协议 )_multiple access control-CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;轮询协议的工作原理&#34;&gt;轮询协议的工作原理：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;中央控制节点&lt;/strong&gt;： 轮询协议通常有一个&lt;strong&gt;主节点&lt;/strong&gt;，称为&lt;strong&gt;轮询节点&lt;/strong&gt;。这个节点负责控制访问信道的顺序，轮流让每个节点发送数据。轮询节点按照预定的顺序，逐个询问网络中的各个节点，是否有数据要发送。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;节点响应&lt;/strong&gt;： 每当轮询节点轮到某个节点时，轮到的节点可以检查是否有待发送的数据。&lt;u&gt;如果有数据要发送，节点将数据发送到信道；如果没有数据要发送，节点将直接跳过，等待下次轮询。&lt;/u&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时间分配&lt;/strong&gt;： 每个节点在轮询周期内有一个固定的时间窗口，通常称为&lt;strong&gt;轮询时隙&lt;/strong&gt;（polling slot）。在这个时隙内，节点可以发送最多一定数量的数据。如果节点没有数据要发送，该时隙就被空闲浪费。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轮询周期&lt;/strong&gt;： 所有节点都会轮流被询问，这个过程会不断循环。每完成一次轮询，称为&lt;strong&gt;一个轮询周期&lt;/strong&gt;。每个节点在其轮询时隙内必须完成数据发送，或者在没有数据时等待下次轮询。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;例题-3&#34;&gt;例题：
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;考虑有N个节点和传输速率为Rbps的一个广播信道。假设该广播信道为多路访问而使用轮询[1(有一个附加的轮询节点)。假设从某节点完成传输到后续节点允许传输的时间量(即轮询时延)是$d_{poll}$。假设在一个轮询周期中，一个给定的节点允许传输至多Q比特。该广播信道的最大吞吐量是多少？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;解答-1&#34;&gt;解答：
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;由题可知：&lt;strong&gt;轮询时延&lt;/strong&gt;为$d_{poll}$，每个节点传输耗费的时间$t=Q/R$,那么&lt;strong&gt;一个轮询周期&lt;/strong&gt;即为$N(Q/R+d_{poll})$;&lt;/li&gt;
+&lt;li&gt;一周期传输总比特为$NQ$，由此可得&lt;strong&gt;吞吐量&lt;/strong&gt;：$NQ/N(Q/R+d_{poll})=\frac{Q}{\frac{Q}{R} + d_{\text{poll}}}$；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;吞吐量：吞吐量一般表示为&lt;strong&gt;每单位时间成功传输的数据量&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>IPV4</title>
+        <link>https://example.com/posts/post_16861929726775/</link>
+        <pubDate>Wed, 04 Dec 2024 23:25:47 +0800</pubDate>
+        
+        <guid>https://example.com/posts/post_16861929726775/</guid>
+        <description>&lt;h1 id=&#34;ipv4&#34;&gt;IPV4
+&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&#34;ip数据报&#34;&gt;&lt;strong&gt;IP数据报&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;TCP&lt;/strong&gt;的数据传输基于&lt;strong&gt;字节流&lt;/strong&gt;，而网络层的分组称为&lt;strong&gt;数据报：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个标准的 IPv4 数据报总共有** 20 字节的头部**（不包括可选字段），以及&lt;strong&gt;可变长度的数据部分&lt;/strong&gt;。下面是 IPv4 数据报头部各字段的详细解释：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042331075.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20241204233113947&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;1-版本-version&#34;&gt;1. &lt;strong&gt;版本 (Version)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 4 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指定 IP 协议的版本。IPv4 中该字段的值为 &lt;code&gt;4&lt;/code&gt;（即 &lt;code&gt;0100&lt;/code&gt; 二进制），表示使用 IPv4 协议。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-头部长度-ihl---internet-header-length&#34;&gt;2. &lt;strong&gt;头部长度 (IHL - Internet Header Length)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 4 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指定 IPv4 头部的长度（单位是 4 字节）。最小值是 5，表示头部长度为 5 × 4 = 20 字节。若有可选字段，则该值会更大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-服务类型-type-of-service-tos&#34;&gt;3. &lt;strong&gt;服务类型 (Type of Service, ToS)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;大小&lt;/strong&gt;: 8 位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指定数据包的优先级和服务质量（QoS）。它可以用来表示优先级和处理策略，如最小延迟、最大吞吐量等。包括以下几个字段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;优先级 (Precedence)&lt;/strong&gt;: 3 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;延迟 (Delay)&lt;/strong&gt;: 1 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;吞吐量 (Throughput)&lt;/strong&gt;: 1 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可靠性 (Reliability)&lt;/strong&gt;: 1 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保留位 (Reserved)&lt;/strong&gt;: 2 位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-总长度-total-length&#34;&gt;4. &lt;strong&gt;总长度 (Total Length)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 16 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 数据报的总长度，包括头部和数据部分，单位是字节。最大长度为 65535 字节。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;5-标识符-identification&#34;&gt;5. &lt;strong&gt;标识符 (Identification)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 16 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 用于唯一标识一个数据报，特别是在数据包分片时。分片的各部分会使用相同的标识符，以便接收方将它们重新组装成完整的数据报。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;6-标志-flags&#34;&gt;6. &lt;strong&gt;标志 (Flags)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;大小&lt;/strong&gt;: 3 位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;: 用来控制或标识数据报是否可以分片。包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第 0 位 (保留，必须为 0)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第 1 位 (Don&amp;rsquo;t Fragment, DF)&lt;/strong&gt;: 如果为 1，表示数据包不能被分片；如果为 0，允许分片。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第 2 位 (More Fragments, MF)&lt;/strong&gt;: 如果为 1，表示数据报后面还有分片；如果为 0，表示这是最后一个分片。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;7-片偏移-fragment-offset&#34;&gt;7. &lt;strong&gt;片偏移 (Fragment Offset)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 13 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 如果数据包被分片，这个字段表示当前分片相对于原始数据报的偏移量，单位是 8 字节。这个字段帮助接收方重组分片。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;8-生存时间-time-to-live-ttl&#34;&gt;8. &lt;strong&gt;生存时间 (Time to Live, TTL)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 8 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 控制数据包在网络中能够经过的最大跳数。每经过一个路由器，该值减 1，当值为 0 时，数据包被丢弃。防止数据包在网络中无限循环。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;9-协议-protocol&#34;&gt;9. &lt;strong&gt;协议 (Protocol)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;大小&lt;/strong&gt;: 8 位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指定数据部分使用的协议类型，如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;1&lt;/code&gt; - ICMP&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;6&lt;/code&gt; - TCP&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;17&lt;/code&gt; - UDP&lt;/li&gt;
+&lt;li&gt;等等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;10-头部校验和-header-checksum&#34;&gt;10. &lt;strong&gt;头部校验和 (Header Checksum)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 16 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 用于检测头部数据的错误。发送方计算并加入这个值，接收方也会重新计算，若校验和不一致，则丢弃数据包。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;11-源-ip-地址-source-ip-address&#34;&gt;11. &lt;strong&gt;源 IP 地址 (Source IP Address)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 32 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指示数据包的发送者的 IP 地址。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;12-目的-ip-地址-destination-ip-address&#34;&gt;12. &lt;strong&gt;目的 IP 地址 (Destination IP Address)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 32 位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 指示数据包的接收者的 IP 地址。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;13-选项-options-可选字段&#34;&gt;13. &lt;strong&gt;选项 (Options)&lt;/strong&gt; &lt;em&gt;(可选字段)&lt;/em&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 可变&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 用于实现某些特殊功能，如时间戳、源路由等。选项字段不常用，且通常只有当头部长度大于 20 字节时才出现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;14-填充-padding&#34;&gt;14. &lt;strong&gt;填充 (Padding)&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小&lt;/strong&gt;: 可变&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;含义&lt;/strong&gt;: 确保头部长度为 4 字节的倍数。如果选项字段的大小不是 4 字节的倍数，就会使用填充位来补齐。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ip编址&#34;&gt;&lt;strong&gt;IP编址&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;首先理解IP地址和接口：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;IP地址&lt;/strong&gt;：&lt;strong&gt;32位的二进制标识&lt;/strong&gt;，对主机或者路由器的&lt;strong&gt;接口&lt;/strong&gt;编址&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;接口：主机/路由器&lt;/strong&gt;和物理链路的链接处&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路由器通常拥有多个接口&lt;/li&gt;
+&lt;li&gt;主机也可能拥有多个接口&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP地址和每一个接口关联&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一台路由器上有多个接口，不同的接口分配不同的IP地址，而如果&lt;strong&gt;主机上有多个网卡或者使用虚拟网卡（如VMware）&lt;/strong&gt;，也可以具有多个网络接口&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132217203.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由图，一台路由器的三个网络接口连接了三个不同的IP地址，分别是&lt;code&gt;223.1.1.x&lt;/code&gt;、&lt;code&gt;223.1.2.x&lt;/code&gt; 和 &lt;code&gt;223.1.3.x&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;以左上角的三台主机为例，它们共用了一个路由器接口，而且&lt;strong&gt;IP地址中最左侧的24比特相同&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;说明该网络可能由一个&lt;strong&gt;不包含路由器的网络&lt;/strong&gt;互联，可能是通过&lt;strong&gt;以太网交换机&lt;/strong&gt;或者&lt;strong&gt;无线网络WIFI&lt;/strong&gt;实现&lt;/p&gt;
+&lt;p&gt;在IP的术语中，这3个主机的网络接口和1个路由器接口构成了一个&lt;strong&gt;子网&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;子网&#34;&gt;&lt;strong&gt;子网&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;一个子网有这两点性质：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个子网内的节点（主机或者路由器），它们的&lt;strong&gt;IP地址高位部分相同&lt;/strong&gt;，这些节点构成的网络叫做子网&lt;/li&gt;
+&lt;li&gt;子网内各主机可以在物理上相互直接到达，&lt;strong&gt;无需借助路由器&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132218317.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;判断子网的方法：&lt;/p&gt;
+&lt;p&gt;为了确定子网，分开主机和路由器的每个接口，&lt;strong&gt;产生几个隔离的网络岛&lt;/strong&gt;，使用接口端连接这些隔离的网络的端点&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这些隔离的网络中的每一个都是一个子网&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132218241.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;子网掩码&#34;&gt;&lt;strong&gt;子网掩码&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;子网掩码可以分离出IP地址中的网络地址和主机地址，因为两台主机要通信，&lt;strong&gt;首先要判断是否处于同一网段，即网络地址是否相同&lt;/strong&gt;。如果相同，那么可以把数据包直接发送到目标主机，否则就需要路由网关将数据包转发送到目的地。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;子网掩码的表示方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;点分十进制表示法&lt;/strong&gt;&lt;br&gt;
+二进制转换十进制，每8位用点号隔开&lt;br&gt;
+例如：子网掩码二进制11111111.11111111.11111111.00000000，表示为255.255.255.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CIDR斜线记法&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;IP地址/n&lt;/strong&gt;&lt;br&gt;
+例1：192.168.1.100/24，其子网掩码表示为255.255.255.0，二进制表示为11111111.11111111.11111111.00000000&lt;br&gt;
+例2：172.16.198.12/20，其子网掩码表示为255.255.240.0，二进制表示为11111111.11111111.11110000.00000000&lt;br&gt;
+不难发现，例1中共有24个１，例2中共有20个１，所以n是这么来的。运营商ISP常用这样的方法给客户分配IP地址。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;++形如++&lt;strong&gt;++223.1.1.0/24++&lt;/strong&gt;++的子网地址，其中的++&lt;strong&gt;++/24++&lt;/strong&gt;++即++&lt;strong&gt;++子网掩码++&lt;/strong&gt;++,表示32个比特中++&lt;strong&gt;++最左侧的24比特++&lt;/strong&gt;++定义了++&lt;strong&gt;++子网的地址++&lt;/strong&gt;++，后面的++&lt;strong&gt;++8比特++&lt;/strong&gt;++定义了++&lt;strong&gt;++子网内主机的地址++&lt;/strong&gt;++，即++&lt;strong&gt;++网络地址++&lt;/strong&gt;++和++&lt;strong&gt;++主机地址++&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;223.1.1.0即网络地址也可以称为该IP地址的&lt;strong&gt;前缀&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ip地址的分类&#34;&gt;&lt;strong&gt;IP地址的分类&lt;/strong&gt;
+&lt;/h2&gt;&lt;h4 id=&#34;abc类地址&#34;&gt;&lt;strong&gt;ABC类地址&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;A类IP地址：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;网络地址范围&lt;/strong&gt;：&lt;code&gt;0.0.0.0&lt;/code&gt; 到 &lt;code&gt;127.255.255.255&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;网络位&lt;/strong&gt;：8位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;主机位&lt;/strong&gt;：24位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数量&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个A类网络可以有 &lt;code&gt;2^24 - 2&lt;/code&gt; 个可用主机地址（减去网络地址和广播地址），即：&lt;code&gt;16,777,214&lt;/code&gt; 个主机。&lt;/li&gt;
+&lt;li&gt;A类IP地址的网络数量：&lt;code&gt;2^7 = 128&lt;/code&gt; 个网络（因为A类的网络地址范围从 &lt;code&gt;0.0.0.0&lt;/code&gt; 到 &lt;code&gt;127.255.255.255&lt;/code&gt;，而第一位是固定的）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;B类IP地址：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;网络地址范围&lt;/strong&gt;：&lt;code&gt;128.0.0.0&lt;/code&gt; 到 &lt;code&gt;191.255.255.255&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;网络位&lt;/strong&gt;：16位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;主机位&lt;/strong&gt;：16位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数量&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个B类网络可以有 &lt;code&gt;2^16 - 2&lt;/code&gt; 个可用主机地址，即：&lt;code&gt;65,534&lt;/code&gt; 个主机。&lt;/li&gt;
+&lt;li&gt;B类IP地址的网络数量：&lt;code&gt;2^14 = 16,384&lt;/code&gt; 个网络（因为B类的网络地址范围从 &lt;code&gt;128.0.0.0&lt;/code&gt; 到 &lt;code&gt;191.255.255.255&lt;/code&gt;，而前两位是固定的）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;C类IP地址：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;网络地址范围&lt;/strong&gt;：&lt;code&gt;192.0.0.0&lt;/code&gt; 到 &lt;code&gt;223.255.255.255&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;网络位&lt;/strong&gt;：24位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;主机位&lt;/strong&gt;：8位&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数量&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个C类网络可以有 &lt;code&gt;2^8 - 2&lt;/code&gt; 个可用主机地址，即：&lt;code&gt;254&lt;/code&gt; 个主机。&lt;/li&gt;
+&lt;li&gt;C类IP地址的网络数量：&lt;code&gt;2^21 = 2,097,152&lt;/code&gt; 个网络（因为C类的网络地址范围从 &lt;code&gt;192.0.0.0&lt;/code&gt; 到 &lt;code&gt;223.255.255.255&lt;/code&gt;，而前三位是固定的）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A类IP：128个网络，每个网络有 &lt;code&gt;16,777,214&lt;/code&gt; 个主机。&lt;/li&gt;
+&lt;li&gt;B类IP：16,384个网络，每个网络有 &lt;code&gt;65,534&lt;/code&gt; 个主机。&lt;/li&gt;
+&lt;li&gt;C类IP：2,097,152个网络，每个网络有 &lt;code&gt;254&lt;/code&gt; 个主机。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/08eec5221f7a43db0aac7cd32ec94b7e.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;一些特定的ip地址&#34;&gt;&lt;strong&gt;一些特定的IP地址&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;子网部分&lt;/strong&gt;:全为 0&amp;mdash;本网络&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主机部分&lt;/strong&gt;:全为0&amp;mdash;本主机&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主机部分&lt;/strong&gt;:全为1&amp;ndash;广播地址，这个网络的所有主机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;内网专用ip地址&#34;&gt;&lt;strong&gt;内网（专用）IP地址&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132219363.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;++这些IP地址只在局部网络中有意义，且不会当作公用地址来分配++&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cidr&#34;&gt;&lt;strong&gt;CIDR&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;**CIDR（无类域间路由，Classless Inter-Domain Routing）**是一种用于 IP 地址分配和路由的方式，取代了早期基于 A、B、C 类网络的方式，使 IP 地址分配更灵活和高效。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132226702.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CIDR 表示法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;CIDR 表示法通常写成 &lt;code&gt;IP地址/前缀长度&lt;/code&gt;，例如 &lt;code&gt;192.168.1.0/24&lt;/code&gt;。其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;IP地址&lt;/code&gt; 指定网络的起始地址。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;前缀长度&lt;/code&gt; 表示网络位数，即从左到右用于定义网络部分的位数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 &lt;code&gt;192.168.1.0/24&lt;/code&gt; 中，&lt;code&gt;/24&lt;/code&gt; 表示前 24 位是网络位，剩下的 8 位是主机位。这表示一个包含 256 个地址的网络范围（从 &lt;code&gt;192.168.1.0&lt;/code&gt; 到 &lt;code&gt;192.168.1.255&lt;/code&gt;）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CIDR的转发表和转发算法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411132219721.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;其中的默认表项也称为&lt;strong&gt;默认网关&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;默认网关（Default Gateway）&lt;/strong&gt; 是指在计算机网络中，当计算机需要与其他网络（如互联网）上的设备通信时，无法直接找到目的地的IP地址时，&lt;strong&gt;计算机会将数据包发送到目的路由器或网关设备。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;它充当了一个桥梁，帮助本地网络与外部网络（如互联网）进行通信&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;下一跳next-hop&#34;&gt;&lt;strong&gt;下一跳（Next Hop）&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;下一跳（Next Hop）指的是数据包在传输过程中经过的下一个路由器或网络设备。它是数据包从源设备到目标设备之间的一个转发步骤、&lt;/p&gt;
+&lt;p&gt;在&lt;strong&gt;路由器的路由表&lt;/strong&gt;中，每一条路由规则都指定了一个&lt;strong&gt;目标网络&lt;/strong&gt;和一个&lt;strong&gt;下一跳地址&lt;/strong&gt;。下一跳是数据包在经过当前路由器后需要发送的下一个路由器或网络设备的IP地址。&lt;/p&gt;
+&lt;p&gt;下一跳通常出现在分组访问互联网或者同一路由器的不同子网访问之间：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;分组的目标IP指向&lt;strong&gt;外部网络（互联网）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;举例说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设备A需要向设备B发送数据包（&lt;code&gt;192.168.2.10&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;设备A会检查目标IP地址&lt;code&gt;192.168.2.10&lt;/code&gt;，发现它不在本地子网内，因此将数据包发送给默认网关&lt;code&gt;192.168.1.1&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;路由器&lt;code&gt;192.168.1.1&lt;/code&gt;收到数据包后，查找其路由表，发现到&lt;code&gt;192.168.2.0/24&lt;/code&gt;子网的路由条目，下一跳地址是&lt;code&gt;192.168.1.2&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;路由器&lt;code&gt;192.168.1.1&lt;/code&gt;将数据包转发给下一跳路由器&lt;code&gt;192.168.1.2&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;路由器&lt;code&gt;192.168.1.2&lt;/code&gt;根据自己的路由表，继续将数据包转发，直到数据包到达设备B。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分组的目标IP指向同一路由器下的不同子网&lt;/p&gt;
+&lt;p&gt;当数据包需要在同一个路由器的&lt;strong&gt;不同子网&lt;/strong&gt;之间转发时，&lt;strong&gt;下一跳&lt;/strong&gt;的概念依然适用，但这里的“下一跳”指的是&lt;strong&gt;路由器内部的++不同网络接口++&lt;/strong&gt;，&lt;strong&gt;而不是不同的路由器。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;举例说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设备A的IP是&lt;code&gt;192.168.1.10&lt;/code&gt;，子网掩码是&lt;code&gt;255.255.255.0&lt;/code&gt;（&lt;code&gt;/24&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;设备A要访问的目标是设备B的IP &lt;code&gt;192.168.2.10&lt;/code&gt;，设备A会首先检查目标IP是否在同一子网内。由于&lt;code&gt;192.168.2.10&lt;/code&gt;不在设备A的子网&lt;code&gt;192.168.1.0/24&lt;/code&gt;内，设备A会将数据包发送到默认网关&lt;code&gt;192.168.1.1&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;路由器&lt;code&gt;192.168.1.1&lt;/code&gt;接收到设备A发来的数据包后，会查看路由表，决定如何处理该数据包。由于目标地址&lt;code&gt;192.168.2.10&lt;/code&gt;位于&lt;code&gt;192.168.2.0/24&lt;/code&gt;子网，而路由器的接口2（&lt;code&gt;192.168.2.1&lt;/code&gt;）已经连接到这个子网，路由器将数据包转发到接口2。&lt;/li&gt;
+&lt;li&gt;路由器通过接口2将数据包转发到目标设备B（&lt;code&gt;192.168.2.10&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;设备B收到数据包后，检查目标IP并处理数据包。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ip地址的获取&#34;&gt;&lt;strong&gt;IP地址的获取&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;有两种方法可以获取到IP地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由网络管理员分配IP地址到你的主机，通常配置在一个系统文件中&lt;/li&gt;
+&lt;li&gt;通过&lt;strong&gt;DHCP&lt;/strong&gt;从服务器中&lt;strong&gt;动态获取IP地址&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;dhcp&#34;&gt;&lt;strong&gt;DHCP&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;作用：允许主机在加入网络时，&lt;strong&gt;动态地从服务器中获取IP地址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;网络管理员能够配置DHCP，以使某给定主机每次与网络连接时能得到一个&lt;strong&gt;相同的IP地址&lt;/strong&gt;，或者某主机被分配&lt;strong&gt;一个临时的IP地址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;除了主机IP地址分配外， DHCP还允许一台主机得到其他信息，比如子网掩码，第一跳路由器地址，和本地DNS服务器地址&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DHCP作用及特点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DHCP可以自动分配IP、子网掩码、网关、DNS。 &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DHCP客户端使用的端口68，服务端使用端口67&lt;/strong&gt;，使用的UDP应用层的协议。&lt;/li&gt;
+&lt;li&gt;DHCP一般不为服务器分配IP，因为他们要使用固定IP，所以DHCP一般只为办公环境的主机分配IP。 &lt;/li&gt;
+&lt;li&gt;DHCP服务器和客户端需要在一个局域网内，在为客户端分配IP的时候需要进行多次广播。但DHCP也可以为其他网段内主机分配IP，只要连接两个网段中间的路由器能转发DHCP配置请求即可，但这要求路由器配置中继功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412042329797.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142123969.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;下面是一个使用DHCP协议配置IP地址的示例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142141549.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;DHCP（动态主机配置协议）分配IP地址的过程涉及以下几个步骤：&lt;/p&gt;
+&lt;h4 id=&#34;1-dhcp-discover客户端请求&#34;&gt;1. &lt;strong&gt;DHCP Discover（客户端请求）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：当一个新的设备（客户端）接入网络时，它不知道自己的IP地址，因此需要通过DHCP来自动获取一个可用的IP地址。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;过程&lt;/strong&gt;：客户端通过广播（&lt;code&gt;255.255.255.255&lt;/code&gt;）向网络发送一个 &lt;strong&gt;DHCP Discover (DHCP发现报文)&lt;/strong&gt; 消息。这一消息的目的是通知网络上的所有DHCP服务器，客户端正在请求一个IP地址。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;该消息中并不包含具体的IP地址，仅仅是一个寻求服务的请求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-dhcp-offer服务器提供ip&#34;&gt;2. &lt;strong&gt;DHCP Offer（服务器提供IP）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：当网络中的DHCP服务器收到 &lt;strong&gt;DHCP Discover&lt;/strong&gt; 请求后，它会根据服务器的IP地址池选择一个可用的IP地址，并返回一个 &lt;strong&gt;DHCP Offer（DHCP提供报文）&lt;/strong&gt; 消息给客户端。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;过程&lt;/strong&gt;：DHCP服务器发送的 &lt;strong&gt;DHCP Offer&lt;/strong&gt; 包含以下信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供的IP地址（从可用池中分配）&lt;/li&gt;
+&lt;li&gt;子网掩码&lt;/li&gt;
+&lt;li&gt;默认网关&lt;/li&gt;
+&lt;li&gt;租约时间（IP地址的有效期）&lt;/li&gt;
+&lt;li&gt;DHCP服务器的IP地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这个过程是由DHCP服务器针对客户端的 &lt;strong&gt;DHCP Discover&lt;/strong&gt; 消息做出的响应。重要的是，多个DHCP服务器可能会对同一个客户端的请求作出响应，因此客户端可能会收到多个 &lt;strong&gt;DHCP Offer&lt;/strong&gt; 消息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-dhcp-request客户端确认&#34;&gt;3. &lt;strong&gt;DHCP Request（客户端确认）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：客户端收到一个或多个 &lt;strong&gt;DHCP Offer&lt;/strong&gt; 后，会选择一个提供的IP地址，并通知所有DHCP服务器它选择了哪一个。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;过程&lt;/strong&gt;：客户端通过广播发送一个 &lt;strong&gt;DHCP Request（DHCP请求报文）&lt;/strong&gt; 消息。这个消息包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确认选中的DHCP服务器的IP地址&lt;/li&gt;
+&lt;li&gt;请求使用的IP地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在这个阶段，客户端告诉DHCP服务器它接受某个 &lt;strong&gt;DHCP Offer&lt;/strong&gt; 中的IP地址，并且请求分配该IP地址。其他DHCP服务器收到这个请求后，会知道该客户端已经选择了其他服务器的IP，因此不再做回应。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-dhcp-ack服务器确认&#34;&gt;4. &lt;strong&gt;DHCP ACK（服务器确认）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：当DHCP服务器收到客户端的 &lt;strong&gt;DHCP Request&lt;/strong&gt; 消息后，表示客户端已经确认接受了该服务器提供的IP地址。服务器会确认并完成地址分配过程。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;过程&lt;/strong&gt;：DHCP服务器通过发送 &lt;strong&gt;DHCP ACK（DHCP ACK报文）&lt;/strong&gt; 消息来确认该IP地址已经分配给客户端。&lt;strong&gt;DHCP ACK&lt;/strong&gt; 包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确认客户端请求的IP地址&lt;/li&gt;
+&lt;li&gt;该IP地址的租约期&lt;/li&gt;
+&lt;li&gt;其他配置参数（如网关、DNS服务器等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;网络地址转换nat技术&#34;&gt;&lt;strong&gt;网络地址转换NAT技术&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;网络地址转换技术NAT（Network Address Translation）主要用于实现位于内部网络的主机访问外部网络的功能。&lt;/p&gt;
+&lt;p&gt;当局域网内的主机需要访问外部网络时，通过NAT技术可以&lt;strong&gt;将其私网地址转换为公网地址&lt;/strong&gt;，并且&lt;strong&gt;多个私网用户可以共用一个公网地址&lt;/strong&gt;，这样既可保证网络互通，又节省了公网地址。&lt;/p&gt;
+&lt;h4 id=&#34;技术原理&#34;&gt;&lt;strong&gt;技术原理&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;NAT通过&lt;strong&gt;转换数据包中的源IP地址或目标IP地址&lt;/strong&gt;，使得多个设备能够通过一个公网IP访问互联网。&lt;/p&gt;
+&lt;p&gt;这通常用于私有网络（如家庭或公司网络），其中内部设备使用私有IP地址，而公网IP地址由网络的NAT设备进行共享。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NAT使能路由器对外界来说不像路由器，它对外界的行为如同一个&lt;strong&gt;具有单一IP地址的单一设备。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;所有离开家庭路由器流向更大因特网的报文&lt;strong&gt;都拥有同一个源IP地址&lt;/strong&gt;，且所有进入家庭路由器的报文都拥有&lt;strong&gt;同一个目标IP地址&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;NAT路由器对外隐藏了家庭网络（内网）的细节&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;即家庭网络设备&lt;strong&gt;共享同一个IPV4地址&lt;/strong&gt;，它们的内网地址为&lt;strong&gt;私有地址&lt;/strong&gt;，或者是32位&lt;strong&gt;子网地址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142206824.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;nat穿越问题&#34;&gt;&lt;strong&gt;NAT穿越问题&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;NAT穿越问题是指在NAT（网络地址转换）环境下，&lt;strong&gt;如何让位于私有网络中的设备能够与外部网络（通常是互联网）中的设备直接通信。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于NAT在处理数据包时会修改源IP地址和端口号，这可能会导致内部设备无法直接被外部设备访问，从而阻碍了某些类型的通信，&lt;strong&gt;特别是端到端（P2P）通信&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;NAT（网络地址转换）转换表的实现方式主要有几种方案，具体取决于NAT类型、使用的协议以及应用的需求。不同的方案对于IP地址和端口的映射方式有所不同。以下是常见的几种NAT转换表方案：&lt;/p&gt;
+&lt;h4 id=&#34;1-静态nat转换表&#34;&gt;1. &lt;strong&gt;静态NAT转换表&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;概述&lt;/strong&gt;：在静态NAT中，内网的私有IP地址被永久映射到外网的一个公网IP地址。这种映射是一对一的，即每个私有IP地址始终对应一个公网IP地址。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;表项&lt;/strong&gt;：每个静态映射条目包含以下信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内部私有IP地址&lt;/li&gt;
+&lt;li&gt;外部公网IP地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;适合需要长期固定公网IP地址的设备，如服务器。&lt;/li&gt;
+&lt;li&gt;转换过程简单，不需要动态更新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公网IP地址的浪费，因为每个私有IP都需要一个单独的公网IP。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-动态nat转换表&#34;&gt;2. &lt;strong&gt;动态NAT转换表&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;概述&lt;/strong&gt;：动态NAT将内网设备的私有IP地址映射到一个公网IP池中的公网IP地址。每当内网设备请求外部连接时，NAT设备会从公网IP池中分配一个公网IP地址给其使用，映射可能会在会话结束后解除。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;表项&lt;/strong&gt;：每个动态映射条目包含以下信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内部私有IP地址&lt;/li&gt;
+&lt;li&gt;映射的公网IP地址（来自公网IP池）&lt;/li&gt;
+&lt;li&gt;映射的端口号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更灵活，适合大规模的动态分配。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内网设备可能会使用不同的公网IP地址，增加了管理复杂性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-端口地址转换patport-address-translation&#34;&gt;3. &lt;strong&gt;端口地址转换（PAT，Port Address Translation）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;概述&lt;/strong&gt;：PAT（也叫做过载NAT）是动态NAT的一种特殊形式，多个内网设备共享一个公网IP地址，通过不同的端口号来区分每个会话。它通过对端口号进行映射，允许多个内网设备同时使用一个公网IP地址访问外部网络。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;表项&lt;/strong&gt;：每个PAT映射条目包含以下信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内部私有IP地址&lt;/li&gt;
+&lt;li&gt;映射的公网IP地址&lt;/li&gt;
+&lt;li&gt;内部端口号&lt;/li&gt;
+&lt;li&gt;映射的外部端口号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;大量节省公网IP地址，一个公网IP就可以支持多个内网设备同时访问外部网络。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内网设备的外部连接通过端口号来区分，可能会有端口冲突问题（尤其是在大量设备同时访问时）。&lt;/li&gt;
+&lt;li&gt;一些协议（如FTP）可能需要额外的处理，因为它们会在数据包中包含端口号信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-双向natbi-directional-nat&#34;&gt;4. &lt;strong&gt;双向NAT（Bi-directional NAT）&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;概述&lt;/strong&gt;：双向NAT是一种更复杂的转换方式，通常用于需要双向通信的场景（如P2P连接）。双向NAT允许在两个NAT设备之间的连接时，进行双向IP和端口映射。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;表项&lt;/strong&gt;：除了映射的IP地址外，还可能包括外部端口与内部端口之间的双向映射。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持双向通信，常用于P2P和某些即时通讯应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增加了转换的复杂性，通常需要更加动态的表项管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142215321.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411142216932.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;nat技术的争议和不足&#34;&gt;&lt;strong&gt;nat技术的争议和不足&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;NAT（网络地址转换）技术广泛应用于解决IPv4地址短缺问题，它通过将内网设备的私有IP地址映射到公网IP地址，从而使多个内网设备共享一个公网IP。&lt;/p&gt;
+&lt;p&gt;这种技术的普及，尤其是在家庭和企业网络中，有许多好处，但也存在一些争议和不足：&lt;/p&gt;
+&lt;h4 id=&#34;1-nat与端到端通信模型的冲突&#34;&gt;1. &lt;strong&gt;NAT与端到端通信模型的冲突&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;争议点&lt;/strong&gt;：&lt;strong&gt;NAT技术的最大争议之一在于它破坏了传统的“端到端”通信模型&lt;/strong&gt;。在没有NAT的情况下，互联网中的每个设备都可以直接访问其他设备，确保了点对点通信的透明性。NAT通过修改IP地址和端口号，将内网设备隐藏在一个公网IP地址后面，从而阻止了外部设备直接访问内网设备。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不足之处&lt;/strong&gt;：这种干预使得许多基于端到端通信的协议（如某些P2P协议、VoIP、FTP等）无法正常工作，或者需要复杂的NAT穿越技术来确保通信的畅通。这样不仅增加了通信的复杂性，还可能带来性能下降和安全问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-nat穿越问题&#34;&gt;2. &lt;strong&gt;NAT穿越问题&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;争议点&lt;/strong&gt;：NAT穿越是指如何使得位于NAT背后的内网设备能够与外部设备进行直接通信。为了实现NAT穿越，通常需要使用额外的技术（如STUN、TURN、UPnP等），但这些技术并非总是有效，尤其是在更复杂的NAT类型（如对称NAT）下。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不足之处&lt;/strong&gt;：NAT穿越问题使得P2P通信、VoIP通话、远程桌面等应用变得复杂且不稳定，特别是当NAT设备的配置无法灵活调整时。此外，很多NAT穿越技术（如STUN）在某些网络环境下并不起作用，这导致了用户在尝试进行某些类型的连接时遇到困难。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-ip地址和端口号的混淆&#34;&gt;3. &lt;strong&gt;IP地址和端口号的混淆&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;争议点&lt;/strong&gt;：NAT通过将内网设备的私有IP地址和端口号映射到公网IP地址和端口号，导致了IP地址和端口号之间的混淆。特别是在端口地址转换（PAT）中，多个内网设备会共享一个公网IP地址，不同的设备通过不同的端口进行区分。这种方式虽然节省了公网IP地址，但也带来了端口管理的复杂性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不足之处&lt;/strong&gt;：端口号的映射带来了许多挑战，包括端口冲突（当多个设备尝试使用相同的端口号时）、端口跟踪问题（例如在多个会话同时进行时难以跟踪每个会话的状态）以及性能瓶颈。此外，某些协议对端口映射的依赖可能会导致数据包在NAT设备前后出现不一致，从而影响协议的正确性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-网络性能的潜在影响&#34;&gt;4. &lt;strong&gt;网络性能的潜在影响&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;争议点&lt;/strong&gt;：NAT的使用虽然减少了对公网IP地址的需求，但也可能影响网络性能，特别是在使用PAT（端口地址转换）时。NAT设备需要对每个数据包进行地址和端口号的修改，可能会导致一定的延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不足之处&lt;/strong&gt;：当多个内网设备同时访问外部网络时，NAT设备可能会成为瓶颈，导致性能下降。特别是在使用NAT时，数据包的处理、映射表的管理以及会话跟踪可能需要消耗较多的CPU和内存资源，增加了网络的延迟和复杂性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;5-安全性问题&#34;&gt;5. &lt;strong&gt;安全性问题&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;争议点&lt;/strong&gt;：虽然NAT可以隐藏内网设备的真实IP地址，从而在一定程度上提供了“安全性”，但它并不是一种有效的安全机制。NAT并没有从根本上解决网络攻击问题，反而可能带来一些隐性风险。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;不足之处&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;伪装性&lt;/strong&gt;：NAT隐藏了内网设备的IP地址，外部攻击者无法直接针对内网设备发起攻击，但这并不意味着内网就安全。攻击者仍然可以通过NAT设备的公网IP进行某些类型的攻击，如DoS（拒绝服务攻击）和端口扫描等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协议不兼容性&lt;/strong&gt;：某些协议依赖于源IP和端口信息进行正常通信（如FTP、SIP、RTSP等），而NAT设备通常会修改这些信息，这导致了协议的不兼容和漏洞。例如，在没有适当的NAT支持的情况下，FTP和SIP可能无法正常工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全性管理的复杂性&lt;/strong&gt;：NAT在一定程度上增加了网络配置和安全管理的复杂性。为了保证网络安全，管理员需要处理更多的配置细节，如端口映射、会话跟踪和访问控制等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;6-ipv6的挑战&#34;&gt;6. &lt;strong&gt;IPv6的挑战&lt;/strong&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;争议点&lt;/strong&gt;：IPv6设计之初就不依赖NAT，因为IPv6提供了几乎无限的IP地址空间，可以为每个设备分配一个独立的公网IP，这样就不需要NAT。然而，在IPv6逐步普及之前，NAT依然是IPv4环境中的主要解决方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不足之处&lt;/strong&gt;：虽然NAT可以延缓IPv4地址枯竭，但它并没有从根本上解决IPv4的地址空间问题。而且，&lt;strong&gt;随着IPv6的普及，NAT的存在被认为是一种过渡技术&lt;/strong&gt;，并不符合现代网络架构的要求。尽管IPv6解决了IP地址分配问题，但要实现全球范围的IPv6迁移仍然需要时间和努力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
