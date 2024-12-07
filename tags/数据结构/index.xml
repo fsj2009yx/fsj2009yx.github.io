@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>数据结构 on fsj2009yx</title>
-        <link>https://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+        <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <description>Recent content in 数据结构 on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 03 Dec 2024 22:24:25 +0800</lastBuildDate><atom:link href="https://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 03 Dec 2024 22:24:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>搜索结构</title>
-        <link>https://example.com/posts/post/</link>
+        <link>http://localhost:1313/posts/post/</link>
         <pubDate>Tue, 03 Dec 2024 22:24:25 +0800</pubDate>
         
-        <guid>https://example.com/posts/post/</guid>
+        <guid>http://localhost:1313/posts/post/</guid>
         <description>&lt;h1 id=&#34;搜索结构&#34;&gt;搜索结构
 &lt;/h1&gt;&lt;p&gt;搜索方法取决于搜索结构中数据元素的组织方式。例如，电话号码簿的搜索，可建立分类目录，采用分块（索引顺序）搜索；英汉词典是有序表，可采用折半搜索（或分块搜索）。&lt;/p&gt;
 &lt;p&gt;搜索结构分为静态搜索结构和动态搜索结构&lt;/p&gt;
