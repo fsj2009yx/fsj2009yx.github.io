@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>计算机网络 on fsj2009yx</title>
-        <link>http://localhost:1313/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+        <link>https://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
         <description>Recent content in 计算机网络 on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Fri, 06 Dec 2024 22:27:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 06 Dec 2024 22:27:00 +0800</lastBuildDate><atom:link href="https://example.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>自治系统内部的路由选择</title>
-        <link>http://localhost:1313/posts/post_301732386019327/</link>
+        <link>https://example.com/posts/post_301732386019327/</link>
         <pubDate>Fri, 06 Dec 2024 22:27:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/post_301732386019327/</guid>
+        <guid>https://example.com/posts/post_301732386019327/</guid>
         <description>&lt;h1 id=&#34;自治系统内部的路由选择&#34;&gt;自治系统内部的路由选择
 &lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id=&#34;路由信息协议rip&#34;&gt;&lt;strong&gt;路由信息协议（RIP）&lt;/strong&gt;
@@ -224,10 +224,10 @@
         </item>
         <item>
         <title>计算机网络计算</title>
-        <link>http://localhost:1313/posts/post_132911105916910/</link>
+        <link>https://example.com/posts/post_132911105916910/</link>
         <pubDate>Fri, 06 Dec 2024 09:51:53 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/post_132911105916910/</guid>
+        <guid>https://example.com/posts/post_132911105916910/</guid>
         <description>&lt;h1 id=&#34;计算机网络计算&#34;&gt;计算机网络计算
 &lt;/h1&gt;&lt;h2 id=&#34;时延&#34;&gt;时延
 &lt;/h2&gt;&lt;p&gt;总时延=处理时延+排队时延+传输时延+传播时延&lt;/p&gt;
@@ -600,10 +600,10 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
         </item>
         <item>
         <title>IPV4</title>
-        <link>http://localhost:1313/posts/post_16861929726775/</link>
+        <link>https://example.com/posts/post_16861929726775/</link>
         <pubDate>Wed, 04 Dec 2024 23:25:47 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/post_16861929726775/</guid>
+        <guid>https://example.com/posts/post_16861929726775/</guid>
         <description>&lt;h1 id=&#34;ipv4&#34;&gt;IPV4
 &lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id=&#34;ip数据报&#34;&gt;&lt;strong&gt;IP数据报&lt;/strong&gt;

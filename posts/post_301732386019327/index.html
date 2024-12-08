@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="自治系统内部的路由选择\r路由信息协议（RIP）\r路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。\n该协议的规定及工作原理：\r网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：\rRIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：\r仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转\r当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。\n然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。\n例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。\n毒性逆转的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为无穷大，以避免对方将该信息再次传播回来，从而有效避免路由振荡和环路问题。\n开放最短路径优先（OSPF）协议\r开放最短路径优先（OSPF）协议是使用分布式链路状态路由算法的典型代表，也是内部网关协议(IGP)的一种。\n当网络规模扩大时，路由器的路由表成比例地增大。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用更多的带宽来交换路由状态信息。因此路由选择必须按照层次的方式进行。\n如图，每个链路状态分组仅在它所属的区域内泛洪，从而限制了链路状态分组泛洪的范围和数量\nBackbone 指的是主干区域（Backbone Area），通常被标记为 Area 0。它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信。\n">
 <meta name="keywords" content="计算机网络, 路由选择协议"><title>自治系统内部的路由选择</title>
 
-<link rel='canonical' href='http://localhost:1313/posts/post_301732386019327/'>
+<link rel='canonical' href='https://example.com/posts/post_301732386019327/'>
 
 <link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="自治系统内部的路由选择">
 <meta property='og:description' content="自治系统内部的路由选择\r路由信息协议（RIP）\r路由信息协议（Routing Information Protocol，RIP）是内部网关协议(IGP)中最先得到广泛应用的协议。RIP是一种分布式的基于距离向量的路由选择协议，其最大优点就是简单。\n该协议的规定及工作原理：\r网络中的每个路由器都要维护从它自身到其他每个目的网络的距离记录。 距离也称跳数（Hop Count)，规定从一个路由器到直接连接网络的距离（跳数）为1。而每经过一个路由器，距离（跳数）加1。 RIP认为好的路由就是它通过的路由器的数目少，即优先选择跳数少的路径。 RIP 允许一条路径最多只能包含15个路由器（即最多允许15跳)。因此距离等于16时，它表示网络不可达。可见RIP只适用于小型互联网。距离向量路由可能会出现环路的情况，规定路径上的最高跳数的目的是为了防止数据报不断循环在环路上，减少网络拥塞的可能性。 RIP默认在任意两个使用RIP的路由器之间每30秒广播一次RIP路由更新信息，以便自动建立并维护路由表（动态维护)。 在RIP中不支持子网掩码的RIP广播，所以RIP中每个网络的子网掩码必须相同。 RIP协议缺点：\rRIP限制了网络的规模，它能使用的最大距离为15（16表示不可达)。 路由器之间交换的是路由器中的完整路由表，因此网络规模越大，开销也越大。 网络出现故障时，会出现慢收敛现象（即需要较长时间才能将此信息传送到所有路由器)，俗称“坏消息传得慢”，使更新过程的收敛时间长 RIP协议特点：\r仅和相邻路由器交换信息。 路由器交换的信息是当前路由器所知道的全部信息，即自己的路由表。 按固定的时间间隔交换路由信息，如每隔30秒。 毒性逆转\r当一个路由器检测到某个邻居路由器不可达时，它会向邻居路由器发送一个距离值为无穷大的路由更新消息，以表明该路由不可达。\n然而，在毒性逆转中，路由器会将这个不可达的路由信息发送回给原来的邻居路由器，但是将距离值设置为无穷大。这样做的目的是告诉邻居路由器，如果它要发送数据到这个不可达的路由，它应该通过其他路径而不是通过当前路由器。\n例如，假设路由器 A 通过路由器 B 到达目的地 D，但是路由器 B 告诸路由器 A 目的地 D 不可达。在普通的距离向量路由选择算法中，路由器 A 会将目的地 D 的距离值设置为无穷大，并向其他邻居路由器发送更新消息。而在毒性逆转中，路由器 A 会将目的地 D 的距离值设置为无穷大，并将这个更新消息发送回给路由器 B。这样一来，路由器 B 就知道了目的地 D 不可达，并且不会再将数据发送给路由器 A。\n毒性逆转的作用是通过明确标记不可达路径来防止路由环路的产生。具体来说，当节点通过某条链路学到某目的地的路由后，它会向相邻节点通告该目的地的距离为无穷大，以避免对方将该信息再次传播回来，从而有效避免路由振荡和环路问题。\n开放最短路径优先（OSPF）协议\r开放最短路径优先（OSPF）协议是使用分布式链路状态路由算法的典型代表，也是内部网关协议(IGP)的一种。\n当网络规模扩大时，路由器的路由表成比例地增大。这会消耗路由器缓冲区空间，还需要用更多CPU时间，用更多的带宽来交换路由状态信息。因此路由选择必须按照层次的方式进行。\n如图，每个链路状态分组仅在它所属的区域内泛洪，从而限制了链路状态分组泛洪的范围和数量\nBackbone 指的是主干区域（Backbone Area），通常被标记为 Area 0。它是 OSPF 路由体系的核心部分，负责连接并协调多个非主干区域的通信。\n">
-<meta property='og:url' content='http://localhost:1313/posts/post_301732386019327/'>
+<meta property='og:url' content='https://example.com/posts/post_301732386019327/'>
 <meta property='og:site_name' content='fsj2009yx'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='计算机网络' /><meta property='article:published_time' content='2024-12-06T22:27:00&#43;08:00'/><meta property='article:modified_time' content='2024-12-06T22:27:00&#43;08:00'/>
 <meta name="twitter:title" content="自治系统内部的路由选择">
@@ -215,9 +215,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="http://localhost:1313/en/" >English</option>
+                                    <option value="https://example.com/en/" >English</option>
                                 
-                                    <option value="http://localhost:1313/" selected>中文</option>
+                                    <option value="https://example.com/" selected>中文</option>
                                 
                             </select>
                         </li>
@@ -676,7 +676,7 @@
             
                 
 <article class="">
-    <a href="/posts/post/">
+    <a href="/posts/post_114514/">
         
         
 
@@ -796,7 +796,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.badf2e8775eec097575d24cc69ddec3a330b7035989901fd1de7ab620d7760ec.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

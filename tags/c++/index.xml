@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>C&#43;&#43; on fsj2009yx</title>
-        <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+        <link>https://example.com/tags/c&#43;&#43;/</link>
         <description>Recent content in C&#43;&#43; on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sat, 07 Dec 2024 23:20:47 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Dec 2024 23:20:47 +0800</lastBuildDate><atom:link href="https://example.com/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>异或和之和</title>
-        <link>http://localhost:1313/posts/post_279452484721406/</link>
+        <link>https://example.com/posts/post_279452484721406/</link>
         <pubDate>Sat, 07 Dec 2024 23:20:47 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/post_279452484721406/</guid>
+        <guid>https://example.com/posts/post_279452484721406/</guid>
         <description>&lt;h1 id=&#34;异或和之和&#34;&gt;异或和之和
 &lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P9236&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;P9236 \[蓝桥杯 2023 省 A\] 异或和之和 - 洛谷 | 计算机科学教育新生态&lt;/a&gt;&lt;/p&gt;
@@ -218,10 +218,10 @@
         </item>
         <item>
         <title>搜索结构</title>
-        <link>http://localhost:1313/posts/post/</link>
+        <link>https://example.com/posts/post_114514/</link>
         <pubDate>Tue, 03 Dec 2024 22:24:25 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/post/</guid>
+        <guid>https://example.com/posts/post_114514/</guid>
         <description>&lt;h1 id=&#34;搜索结构&#34;&gt;搜索结构
 &lt;/h1&gt;&lt;p&gt;搜索方法取决于搜索结构中数据元素的组织方式。例如，电话号码簿的搜索，可建立分类目录，采用分块（索引顺序）搜索；英汉词典是有序表，可采用折半搜索（或分块搜索）。&lt;/p&gt;
 &lt;p&gt;搜索结构分为静态搜索结构和动态搜索结构&lt;/p&gt;
@@ -1591,6 +1591,321 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;我们以&lt;strong&gt;七阶B树&lt;/strong&gt;为例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082148077.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;b9ba99f298968fe9d72f1198f3ae2138&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由&lt;code&gt;其余非失败结点至少有 n（[m/2]≤n≤m）棵子树。&lt;/code&gt;这条性质，对$m/2$&lt;strong&gt;向上取整&lt;/strong&gt;得到每个节点中至少&lt;code&gt;4&lt;/code&gt;个孩子
+且失败节点全部挂载在子节点上&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一些特殊的m阶B树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二阶B-树：满二叉树&lt;/li&gt;
+&lt;li&gt;三阶B-树：内部可以有2个或者3个孩子，也叫做2-3树&lt;/li&gt;
+&lt;li&gt;四阶B-树：内部可以有2个、3个或者4个孩子，也叫做2-3-4树&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中&lt;strong&gt;红黑树&lt;/strong&gt;就是&lt;strong&gt;四阶B-树&lt;/strong&gt;的一种&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082154242.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;b02a367f95924160e1a7bda4853ecc1a&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;b树搜索性能&#34;&gt;B树搜索性能
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082156330.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;229fd8043858f4651b8a30be40dc8eea&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;m值的选择：应使得在B树中找到关键码&lt;code&gt;x&lt;/code&gt;的时间总量达到最小&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;如果提高B树的阶数m，可以减少树的高度&lt;/strong&gt;，从而减少读入节点的次数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;m受到内存可使用空间的限制&lt;/strong&gt;，所以m的值不能很大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;b树插入算法&#34;&gt;B树插入算法
+&lt;/h3&gt;&lt;p&gt;B树是从空树起，逐个插入关键码而形成的;&lt;/p&gt;
+&lt;p&gt;插入关键码时，首先要调用&lt;strong&gt;搜索算法&lt;/strong&gt;，若搜索成功，则不能插入；若搜索失败，则得到要插入的节点的地址&lt;/p&gt;
+&lt;p&gt;这里我们分两种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若找到的结点关键码个数&lt;code&gt;少于m-1&lt;/code&gt;，直接插入；&lt;/li&gt;
+&lt;li&gt;若找到的结点已经饱和，插入后结点中的关键码个数&lt;code&gt;超出了上界 m-1&lt;/code&gt; ，则该结点需要**“分裂”**&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;结点分裂&#34;&gt;结点“分裂”
+&lt;/h4&gt;&lt;p&gt;设结点 &lt;em&gt;p&lt;/em&gt; 中已经有 &lt;em&gt;m&lt;/em&gt;-1 个关键码，当再插入一个关键码后结点的状态为( &lt;em&gt;m&lt;/em&gt;, &lt;em&gt;P&lt;/em&gt;0, &lt;em&gt;K&lt;/em&gt;1, &lt;em&gt;P&lt;/em&gt;1, &lt;em&gt;K&lt;/em&gt;2, &lt;em&gt;P&lt;/em&gt;2, ……, &lt;em&gt;$K_m$&lt;/em&gt;, $P_m$)；&lt;/p&gt;
+&lt;p&gt;由于&lt;code&gt;每个结点最多m棵子树，m-1个关键码&lt;/code&gt;，再插入关键码后我们必须对结点进行**“分裂“**操作以维持B树的正确结构&lt;/p&gt;
+&lt;p&gt;分裂操作的步骤如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082213829.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;d3a2f409dae26caa81ef9d69e6116233&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;例如：一棵三阶B-树的某个子结点内有&lt;code&gt;53&lt;/code&gt;,&lt;code&gt;75&lt;/code&gt;两个关键码
+此时插入关键码&lt;code&gt;139&lt;/code&gt;，关键码个数溢出了，我们对其分裂：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将结点分裂成两个结点&lt;code&gt;p&lt;/code&gt;和&lt;code&gt;q&lt;/code&gt;，&lt;code&gt;p&lt;/code&gt;结点的关键码为$P_0$到$P_{[m/2]-1}$，&lt;code&gt;q&lt;/code&gt;结点为$P_{[m/2]}$到$P_m$&lt;/li&gt;
+&lt;li&gt;该节点按照上面的规则，分为&lt;code&gt;53&lt;/code&gt;和&lt;code&gt;139&lt;/code&gt;两个子结点挂载在&lt;code&gt;75&lt;/code&gt;结点的上面，&lt;code&gt;75&lt;/code&gt;即原先未分裂的结点的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082225653.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;a4df9fb7a5fec670cd0e697b70849916&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082225934.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;78a7247cc6f33c247321f301a2d261c6&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;b树删除算法&#34;&gt;B树删除算法
+&lt;/h3&gt;&lt;p&gt;在B树上删除一个关键码时，若结点中所剩关键码个数&lt;strong&gt;少于下限&lt;/strong&gt;，要考虑结点的调整或合并问题&lt;/p&gt;
+&lt;p&gt;B树的删除步骤如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先调用搜索算法，找到要删除的关键码所在的结点, 从中删去这个关键码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若该结点不是叶结点，且被删关键码为 $K_i$，1≤&lt;em&gt;i&lt;/em&gt;≤&lt;em&gt;n&lt;/em&gt;，则在删去该关键码之后，应**以该结点 $P_i$ 所指示子树中的最小关键码（或以$P_{i-1}$ 所指示子树中的最大关键码 $x$ **来代替被删关键码 $K_{i}$ 所在的位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;strong&gt;&lt;em&gt;x&lt;/em&gt; 所在的叶结点&lt;/strong&gt;中删除 &lt;em&gt;x&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082229788.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;acff9891ea1f4087855a6f2ca3e96af0&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;关键码删除的三种情况&#34;&gt;关键码删除的三种情况
+&lt;/h4&gt;&lt;p&gt;情况1：被删关键码所在叶结点&lt;strong&gt;同时又是根结点&lt;/strong&gt;，且删除前该结点中关键码个数 &lt;em&gt;n&lt;/em&gt;≥2：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接删去该关键码即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082241138.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;f19415488766fd705ade4d911d97413a&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;情况2：被删关键码所在叶结点&lt;strong&gt;不是根结点&lt;/strong&gt;，且&lt;strong&gt;删除前该结点中关键码个数 &lt;em&gt;n&lt;/em&gt;≥[m/2]&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同理，直接删除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;情况3：被删关键码所在叶结点&lt;strong&gt;删除前关键码个数&lt;em&gt;n&lt;/em&gt;=[&lt;em&gt;m&lt;/em&gt;/2]-1&lt;/strong&gt;，若这时与&lt;strong&gt;该结点相邻的右兄弟 (或左兄弟) 结点的关键码个数n≥[m/2]&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;我们需要按以下步骤调整&lt;strong&gt;该结点&lt;/strong&gt;、&lt;strong&gt;右兄弟 (或左兄弟) 结点&lt;/strong&gt;以及其&lt;strong&gt;双亲结点&lt;/strong&gt;，以达到新的平衡&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将&lt;strong&gt;双亲结点&lt;/strong&gt;中&lt;strong&gt;刚刚大于 (或小于)&lt;/strong&gt; 该被删关键码的关键码 $K_i$ (1≤&lt;em&gt;i&lt;/em&gt;≤&lt;em&gt;n&lt;/em&gt;) &lt;code&gt;下移&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将&lt;strong&gt;右兄弟 (或左兄弟) 结点&lt;/strong&gt;中的&lt;strong&gt;最小 (或最大)关键码&lt;/strong&gt;&lt;code&gt;上移&lt;/code&gt;到双亲结点的 $K_i$ 位置&lt;/li&gt;
+&lt;li&gt;将&lt;strong&gt;右兄弟 (或左兄弟) 结点&lt;/strong&gt;中的&lt;strong&gt;最左 (或最右) 子树&lt;/strong&gt;指针平移到被删关键码所在结点中最后 (或最前) 子树指针位置&lt;/li&gt;
+&lt;li&gt;在&lt;strong&gt;右兄弟 (或左兄弟) 结点&lt;/strong&gt;中，将被移走的关键码和指针位置用剩余的关键码和指针填补、调整。再将&lt;strong&gt;结点中的关键码个数减1&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;文字上可能不好理解，我们结合图示来解释：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082247536.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;c5898a065246ca0855ac1d04fbdee168&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如果我们删除&lt;code&gt;65&lt;/code&gt;关键码，该位置结点的关键码个数变为&lt;code&gt;0&lt;/code&gt;，此时我们在兄弟结点（这里取右兄弟）中的最小关键码&lt;code&gt;75&lt;/code&gt;&lt;strong&gt;上移&lt;/strong&gt;到父节点$c$中，在$c$中&lt;strong&gt;下移&lt;/strong&gt;最接近&lt;code&gt;65&lt;/code&gt;但比&lt;code&gt;65&lt;/code&gt;的关键码&lt;code&gt;70&lt;/code&gt;到空子节点&lt;code&gt;g&lt;/code&gt;中&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：这里取的是右兄弟的结点，所以使用的是右兄弟节点中的&lt;strong&gt;最小关键码&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;如果选择左兄弟节点，则&lt;strong&gt;按删除规则&lt;/strong&gt;，与之相反&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;给出删除关键码的另一种情况：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082254454.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;c8a652302bd23b8c094cafd775cbcf6b&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这里由于右兄弟结点只有一个关键码&lt;code&gt;80&lt;/code&gt;，所以我们选取左兄弟结点f，按照删除规则完成删除操作&lt;/p&gt;
+&lt;p&gt;情况4：结点&lt;strong&gt;合并&lt;/strong&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;简单记忆，若按前三种删除操作不能达成维持B树结构的目的时，采用&lt;strong&gt;合并&lt;/strong&gt;操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082256522.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ad7cf7db0be325dd9e68465b8a58f77b&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;依旧以图示说明：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082304104.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;e83c4cc8045379d541350905fa8aad4d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如果我们直接删除关键码&lt;code&gt;55&lt;/code&gt;，由于父结点中的&lt;code&gt;58&lt;/code&gt;小于&lt;code&gt;60&lt;/code&gt;，不符合B-树的条件；而采用情景3中的方法将&lt;code&gt;60&lt;/code&gt;上移，&lt;code&gt;58&lt;/code&gt;或者&lt;code&gt;75&lt;/code&gt;下移更是不可能的，因此我们采取&lt;strong&gt;合并&lt;/strong&gt;操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先删除55，剩下&lt;code&gt;60&lt;/code&gt;和&lt;code&gt;80&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将父节点中&lt;strong&gt;最接近但是大于&lt;/strong&gt;待删除关键码的关键码&lt;code&gt;58&lt;/code&gt;下移并与&lt;code&gt;60&lt;/code&gt;进行&lt;strong&gt;合并&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面是另一种情况：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082314286.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;e73e364cad2a494731d2bd662d256336&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;可以看到，这里选取的是父结点中&lt;strong&gt;最接近但是小于&lt;/strong&gt;待删除关键码的关键码&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;删除的关键在于，能否在删除调整后维持B-树的正常结构，因为B-树是高度平衡化的，每个关键码的位置相对比较固定，不会因插入顺序变化而太多改变。&lt;strong&gt;维持B-树的正常结构&lt;/strong&gt;可以作为删除操作的方法，也可以作为检查手段&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下面用文字举例B树中关键码删除的流程：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;假设我们有一棵3阶B树（每个节点最多有2个关键码和3个子节点，至少有1个关键码），树的结构如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       [10 | 20]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      /   |   \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   [5]   [15]  [25 | 30]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我们尝试删除关键码&lt;code&gt;20&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;1-找到要删除的关键码位置&#34;&gt;&lt;strong&gt;1. 找到要删除的关键码位置&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;在树中定位到&lt;code&gt;20&lt;/code&gt;的位置。&lt;code&gt;20&lt;/code&gt;位于根节点中，是一个内部节点。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;2-判断关键码类型&#34;&gt;&lt;strong&gt;2. 判断关键码类型&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;删除操作分两种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;情况1：关键码在叶子节点中&lt;/strong&gt;
+如果&lt;code&gt;20&lt;/code&gt;在叶子节点中，直接删除即可，同时检查节点是否仍满足最小关键码数要求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;情况2：关键码在内部节点中&lt;/strong&gt;
+这是当前情况。需要找到&lt;code&gt;20&lt;/code&gt;的&lt;strong&gt;前驱关键码&lt;/strong&gt;或&lt;strong&gt;后继关键码&lt;/strong&gt;来替代它。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;3-替换关键码&#34;&gt;&lt;strong&gt;3. 替换关键码&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;选择一个子树中最大的关键码作为前驱，或选择一个子树中最小的关键码作为后继。&lt;/p&gt;
+&lt;p&gt;在这个例子中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前驱关键码：子树&lt;code&gt;[15]&lt;/code&gt;的最大值为&lt;code&gt;15&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;后继关键码：子树&lt;code&gt;[25 | 30]&lt;/code&gt;的最小值为&lt;code&gt;25&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们选择用&lt;code&gt;25&lt;/code&gt;替代&lt;code&gt;20&lt;/code&gt;。
+B树现在变为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       [10 | 25]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      /   |   \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   [5]   [15]  [30]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id=&#34;4-删除前驱或后继关键码&#34;&gt;&lt;strong&gt;4. 删除前驱或后继关键码&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;从相应的子树中删除&lt;code&gt;25&lt;/code&gt;（这是一次递归删除操作）。
+在此例中，&lt;code&gt;25&lt;/code&gt;在叶子节点中，直接删除，最终树结构为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       [10 | 25]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      /   |   \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   [5]   [15]  [30]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;b树&#34;&gt;B+树
+&lt;/h2&gt;&lt;p&gt;B+树的定义如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082320762.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;20ea1f481e524f685c7495838704ac60&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412082320945.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1b6ab13d0d505d815f3dd0efa60096a2&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/weixin_46048515/article/details/120068315?ops_request_misc=%7B%22request%5Fid%22%3A%226baf8459d4a9e0bf7fb747ba2ad2afb0%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;amp;request_id=6baf8459d4a9e0bf7fb747ba2ad2afb0&amp;amp;biz_id=0&amp;amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-120068315-null-null.142%5ev100%5epc_search_result_base3&amp;amp;utm_term=B%2B%e6%a0%91&amp;amp;spm=1018.2226.3001.4187&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;B+树真的不难，楼下菜大爷都能学得会的B+树！（数据结构可视化神器推荐）_数据结构b+树可视化-CSDN博客&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         

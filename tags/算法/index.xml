@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>算法 on fsj2009yx</title>
-        <link>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</link>
+        <link>https://example.com/tags/%E7%AE%97%E6%B3%95/</link>
         <description>Recent content in 算法 on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sat, 07 Dec 2024 23:20:47 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Dec 2024 23:20:47 +0800</lastBuildDate><atom:link href="https://example.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>异或和之和</title>
-        <link>http://localhost:1313/posts/post_279452484721406/</link>
+        <link>https://example.com/posts/post_279452484721406/</link>
         <pubDate>Sat, 07 Dec 2024 23:20:47 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/post_279452484721406/</guid>
+        <guid>https://example.com/posts/post_279452484721406/</guid>
         <description>&lt;h1 id=&#34;异或和之和&#34;&gt;异或和之和
 &lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P9236&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;P9236 \[蓝桥杯 2023 省 A\] 异或和之和 - 洛谷 | 计算机科学教育新生态&lt;/a&gt;&lt;/p&gt;
