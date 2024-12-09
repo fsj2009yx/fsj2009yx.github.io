@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on fsj2009yx</title>
-        <link>http://localhost:1313/categories/</link>
+        <link>https://fsj2009yx.github.io/categories/</link>
         <description>Recent content in Categories on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>基础课程</title>
-        <link>http://localhost:1313/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/</link>
+        <link>https://fsj2009yx.github.io/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/</link>
         <pubDate>Mon, 09 Dec 2024 00:11:27 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/</guid>
+        <guid>https://fsj2009yx.github.io/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/</guid>
         <description></description>
         </item>
         <item>
         <title>算法</title>
-        <link>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</link>
+        <link>https://fsj2009yx.github.io/categories/%E7%AE%97%E6%B3%95/</link>
         <pubDate>Mon, 09 Dec 2024 00:11:27 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</guid>
+        <guid>https://fsj2009yx.github.io/categories/%E7%AE%97%E6%B3%95/</guid>
         <description></description>
         </item>
         <item>
         <title>杂谈</title>
-        <link>http://localhost:1313/categories/%E6%9D%82%E8%B0%88/</link>
+        <link>https://fsj2009yx.github.io/categories/%E6%9D%82%E8%B0%88/</link>
         <pubDate>Fri, 06 Dec 2024 19:10:09 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/%E6%9D%82%E8%B0%88/</guid>
+        <guid>https://fsj2009yx.github.io/categories/%E6%9D%82%E8%B0%88/</guid>
         <description></description>
         </item>
         <item>
         <title>专业技术</title>
-        <link>http://localhost:1313/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/</link>
+        <link>https://fsj2009yx.github.io/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/</link>
         <pubDate>Wed, 04 Dec 2024 12:16:49 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/</guid>
+        <guid>https://fsj2009yx.github.io/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/</guid>
         <description></description>
         </item>
         
