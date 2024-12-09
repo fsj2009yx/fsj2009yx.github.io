@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>fsj2009yx</title>
-        <link>https://fsj2009yx.github.io/</link>
+        <link>http://localhost:1313/</link>
         <description>Recent content on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>排序算法</title>
-        <link>https://fsj2009yx.github.io/posts/post_251061473025222/</link>
+        <link>http://localhost:1313/posts/post_251061473025222/</link>
         <pubDate>Mon, 09 Dec 2024 00:11:27 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_251061473025222/</guid>
+        <guid>http://localhost:1313/posts/post_251061473025222/</guid>
         <description>&lt;h1 id=&#34;排序算法&#34;&gt;排序算法
 &lt;/h1&gt;&lt;h2 id=&#34;插入排序&#34;&gt;插入排序
 &lt;/h2&gt;&lt;h3 id=&#34;算法思路&#34;&gt;算法思路
@@ -1302,10 +1302,10 @@
         </item>
         <item>
         <title>异或和之和</title>
-        <link>https://fsj2009yx.github.io/posts/post_279452484721406/</link>
+        <link>http://localhost:1313/posts/post_279452484721406/</link>
         <pubDate>Sat, 07 Dec 2024 23:20:47 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_279452484721406/</guid>
+        <guid>http://localhost:1313/posts/post_279452484721406/</guid>
         <description>&lt;h1 id=&#34;异或和之和&#34;&gt;异或和之和
 &lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P9236&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;P9236 \[蓝桥杯 2023 省 A\] 异或和之和 - 洛谷 | 计算机科学教育新生态&lt;/a&gt;&lt;/p&gt;
@@ -1511,10 +1511,10 @@
         </item>
         <item>
         <title>自治系统内部的路由选择</title>
-        <link>https://fsj2009yx.github.io/posts/post_301732386019327/</link>
+        <link>http://localhost:1313/posts/post_301732386019327/</link>
         <pubDate>Fri, 06 Dec 2024 22:27:00 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_301732386019327/</guid>
+        <guid>http://localhost:1313/posts/post_301732386019327/</guid>
         <description>&lt;h1 id=&#34;自治系统内部的路由选择&#34;&gt;自治系统内部的路由选择
 &lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id=&#34;路由信息协议rip&#34;&gt;&lt;strong&gt;路由信息协议（RIP）&lt;/strong&gt;
@@ -1726,10 +1726,10 @@
         </item>
         <item>
         <title>三门问题的python代码模拟和原理解释</title>
-        <link>https://fsj2009yx.github.io/posts/post_243711766418750/</link>
+        <link>http://localhost:1313/posts/post_243711766418750/</link>
         <pubDate>Fri, 06 Dec 2024 19:10:09 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_243711766418750/</guid>
+        <guid>http://localhost:1313/posts/post_243711766418750/</guid>
         <description>&lt;h1 id=&#34;三门问题的python代码模拟和原理解释&#34;&gt;三门问题的python代码模拟和原理解释
 &lt;/h1&gt;&lt;p&gt;刷视频时偶然刷到了&lt;strong&gt;三门问题&lt;/strong&gt;，于是好奇的查阅了一下&lt;/p&gt;
 &lt;p&gt;先给出三门问题的简单介绍（引用自百度）：&lt;/p&gt;
@@ -1853,10 +1853,10 @@
         </item>
         <item>
         <title>计算机网络计算</title>
-        <link>https://fsj2009yx.github.io/posts/post_132911105916910/</link>
+        <link>http://localhost:1313/posts/post_132911105916910/</link>
         <pubDate>Fri, 06 Dec 2024 09:51:53 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_132911105916910/</guid>
+        <guid>http://localhost:1313/posts/post_132911105916910/</guid>
         <description>&lt;h1 id=&#34;计算机网络计算&#34;&gt;计算机网络计算
 &lt;/h1&gt;&lt;h2 id=&#34;时延&#34;&gt;时延
 &lt;/h2&gt;&lt;p&gt;总时延=处理时延+排队时延+传输时延+传播时延&lt;/p&gt;
@@ -2229,10 +2229,10 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
         </item>
         <item>
         <title>IPV4</title>
-        <link>https://fsj2009yx.github.io/posts/post_16861929726775/</link>
+        <link>http://localhost:1313/posts/post_16861929726775/</link>
         <pubDate>Wed, 04 Dec 2024 23:25:47 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_16861929726775/</guid>
+        <guid>http://localhost:1313/posts/post_16861929726775/</guid>
         <description>&lt;h1 id=&#34;ipv4&#34;&gt;IPV4
 &lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id=&#34;ip数据报&#34;&gt;&lt;strong&gt;IP数据报&lt;/strong&gt;
@@ -2863,10 +2863,10 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
         </item>
         <item>
         <title>JAVA流对象</title>
-        <link>https://fsj2009yx.github.io/posts/post_16852325024037/</link>
+        <link>http://localhost:1313/posts/post_16852325024037/</link>
         <pubDate>Wed, 04 Dec 2024 12:16:49 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_16852325024037/</guid>
+        <guid>http://localhost:1313/posts/post_16852325024037/</guid>
         <description>&lt;h1 id=&#34;java流对象&#34;&gt;JAVA流对象
 &lt;/h1&gt;&lt;h2 id=&#34;stream流&#34;&gt;Stream流
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Stream&lt;/strong&gt;是Java 8 API添加的一个新的抽象，称为流Stream，以一种声明性方式处理数据集合（侧重对于源数据计算能力的封装，并且支持序列与并行两种操作方式）&lt;/p&gt;
@@ -4209,10 +4209,10 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
         </item>
         <item>
         <title>Java类基础</title>
-        <link>https://fsj2009yx.github.io/posts/my-first-post/</link>
+        <link>http://localhost:1313/posts/my-first-post/</link>
         <pubDate>Wed, 04 Dec 2024 12:06:05 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/my-first-post/</guid>
+        <guid>http://localhost:1313/posts/my-first-post/</guid>
         <description>&lt;h1 id=&#34;java-类基础知识&#34;&gt;Java 类基础知识
 &lt;/h1&gt;&lt;p&gt;Java 是一种面向对象的编程语言，类是 Java 中的核心构建块之一。类用于定义对象的结构、属性和行为。Java 中的类可以包含字段（成员变量）、方法、构造方法、构造器以及其他成员。本文将介绍 Java 类的基础知识，包括类的定义、成员、构造方法和常见的类方法。&lt;/p&gt;
 &lt;hr&gt;
@@ -4614,10 +4614,10 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
         </item>
         <item>
         <title>搜索结构</title>
-        <link>https://fsj2009yx.github.io/posts/post_114514/</link>
+        <link>http://localhost:1313/posts/post_114514/</link>
         <pubDate>Tue, 03 Dec 2024 22:24:25 +0800</pubDate>
         
-        <guid>https://fsj2009yx.github.io/posts/post_114514/</guid>
+        <guid>http://localhost:1313/posts/post_114514/</guid>
         <description>&lt;h1 id=&#34;搜索结构&#34;&gt;搜索结构
 &lt;/h1&gt;&lt;p&gt;搜索方法取决于搜索结构中数据元素的组织方式。例如，电话号码簿的搜索，可建立分类目录，采用分块（索引顺序）搜索；英汉词典是有序表，可采用折半搜索（或分块搜索）。&lt;/p&gt;
 &lt;p&gt;搜索结构分为静态搜索结构和动态搜索结构&lt;/p&gt;
@@ -6306,26 +6306,26 @@ B树现在变为：&lt;/p&gt;
         </item>
         <item>
         <title>Archives</title>
-        <link>https://fsj2009yx.github.io/archives/</link>
+        <link>http://localhost:1313/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://fsj2009yx.github.io/archives/</guid>
+        <guid>http://localhost:1313/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Search</title>
-        <link>https://fsj2009yx.github.io/search/</link>
+        <link>http://localhost:1313/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://fsj2009yx.github.io/search/</guid>
+        <guid>http://localhost:1313/search/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://fsj2009yx.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <link>http://localhost:1313/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://fsj2009yx.github.io/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
 </description>
         </item>
