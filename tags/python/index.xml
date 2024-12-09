@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Python on fsj2009yx</title>
-        <link>https://example.com/tags/python/</link>
+        <link>https://fsj2009yx.github.io/tags/python/</link>
         <description>Recent content in Python on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Fri, 06 Dec 2024 19:10:09 +0800</lastBuildDate><atom:link href="https://example.com/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 06 Dec 2024 19:10:09 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>三门问题的python代码模拟和原理解释</title>
-        <link>https://example.com/posts/post_243711766418750/</link>
+        <link>https://fsj2009yx.github.io/posts/post_243711766418750/</link>
         <pubDate>Fri, 06 Dec 2024 19:10:09 +0800</pubDate>
         
-        <guid>https://example.com/posts/post_243711766418750/</guid>
+        <guid>https://fsj2009yx.github.io/posts/post_243711766418750/</guid>
         <description>&lt;h1 id=&#34;三门问题的python代码模拟和原理解释&#34;&gt;三门问题的python代码模拟和原理解释
 &lt;/h1&gt;&lt;p&gt;刷视频时偶然刷到了&lt;strong&gt;三门问题&lt;/strong&gt;，于是好奇的查阅了一下&lt;/p&gt;
 &lt;p&gt;先给出三门问题的简单介绍（引用自百度）：&lt;/p&gt;

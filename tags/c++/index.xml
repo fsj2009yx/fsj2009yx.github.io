@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>C&#43;&#43; on fsj2009yx</title>
-        <link>https://example.com/tags/c&#43;&#43;/</link>
+        <link>https://fsj2009yx.github.io/tags/c&#43;&#43;/</link>
         <description>Recent content in C&#43;&#43; on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="https://example.com/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>排序算法</title>
-        <link>https://example.com/posts/post_251061473025222/</link>
+        <link>https://fsj2009yx.github.io/posts/post_251061473025222/</link>
         <pubDate>Mon, 09 Dec 2024 00:11:27 +0800</pubDate>
         
-        <guid>https://example.com/posts/post_251061473025222/</guid>
+        <guid>https://fsj2009yx.github.io/posts/post_251061473025222/</guid>
         <description>&lt;h1 id=&#34;排序算法&#34;&gt;排序算法
 &lt;/h1&gt;&lt;h2 id=&#34;插入排序&#34;&gt;插入排序
 &lt;/h2&gt;&lt;h3 id=&#34;算法思路&#34;&gt;算法思路
@@ -1302,10 +1302,10 @@
         </item>
         <item>
         <title>异或和之和</title>
-        <link>https://example.com/posts/post_279452484721406/</link>
+        <link>https://fsj2009yx.github.io/posts/post_279452484721406/</link>
         <pubDate>Sat, 07 Dec 2024 23:20:47 +0800</pubDate>
         
-        <guid>https://example.com/posts/post_279452484721406/</guid>
+        <guid>https://fsj2009yx.github.io/posts/post_279452484721406/</guid>
         <description>&lt;h1 id=&#34;异或和之和&#34;&gt;异或和之和
 &lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P9236&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;P9236 \[蓝桥杯 2023 省 A\] 异或和之和 - 洛谷 | 计算机科学教育新生态&lt;/a&gt;&lt;/p&gt;
@@ -1511,10 +1511,10 @@
         </item>
         <item>
         <title>搜索结构</title>
-        <link>https://example.com/posts/post_114514/</link>
+        <link>https://fsj2009yx.github.io/posts/post_114514/</link>
         <pubDate>Tue, 03 Dec 2024 22:24:25 +0800</pubDate>
         
-        <guid>https://example.com/posts/post_114514/</guid>
+        <guid>https://fsj2009yx.github.io/posts/post_114514/</guid>
         <description>&lt;h1 id=&#34;搜索结构&#34;&gt;搜索结构
 &lt;/h1&gt;&lt;p&gt;搜索方法取决于搜索结构中数据元素的组织方式。例如，电话号码簿的搜索，可建立分类目录，采用分块（索引顺序）搜索；英汉词典是有序表，可采用折半搜索（或分块搜索）。&lt;/p&gt;
 &lt;p&gt;搜索结构分为静态搜索结构和动态搜索结构&lt;/p&gt;
