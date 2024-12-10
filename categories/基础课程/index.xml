@@ -23,6 +23,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;简单记忆：含有单位元的半群===独异点&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;p&gt;我们以具体的例子来说明，哪些属于半群哪些属于独异点：&lt;/p&gt;
 &lt;p&gt;有以下几个代数结构：&amp;lt;N,+&amp;gt;，&amp;lt;R,×&amp;gt;，&amp;lt;P(E),∩&amp;gt;，&amp;lt;P(E),$\oplus$&amp;gt;，&amp;lt;R,÷&amp;gt;，&amp;lt;N，-&amp;gt;&lt;/p&gt;
 &lt;p&gt;对于&amp;lt;N,+&amp;gt;：“+”运算在自然数集合上是&lt;strong&gt;封闭的&lt;/strong&gt;（1），并且”+“法运算是&lt;strong&gt;可结合的&lt;/strong&gt;（2），
@@ -31,6 +32,7 @@
 &lt;p&gt;而&amp;lt;N,+&amp;gt;的单位元是0，&amp;lt;R,×&amp;gt;的单位元是1，&amp;lt;P(E),∩&amp;gt;、&amp;lt;P(E),$\oplus$&amp;gt;的单位元分别是E和0；
 它们都拥有单位元，所以它们同时也是&lt;strong&gt;独异点&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;而对于$÷$、$-$ 等运算，它们不满足结合律，故它们不是半群&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;p&gt;例：考察代数结构&amp;lt;$N_6$,$+_6$&amp;gt;，$N_6={0,1,2,3,4,5}$；根据模k加法&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;的定义，算出该代数结构的运算表如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412091336575.png&#34;
 	
@@ -44,12 +46,14 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;从表中我们看出：运算是&lt;strong&gt;封闭的&lt;/strong&gt;，通过验证也可以得知$+_6$运算是&lt;strong&gt;可结合的&lt;/strong&gt;，故它属于半群；
 又因为表中得知单位元为0，它也是独异点&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3 id=&#34;可交换半群和可交换独异点&#34;&gt;可交换半群和可交换独异点
 &lt;/h3&gt;&lt;p&gt;可交换半群：
 设&amp;lt;S,★&amp;gt;是半群，如★是&lt;strong&gt;可交换&lt;/strong&gt;的，则称&amp;lt;S,★&amp;gt;是可交换半群。&lt;/p&gt;
 &lt;p&gt;可交换独异点：
 &amp;lt;M,★&amp;gt;是独异点，如★是&lt;strong&gt;可交换&lt;/strong&gt;的，则称&amp;lt;M,★&amp;gt;是可交换独异点。&lt;/p&gt;
 &lt;p&gt;例:&amp;lt;R,+&amp;gt;，&amp;lt;N,ㄨ&amp;gt;，&amp;lt;P(E),∩&amp;gt;，&amp;lt;P(E),$\oplus$&amp;gt;都是可交换半群，亦是可交换独异点。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h3 id=&#34;子半群和子独异点&#34;&gt;子半群和子独异点
 &lt;/h3&gt;&lt;p&gt;子半群：&lt;/p&gt;
 &lt;p&gt;定义：若&amp;lt;S,★&amp;gt;是个半群，$B\subseteq S$；如果★在B上封闭，则称&amp;lt;B,★&amp;gt;是&amp;lt;S,★&amp;gt;的子半群。&lt;/p&gt;
@@ -99,6 +103,7 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;性质二群中的每个元素都是可消去元&#34;&gt;性质二：群中的每个元素都是可消去元
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是个群，则对任何 $a,b,c∈G$&lt;/p&gt;
@@ -117,6 +122,7 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;性质三群中除了单位元外没有其他的幂等元&#34;&gt;性质三：群中除了单位元外，没有其他的幂等元
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是群，则G中有且只有单位元是幂等元&lt;/p&gt;
@@ -132,6 +138,7 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;性质四群方程有唯一解&#34;&gt;性质四：群方程有唯一解
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是群，则对任何$a,b∈G$
@@ -159,10 +166,12 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;性质五有限群表的特征&#34;&gt;性质五：有限群表的特征
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;定理：若&amp;lt;G,★&amp;gt;是有限群，则G中的每一个元素★在运算表中的每一行（列）都必出现并且只出现一次&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;其他定理&#34;&gt;其他定理
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;定理：&amp;lt;G,★&amp;gt;是个群，对任何 $a,b∈G$，有&lt;/p&gt;
@@ -196,9 +205,11 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;由运算表我们可以看出：&lt;strong&gt;所有的一阶群都同构&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;，所有的二阶群都同构，所有的三阶群都同构&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;由此我们可以得到：&lt;strong&gt;同阶的所有群都是同构的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;群中元素的阶&#34;&gt;群中元素的阶
 &lt;/h4&gt;&lt;p&gt;定义:设&amp;lt;G,★&amp;gt;是群，$a∈G$，使得$a^k$=e&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;成立的最小正整数 k 称为a的阶，记作|a|=k，称a为k阶元。&lt;/p&gt;
 &lt;p&gt;若不存在这样的正整数k，则称a的阶是&lt;strong&gt;无限的&lt;/strong&gt;。比如群&amp;lt;l,+&amp;gt;是一个无限群，只有单位元 0 的阶是1，其余元素的阶都是无限的。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;p&gt;给出一个示例：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412101153731.png&#34;
 	
