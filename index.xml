@@ -7,7 +7,244 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 00:11:27 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 10 Dec 2024 12:03:39 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>群论</title>
+        <link>https://fsj2009yx.github.io/posts/post_208132376826979/</link>
+        <pubDate>Tue, 10 Dec 2024 12:03:39 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_208132376826979/</guid>
+        <description>&lt;h1 id=&#34;群&#34;&gt;群
+&lt;/h1&gt;&lt;h2 id=&#34;半群和独异点&#34;&gt;半群和独异点
+&lt;/h2&gt;&lt;h3 id=&#34;普通半群&#34;&gt;普通半群
+&lt;/h3&gt;&lt;p&gt;定义：设&lt;strong&gt;S是非空集合&lt;/strong&gt;，#是S上的&lt;strong&gt;二元运算&lt;/strong&gt;
+如果#在S上满足&lt;strong&gt;封闭性，可结合性&lt;/strong&gt;，则称&amp;lt;S,#&amp;gt;是半群&lt;/p&gt;
+&lt;h3 id=&#34;普通独异点&#34;&gt;普通独异点
+&lt;/h3&gt;&lt;p&gt;定义：设&amp;lt;M.#&amp;gt;是个半群，如果#运算含有&lt;strong&gt;幺元&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，则称&amp;lt;M.#&amp;gt;是&lt;strong&gt;独异点&lt;/strong&gt;，也就是&lt;strong&gt;含幺半群&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;简单记忆：含有单位元的半群===独异点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们以具体的例子来说明，哪些属于半群哪些属于独异点：&lt;/p&gt;
+&lt;p&gt;有以下几个代数结构：&amp;lt;N,+&amp;gt;，&amp;lt;R,×&amp;gt;，&amp;lt;P(E),∩&amp;gt;，&amp;lt;P(E),$\oplus$&amp;gt;，&amp;lt;R,÷&amp;gt;，&amp;lt;N，-&amp;gt;&lt;/p&gt;
+&lt;p&gt;对于&amp;lt;N,+&amp;gt;：“+”运算在自然数集合上是&lt;strong&gt;封闭的&lt;/strong&gt;（1），并且”+“法运算是&lt;strong&gt;可结合的&lt;/strong&gt;（2），
+故其属于半群&lt;/p&gt;
+&lt;p&gt;同理，&amp;lt;R,×&amp;gt;，&amp;lt;P(E),∩&amp;gt;，&amp;lt;P(E),$\oplus$&amp;gt;都属于&lt;strong&gt;半群&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;而&amp;lt;N,+&amp;gt;的单位元是0，&amp;lt;R,×&amp;gt;的单位元是1，&amp;lt;P(E),∩&amp;gt;、&amp;lt;P(E),$\oplus$&amp;gt;的单位元分别是E和0；
+它们都拥有单位元，所以它们同时也是&lt;strong&gt;独异点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;而对于$÷$、$-$ 等运算，它们不满足结合律，故它们不是半群&lt;/p&gt;
+&lt;p&gt;例：考察代数结构&amp;lt;$N_6$,$+_6$&amp;gt;，$N_6={0,1,2,3,4,5}$；根据模k加法&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;的定义，算出该代数结构的运算表如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412091336575.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;d69505fa6eb496f3a23a2c2b99935abd&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;从表中我们看出：运算是&lt;strong&gt;封闭的&lt;/strong&gt;，通过验证也可以得知$+_6$运算是&lt;strong&gt;可结合的&lt;/strong&gt;，故它属于半群；
+又因为表中得知单位元为0，它也是独异点&lt;/p&gt;
+&lt;h3 id=&#34;可交换半群和可交换独异点&#34;&gt;可交换半群和可交换独异点
+&lt;/h3&gt;&lt;p&gt;可交换半群：
+设&amp;lt;S,★&amp;gt;是半群，如★是&lt;strong&gt;可交换&lt;/strong&gt;的，则称&amp;lt;S,★&amp;gt;是可交换半群。&lt;/p&gt;
+&lt;p&gt;可交换独异点：
+&amp;lt;M,★&amp;gt;是独异点，如★是&lt;strong&gt;可交换&lt;/strong&gt;的，则称&amp;lt;M,★&amp;gt;是可交换独异点。&lt;/p&gt;
+&lt;p&gt;例:&amp;lt;R,+&amp;gt;，&amp;lt;N,ㄨ&amp;gt;，&amp;lt;P(E),∩&amp;gt;，&amp;lt;P(E),$\oplus$&amp;gt;都是可交换半群，亦是可交换独异点。&lt;/p&gt;
+&lt;h3 id=&#34;子半群和子独异点&#34;&gt;子半群和子独异点
+&lt;/h3&gt;&lt;p&gt;子半群：&lt;/p&gt;
+&lt;p&gt;定义：若&amp;lt;S,★&amp;gt;是个半群，$B\subseteq S$；如果★在B上封闭，则称&amp;lt;B,★&amp;gt;是&amp;lt;S,★&amp;gt;的子半群。&lt;/p&gt;
+&lt;p&gt;例如，&amp;lt;N,+&amp;gt;是&amp;lt;l,+&amp;gt;的子半群&lt;/p&gt;
+&lt;p&gt;子独异点：&lt;/p&gt;
+&lt;p&gt;定义：&amp;lt;M,*&amp;gt;是个独异点，$B\subseteq M$，如果★在B上封闭，且单位元$e∈B$，则称&amp;lt;B,★&amp;gt;是&amp;lt;M,★&amp;gt;的子独异点。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;半群和独异点的性质&#34;&gt;半群和独异点的性质
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;定理1：设&amp;lt;M,★&amp;gt;是可交换独异点，A是M中所有幂等元&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;构成的集合，则&amp;lt;A,★&amp;gt;是&amp;lt;M,★&amp;gt;的子独异点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;定理的证明如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412091416283.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;c44e948a7186133a42044480aaf3710e&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;关键在于任取$a,b∈A$，有（a★b）★(a★b)=a★b,得到a★b同样是幂等元&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;群-1&#34;&gt;群
+&lt;/h2&gt;&lt;h3 id=&#34;群的定义&#34;&gt;群的定义
+&lt;/h3&gt;&lt;p&gt;设&amp;lt;G,★&amp;gt;是代数系统，如果★运算在G上满足封闭性、可结合性、&amp;lt;G,*&amp;gt;中有单位元且G中的每个元素均可逆，则称&amp;lt;G,★&amp;gt;是群&lt;/p&gt;
+&lt;p&gt;如果集合G是有限集，则&amp;lt;G,★&amp;gt;是&lt;strong&gt;有限群&lt;/strong&gt;，反之则为&lt;strong&gt;无限群&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;简单记忆：若独异点中集合的的每个元素均可逆，则该独异点就是群&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;群的性质&#34;&gt;群的性质
+&lt;/h3&gt;&lt;p&gt;群除了具有&lt;strong&gt;封闭、可结合、有单位元、每个元素均可逆&lt;/strong&gt;这四个性质外，还有一些其它性质&lt;/p&gt;
+&lt;h4 id=&#34;性质一群中无零元&#34;&gt;性质一：群中无零元
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;定理：若&amp;lt;G,★&amp;gt;是群，如果|G|&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;≥2，则G中没有零元&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证明如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412091527500.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;b0372b6ea4e293b5c7c81ac1565b5ead&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质二群中的每个元素都是可消去元&#34;&gt;性质二：群中的每个元素都是可消去元
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是个群，则对任何 $a,b,c∈G$&lt;/p&gt;
+&lt;p&gt;如果有
+(1)a★b=a★c 则b=c。
+(2)b★a=c★a 则b=c。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证明如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412091530476.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;7f46d1a055486efeb49cfd4ed0095504&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质三群中除了单位元外没有其他的幂等元&#34;&gt;性质三：群中除了单位元外，没有其他的幂等元
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是群，则G中有且只有单位元是幂等元&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证明如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412091533698.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;25be8d77c6c30512ba92acbe216ab29a&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质四群方程有唯一解&#34;&gt;性质四：群方程有唯一解
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是群，则对任何$a,b∈G$
+(1)存在唯一元素x∈G,使得 a★x=b
+(2)存在唯一元素y∈G,使得y★a=b&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412092058377.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;aedeec603089534d3d4284423e795d76&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由此性质我们可以知道：若方程a★x=b的解 为$a^{-1}$★b，则&lt;strong&gt;方程y★a=b的解为 b★$a^{-1}$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412092102646.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1e2c72da701be633f90ec6dfdafd3e2c&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质五有限群表的特征&#34;&gt;性质五：有限群表的特征
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;定理：若&amp;lt;G,★&amp;gt;是有限群，则G中的每一个元素★在运算表中的每一行（列）都必出现并且只出现一次&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;其他定理&#34;&gt;其他定理
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;定理：&amp;lt;G,★&amp;gt;是个群，对任何 $a,b∈G$，有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$(a^{-1})^{-1}=a$&lt;/li&gt;
+&lt;li&gt;$(a★b)^{-1}= b^{-1}★a^{-1}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;推论：&amp;lt;G,★&amp;gt;是个群，对任何$a∈G$，有&lt;/p&gt;
+&lt;p&gt;$(a^n)^{-1} =(a^{-1})^n$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;群的阶&#34;&gt;群的阶
+&lt;/h3&gt;&lt;p&gt;定义:设&amp;lt;G,★&amp;gt;是群，&lt;strong&gt;如果|G|=n，则称&amp;lt;G,★&amp;gt;是n阶群。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当 G 所包含的元素个数为&lt;strong&gt;有限&lt;/strong&gt;时，群&amp;lt;G,★&amp;gt;的阶为 G 所包含的元素个数。&lt;/li&gt;
+&lt;li&gt;当 G 所包含的元素个数为&lt;strong&gt;无限&lt;/strong&gt;时，群&amp;lt;G,★&amp;gt;为&lt;strong&gt;无限群&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;给出群&amp;lt;{a},★&amp;gt;，&amp;lt;{a,b},★&amp;gt;，&amp;lt;{a,b,c},★&amp;gt;分别是1、2、3 阶群&lt;/p&gt;
+&lt;p&gt;假定a是单位元，根据有限群运算表的特征，它们的运算表分别是:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412101139715.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;07281f353c8941fef34ccd529cdd8f48&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由运算表我们可以看出：&lt;strong&gt;所有的一阶群都同构&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;，所有的二阶群都同构，所有的三阶群都同构&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由此我们可以得到：&lt;strong&gt;同阶的所有群都是同构的&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;群中元素的阶&#34;&gt;群中元素的阶
+&lt;/h4&gt;&lt;p&gt;定义:设&amp;lt;G,★&amp;gt;是群，$a∈G$，使得$a^k$=e&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;成立的最小正整数 k 称为a的阶，记作|a|=k，称a为k阶元。&lt;/p&gt;
+&lt;p&gt;若不存在这样的正整数k，则称a的阶是&lt;strong&gt;无限的&lt;/strong&gt;。比如群&amp;lt;l,+&amp;gt;是一个无限群，只有单位元 0 的阶是1，其余元素的阶都是无限的。&lt;/p&gt;
+&lt;p&gt;给出一个示例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412101153731.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;d7cc4f78fa7e90573530b2cdcb9f30a5&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由题目我们看出，对群中的每个元素做幂运算，得到四个元素的阶分别是1，2，4，4&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;定理：设&amp;lt;G,★&amp;gt;是群，$a∈G$且|a|=k。设n是正整数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当且仅当&lt;strong&gt;n是k的整数倍&lt;/strong&gt;，有$a^n=e$&lt;/li&gt;
+&lt;li&gt;$|a^{-1}|=|a|$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;幺元：即&lt;strong&gt;单位元&lt;/strong&gt;的意思&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;模k加法：一种对整数进行加法运算后取模的运算。具体操作为：对两个整数进行加法运算，得到结果c；对c进行取模运算，即将c除以k所得的余数即为模k加法运算的结果。假设$N_k$是模k同余关系中的余数等价类，即$N_k={[0][1][2],&amp;hellip;[k-1]}$，那么$N_k$上的模k加法运算$+_k$定义为：任取$x,y\in N，x +_k y=(x+y)(mod \ k)$&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;幂等元：如果&amp;lt;G,°&amp;gt;是群,$a∈G$,有$a$是$G$的单位元$\iff$$a$是幂等元；用语言描述的话，就是在某&lt;strong&gt;二元运算&lt;/strong&gt;下，&lt;strong&gt;自身与自身进行运算后，结果仍然是它自身的元素&lt;/strong&gt;。&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;符号$|G|$表示集合$G$的&lt;strong&gt;元素个数&lt;/strong&gt;，也称为该集合的&lt;strong&gt;阶（Cardinality）或规模&lt;/strong&gt;。&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;同构：同构通常指的是&lt;strong&gt;两个数学结构&lt;/strong&gt;之间存在一种&lt;strong&gt;一一对应&lt;/strong&gt;的映射关系。在集合论中，如果存在一个双射函数 f:A&amp;ndash;&amp;gt;B，并且 f 保留集合间的结构关系,则集合A和B同构。&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;这里e代表&lt;strong&gt;单位元&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>排序算法</title>
         <link>https://fsj2009yx.github.io/posts/post_251061473025222/</link>
         <pubDate>Mon, 09 Dec 2024 00:11:27 +0800</pubDate>
