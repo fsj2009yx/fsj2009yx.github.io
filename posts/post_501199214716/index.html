@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="样本与抽样分布\r基本概念\r在概率论中，我们所研究的随机变量，它的分布都是假设已知的，在这一前提下去研究它的性质、特点和规律性，例如求出它的数字特征，讨论随机变量函数的分布，介绍常用的各种分布等。\n在数理统计中，我们研究的随机变量，它的分布是未知的，人们是通过对所研究的随机变量进行重复独立的观察，得到许多观察值对这些数据进行分析，从而对所研究的随机变量的分布作出种种推断的。\n总体\r在数理统计中，我们将研究对象的全体称为总体，组成总体的每个元素称为个体。\n**容量:**总体中所包含的个体的个数 **有限总体:**容量为有限的总体 **无限总体:**容量为无限的总体 如引例中某建筑材料厂生产的空心砖就是一个总体，每一块砖就是个体。\n总体中的每一个个体是随机试验的一个观察值，也是某一随机变量$X$的值，所以一个总体就对应一个$X$\n对总体的研究就是对一个随机变量X的研究，X的分布函数和数字特征也就是总体的分布函数和数字特征\n样本\r总体分布一般是未知的。按一定规则从总体中抽取若干个个体进行观察试验，获取有关总体的信息。这一过程叫做抽样，所抽取的部分个体称为样本。样本包含的个体数目叫做样本容量。\n随机抽取样本的方法必须满足如下要求:\n随机性：即总体中每个个体被抽到的可能性相同 独立性：即样本中每个个体的取值不影响其他个体的取值（每抽取一个个体都不会改变总体的分布） 具有随机性和独立性的抽样方法叫做简单随机抽样，样本选定后得到一组具体数值称为样本观察值或样本值\n注意:由于抽样的随机性与独立性，因此容量为 n 的样本具有两重性:在抽取之前是n个相互独立且与总体同分布的随机变量 $X_1,X_2,&hellip;,X_n$，或n维随机变量 $(x_1,x_2,&hellip;,x_n)$ 。样本一旦选定就是一组样本观察值，它也是n维随机变量 $(X_1,X_2,..,X_n)$ 的一组取值\n比如：假设一个装有红球、蓝球、绿球的箱子，从中随机抽取 n=3n = 3n=3 个球：\n抽取之前：每个球的颜色是未知的，用 $X_1, X_2, X_3$ 表示，它们是相互独立且颜色分布与箱子一致的随机变量。 抽取之后：假设结果是 红、蓝、绿，那么样本观察值为 (红,蓝,绿)，这是 $(X_1, X_2, X_3)$ 的一次具体取值。 常见的抽样方法可分为放回抽样和不放回抽样：\n对于有限总体，采用放回抽样就能得到简单随机样本，但放回抽样使用起来不方便，当个体的总数N比要得到的样本的容量n大得多时，在实际中可将不放回抽样近似地当作放回抽样来处理 至于无限总体，因抽取一个个体不影响它分布，所以总是不放回抽样，例如，在生产过程中，每隔一定时间抽取一个个体，抽取n个就得到一个简单随机样本，实验室中的记录，水文、气象等观察资料都是样本，试制新产品得到的样品的质量指标，也常被认为是样本 计算公式\r经验分布函数\r定义\r设$(x_1,x_2…x_n,)$是总体$X$的一个容量为n的样本值,先将$x_1,x_2,…x_n$按自小到大的次序排列,并重新编号,设为$x_{(1)}&lt;x_{(2)}&lt;&hellip;&lt;x_{(n)}$\n则经验分布函数$F(x)$为：\n性质\r$F_n(x)$为不减的左连续函数 $lim_{x→∞}F_n(X)=0$，$lim_{x→∞}F_n(x)=1$ 因此，$F_n(x)$是一个分布函数，被称为总体X的经验分布函数或样本分布函数。\n$F_n(x)$的值表示n次独立重复试验中，事件“$X≤x$”发生的频率\n格利纹科定理\r定理：设总体X的分布函数为$F(x)$，样本分布函数为$F_n(x)$。则当$n→∞$时$F_n(x)$以概率1收敛于分布函数$F(x)$\n样本数字特征\r统计量\r设$X_1,X_2,&hellip;,X_n$是来自总体X的一个样本，而$g(X_1,X_2,&hellip;,X_n)$是$X_1,X_2,&hellip;,X_n$的函数\n如果函数$g$中不包含任何的未知参数，则$g$为统计量。\n由于$X_1,X_2,&hellip;,X_n$都是随机变量，而统计量是随机变量的函数，所以统计量是随机变量，并且将统计量的分布称作抽样分布。\n">
+<title>样本与抽样分布</title>
+
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_501199214716/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="样本与抽样分布">
+<meta property='og:description' content="样本与抽样分布\r基本概念\r在概率论中，我们所研究的随机变量，它的分布都是假设已知的，在这一前提下去研究它的性质、特点和规律性，例如求出它的数字特征，讨论随机变量函数的分布，介绍常用的各种分布等。\n在数理统计中，我们研究的随机变量，它的分布是未知的，人们是通过对所研究的随机变量进行重复独立的观察，得到许多观察值对这些数据进行分析，从而对所研究的随机变量的分布作出种种推断的。\n总体\r在数理统计中，我们将研究对象的全体称为总体，组成总体的每个元素称为个体。\n**容量:**总体中所包含的个体的个数 **有限总体:**容量为有限的总体 **无限总体:**容量为无限的总体 如引例中某建筑材料厂生产的空心砖就是一个总体，每一块砖就是个体。\n总体中的每一个个体是随机试验的一个观察值，也是某一随机变量$X$的值，所以一个总体就对应一个$X$\n对总体的研究就是对一个随机变量X的研究，X的分布函数和数字特征也就是总体的分布函数和数字特征\n样本\r总体分布一般是未知的。按一定规则从总体中抽取若干个个体进行观察试验，获取有关总体的信息。这一过程叫做抽样，所抽取的部分个体称为样本。样本包含的个体数目叫做样本容量。\n随机抽取样本的方法必须满足如下要求:\n随机性：即总体中每个个体被抽到的可能性相同 独立性：即样本中每个个体的取值不影响其他个体的取值（每抽取一个个体都不会改变总体的分布） 具有随机性和独立性的抽样方法叫做简单随机抽样，样本选定后得到一组具体数值称为样本观察值或样本值\n注意:由于抽样的随机性与独立性，因此容量为 n 的样本具有两重性:在抽取之前是n个相互独立且与总体同分布的随机变量 $X_1,X_2,&hellip;,X_n$，或n维随机变量 $(x_1,x_2,&hellip;,x_n)$ 。样本一旦选定就是一组样本观察值，它也是n维随机变量 $(X_1,X_2,..,X_n)$ 的一组取值\n比如：假设一个装有红球、蓝球、绿球的箱子，从中随机抽取 n=3n = 3n=3 个球：\n抽取之前：每个球的颜色是未知的，用 $X_1, X_2, X_3$ 表示，它们是相互独立且颜色分布与箱子一致的随机变量。 抽取之后：假设结果是 红、蓝、绿，那么样本观察值为 (红,蓝,绿)，这是 $(X_1, X_2, X_3)$ 的一次具体取值。 常见的抽样方法可分为放回抽样和不放回抽样：\n对于有限总体，采用放回抽样就能得到简单随机样本，但放回抽样使用起来不方便，当个体的总数N比要得到的样本的容量n大得多时，在实际中可将不放回抽样近似地当作放回抽样来处理 至于无限总体，因抽取一个个体不影响它分布，所以总是不放回抽样，例如，在生产过程中，每隔一定时间抽取一个个体，抽取n个就得到一个简单随机样本，实验室中的记录，水文、气象等观察资料都是样本，试制新产品得到的样品的质量指标，也常被认为是样本 计算公式\r经验分布函数\r定义\r设$(x_1,x_2…x_n,)$是总体$X$的一个容量为n的样本值,先将$x_1,x_2,…x_n$按自小到大的次序排列,并重新编号,设为$x_{(1)}&lt;x_{(2)}&lt;&hellip;&lt;x_{(n)}$\n则经验分布函数$F(x)$为：\n性质\r$F_n(x)$为不减的左连续函数 $lim_{x→∞}F_n(X)=0$，$lim_{x→∞}F_n(x)=1$ 因此，$F_n(x)$是一个分布函数，被称为总体X的经验分布函数或样本分布函数。\n$F_n(x)$的值表示n次独立重复试验中，事件“$X≤x$”发生的频率\n格利纹科定理\r定理：设总体X的分布函数为$F(x)$，样本分布函数为$F_n(x)$。则当$n→∞$时$F_n(x)$以概率1收敛于分布函数$F(x)$\n样本数字特征\r统计量\r设$X_1,X_2,&hellip;,X_n$是来自总体X的一个样本，而$g(X_1,X_2,&hellip;,X_n)$是$X_1,X_2,&hellip;,X_n$的函数\n如果函数$g$中不包含任何的未知参数，则$g$为统计量。\n由于$X_1,X_2,&hellip;,X_n$都是随机变量，而统计量是随机变量的函数，所以统计量是随机变量，并且将统计量的分布称作抽样分布。\n">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_501199214716/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='概率论' /><meta property='article:published_time' content='2024-12-13T16:45:43&#43;08:00'/><meta property='article:modified_time' content='2024-12-13T16:45:43&#43;08:00'/>
+<meta name="twitter:title" content="样本与抽样分布">
+<meta name="twitter:description" content="样本与抽样分布\r基本概念\r在概率论中，我们所研究的随机变量，它的分布都是假设已知的，在这一前提下去研究它的性质、特点和规律性，例如求出它的数字特征，讨论随机变量函数的分布，介绍常用的各种分布等。\n在数理统计中，我们研究的随机变量，它的分布是未知的，人们是通过对所研究的随机变量进行重复独立的观察，得到许多观察值对这些数据进行分析，从而对所研究的随机变量的分布作出种种推断的。\n总体\r在数理统计中，我们将研究对象的全体称为总体，组成总体的每个元素称为个体。\n**容量:**总体中所包含的个体的个数 **有限总体:**容量为有限的总体 **无限总体:**容量为无限的总体 如引例中某建筑材料厂生产的空心砖就是一个总体，每一块砖就是个体。\n总体中的每一个个体是随机试验的一个观察值，也是某一随机变量$X$的值，所以一个总体就对应一个$X$\n对总体的研究就是对一个随机变量X的研究，X的分布函数和数字特征也就是总体的分布函数和数字特征\n样本\r总体分布一般是未知的。按一定规则从总体中抽取若干个个体进行观察试验，获取有关总体的信息。这一过程叫做抽样，所抽取的部分个体称为样本。样本包含的个体数目叫做样本容量。\n随机抽取样本的方法必须满足如下要求:\n随机性：即总体中每个个体被抽到的可能性相同 独立性：即样本中每个个体的取值不影响其他个体的取值（每抽取一个个体都不会改变总体的分布） 具有随机性和独立性的抽样方法叫做简单随机抽样，样本选定后得到一组具体数值称为样本观察值或样本值\n注意:由于抽样的随机性与独立性，因此容量为 n 的样本具有两重性:在抽取之前是n个相互独立且与总体同分布的随机变量 $X_1,X_2,&hellip;,X_n$，或n维随机变量 $(x_1,x_2,&hellip;,x_n)$ 。样本一旦选定就是一组样本观察值，它也是n维随机变量 $(X_1,X_2,..,X_n)$ 的一组取值\n比如：假设一个装有红球、蓝球、绿球的箱子，从中随机抽取 n=3n = 3n=3 个球：\n抽取之前：每个球的颜色是未知的，用 $X_1, X_2, X_3$ 表示，它们是相互独立且颜色分布与箱子一致的随机变量。 抽取之后：假设结果是 红、蓝、绿，那么样本观察值为 (红,蓝,绿)，这是 $(X_1, X_2, X_3)$ 的一次具体取值。 常见的抽样方法可分为放回抽样和不放回抽样：\n对于有限总体，采用放回抽样就能得到简单随机样本，但放回抽样使用起来不方便，当个体的总数N比要得到的样本的容量n大得多时，在实际中可将不放回抽样近似地当作放回抽样来处理 至于无限总体，因抽取一个个体不影响它分布，所以总是不放回抽样，例如，在生产过程中，每隔一定时间抽取一个个体，抽取n个就得到一个简单随机样本，实验室中的记录，水文、气象等观察资料都是样本，试制新产品得到的样品的质量指标，也常被认为是样本 计算公式\r经验分布函数\r定义\r设$(x_1,x_2…x_n,)$是总体$X$的一个容量为n的样本值,先将$x_1,x_2,…x_n$按自小到大的次序排列,并重新编号,设为$x_{(1)}&lt;x_{(2)}&lt;&hellip;&lt;x_{(n)}$\n则经验分布函数$F(x)$为：\n性质\r$F_n(x)$为不减的左连续函数 $lim_{x→∞}F_n(X)=0$，$lim_{x→∞}F_n(x)=1$ 因此，$F_n(x)$是一个分布函数，被称为总体X的经验分布函数或样本分布函数。\n$F_n(x)$的值表示n次独立重复试验中，事件“$X≤x$”发生的频率\n格利纹科定理\r定理：设总体X的分布函数为$F(x)$，样本分布函数为$F_n(x)$。则当$n→∞$时$F_n(x)$以概率1收敛于分布函数$F(x)$\n样本数字特征\r统计量\r设$X_1,X_2,&hellip;,X_n$是来自总体X的一个样本，而$g(X_1,X_2,&hellip;,X_n)$是$X_1,X_2,&hellip;,X_n$的函数\n如果函数$g$中不包含任何的未知参数，则$g$为统计量。\n由于$X_1,X_2,&hellip;,X_n$都是随机变量，而统计量是随机变量的函数，所以统计量是随机变量，并且将统计量的分布称作抽样分布。\n">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4MJKRHG3RF');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://fsj2009yx.github.io/en/" >English</option>
+                                
+                                    <option value="https://fsj2009yx.github.io/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#基本概念">基本概念</a>
+      <ol>
+        <li><a href="#总体">总体</a></li>
+        <li><a href="#样本">样本</a></li>
+        <li><a href="#计算公式">计算公式</a></li>
+      </ol>
+    </li>
+    <li><a href="#经验分布函数">经验分布函数</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#性质">性质</a></li>
+        <li><a href="#格利纹科定理">格利纹科定理</a></li>
+      </ol>
+    </li>
+    <li><a href="#样本数字特征">样本数字特征</a>
+      <ol>
+        <li><a href="#统计量">统计量</a></li>
+        <li><a href="#样本均值及定理">样本均值及定理</a></li>
+        <li><a href="#样本方差及定理">样本方差及定理</a></li>
+        <li><a href="#样本矩">样本矩</a></li>
+        <li><a href="#公式总结">公式总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#四种统计量及其分布">四种统计量及其分布</a>
+      <ol>
+        <li><a href="#上侧分位数和双侧分位数">上侧分位数和双侧分位数</a></li>
+        <li><a href="#伽马函数">伽马函数</a></li>
+        <li><a href="#卡方分布及其性质">卡方分布及其性质</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#卡方分布的图像">卡方分布的图像</a></li>
+            <li><a href="#性质-1">性质</a></li>
+            <li><a href="#例题">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#t统计量及其分布">T统计量及其分布</a>
+          <ol>
+            <li><a href="#t分布的定义">t分布的定义</a></li>
+            <li><a href="#t分布的图像">t分布的图像</a></li>
+            <li><a href="#t分布的性质">t分布的性质</a></li>
+            <li><a href="#t统计量的定义及其性质">T统计量的定义及其性质</a></li>
+            <li><a href="#例题-1">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#f统计量及其分布">F统计量及其分布</a>
+          <ol>
+            <li><a href="#定义-2">定义</a></li>
+            <li><a href="#f分布的图像">F分布的图像</a></li>
+            <li><a href="#性质-2">性质</a></li>
+            <li><a href="#例题-2">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#综合例题">综合例题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" >
+                基础课程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_501199214716/">样本与抽样分布</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 13, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="样本与抽样分布">样本与抽样分布
+</h1><h2 id="基本概念">基本概念
+</h2><p>在<strong>概率论</strong>中，我们所研究的随机变量，它的分布都是<strong>假设已知</strong>的，在这一前提下去研究它的性质、特点和规律性，例如求出它的数字特征，讨论随机变量函数的分布，介绍常用的各种分布等。</p>
+<p>在<strong>数理统计</strong>中，我们研究的随机变量，它的分布是<strong>未知</strong>的，人们是通过对所研究的随机变量进行重复独立的观察，得到许多观察值对这些数据进行分析，从而对所研究的随机变量的分布作出种种推断的。</p>
+<h3 id="总体">总体
+</h3><p>在数理统计中，我们将<strong>研究对象的全体</strong>称为<strong>总体</strong>，<strong>组成总体的每个元素</strong>称为<strong>个体</strong>。</p>
+<ul>
+<li>**容量:**总体中所包含的个体的个数</li>
+<li>**有限总体:**容量为有限的总体</li>
+<li>**无限总体:**容量为无限的总体</li>
+</ul>
+<blockquote>
+<p>如引例中<strong>某建筑材料厂生产的空心砖</strong>就是一个<strong>总体</strong>，<strong>每一块砖</strong>就是<strong>个体</strong>。</p>
+</blockquote>
+<p>总体中的<strong>每一个个体</strong>是随机试验的一个<strong>观察值</strong>，也是某一随机变量$X$的值，<strong>所以一个总体就对应一个$X$</strong></p>
+<p><strong>对总体的研究就是对一个随机变量X的研究</strong>，X的<strong>分布函数</strong>和<strong>数字特征</strong>也就是总体的分布函数和数字特征</p>
+<p> </p>
+<h3 id="样本">样本
+</h3><p>总体分布一般是未知的。按一定规则从总体中抽取若干个个体进行观察试验，获取有关总体的信息。这一过程叫做<strong>抽样</strong>，所抽取的部分个体称为<strong>样本</strong>。样本包含的个体数目叫做<strong>样本容量</strong>。</p>
+<p>随机抽取样本的方法必须满足如下要求:</p>
+<ul>
+<li><strong>随机性：<strong>即总体中每个个体被抽到的</strong>可能性相同</strong></li>
+<li><strong>独立性：<strong>即样本中每个个体的取值</strong>不影响</strong>其他个体的取值（每抽取一个个体都不会改变总体的分布）</li>
+</ul>
+<p>具有<strong>随机性</strong>和<strong>独立性</strong>的抽样方法叫做<u><strong>简单随机抽样</strong></u>，样本选定后得到一组具体数值称为<strong>样本观察值</strong>或<strong>样本值</strong></p>
+<blockquote>
+<p>注意:由于抽样的随机性与独立性，因此容量为 n 的样本具有<strong>两重性</strong>:在抽取之前是n个相互独立且与总体同分布的随机变量 $X_1,X_2,&hellip;,X_n$，或n维随机变量 $(x_1,x_2,&hellip;,x_n)$ 。<strong>样本一旦选定</strong>就是<strong>一组样本观察值</strong>，它也是<strong>n维随机变量</strong> $(X_1,X_2,..,X_n)$ 的一组取值</p>
+<p>比如：假设一个装有红球、蓝球、绿球的箱子，从中随机抽取 n=3n = 3n=3 个球：</p>
+<ol>
+<li><strong>抽取之前</strong>：每个球的颜色是未知的，用 $X_1, X_2, X_3$ 表示，它们是<strong>相互独立</strong>且<strong>颜色分布与箱子一致</strong>的随机变量。</li>
+<li><strong>抽取之后</strong>：假设结果是 <strong>红、蓝、绿</strong>，那么样本观察值为 <strong>(红,蓝,绿)</strong>，这是 $(X_1, X_2, X_3)$ 的一次<strong>具体取值</strong>。</li>
+</ol>
+</blockquote>
+<p>常见的抽样方法可分为<strong>放回抽样</strong>和<strong>不放回抽样</strong>：</p>
+<ul>
+<li>对于<strong>有限总体</strong>，采用<strong>放回抽样</strong>就能得到简单随机样本，但放回抽样使用起来不方便，当个体的总数N比要得到的样本的容量n大得多时，在实际中可将不放回抽样近似地当作放回抽样来处理</li>
+<li>至于<strong>无限总体</strong>，因抽取一个个体不影响它分布，所以总是<strong>不放回抽样</strong>，例如，在生产过程中，每隔一定时间抽取一个个体，抽取n个就得到一个简单随机样本，实验室中的记录，水文、气象等观察资料都是样本，试制新产品得到的样品的质量指标，也常被认为是样本</li>
+</ul>
+<p> </p>
+<h3 id="计算公式">计算公式
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/12.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/13.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<hr>
+<h2 id="经验分布函数">经验分布函数
+</h2><h3 id="定义">定义
+</h3><p>设$(x_1,x_2…x_n,)$是总体$X$的一个容量为n的样本值,先将$x_1,x_2,…x_n$按<strong>自小到大</strong>的次序排列,并重新编号,设为$x_{(1)}&lt;x_{(2)}&lt;&hellip;&lt;x_{(n)}$</p>
+<p>则经验分布函数$F(x)$为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111634092.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="8946a401b13879be866df11e15755eaa"
+	
+	
+></p>
+<h3 id="性质">性质
+</h3><ol>
+<li>$F_n(x)$为<strong>不减</strong>的<strong>左连续函数</strong></li>
+<li>$lim_{x→∞}F_n(X)=0$，$lim_{x→∞}F_n(x)=1$</li>
+</ol>
+<p>因此，$F_n(x)$是一个<strong>分布函数</strong>，被称为<strong>总体X的经验分布函数或样本分布函数</strong>。</p>
+<p><u>$F_n(x)$的值表示<strong>n次独立重复试验中，事件“$X≤x$”发生的频率</strong></u></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/16.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/17.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="格利纹科定理">格利纹科定理
+</h3><p>定理：设总体X的分布函数为$F(x)$，样本分布函数为$F_n(x)$。则当$n→∞$时$F_n(x)$以<strong>概率1收敛</strong>于分布函数$F(x)$</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111643064.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="856a1937f9b2e06399655fc50bb28c0c"
+	
+	
+></p>
+<hr>
+<h2 id="样本数字特征">样本数字特征
+</h2><h3 id="统计量">统计量
+</h3><p>设$X_1,X_2,&hellip;,X_n$是来自总体X的一个样本，而$g(X_1,X_2,&hellip;,X_n)$是$X_1,X_2,&hellip;,X_n$的函数</p>
+<p>如果函数$g$中不包含任何的未知参数，则$g$为<strong>统计量。</strong></p>
+<p>由于$X_1,X_2,&hellip;,X_n$都是<strong>随机变量</strong>，而统计量是随机变量的函数，所以<strong>统计量是随机变量</strong>，并且将统计量的分布称作<strong>抽样分布</strong>。</p>
+<p> </p>
+<h3 id="样本均值及定理">样本均值及定理
+</h3><p><strong>定义：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111650929.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3ec8c3cc73f21c71c92bdcab8548cf6f"
+	
+	
+></p>
+<p> </p>
+<p><strong>定理</strong>：</p>
+<ul>
+<li><strong>&ldquo;样本均值“的期望</strong>：$E(\overline X)=μ$</li>
+<li><strong>”样本均值“的方差：</strong>$D(\overline X)=σ^2/n$</li>
+</ul>
+<blockquote>
+<p>注意：<strong>样本均值</strong>本身只是一个随机变量，<strong>不同的样本会有不同的样本均值</strong></p>
+<p>对<strong>样本均值</strong>计算<strong>期望</strong>才能得到对总体均值的估计</p>
+</blockquote>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/22.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="样本方差及定理">样本方差及定理
+</h3><p>定义：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/23.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>定理：</p>
+<ul>
+<li><strong>样本均方差</strong>$S^2$计算公式：$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X)^2$ == $S^2=\frac{1}{n-1}(\sum_{i=1}^nX_i^2-n\overline X^2) $ (注意这里的<u><strong>分母为n-1</strong></u>)</li>
+<li><u><strong>样本方差的期望等于总体方差</strong>（$E(S^2)=\sigma^2$）</u></li>
+</ul>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/24.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="样本矩">样本矩
+</h3><p>定义：</p>
+<p><strong>样本k阶原点矩</strong>和<strong>样本k阶中心矩</strong></p>
+<p>定理：</p>
+<ul>
+<li><strong>样本一阶原点矩即样本均值</strong>($A_1=\overline X$)</li>
+<li><strong>样本二阶中心矩<code>不是</code>样本方差</strong>：因为<strong>样本方差</strong>的计算公式为 $S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X)^2$ ，而<strong>样本二阶中心矩</strong>为$S^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline X)^2$，分母不同</li>
+<li><strong>样本二阶中心矩和总体方差的关系</strong>：$E((S_n)^2)=\frac{n-1}{n}\sigma^2$</li>
+</ul>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/26.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="公式总结">公式总结
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/672019433b9bc2ebd5215a4a0945cb38.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="672019433b9bc2ebd5215a4a0945cb38"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/28.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<hr>
+<h2 id="四种统计量及其分布">四种统计量及其分布
+</h2><h3 id="上侧分位数和双侧分位数">上侧分位数和双侧分位数
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/36.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="伽马函数">伽马函数
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/34.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="卡方分布及其性质">卡方分布及其性质
+</h3><h4 id="定义-1">定义
+</h4><p>卡方分布是<strong>多个独立</strong>的<strong>标准正态随机变量</strong>的<strong>平方和</strong>的分布。</p>
+<p>自由度：指卡方分布中<strong>独立正态变量的个数</strong> (如下方的$X_1,X_2,&hellip;,X_n$，总共n个独立正态变量，自由度就为n)</p>
+<blockquote>
+<p>服从卡方分布的注意点：</p>
+<ul>
+<li>$X_1,X_2,&hellip;,X_n$都<strong>相互独立</strong>，则<strong>自由度为n</strong></li>
+<li>都服从正态分布$N(0,1)$</li>
+<li>$X=\sum_{i=1}^nX_i^2$</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131103487.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="df349718e36476aa2c1c441644c0c0b3"
+	
+	
+></p>
+<h4 id="卡方分布的图像">卡方分布的图像
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111715979.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bcdcf7a09be56375127acac02f55c82d"
+	
+	
+></p>
+<h4 id="性质-1">性质
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111718768.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="b4b3a7cd1d5b32c8010b0292d822b31b"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/35.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/36.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>注意：对于卡方分布的<strong>自由度n过大</strong>的情况：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/37.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题">例题
+</h4><p>下面我们用卡方分布的性质解题：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/38.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>由题，(1)可直接查表得到答案，(2)可以通过<strong>正态分布上α百分位点</strong>的公式计算</p>
+<p> </p>
+<h3 id="t统计量及其分布">T统计量及其分布
+</h3><h4 id="t分布的定义">t分布的定义
+</h4><p>t分布是由<strong>一个标准正态分布随机变量</strong>和<strong>一个独立的 $\chi^2$ 分布随机变量</strong>的<strong>比值</strong>定义的</p>
+<blockquote>
+<p>服从<strong>t分布</strong>的要点：</p>
+<ul>
+<li>t分布针对两个随机变量，<strong>正态分布</strong>X和<strong>卡方分布</strong>Y</li>
+<li>X和Y<strong>相互独立</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/39.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="t分布的图像">t分布的图像
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/40.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="t分布的性质">t分布的性质
+</h4><p>t分布的分位点：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/41.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="t统计量的定义及其性质">T统计量的定义及其性质
+</h4><p><strong>t分布</strong>和<strong>T统计量</strong>的区别在于：一个X是<strong>正态分布</strong>，一个X是正态分布总体的<strong>样本</strong></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/43.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题-1">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/42.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="f统计量及其分布">F统计量及其分布
+</h3><h4 id="定义-2">定义
+</h4><blockquote>
+<p>服从F统计量的要点：</p>
+<ul>
+<li>X与Y<strong>相互独立</strong></li>
+<li>X与Y<strong>分别服从卡方分布</strong>，<strong>自由度可以不同</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/44.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="f分布的图像">F分布的图像
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/46.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="性质-2">性质
+</h4><p>对于<strong>自由度为$n_1,n_2$的两个F分布</strong>的关系，有：</p>
+$$F\sim F(n1,n2)=\frac{1}{F\sim F(n_2,n_1)}$$<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/45.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题-2">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/47.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>(1)题直接查表，(2)题需要通过公式<u>$F_{1-α}(n_1,n_2)=\frac{1}{F_α(n_2,n_1)}$</u>转换</p>
+<p> </p>
+<h3 id="综合例题">综合例题
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/48.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>该题求<strong>卡方分布</strong>，先将每一个随机变量转成<strong>标准正态分布</strong>，再利用<strong>卡方分布的性质</strong>解答</p>
+<p>题目中，$X_1+X_2+X_3$和$X_4+X_5+X_6$分别是一个<strong>正态分布独立变量</strong> (看做成一个整体)，于是<strong>总体自由度为2</strong></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/49.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/post_4465171773288/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">参数估计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_208132376826979/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">群论</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_251061473025222/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">排序算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_301732386019327/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">自治系统内部的路由选择</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_132911105916910/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili"],"lang":"zh-cn","locale":{"admin":"289137665@qq.com","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://waline-blog-test.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

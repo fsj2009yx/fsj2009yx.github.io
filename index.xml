@@ -7,7 +7,498 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Fri, 13 Dec 2024 16:42:55 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 13 Dec 2024 16:45:43 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>样本与抽样分布</title>
+        <link>https://fsj2009yx.github.io/posts/post_501199214716/</link>
+        <pubDate>Fri, 13 Dec 2024 16:45:43 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_501199214716/</guid>
+        <description>&lt;h1 id=&#34;样本与抽样分布&#34;&gt;样本与抽样分布
+&lt;/h1&gt;&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
+&lt;/h2&gt;&lt;p&gt;在&lt;strong&gt;概率论&lt;/strong&gt;中，我们所研究的随机变量，它的分布都是&lt;strong&gt;假设已知&lt;/strong&gt;的，在这一前提下去研究它的性质、特点和规律性，例如求出它的数字特征，讨论随机变量函数的分布，介绍常用的各种分布等。&lt;/p&gt;
+&lt;p&gt;在&lt;strong&gt;数理统计&lt;/strong&gt;中，我们研究的随机变量，它的分布是&lt;strong&gt;未知&lt;/strong&gt;的，人们是通过对所研究的随机变量进行重复独立的观察，得到许多观察值对这些数据进行分析，从而对所研究的随机变量的分布作出种种推断的。&lt;/p&gt;
+&lt;h3 id=&#34;总体&#34;&gt;总体
+&lt;/h3&gt;&lt;p&gt;在数理统计中，我们将&lt;strong&gt;研究对象的全体&lt;/strong&gt;称为&lt;strong&gt;总体&lt;/strong&gt;，&lt;strong&gt;组成总体的每个元素&lt;/strong&gt;称为&lt;strong&gt;个体&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;**容量:**总体中所包含的个体的个数&lt;/li&gt;
+&lt;li&gt;**有限总体:**容量为有限的总体&lt;/li&gt;
+&lt;li&gt;**无限总体:**容量为无限的总体&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如引例中&lt;strong&gt;某建筑材料厂生产的空心砖&lt;/strong&gt;就是一个&lt;strong&gt;总体&lt;/strong&gt;，&lt;strong&gt;每一块砖&lt;/strong&gt;就是&lt;strong&gt;个体&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总体中的&lt;strong&gt;每一个个体&lt;/strong&gt;是随机试验的一个&lt;strong&gt;观察值&lt;/strong&gt;，也是某一随机变量$X$的值，&lt;strong&gt;所以一个总体就对应一个$X$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对总体的研究就是对一个随机变量X的研究&lt;/strong&gt;，X的&lt;strong&gt;分布函数&lt;/strong&gt;和&lt;strong&gt;数字特征&lt;/strong&gt;也就是总体的分布函数和数字特征&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;样本&#34;&gt;样本
+&lt;/h3&gt;&lt;p&gt;总体分布一般是未知的。按一定规则从总体中抽取若干个个体进行观察试验，获取有关总体的信息。这一过程叫做&lt;strong&gt;抽样&lt;/strong&gt;，所抽取的部分个体称为&lt;strong&gt;样本&lt;/strong&gt;。样本包含的个体数目叫做&lt;strong&gt;样本容量&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;随机抽取样本的方法必须满足如下要求:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;随机性：&lt;strong&gt;即总体中每个个体被抽到的&lt;/strong&gt;可能性相同&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;独立性：&lt;strong&gt;即样本中每个个体的取值&lt;/strong&gt;不影响&lt;/strong&gt;其他个体的取值（每抽取一个个体都不会改变总体的分布）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;具有&lt;strong&gt;随机性&lt;/strong&gt;和&lt;strong&gt;独立性&lt;/strong&gt;的抽样方法叫做&lt;u&gt;&lt;strong&gt;简单随机抽样&lt;/strong&gt;&lt;/u&gt;，样本选定后得到一组具体数值称为&lt;strong&gt;样本观察值&lt;/strong&gt;或&lt;strong&gt;样本值&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意:由于抽样的随机性与独立性，因此容量为 n 的样本具有&lt;strong&gt;两重性&lt;/strong&gt;:在抽取之前是n个相互独立且与总体同分布的随机变量 $X_1,X_2,&amp;hellip;,X_n$，或n维随机变量 $(x_1,x_2,&amp;hellip;,x_n)$ 。&lt;strong&gt;样本一旦选定&lt;/strong&gt;就是&lt;strong&gt;一组样本观察值&lt;/strong&gt;，它也是&lt;strong&gt;n维随机变量&lt;/strong&gt; $(X_1,X_2,..,X_n)$ 的一组取值&lt;/p&gt;
+&lt;p&gt;比如：假设一个装有红球、蓝球、绿球的箱子，从中随机抽取 n=3n = 3n=3 个球：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;抽取之前&lt;/strong&gt;：每个球的颜色是未知的，用 $X_1, X_2, X_3$ 表示，它们是&lt;strong&gt;相互独立&lt;/strong&gt;且&lt;strong&gt;颜色分布与箱子一致&lt;/strong&gt;的随机变量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;抽取之后&lt;/strong&gt;：假设结果是 &lt;strong&gt;红、蓝、绿&lt;/strong&gt;，那么样本观察值为 &lt;strong&gt;(红,蓝,绿)&lt;/strong&gt;，这是 $(X_1, X_2, X_3)$ 的一次&lt;strong&gt;具体取值&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;常见的抽样方法可分为&lt;strong&gt;放回抽样&lt;/strong&gt;和&lt;strong&gt;不放回抽样&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于&lt;strong&gt;有限总体&lt;/strong&gt;，采用&lt;strong&gt;放回抽样&lt;/strong&gt;就能得到简单随机样本，但放回抽样使用起来不方便，当个体的总数N比要得到的样本的容量n大得多时，在实际中可将不放回抽样近似地当作放回抽样来处理&lt;/li&gt;
+&lt;li&gt;至于&lt;strong&gt;无限总体&lt;/strong&gt;，因抽取一个个体不影响它分布，所以总是&lt;strong&gt;不放回抽样&lt;/strong&gt;，例如，在生产过程中，每隔一定时间抽取一个个体，抽取n个就得到一个简单随机样本，实验室中的记录，水文、气象等观察资料都是样本，试制新产品得到的样品的质量指标，也常被认为是样本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;计算公式&#34;&gt;计算公式
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;经验分布函数&#34;&gt;经验分布函数
+&lt;/h2&gt;&lt;h3 id=&#34;定义&#34;&gt;定义
+&lt;/h3&gt;&lt;p&gt;设$(x_1,x_2…x_n,)$是总体$X$的一个容量为n的样本值,先将$x_1,x_2,…x_n$按&lt;strong&gt;自小到大&lt;/strong&gt;的次序排列,并重新编号,设为$x_{(1)}&amp;lt;x_{(2)}&amp;lt;&amp;hellip;&amp;lt;x_{(n)}$&lt;/p&gt;
+&lt;p&gt;则经验分布函数$F(x)$为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111634092.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8946a401b13879be866df11e15755eaa&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;性质&#34;&gt;性质
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;$F_n(x)$为&lt;strong&gt;不减&lt;/strong&gt;的&lt;strong&gt;左连续函数&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;$lim_{x→∞}F_n(X)=0$，$lim_{x→∞}F_n(x)=1$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，$F_n(x)$是一个&lt;strong&gt;分布函数&lt;/strong&gt;，被称为&lt;strong&gt;总体X的经验分布函数或样本分布函数&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;$F_n(x)$的值表示&lt;strong&gt;n次独立重复试验中，事件“$X≤x$”发生的频率&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/16.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;格利纹科定理&#34;&gt;格利纹科定理
+&lt;/h3&gt;&lt;p&gt;定理：设总体X的分布函数为$F(x)$，样本分布函数为$F_n(x)$。则当$n→∞$时$F_n(x)$以&lt;strong&gt;概率1收敛&lt;/strong&gt;于分布函数$F(x)$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111643064.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;856a1937f9b2e06399655fc50bb28c0c&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样本数字特征&#34;&gt;样本数字特征
+&lt;/h2&gt;&lt;h3 id=&#34;统计量&#34;&gt;统计量
+&lt;/h3&gt;&lt;p&gt;设$X_1,X_2,&amp;hellip;,X_n$是来自总体X的一个样本，而$g(X_1,X_2,&amp;hellip;,X_n)$是$X_1,X_2,&amp;hellip;,X_n$的函数&lt;/p&gt;
+&lt;p&gt;如果函数$g$中不包含任何的未知参数，则$g$为&lt;strong&gt;统计量。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于$X_1,X_2,&amp;hellip;,X_n$都是&lt;strong&gt;随机变量&lt;/strong&gt;，而统计量是随机变量的函数，所以&lt;strong&gt;统计量是随机变量&lt;/strong&gt;，并且将统计量的分布称作&lt;strong&gt;抽样分布&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;样本均值及定理&#34;&gt;样本均值及定理
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111650929.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3ec8c3cc73f21c71c92bdcab8548cf6f&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;定理&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;样本均值“的期望&lt;/strong&gt;：$E(\overline X)=μ$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;”样本均值“的方差：&lt;/strong&gt;$D(\overline X)=σ^2/n$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;strong&gt;样本均值&lt;/strong&gt;本身只是一个随机变量，&lt;strong&gt;不同的样本会有不同的样本均值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对&lt;strong&gt;样本均值&lt;/strong&gt;计算&lt;strong&gt;期望&lt;/strong&gt;才能得到对总体均值的估计&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/22.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;样本方差及定理&#34;&gt;样本方差及定理
+&lt;/h3&gt;&lt;p&gt;定义：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/23.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;定理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;样本均方差&lt;/strong&gt;$S^2$计算公式：$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X)^2$ == $S^2=\frac{1}{n-1}(\sum_{i=1}^nX_i^2-n\overline X^2) $ (注意这里的&lt;u&gt;&lt;strong&gt;分母为n-1&lt;/strong&gt;&lt;/u&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;&lt;strong&gt;样本方差的期望等于总体方差&lt;/strong&gt;（$E(S^2)=\sigma^2$）&lt;/u&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/24.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;样本矩&#34;&gt;样本矩
+&lt;/h3&gt;&lt;p&gt;定义：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;样本k阶原点矩&lt;/strong&gt;和&lt;strong&gt;样本k阶中心矩&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;定理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;样本一阶原点矩即样本均值&lt;/strong&gt;($A_1=\overline X$)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;样本二阶中心矩&lt;code&gt;不是&lt;/code&gt;样本方差&lt;/strong&gt;：因为&lt;strong&gt;样本方差&lt;/strong&gt;的计算公式为 $S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X)^2$ ，而&lt;strong&gt;样本二阶中心矩&lt;/strong&gt;为$S^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline X)^2$，分母不同&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;样本二阶中心矩和总体方差的关系&lt;/strong&gt;：$E((S_n)^2)=\frac{n-1}{n}\sigma^2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/26.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;公式总结&#34;&gt;公式总结
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/672019433b9bc2ebd5215a4a0945cb38.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;672019433b9bc2ebd5215a4a0945cb38&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/28.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四种统计量及其分布&#34;&gt;四种统计量及其分布
+&lt;/h2&gt;&lt;h3 id=&#34;上侧分位数和双侧分位数&#34;&gt;上侧分位数和双侧分位数
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/36.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;伽马函数&#34;&gt;伽马函数
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/34.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;卡方分布及其性质&#34;&gt;卡方分布及其性质
+&lt;/h3&gt;&lt;h4 id=&#34;定义-1&#34;&gt;定义
+&lt;/h4&gt;&lt;p&gt;卡方分布是&lt;strong&gt;多个独立&lt;/strong&gt;的&lt;strong&gt;标准正态随机变量&lt;/strong&gt;的&lt;strong&gt;平方和&lt;/strong&gt;的分布。&lt;/p&gt;
+&lt;p&gt;自由度：指卡方分布中&lt;strong&gt;独立正态变量的个数&lt;/strong&gt; (如下方的$X_1,X_2,&amp;hellip;,X_n$，总共n个独立正态变量，自由度就为n)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;服从卡方分布的注意点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$X_1,X_2,&amp;hellip;,X_n$都&lt;strong&gt;相互独立&lt;/strong&gt;，则&lt;strong&gt;自由度为n&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;都服从正态分布$N(0,1)$&lt;/li&gt;
+&lt;li&gt;$X=\sum_{i=1}^nX_i^2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131103487.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;df349718e36476aa2c1c441644c0c0b3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;卡方分布的图像&#34;&gt;卡方分布的图像
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111715979.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bcdcf7a09be56375127acac02f55c82d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质-1&#34;&gt;性质
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111718768.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;b4b3a7cd1d5b32c8010b0292d822b31b&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/35.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/36.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;注意：对于卡方分布的&lt;strong&gt;自由度n过大&lt;/strong&gt;的情况：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/37.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;下面我们用卡方分布的性质解题：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/38.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由题，(1)可直接查表得到答案，(2)可以通过&lt;strong&gt;正态分布上α百分位点&lt;/strong&gt;的公式计算&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;t统计量及其分布&#34;&gt;T统计量及其分布
+&lt;/h3&gt;&lt;h4 id=&#34;t分布的定义&#34;&gt;t分布的定义
+&lt;/h4&gt;&lt;p&gt;t分布是由&lt;strong&gt;一个标准正态分布随机变量&lt;/strong&gt;和&lt;strong&gt;一个独立的 $\chi^2$ 分布随机变量&lt;/strong&gt;的&lt;strong&gt;比值&lt;/strong&gt;定义的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;服从&lt;strong&gt;t分布&lt;/strong&gt;的要点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;t分布针对两个随机变量，&lt;strong&gt;正态分布&lt;/strong&gt;X和&lt;strong&gt;卡方分布&lt;/strong&gt;Y&lt;/li&gt;
+&lt;li&gt;X和Y&lt;strong&gt;相互独立&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/39.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;t分布的图像&#34;&gt;t分布的图像
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/40.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;t分布的性质&#34;&gt;t分布的性质
+&lt;/h4&gt;&lt;p&gt;t分布的分位点：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/41.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;t统计量的定义及其性质&#34;&gt;T统计量的定义及其性质
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;t分布&lt;/strong&gt;和&lt;strong&gt;T统计量&lt;/strong&gt;的区别在于：一个X是&lt;strong&gt;正态分布&lt;/strong&gt;，一个X是正态分布总体的&lt;strong&gt;样本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/43.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-1&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/42.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;f统计量及其分布&#34;&gt;F统计量及其分布
+&lt;/h3&gt;&lt;h4 id=&#34;定义-2&#34;&gt;定义
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;服从F统计量的要点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;X与Y&lt;strong&gt;相互独立&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;X与Y&lt;strong&gt;分别服从卡方分布&lt;/strong&gt;，&lt;strong&gt;自由度可以不同&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/44.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;f分布的图像&#34;&gt;F分布的图像
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质-2&#34;&gt;性质
+&lt;/h4&gt;&lt;p&gt;对于&lt;strong&gt;自由度为$n_1,n_2$的两个F分布&lt;/strong&gt;的关系，有：&lt;/p&gt;
+$$F\sim F(n1,n2)=\frac{1}{F\sim F(n_2,n_1)}$$&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/45.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-2&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/47.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;(1)题直接查表，(2)题需要通过公式&lt;u&gt;$F_{1-α}(n_1,n_2)=\frac{1}{F_α(n_2,n_1)}$&lt;/u&gt;转换&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;综合例题&#34;&gt;综合例题
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/48.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;该题求&lt;strong&gt;卡方分布&lt;/strong&gt;，先将每一个随机变量转成&lt;strong&gt;标准正态分布&lt;/strong&gt;，再利用&lt;strong&gt;卡方分布的性质&lt;/strong&gt;解答&lt;/p&gt;
+&lt;p&gt;题目中，$X_1+X_2+X_3$和$X_4+X_5+X_6$分别是一个&lt;strong&gt;正态分布独立变量&lt;/strong&gt; (看做成一个整体)，于是&lt;strong&gt;总体自由度为2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/49.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>参数估计</title>
         <link>https://fsj2009yx.github.io/posts/post_4465171773288/</link>
         <pubDate>Fri, 13 Dec 2024 16:42:55 +0800</pubDate>
