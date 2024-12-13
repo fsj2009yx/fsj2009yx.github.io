@@ -1351,7 +1351,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 &lt;p&gt;一句话总结：每次取第$i+1$个元素，依次与前一个元素比较直到找到一个比它小的元素，插入到它的后面&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/63a9b3d35a93d9506399773b34715771.gif#pic_center&#34;
+&lt;li&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131945093.gif&#34;
 	
 	
 	
@@ -1360,7 +1360,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 	
 &gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/971654befd272cbe5874f2fe46bc74b8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131945484.png&#34;
 	
 	
 	
@@ -1458,7 +1458,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/f4de15141ce9552360d6587c9b7d12eb.gif#pic_center&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131945433.gif&#34;
 	
 	
 	
@@ -1546,7 +1546,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 &lt;p&gt;一句话总结：每趟选出一个最小放在前面，一直排到末尾；&lt;/p&gt;
 &lt;p&gt;我们可以一趟选出两个值，一个最大值一个最小值，然后将其放在序列开头和末尾，效率更快&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/5bef5385d11cd3af05943a6b7577f842.gif#pic_center&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131945231.gif&#34;
 	
 	
 	
@@ -1658,7 +1658,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 &lt;li&gt;序列中&lt;em&gt;&lt;strong&gt;最大值和最小值之间的差值不能过大&lt;/strong&gt;&lt;/em&gt;，这主要是防止建立数组时造成内存的浪费。&lt;/li&gt;
 &lt;li&gt;序列中存在的元素是整数，因为我们使用的是该元素作为键存储在额外的数组空间中，如果不是整数，不能作为键。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/direct/6e613e0fa54f450da3833327dc13a93e.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131945123.gif&#34;
 	
 	
 	
@@ -1866,7 +1866,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;优化&#34;&gt;优化
-&lt;/h4&gt;&lt;p&gt;如果我们的数据是这样的，如果还像之前那样开辟空间，会有大量的空间浪费遍历的次数增大，就存在性能的降低 &lt;img src=&#34;https://i-blog.csdnimg.cn/direct/ce19acb5ef3746b8a652f89ef0ae1b36.png&#34;
+&lt;/h4&gt;&lt;p&gt;如果我们的数据是这样的，如果还像之前那样开辟空间，会有大量的空间浪费遍历的次数增大，就存在性能的降低 &lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131946939.png&#34;
 	
 	
 	
@@ -2281,7 +2281,7 @@ $$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区�
 4.此时&lt;strong&gt;key的左边都是小于key的数，key的右边都是大于key的数&lt;/strong&gt;
 5.将key的左序列和右序列再次进行这种单趟排序，如此&lt;strong&gt;反复操作&lt;/strong&gt;下去，&lt;strong&gt;直到左右序列只有一个数据，或是左右序列不存在时&lt;/strong&gt;，便停止操作，此时此部分已有序&lt;/p&gt;
 &lt;p&gt;单趟动图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20210515134431451.gif#pic_center#pic_center&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131946984.gif&#34;
 	
 	
 	
