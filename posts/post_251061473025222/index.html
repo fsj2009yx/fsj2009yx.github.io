@@ -1761,14 +1761,15 @@
                 >
             </script><script>
     window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.body, {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
             delimiters: [
                 { left: "$$", right: "$$", display: true },
                 { left: "$", right: "$", display: false },
                 { left: "\\(", right: "\\)", display: false },
                 { left: "\\[", right: "\\]", display: true }
             ],
-            ignoredClasses: ["gist","waline-container"]
+            ignoredClasses: ["gist"]
         });})
 </script>
     
@@ -1811,6 +1812,19 @@
             
                 
 <article class="">
+    <a href="/posts/post_4465171773288/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">参数估计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/post_208132376826979/">
         
         
@@ -1830,19 +1844,6 @@
 
         <div class="article-details">
             <h2 class="article-title">自治系统内部的路由选择</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/post_132911105916910/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">计算机网络计算</h2>
         </div>
     </a>
 </article>

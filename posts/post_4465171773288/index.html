@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="参数估计\r参数估计问题的定义及其理解\r矩估计法\r矩估计法（Method of Moments, MoM），也称为数字特征法，是一种常用的参数估计方法。其基本思想是利用样本矩来估计总体矩，即用样本的统计量代替总体的相应统计量进行估计。\n样本矩和总体矩\r样本矩：\n对于一组样本 $X_1, X_2, &hellip;, X_n$，样本的第 $k$ 阶矩定义为：\n$m_k = \\frac{1}{n} \\sum_{i=1}^n X_i^k$\n总体矩：\n对于一个随机变量 X，其理论上的 k 阶矩定义为：\n$$μ_k = E(X^k)$$\u00a0下面我们举例说明：\n假设我们有一个正态分布随机变量 $X \\sim N(\\mu, \\sigma^2)$，我们想要估计正态分布的参数 $μ$（均值）和 $\\sigma^2$（方差）。\n**目标：**我们通过样本来估计以下参数：\n均值 $μ$ 方差 $\\sigma^2$ 一、样本矩计算\n假设我们有一个样本：$X = { X_1, X_2, &hellip;, X_n }$\n样本均值 $\\hat{\\mu}$： $$\\hat{\\mu} = \\frac{1}{n} \\sum_{i=1}^n X_i$$ 样本方差 $S^2$： $$S^2 = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\hat{\\mu})^2$$二、总体矩计算\n">
+<meta name="keywords" content="概率论"><title>参数估计</title>
+
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_4465171773288/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="参数估计">
+<meta property='og:description' content="参数估计\r参数估计问题的定义及其理解\r矩估计法\r矩估计法（Method of Moments, MoM），也称为数字特征法，是一种常用的参数估计方法。其基本思想是利用样本矩来估计总体矩，即用样本的统计量代替总体的相应统计量进行估计。\n样本矩和总体矩\r样本矩：\n对于一组样本 $X_1, X_2, &hellip;, X_n$，样本的第 $k$ 阶矩定义为：\n$m_k = \\frac{1}{n} \\sum_{i=1}^n X_i^k$\n总体矩：\n对于一个随机变量 X，其理论上的 k 阶矩定义为：\n$$μ_k = E(X^k)$$\u00a0下面我们举例说明：\n假设我们有一个正态分布随机变量 $X \\sim N(\\mu, \\sigma^2)$，我们想要估计正态分布的参数 $μ$（均值）和 $\\sigma^2$（方差）。\n**目标：**我们通过样本来估计以下参数：\n均值 $μ$ 方差 $\\sigma^2$ 一、样本矩计算\n假设我们有一个样本：$X = { X_1, X_2, &hellip;, X_n }$\n样本均值 $\\hat{\\mu}$： $$\\hat{\\mu} = \\frac{1}{n} \\sum_{i=1}^n X_i$$ 样本方差 $S^2$： $$S^2 = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\hat{\\mu})^2$$二、总体矩计算\n">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_4465171773288/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='概率论' /><meta property='article:published_time' content='2024-12-13T16:42:55&#43;08:00'/><meta property='article:modified_time' content='2024-12-13T16:42:55&#43;08:00'/>
+<meta name="twitter:title" content="参数估计">
+<meta name="twitter:description" content="参数估计\r参数估计问题的定义及其理解\r矩估计法\r矩估计法（Method of Moments, MoM），也称为数字特征法，是一种常用的参数估计方法。其基本思想是利用样本矩来估计总体矩，即用样本的统计量代替总体的相应统计量进行估计。\n样本矩和总体矩\r样本矩：\n对于一组样本 $X_1, X_2, &hellip;, X_n$，样本的第 $k$ 阶矩定义为：\n$m_k = \\frac{1}{n} \\sum_{i=1}^n X_i^k$\n总体矩：\n对于一个随机变量 X，其理论上的 k 阶矩定义为：\n$$μ_k = E(X^k)$$\u00a0下面我们举例说明：\n假设我们有一个正态分布随机变量 $X \\sim N(\\mu, \\sigma^2)$，我们想要估计正态分布的参数 $μ$（均值）和 $\\sigma^2$（方差）。\n**目标：**我们通过样本来估计以下参数：\n均值 $μ$ 方差 $\\sigma^2$ 一、样本矩计算\n假设我们有一个样本：$X = { X_1, X_2, &hellip;, X_n }$\n样本均值 $\\hat{\\mu}$： $$\\hat{\\mu} = \\frac{1}{n} \\sum_{i=1}^n X_i$$ 样本方差 $S^2$： $$S^2 = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\hat{\\mu})^2$$二、总体矩计算\n">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4MJKRHG3RF');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://fsj2009yx.github.io/en/" >English</option>
+                                
+                                    <option value="https://fsj2009yx.github.io/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#参数估计问题的定义及其理解">参数估计问题的定义及其理解</a></li>
+    <li><a href="#矩估计法">矩估计法</a>
+      <ol>
+        <li><a href="#样本矩和总体矩">样本矩和总体矩</a></li>
+        <li><a href="#例题">例题</a></li>
+      </ol>
+    </li>
+    <li><a href="#极大似然估计法">极大似然估计法</a>
+      <ol>
+        <li><a href="#似然函数">似然函数</a>
+          <ol>
+            <li><a href="#离散型总体">离散型总体</a></li>
+            <li><a href="#连续性总体">连续性总体</a></li>
+            <li><a href="#最大似然估计值和最大似然估计量">最大似然估计值和最大似然估计量</a></li>
+            <li><a href="#lθ的最大值求法">L(θ)的最大值求法</a></li>
+            <li><a href="#似然函数的性质">似然函数的性质</a></li>
+          </ol>
+        </li>
+        <li><a href="#例题-1">例题</a></li>
+      </ol>
+    </li>
+    <li><a href="#估计量的评估标准">估计量的评估标准</a>
+      <ol>
+        <li><a href="#无偏性">无偏性</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#性质">性质</a></li>
+          </ol>
+        </li>
+        <li><a href="#有效性">有效性</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#例题-2">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#一致性与结合性">一致性与结合性</a>
+          <ol>
+            <li><a href="#定义-2">定义</a></li>
+            <li><a href="#例题-3">例题</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#区间估计">区间估计</a>
+      <ol>
+        <li><a href="#区间估计的概念">区间估计的概念</a>
+          <ol>
+            <li><a href="#对置信区间的解释">对置信区间的解释</a></li>
+            <li><a href="#例题-4">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#单个正态总体参数的置信区间">单个正态总体参数的置信区间</a>
+          <ol>
+            <li><a href="#均值的置信区间">均值的置信区间</a></li>
+            <li><a href="#方差的置信区间">方差的置信区间</a></li>
+          </ol>
+        </li>
+        <li><a href="#两个正态总体参数的置信区间">两个正态总体参数的置信区间</a>
+          <ol>
+            <li><a href="#sigma_12sigma_22已知">$\sigma_1^2$，$\sigma_2^2$已知</a></li>
+            <li><a href="#两个总体的方差相等但是方差未知-即sigma_12sigma_22sigma2但是sigma2未知">两个总体的方差相等，但是方差未知 (即$\sigma_1^2=\sigma_2^2=\sigma^2$，但是$\sigma^2$未知)</a></li>
+          </ol>
+        </li>
+        <li><a href="#单侧置信区间">单侧置信区间</a>
+          <ol>
+            <li><a href="#例题-5">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#总结">总结</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" >
+                基础课程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_4465171773288/">参数估计</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 13, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="参数估计">参数估计
+</h1><h2 id="参数估计问题的定义及其理解">参数估计问题的定义及其理解
+</h2><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<hr>
+<h2 id="矩估计法">矩估计法
+</h2><p><a class="link" href="https://so.csdn.net/so/search?q=%e7%9f%a9%e4%bc%b0%e8%ae%a1&amp;spm=1001.2101.3001.7020"  target="_blank" rel="noopener"
+    >矩估计</a>法（Method of Moments, MoM），也称为数字特征法，是一种常用的参数估计方法。其基本思想是利用样本矩来估计总体矩，即用样本的统计量代替总体的相应统计量进行估计。</p>
+<h3 id="样本矩和总体矩">样本矩和总体矩
+</h3><p><strong>样本矩：</strong></p>
+<p>对于一组样本 $X_1, X_2, &hellip;, X_n$，样本的第 $k$ 阶矩定义为：</p>
+<p>$m_k = \frac{1}{n} \sum_{i=1}^n X_i^k$</p>
+<p><strong>总体矩：</strong></p>
+<p>对于一个随机变量 X，其理论上的 k 阶矩定义为：</p>
+$$μ_k = E(X^k)$$<p> </p>
+<p><strong>下面我们举例说明：</strong></p>
+<p>假设我们有一个正态分布随机变量 $X \sim N(\mu, \sigma^2)$，我们想要估计正态分布的参数 $μ$（均值）和 $\sigma^2$（方差）。</p>
+<p>**目标：**我们通过样本来估计以下参数：</p>
+<ol>
+<li>均值 $μ$</li>
+<li>方差 $\sigma^2$</li>
+</ol>
+<p><strong>一、样本矩计算</strong></p>
+<p>假设我们有一个样本：$X = { X_1, X_2, &hellip;, X_n }$</p>
+<ul>
+<li><strong>样本均值 $\hat{\mu}$：</strong></li>
+</ul>
+$$\hat{\mu} = \frac{1}{n} \sum_{i=1}^n X_i$$<ul>
+<li><strong>样本方差 $S^2$</strong>：</li>
+</ul>
+$$S^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \hat{\mu})^2$$<p><strong>二、总体矩计算</strong></p>
+<p>这里我们设总体矩为正态分布，则<strong>理论均值为$μ$，理论方差为$ \sigma^2$</strong>;</p>
+<p>将样本矩和总体矩等式：有$\hat{\mu}=μ$，$S^2≈σ^2$</p>
+<p><strong>因此，矩估计法中：</strong></p>
+<ul>
+<li>使用样本均值 $\hat{\mu}$ 作为总体均值 $μ$ 的估计。</li>
+<li>使用样本方差 $S^2$ 作为总体方差 $\sigma^2$ 的估计。</li>
+</ul>
+<p> </p>
+<h3 id="例题">例题
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102023344.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="7"
+	
+	
+></p>
+<p>由于<strong>样本均值=总体均值</strong>，我们令$A_1=\frac{1}{n}\sum_{i=1}^nX_i=\overline X=E(X)$</p>
+<p>并且使用$E(X)=\int_{-∞}^{+∞}xf(x)dx$求出总体期望，构建等式</p>
+<hr>
+<h2 id="极大似然估计法">极大似然估计法
+</h2><p>极大似然法是在总体类型已知条件下使用的一种参数估计方法</p>
+<p>基本思路：<strong>根据样本的具体情况来选择未知参数0的估计量，使样本发生的可能性最大</strong>。</p>
+<h3 id="似然函数">似然函数
+</h3><p>分为离散型和连续性</p>
+<h4 id="离散型总体">离散型总体
+</h4><p>设总体X的分布为$P{X=x}=p(x,\theta)$，样本$X_1,X_2&hellip;X_n$是来自X的样本，样本观察值为x1,x2&hellip;xn</p>
+<p>则($X_1,X_2&hellip;X_n$)的联合分布律为：</p>
+$$P\{X_1=x_1,X_2=X_2,...,X_n=x_n\}=\prod^n_{i=1}p\{x_i;\theta\}$$<p><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>它是未知参数的函数，记作</p>
+$$L(\theta)=L(x_1,x_2…,x_n;\theta)=\prod^n_{i=1}p(x_i;\theta)$$<p>上面的函数称为<strong>样本的似然函数</strong></p>
+<h4 id="连续性总体">连续性总体
+</h4><p>设总体X的概率密度$f(x;\theta)$，此时样本的似然函数为</p>
+$$L(\theta)=L(x_1,x_2…,x_n;\theta)=\prod^n_{i=1}f(x_i;\theta)$$<h4 id="最大似然估计值和最大似然估计量">最大似然估计值和最大似然估计量
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102042325.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="ae6f1f06c817b9e170f837d4c6b74fdf"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>区别</th>
+          <th>最大似然估计量 (MLE)</th>
+          <th>最大似然值 (Likelihood Value)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>定义</strong></td>
+          <td>参数 $θ$ 使得似然函数最大化</td>
+          <td>使用最大似然估计量代入似然函数</td>
+      </tr>
+      <tr>
+          <td><strong>含义</strong></td>
+          <td>是一个参数的估计值（如 $\hat{\theta}$ ）</td>
+          <td>是似然函数的具体数值</td>
+      </tr>
+      <tr>
+          <td><strong>目标</strong></td>
+          <td>求解参数估计值</td>
+          <td>在给定参数下计算似然函数的值</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="lθ的最大值求法">L(θ)的最大值求法
+</h4><p>由微积分学知识，若似然函数L(θ)关于θ有连续偏导数，则最大似然估计0 一般可从方程(组)：</p>
+$$\frac{\partial L(θ)}{\partial θ_i}=0，i=1,2,...k$$<p>又因为lnL(θ)和L(θ)同时取得最大值，等式可转换为：</p>
+$$\frac{\partial lnL(θ)}{\partial θ_i}=0，i=1,2,...k$$<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102058887.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="50534437ea12e8b6bef4fb550e75a8c7"
+	
+	
+></p>
+<h4 id="似然函数的性质">似然函数的性质
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/21.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="例题-1">例题
+</h3><p><strong>离散型随机变量</strong>求似然函数：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102110727.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="15"
+	
+	
+></p>
+<p>由题我们知道，有5个样本值，分别为1，2，1，3，1，将这5个样本值进行连乘，得到似然函数L(θ)，解似然函数方程得到<strong>最大似然估计值</strong></p>
+<p>接下来是矩估计值的计算：</p>
+<p><strong>步骤 1: 样本矩</strong></p>
+<p>样本数据为 $x_1 = 1, x_2 = 2, x_3 = 1, x_4 = 3, x_5 = 1$，其样本均值为：$\bar{x} = \frac{1+2+1+3+1}{5} = \frac{8}{5} = 1.6$</p>
+<p><strong>步骤 2: 理论矩</strong></p>
+<p>理论均值（总体期望）为：</p>
+$$E[X]=1⋅P(X=1)+2⋅P(X=2)+3⋅P(X=3)$$$$=>E[X] = 1 \cdot \theta^2 + 2 \cdot 2\theta(1-\theta) + 3 \cdot (1-\theta)^2$$$$=>E[X] = \theta^2 + 4\theta(1-\theta) + 3(1-\theta)^2$$<p>展开整理：</p>
+$$E[X] = \theta^2 + 4\theta - 4\theta^2 + 3 - 6\theta + 3\theta^2$$$$=>E[X] = 3 - 2\theta$$<p><strong>步骤 3: 矩估计方程</strong></p>
+<p>令理论均值等于样本均值：</p>
+$$3 - 2\theta = 1.6$$<p>解方程：</p>
+$$2\theta = 3 - 1.6$$$$=>\hat{\theta} =0.7$$<p>因此，矩估计值为：</p>
+$$\hat\theta_\text{MME} = 0.7$$<p> </p>
+<p><strong>连续性随机变量：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102129677.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="16"
+	
+	
+></p>
+<p>对连续性随机变量使用<strong>连乘公式</strong>计算</p>
+<hr>
+<h2 id="估计量的评估标准">估计量的评估标准
+</h2><p>对同一参数用不同的方法进行估计可能会得到不同的估计量，那么采用哪种估计量为好，这就涉及到用什么样的标准来评价估计量的问题</p>
+<h3 id="无偏性">无偏性
+</h3><h4 id="定义">定义
+</h4><p>设$\hat\theta=\hat\theta(X_1,X_2,&hellip;,X_n)$是未知参数$\theta$的估计量，如果</p>
+$$E( \hatθ )=θ$$<p>则称 $\hat\theta$ 是 $\theta$ 的<strong>无偏估计量</strong></p>
+<ul>
+<li>
+<p>记$b_n=E(\hat\theta)-\theta$,称 $b_n$ 为<strong>估计量 $\hat \theta$ 的偏差</strong></p>
+</li>
+<li>
+<p>当$b_n≠0$，称 $\hat\theta$ 是 $\theta$ 的<strong>有偏估计</strong></p>
+</li>
+<li>
+<p>若 $\lim_{x \to \infty} b_n=0$,称 $\hat\theta$ 是 $\theta$ 的<strong>渐近无偏估计</strong></p>
+</li>
+</ul>
+<h4 id="性质">性质
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102152399.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="86695476384c4b1b131c05262d5ed3c4"
+	
+	
+></p>
+<blockquote>
+<p>不论总体X服从什么分布，当<strong>总体的 k 阶矩存在</strong>时，<strong>样本的 k 阶原点矩 $A_k$ 是总体 k 阶原点矩的无偏估计量。</strong></p>
+<p>特别地，<u><strong>样本均值 $\overline{X}$ 是总体均值E(X)的无偏估计量</strong></u>。</p>
+<p>(解释：由于<strong>样本均值的期望</strong>$E(\overline X)$等于<strong>总体均值</strong>(第六章性质)，如果<strong>样本均值</strong>也等于<strong>总体均值</strong>，则 <u><strong>样本均值是总体均值的无偏估计量</strong></u>)</p>
+</blockquote>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/26.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+> </p>
+<h3 id="有效性">有效性
+</h3><h4 id="定义-1">定义
+</h4><p><strong>无偏估计并不是唯一的</strong>，多个无偏估计之中就存在优劣问题。</p>
+<p>我们希望 $\theta$ 的取值能集中于 $\theta$ 附近,而且密集的程度越高越好,方差是描述随机变量取值的集中程度的</p>
+<p>因此这里提出所谓**“有效性”**标准：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412112036835.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="90e4cd6c416f4927f0a3850900647b51"
+	
+	
+></p>
+<h4 id="例题-2">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/28.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>由题，这里两种无偏估计量其实就对应两个<strong>样本均值</strong>,则求出<strong>样本均值的方差</strong>并做比较</p>
+<p> </p>
+<h3 id="一致性与结合性">一致性与结合性
+</h3><h4 id="定义-2">定义
+</h4><p><strong>一致性：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412112040595.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1afd771e5098b531cf068655d1e1986f"
+	
+	
+></p>
+<p><strong>相合性：</strong></p>
+<p>相合性被认为是对估计的一个最基本要求</p>
+<p><strong>如果一个估计量，在样本量不断增大时，它都不能把被估参数估计到任意指定的精度</strong>，那么这个估计是很值得怀疑的。通常，<strong>不满足相合性要求的估计一般不予考虑</strong>。</p>
+<p>证明估计的相合性一般可应用<strong>大数定律</strong>或<strong>直接由定义</strong>来证</p>
+<h4 id="例题-3">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/31.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<hr>
+<h2 id="区间估计">区间估计
+</h2><p>点估计值仅仅是未知参数的一个近似值，近似程度如何?误差范围多大?可信程度又如何?这些问题是点估计无法回答的。而区间估计正好弥补了点估计的这个缺陷</p>
+<p>区间估计要求根据样本给出<strong>未知参数的一个范围</strong>，并保证<strong>参数的真值</strong>以<strong>指定的较大概率属于</strong>这个范围。即以区间的形式给出未知参数的一个范围，同时还给出此区间包含参数真值的可信程度，这种形式的估计称为<strong>区间估计</strong></p>
+<h3 id="区间估计的概念">区间估计的概念
+</h3><p>定义 设总体$X\sim F(x, \theta)$，$\theta $是未知参数,$X_1,X_2,&hellip;,Xn$是来自总体的样本，对于给定值$(0&lt;\alpha &lt;1)$，如果<strong>存在两个统计量</strong>$\hat\theta_1=\hat\theta_1(X_1,X_2,，…,X_i)$和$\hat\theta_2=\hat\theta_2(X_1,X_2…X_i)$</p>
+<p>如果满足</p>
+$$P\{\hat\theta_1< \theta <\hat\theta_2\}≥1-a$$<p>则称随机区间$(\hat\theta_1,\hat\theta_2)$是 $\theta $ 的置信度为 $1-α$ 的<strong>置信区间</strong>
+1-α为置信水平, $\hat\theta_1$ 和 $\hat\theta_2$ 分别称为<strong>置信下限</strong>和<strong>置信上限</strong></p>
+<p>评价置信区间好坏标准:</p>
+<ul>
+<li>
+<p><strong>精度:</strong> $\hat\theta_2-\hat \theta_1$ 越小越好</p>
+</li>
+<li>
+<p>**置信度:**越大越好</p>
+</li>
+</ul>
+<h4 id="对置信区间的解释">对置信区间的解释
+</h4><blockquote>
+<p>最常出现的对<strong>95%置信区间</strong>的错误理解：</p>
+<ul>
+<li>
+<p>在95%置信区间内，有95%的概率包括真实参数  （错误！！）</p>
+</li>
+<li>
+<p>在95%置信区下构建的模型，意味着模型参数对于试图近似的函数有95%的概率是真实值的估计值（错误！！）</p>
+</li>
+</ul>
+<p>正确解释应为：</p>
+<ul>
+<li>
+<p>95%置信区间，意味着如果你用同样的步骤，去选样本，计算置信区间，那么100次这样的独立过程，有95%的概率你计算出来的区间会包含真实参数值，即大概会有95个置信区间会包含真值。</p>
+</li>
+<li>
+<p>对于某一次计算得到的某一个置信区间，其包含真值的概率，我们无法讨论。</p>
+</li>
+</ul>
+</blockquote>
+<p>对于未知参数 $\theta$ 的真值，不能说 $\theta$ 以 $1-\alpha $ 的概率落入该随机区间，只能说区间 $(\hat\theta_1,\hat\theta_2)$ <strong>套住了</strong>该参数的真值</p>
+<p>因为$\theta$ 是一个<strong>固定但未知</strong>的值，不能将他看作是一个随机变量</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/35.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/eac4b74543a98226d36bc8018782b9014a90eb6a?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>构建置信区间的一般步骤：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/40.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题-4">例题
+</h4><p>我们以下图为例：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/37.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>正态分布图像如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131628224.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3aa8fa29639fc3b9d92002f49ed21cd5_720"
+	
+	
+></p>
+<p>根据<strong>分位点$\alpha$的大小</strong>，我们可以求得X坐标也就是 <strong>$z_{\alpha/2}$ 的大小</strong>，进而也就得到了该题中的<strong>未知参数 $\mu$ 的置信区间</strong></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/38.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="单个正态总体参数的置信区间">单个正态总体参数的置信区间
+</h3><h4 id="均值的置信区间">均值的置信区间
+</h4><p>分为方差 <strong>$\sigma^2$ 已知</strong>和<strong>未知</strong>的情况</p>
+<p>方差已知时：<strong>(枢轴变量法)</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131313698.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="a61c437d72b3492a9d18cbb405bb24a2"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412112121341.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="f40771465d305b8db3ec8b27f919c832"
+	
+	
+></p>
+<p>其中$Z_{\alpha/2}$和$U_{\alpha/2}$都是标准正态分布下满足 $P(Z&gt;Z_{α/2})=α/2$ 的分位点</p>
+<p> </p>
+<p><strong>方差未知时：</strong></p>
+<p><strong>不能选择正态分布构造置信区间</strong>，可以选择<strong>t分布</strong>：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/42.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/43.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h4 id="方差的置信区间">方差的置信区间
+</h4><p>分为**$μ$已知和未知**的情况</p>
+<p>（已知的情况上面已经讨论过，看未知的情况）</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/46.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/47.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="两个正态总体参数的置信区间">两个正态总体参数的置信区间
+</h3><p>如果有<strong>两个相互独立的正态总体</strong>，我们关心的主要是两个总体的<strong>均值差和方差比</strong>的估计</p>
+<p>设$X\sim N(μ_1,\sigma_1^2)，Y\sim N(μ_2,\sigma_2^2)$，$X_1,X_2,&hellip;,X_{n1}$ 和 $Y_1,Y_2,&hellip;,Y_{n2}$ 分别是总体 X 和 Y 的样本</p>
+<p>我们有$\overline X- \overline Y$是$μ_1-μ_2$的<strong>无偏点估计</strong></p>
+<h4 id="sigma_12sigma_22已知">$\sigma_1^2$，$\sigma_2^2$已知
+</h4><p>由上，由期望和方差的性质，我们易得 $\overline X-\overline Y \sim N(μ_1-μ_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2})$</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/50.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="两个总体的方差相等但是方差未知-即sigma_12sigma_22sigma2但是sigma2未知">两个总体的方差相等，但是方差未知 (即$\sigma_1^2=\sigma_2^2=\sigma^2$，但是$\sigma^2$未知)
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/51.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/52.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="单侧置信区间">单侧置信区间
+</h3><p>上面的置信区间都是<strong>双向且对称</strong>的，也存在置信区间单向的情况</p>
+<p>对单侧置信区间，要分<strong>单侧置信下限</strong>和<strong>单侧置信上限</strong></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/53.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>图像如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131639576.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="dbffff2234c725fd67486a7debacd1db"
+	
+	
+></p>
+<p>其中<strong>绿色部分为置于信区间上限</strong>，<strong>红色部分为置信区间下限</strong>的情况。</p>
+<p>它们的概率都为 $1-\alpha$</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/54.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/55.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题-5">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/56.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="总结">总结
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/57.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<hr>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>$\prod$符号表示连乘&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/post_208132376826979/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">群论</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_251061473025222/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">排序算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_301732386019327/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">自治系统内部的路由选择</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_132911105916910/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_16861929726775/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">IPV4</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili"],"lang":"zh-cn","locale":{"admin":"289137665@qq.com","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://waline-blog-test.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -7,7 +7,591 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 10 Dec 2024 17:27:43 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 13 Dec 2024 16:42:55 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>参数估计</title>
+        <link>https://fsj2009yx.github.io/posts/post_4465171773288/</link>
+        <pubDate>Fri, 13 Dec 2024 16:42:55 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_4465171773288/</guid>
+        <description>&lt;h1 id=&#34;参数估计&#34;&gt;参数估计
+&lt;/h1&gt;&lt;h2 id=&#34;参数估计问题的定义及其理解&#34;&gt;参数估计问题的定义及其理解
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;矩估计法&#34;&gt;矩估计法
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://so.csdn.net/so/search?q=%e7%9f%a9%e4%bc%b0%e8%ae%a1&amp;amp;spm=1001.2101.3001.7020&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;矩估计&lt;/a&gt;法（Method of Moments, MoM），也称为数字特征法，是一种常用的参数估计方法。其基本思想是利用样本矩来估计总体矩，即用样本的统计量代替总体的相应统计量进行估计。&lt;/p&gt;
+&lt;h3 id=&#34;样本矩和总体矩&#34;&gt;样本矩和总体矩
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;样本矩：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于一组样本 $X_1, X_2, &amp;hellip;, X_n$，样本的第 $k$ 阶矩定义为：&lt;/p&gt;
+&lt;p&gt;$m_k = \frac{1}{n} \sum_{i=1}^n X_i^k$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总体矩：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于一个随机变量 X，其理论上的 k 阶矩定义为：&lt;/p&gt;
+$$μ_k = E(X^k)$$&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下面我们举例说明：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设我们有一个正态分布随机变量 $X \sim N(\mu, \sigma^2)$，我们想要估计正态分布的参数 $μ$（均值）和 $\sigma^2$（方差）。&lt;/p&gt;
+&lt;p&gt;**目标：**我们通过样本来估计以下参数：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;均值 $μ$&lt;/li&gt;
+&lt;li&gt;方差 $\sigma^2$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;一、样本矩计算&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设我们有一个样本：$X = { X_1, X_2, &amp;hellip;, X_n }$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;样本均值 $\hat{\mu}$：&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+$$\hat{\mu} = \frac{1}{n} \sum_{i=1}^n X_i$$&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;样本方差 $S^2$&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+$$S^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \hat{\mu})^2$$&lt;p&gt;&lt;strong&gt;二、总体矩计算&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这里我们设总体矩为正态分布，则&lt;strong&gt;理论均值为$μ$，理论方差为$ \sigma^2$&lt;/strong&gt;;&lt;/p&gt;
+&lt;p&gt;将样本矩和总体矩等式：有$\hat{\mu}=μ$，$S^2≈σ^2$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此，矩估计法中：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用样本均值 $\hat{\mu}$ 作为总体均值 $μ$ 的估计。&lt;/li&gt;
+&lt;li&gt;使用样本方差 $S^2$ 作为总体方差 $\sigma^2$ 的估计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;例题&#34;&gt;例题
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102023344.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;7&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由于&lt;strong&gt;样本均值=总体均值&lt;/strong&gt;，我们令$A_1=\frac{1}{n}\sum_{i=1}^nX_i=\overline X=E(X)$&lt;/p&gt;
+&lt;p&gt;并且使用$E(X)=\int_{-∞}^{+∞}xf(x)dx$求出总体期望，构建等式&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;极大似然估计法&#34;&gt;极大似然估计法
+&lt;/h2&gt;&lt;p&gt;极大似然法是在总体类型已知条件下使用的一种参数估计方法&lt;/p&gt;
+&lt;p&gt;基本思路：&lt;strong&gt;根据样本的具体情况来选择未知参数0的估计量，使样本发生的可能性最大&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;似然函数&#34;&gt;似然函数
+&lt;/h3&gt;&lt;p&gt;分为离散型和连续性&lt;/p&gt;
+&lt;h4 id=&#34;离散型总体&#34;&gt;离散型总体
+&lt;/h4&gt;&lt;p&gt;设总体X的分布为$P{X=x}=p(x,\theta)$，样本$X_1,X_2&amp;hellip;X_n$是来自X的样本，样本观察值为x1,x2&amp;hellip;xn&lt;/p&gt;
+&lt;p&gt;则($X_1,X_2&amp;hellip;X_n$)的联合分布律为：&lt;/p&gt;
+$$P\{X_1=x_1,X_2=X_2,...,X_n=x_n\}=\prod^n_{i=1}p\{x_i;\theta\}$$&lt;p&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;它是未知参数的函数，记作&lt;/p&gt;
+$$L(\theta)=L(x_1,x_2…,x_n;\theta)=\prod^n_{i=1}p(x_i;\theta)$$&lt;p&gt;上面的函数称为&lt;strong&gt;样本的似然函数&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;连续性总体&#34;&gt;连续性总体
+&lt;/h4&gt;&lt;p&gt;设总体X的概率密度$f(x;\theta)$，此时样本的似然函数为&lt;/p&gt;
+$$L(\theta)=L(x_1,x_2…,x_n;\theta)=\prod^n_{i=1}f(x_i;\theta)$$&lt;h4 id=&#34;最大似然估计值和最大似然估计量&#34;&gt;最大似然估计值和最大似然估计量
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102042325.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ae6f1f06c817b9e170f837d4c6b74fdf&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;区别&lt;/th&gt;
+          &lt;th&gt;最大似然估计量 (MLE)&lt;/th&gt;
+          &lt;th&gt;最大似然值 (Likelihood Value)&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;参数 $θ$ 使得似然函数最大化&lt;/td&gt;
+          &lt;td&gt;使用最大似然估计量代入似然函数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;含义&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;是一个参数的估计值（如 $\hat{\theta}$ ）&lt;/td&gt;
+          &lt;td&gt;是似然函数的具体数值&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;目标&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;求解参数估计值&lt;/td&gt;
+          &lt;td&gt;在给定参数下计算似然函数的值&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;lθ的最大值求法&#34;&gt;L(θ)的最大值求法
+&lt;/h4&gt;&lt;p&gt;由微积分学知识，若似然函数L(θ)关于θ有连续偏导数，则最大似然估计0 一般可从方程(组)：&lt;/p&gt;
+$$\frac{\partial L(θ)}{\partial θ_i}=0，i=1,2,...k$$&lt;p&gt;又因为lnL(θ)和L(θ)同时取得最大值，等式可转换为：&lt;/p&gt;
+$$\frac{\partial lnL(θ)}{\partial θ_i}=0，i=1,2,...k$$&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102058887.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;50534437ea12e8b6bef4fb550e75a8c7&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;似然函数的性质&#34;&gt;似然函数的性质
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/21.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;例题-1&#34;&gt;例题
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;离散型随机变量&lt;/strong&gt;求似然函数：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102110727.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;15&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由题我们知道，有5个样本值，分别为1，2，1，3，1，将这5个样本值进行连乘，得到似然函数L(θ)，解似然函数方程得到&lt;strong&gt;最大似然估计值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;接下来是矩估计值的计算：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤 1: 样本矩&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;样本数据为 $x_1 = 1, x_2 = 2, x_3 = 1, x_4 = 3, x_5 = 1$，其样本均值为：$\bar{x} = \frac{1+2+1+3+1}{5} = \frac{8}{5} = 1.6$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤 2: 理论矩&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;理论均值（总体期望）为：&lt;/p&gt;
+$$E[X]=1⋅P(X=1)+2⋅P(X=2)+3⋅P(X=3)$$$$=&gt;E[X] = 1 \cdot \theta^2 + 2 \cdot 2\theta(1-\theta) + 3 \cdot (1-\theta)^2$$$$=&gt;E[X] = \theta^2 + 4\theta(1-\theta) + 3(1-\theta)^2$$&lt;p&gt;展开整理：&lt;/p&gt;
+$$E[X] = \theta^2 + 4\theta - 4\theta^2 + 3 - 6\theta + 3\theta^2$$$$=&gt;E[X] = 3 - 2\theta$$&lt;p&gt;&lt;strong&gt;步骤 3: 矩估计方程&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;令理论均值等于样本均值：&lt;/p&gt;
+$$3 - 2\theta = 1.6$$&lt;p&gt;解方程：&lt;/p&gt;
+$$2\theta = 3 - 1.6$$$$=&gt;\hat{\theta} =0.7$$&lt;p&gt;因此，矩估计值为：&lt;/p&gt;
+$$\hat\theta_\text{MME} = 0.7$$&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;连续性随机变量：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102129677.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;16&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;对连续性随机变量使用&lt;strong&gt;连乘公式&lt;/strong&gt;计算&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;估计量的评估标准&#34;&gt;估计量的评估标准
+&lt;/h2&gt;&lt;p&gt;对同一参数用不同的方法进行估计可能会得到不同的估计量，那么采用哪种估计量为好，这就涉及到用什么样的标准来评价估计量的问题&lt;/p&gt;
+&lt;h3 id=&#34;无偏性&#34;&gt;无偏性
+&lt;/h3&gt;&lt;h4 id=&#34;定义&#34;&gt;定义
+&lt;/h4&gt;&lt;p&gt;设$\hat\theta=\hat\theta(X_1,X_2,&amp;hellip;,X_n)$是未知参数$\theta$的估计量，如果&lt;/p&gt;
+$$E( \hatθ )=θ$$&lt;p&gt;则称 $\hat\theta$ 是 $\theta$ 的&lt;strong&gt;无偏估计量&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;记$b_n=E(\hat\theta)-\theta$,称 $b_n$ 为&lt;strong&gt;估计量 $\hat \theta$ 的偏差&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当$b_n≠0$，称 $\hat\theta$ 是 $\theta$ 的&lt;strong&gt;有偏估计&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若 $\lim_{x \to \infty} b_n=0$,称 $\hat\theta$ 是 $\theta$ 的&lt;strong&gt;渐近无偏估计&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;性质&#34;&gt;性质
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412102152399.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;86695476384c4b1b131c05262d5ed3c4&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不论总体X服从什么分布，当&lt;strong&gt;总体的 k 阶矩存在&lt;/strong&gt;时，&lt;strong&gt;样本的 k 阶原点矩 $A_k$ 是总体 k 阶原点矩的无偏估计量。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;特别地，&lt;u&gt;&lt;strong&gt;样本均值 $\overline{X}$ 是总体均值E(X)的无偏估计量&lt;/strong&gt;&lt;/u&gt;。&lt;/p&gt;
+&lt;p&gt;(解释：由于&lt;strong&gt;样本均值的期望&lt;/strong&gt;$E(\overline X)$等于&lt;strong&gt;总体均值&lt;/strong&gt;(第六章性质)，如果&lt;strong&gt;样本均值&lt;/strong&gt;也等于&lt;strong&gt;总体均值&lt;/strong&gt;，则 &lt;u&gt;&lt;strong&gt;样本均值是总体均值的无偏估计量&lt;/strong&gt;&lt;/u&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/26.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt; &lt;/p&gt;
+&lt;h3 id=&#34;有效性&#34;&gt;有效性
+&lt;/h3&gt;&lt;h4 id=&#34;定义-1&#34;&gt;定义
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;无偏估计并不是唯一的&lt;/strong&gt;，多个无偏估计之中就存在优劣问题。&lt;/p&gt;
+&lt;p&gt;我们希望 $\theta$ 的取值能集中于 $\theta$ 附近,而且密集的程度越高越好,方差是描述随机变量取值的集中程度的&lt;/p&gt;
+&lt;p&gt;因此这里提出所谓**“有效性”**标准：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412112036835.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;90e4cd6c416f4927f0a3850900647b51&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-2&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/28.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由题，这里两种无偏估计量其实就对应两个&lt;strong&gt;样本均值&lt;/strong&gt;,则求出&lt;strong&gt;样本均值的方差&lt;/strong&gt;并做比较&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;一致性与结合性&#34;&gt;一致性与结合性
+&lt;/h3&gt;&lt;h4 id=&#34;定义-2&#34;&gt;定义
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;一致性：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412112040595.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1afd771e5098b531cf068655d1e1986f&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;相合性：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;相合性被认为是对估计的一个最基本要求&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果一个估计量，在样本量不断增大时，它都不能把被估参数估计到任意指定的精度&lt;/strong&gt;，那么这个估计是很值得怀疑的。通常，&lt;strong&gt;不满足相合性要求的估计一般不予考虑&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;证明估计的相合性一般可应用&lt;strong&gt;大数定律&lt;/strong&gt;或&lt;strong&gt;直接由定义&lt;/strong&gt;来证&lt;/p&gt;
+&lt;h4 id=&#34;例题-3&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/31.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;区间估计&#34;&gt;区间估计
+&lt;/h2&gt;&lt;p&gt;点估计值仅仅是未知参数的一个近似值，近似程度如何?误差范围多大?可信程度又如何?这些问题是点估计无法回答的。而区间估计正好弥补了点估计的这个缺陷&lt;/p&gt;
+&lt;p&gt;区间估计要求根据样本给出&lt;strong&gt;未知参数的一个范围&lt;/strong&gt;，并保证&lt;strong&gt;参数的真值&lt;/strong&gt;以&lt;strong&gt;指定的较大概率属于&lt;/strong&gt;这个范围。即以区间的形式给出未知参数的一个范围，同时还给出此区间包含参数真值的可信程度，这种形式的估计称为&lt;strong&gt;区间估计&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;区间估计的概念&#34;&gt;区间估计的概念
+&lt;/h3&gt;&lt;p&gt;定义 设总体$X\sim F(x, \theta)$，$\theta $是未知参数,$X_1,X_2,&amp;hellip;,Xn$是来自总体的样本，对于给定值$(0&amp;lt;\alpha &amp;lt;1)$，如果&lt;strong&gt;存在两个统计量&lt;/strong&gt;$\hat\theta_1=\hat\theta_1(X_1,X_2,，…,X_i)$和$\hat\theta_2=\hat\theta_2(X_1,X_2…X_i)$&lt;/p&gt;
+&lt;p&gt;如果满足&lt;/p&gt;
+$$P\{\hat\theta_1&lt; \theta &lt;\hat\theta_2\}≥1-a$$&lt;p&gt;则称随机区间$(\hat\theta_1,\hat\theta_2)$是 $\theta $ 的置信度为 $1-α$ 的&lt;strong&gt;置信区间&lt;/strong&gt;
+1-α为置信水平, $\hat\theta_1$ 和 $\hat\theta_2$ 分别称为&lt;strong&gt;置信下限&lt;/strong&gt;和&lt;strong&gt;置信上限&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;评价置信区间好坏标准:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;精度:&lt;/strong&gt; $\hat\theta_2-\hat \theta_1$ 越小越好&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**置信度:**越大越好&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;对置信区间的解释&#34;&gt;对置信区间的解释
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;最常出现的对&lt;strong&gt;95%置信区间&lt;/strong&gt;的错误理解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在95%置信区间内，有95%的概率包括真实参数  （错误！！）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在95%置信区下构建的模型，意味着模型参数对于试图近似的函数有95%的概率是真实值的估计值（错误！！）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;正确解释应为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;95%置信区间，意味着如果你用同样的步骤，去选样本，计算置信区间，那么100次这样的独立过程，有95%的概率你计算出来的区间会包含真实参数值，即大概会有95个置信区间会包含真值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于某一次计算得到的某一个置信区间，其包含真值的概率，我们无法讨论。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于未知参数 $\theta$ 的真值，不能说 $\theta$ 以 $1-\alpha $ 的概率落入该随机区间，只能说区间 $(\hat\theta_1,\hat\theta_2)$ &lt;strong&gt;套住了&lt;/strong&gt;该参数的真值&lt;/p&gt;
+&lt;p&gt;因为$\theta$ 是一个&lt;strong&gt;固定但未知&lt;/strong&gt;的值，不能将他看作是一个随机变量&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/35.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bkimg.cdn.bcebos.com/pic/eac4b74543a98226d36bc8018782b9014a90eb6a?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;构建置信区间的一般步骤：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/40.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-4&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;我们以下图为例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/37.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;正态分布图像如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131628224.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3aa8fa29639fc3b9d92002f49ed21cd5_720&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;根据&lt;strong&gt;分位点$\alpha$的大小&lt;/strong&gt;，我们可以求得X坐标也就是 &lt;strong&gt;$z_{\alpha/2}$ 的大小&lt;/strong&gt;，进而也就得到了该题中的&lt;strong&gt;未知参数 $\mu$ 的置信区间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/38.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;单个正态总体参数的置信区间&#34;&gt;单个正态总体参数的置信区间
+&lt;/h3&gt;&lt;h4 id=&#34;均值的置信区间&#34;&gt;均值的置信区间
+&lt;/h4&gt;&lt;p&gt;分为方差 &lt;strong&gt;$\sigma^2$ 已知&lt;/strong&gt;和&lt;strong&gt;未知&lt;/strong&gt;的情况&lt;/p&gt;
+&lt;p&gt;方差已知时：&lt;strong&gt;(枢轴变量法)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131313698.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;a61c437d72b3492a9d18cbb405bb24a2&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412112121341.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;f40771465d305b8db3ec8b27f919c832&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;其中$Z_{\alpha/2}$和$U_{\alpha/2}$都是标准正态分布下满足 $P(Z&amp;gt;Z_{α/2})=α/2$ 的分位点&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方差未知时：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不能选择正态分布构造置信区间&lt;/strong&gt;，可以选择&lt;strong&gt;t分布&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/42.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/43.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h4 id=&#34;方差的置信区间&#34;&gt;方差的置信区间
+&lt;/h4&gt;&lt;p&gt;分为**$μ$已知和未知**的情况&lt;/p&gt;
+&lt;p&gt;（已知的情况上面已经讨论过，看未知的情况）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/47.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;两个正态总体参数的置信区间&#34;&gt;两个正态总体参数的置信区间
+&lt;/h3&gt;&lt;p&gt;如果有&lt;strong&gt;两个相互独立的正态总体&lt;/strong&gt;，我们关心的主要是两个总体的&lt;strong&gt;均值差和方差比&lt;/strong&gt;的估计&lt;/p&gt;
+&lt;p&gt;设$X\sim N(μ_1,\sigma_1^2)，Y\sim N(μ_2,\sigma_2^2)$，$X_1,X_2,&amp;hellip;,X_{n1}$ 和 $Y_1,Y_2,&amp;hellip;,Y_{n2}$ 分别是总体 X 和 Y 的样本&lt;/p&gt;
+&lt;p&gt;我们有$\overline X- \overline Y$是$μ_1-μ_2$的&lt;strong&gt;无偏点估计&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;sigma_12sigma_22已知&#34;&gt;$\sigma_1^2$，$\sigma_2^2$已知
+&lt;/h4&gt;&lt;p&gt;由上，由期望和方差的性质，我们易得 $\overline X-\overline Y \sim N(μ_1-μ_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2})$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/50.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;两个总体的方差相等但是方差未知-即sigma_12sigma_22sigma2但是sigma2未知&#34;&gt;两个总体的方差相等，但是方差未知 (即$\sigma_1^2=\sigma_2^2=\sigma^2$，但是$\sigma^2$未知)
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/51.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/52.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;单侧置信区间&#34;&gt;单侧置信区间
+&lt;/h3&gt;&lt;p&gt;上面的置信区间都是&lt;strong&gt;双向且对称&lt;/strong&gt;的，也存在置信区间单向的情况&lt;/p&gt;
+&lt;p&gt;对单侧置信区间，要分&lt;strong&gt;单侧置信下限&lt;/strong&gt;和&lt;strong&gt;单侧置信上限&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/53.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;图像如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131639576.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;dbffff2234c725fd67486a7debacd1db&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;其中&lt;strong&gt;绿色部分为置于信区间上限&lt;/strong&gt;，&lt;strong&gt;红色部分为置信区间下限&lt;/strong&gt;的情况。&lt;/p&gt;
+&lt;p&gt;它们的概率都为 $1-\alpha$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/54.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/55.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-5&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/56.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/fd/0f/ce/30515b85c7de1dc9e35255398253e4bd/thumb/57.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;$\prod$符号表示连乘&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>Vue组件基础及特性</title>
         <link>https://fsj2009yx.github.io/posts/post_18773214774361/</link>
         <pubDate>Tue, 10 Dec 2024 17:27:43 +0800</pubDate>
