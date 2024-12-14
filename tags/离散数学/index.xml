@@ -7,7 +7,175 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 10 Dec 2024 12:03:39 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 14 Dec 2024 18:01:31 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>正规子群及拉格朗日定理</title>
+        <link>https://fsj2009yx.github.io/posts/post_71003175730271/</link>
+        <pubDate>Sat, 14 Dec 2024 18:01:31 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_71003175730271/</guid>
+        <description>&lt;h1 id=&#34;正规子群及拉格朗日定理&#34;&gt;正规子群及拉格朗日定理
+&lt;/h1&gt;&lt;h2 id=&#34;子群的陪集&#34;&gt;子群的陪集
+&lt;/h2&gt;&lt;h3 id=&#34;定义&#34;&gt;定义
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131847576.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8b4ebdcf02c0340d7a3b3e79063b37ee&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;性质&#34;&gt;性质
+&lt;/h3&gt;&lt;h4 id=&#34;定理一&#34;&gt;定理一
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131914510.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;95e0e9e11a3d5637659473fee735a33e&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;用文字解释即：&lt;u&gt;&lt;strong&gt;一个子群的任意的两个左陪集，要么相等，要么不相交&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;h4 id=&#34;定理二&#34;&gt;定理二
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131916037.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;5347c90cebffd25f6f4c51069e60c17d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;证明：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131918477.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;079dfbcca60702ce618e5fa9e9e95423&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;定理三&#34;&gt;定理三
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131918451.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;856a0c7f86bce4246de83d9cf1339bf9&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;证明：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131919486.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;4fddcd4a1fe0d9f700ed1096d0c0b752&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;例题&#34;&gt;例题
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131900282.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;7f8f0fa278308b9de020fa837bbc75ad&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;从群 $&amp;lt;N_6,+_6&amp;gt;$ 中选出选出所有元素$0,1,2,3,4,5$，分别和子群集合 $H_2$ 做运算，得到如上结果&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131913095.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cd800c3fc6854a7eea1132ce41499b03&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由此可以看出，&lt;strong&gt;任意的两个左陪集&lt;/strong&gt;，&lt;strong&gt;要么相等，要么不相交&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上述 $+_6$ 为模6加法运算，参考代数结构的内容&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;拉格朗日定理&#34;&gt;拉格朗日定理
+&lt;/h2&gt;&lt;h3 id=&#34;内容&#34;&gt;内容
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131921902.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ba31a0921cc485d8bb64aaf701dba286&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;证明：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131922787.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;edff111fedd93a5156ba52907e8a3c08&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;拉格朗日定理证明：&lt;strong&gt;子群的阶数&lt;/strong&gt;是&lt;strong&gt;群阶数&lt;/strong&gt;的&lt;strong&gt;因子&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;例题拉格朗日定理的应用&#34;&gt;例题：拉格朗日定理的应用
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131930189.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;842261d8c6b6478241fa71cae47eb508&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由&lt;strong&gt;子群的定义&lt;/strong&gt;， $H1\cap H2$ 与★运算构成的群同时是H1和H2构成的群的&lt;strong&gt;子群&lt;/strong&gt;，由&lt;strong&gt;拉格朗日定理&lt;/strong&gt;， $|H1\cap H2|$同时是$|H1|$和$|H2|$的&lt;strong&gt;因子&lt;/strong&gt;，因此可以求出 $|H1\cap H2|=1$&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;推论&#34;&gt;推论
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131938897.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;fe266387ab75f32c08c5802072dfa4ce&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;证明：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131938419.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;9628f8ffa5fa4f12bab88ae57932cfa1&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>群论</title>
         <link>https://fsj2009yx.github.io/posts/post_208132376826979/</link>
         <pubDate>Tue, 10 Dec 2024 12:03:39 +0800</pubDate>
