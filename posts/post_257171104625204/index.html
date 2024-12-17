@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="正规子群及拉格朗日定理">
-<meta name="keywords" content="离散数学"><title>正规子群及拉格朗日定理</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="代数系统的同态和同构基础知识">
+<meta name="keywords" content="同态和同构, 离散数学"><title>代数系统的同态和同构</title>
 
-<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_71003175730271/'>
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_257171104625204/'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="正规子群及拉格朗日定理">
-<meta property='og:description' content="正规子群及拉格朗日定理">
-<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_71003175730271/'>
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="代数系统的同态和同构">
+<meta property='og:description' content="代数系统的同态和同构基础知识">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_257171104625204/'>
 <meta property='og:site_name' content='fsj2009yx'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='离散数学' /><meta property='article:published_time' content='2024-12-14T18:01:31&#43;08:00'/><meta property='article:modified_time' content='2024-12-14T18:01:31&#43;08:00'/>
-<meta name="twitter:title" content="正规子群及拉格朗日定理">
-<meta name="twitter:description" content="正规子群及拉格朗日定理">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='离散数学' /><meta property='article:published_time' content='2024-12-17T08:55:49&#43;08:00'/><meta property='article:modified_time' content='2024-12-17T08:55:49&#43;08:00'/>
+<meta name="twitter:title" content="代数系统的同态和同构">
+<meta name="twitter:description" content="代数系统的同态和同构基础知识">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
       <script>
         var doNotTrack = false;
@@ -286,27 +286,32 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#子群的陪集">子群的陪集</a>
+    <li><a href="#代数结构">代数结构</a>
       <ol>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#性质">性质</a>
-          <ol>
-            <li><a href="#定理一">定理一</a></li>
-            <li><a href="#定理二">定理二</a></li>
-            <li><a href="#定理三">定理三</a></li>
-          </ol>
-        </li>
-        <li><a href="#例题">例题</a></li>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#子代数">子代数</a></li>
       </ol>
     </li>
-    <li><a href="#拉格朗日定理">拉格朗日定理</a>
+    <li><a href="#同态和同构">同态和同构</a>
       <ol>
-        <li><a href="#内容">内容</a>
+        <li><a href="#基本概念-1">基本概念</a>
           <ol>
-            <li><a href="#例题拉格朗日定理的应用">例题：拉格朗日定理的应用</a></li>
+            <li><a href="#含有两个运算的代数系统的同构">含有两个运算的代数系统的同构</a></li>
           </ol>
         </li>
-        <li><a href="#推论">推论</a></li>
+        <li><a href="#基本性质">基本性质</a>
+          <ol>
+            <li><a href="#保持可结合性">保持可结合性</a></li>
+            <li><a href="#保持可交换性">保持可交换性</a></li>
+            <li><a href="#保持单位元存在">保持单位元存在</a></li>
+            <li><a href="#保持零元存在">保持零元存在</a></li>
+            <li><a href="#保持逆元存在性">保持逆元存在性</a></li>
+            <li><a href="#保持分配率">保持分配率</a></li>
+            <li><a href="#保持吸收率">保持吸收率</a></li>
+            <li><a href="#同态代数系统的运算性质保持">同态代数系统的运算性质保持</a></li>
+            <li><a href="#同态核">同态核</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -336,12 +341,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/post_71003175730271/">正规子群及拉格朗日定理</a>
+            <a href="/posts/post_257171104625204/">代数系统的同态和同构</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            正规子群及拉格朗日定理
+            代数系统的同态和同构基础知识
         </h3>
         
     </div>
@@ -362,7 +367,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 14, 2024</time>
+                <time class="article-time--published">Dec 17, 2024</time>
             </div>
         
 
@@ -392,163 +397,186 @@
     <section class="article-content">
     
     
-    <h1 id="正规子群及拉格朗日定理">正规子群及拉格朗日定理
-</h1><h2 id="子群的陪集">子群的陪集
-</h2><h3 id="定义">定义
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131847576.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="8b4ebdcf02c0340d7a3b3e79063b37ee"
-	
-	
-></p>
-<p> </p>
-<h3 id="性质">性质
-</h3><h4 id="定理一">定理一
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131914510.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="95e0e9e11a3d5637659473fee735a33e"
-	
-	
-></p>
-<p>用文字解释即：<u><strong>一个子群的任意的两个左陪集，要么相等，要么不相交</strong></u></p>
-<h4 id="定理二">定理二
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131916037.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="5347c90cebffd25f6f4c51069e60c17d"
-	
-	
-></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131918477.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="079dfbcca60702ce618e5fa9e9e95423"
-	
-	
-></p>
-<h4 id="定理三">定理三
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131918451.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="856a0c7f86bce4246de83d9cf1339bf9"
-	
-	
-></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131919486.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="4fddcd4a1fe0d9f700ed1096d0c0b752"
-	
-	
-></p>
-<p> </p>
-<h3 id="例题">例题
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131900282.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="7f8f0fa278308b9de020fa837bbc75ad"
-	
-	
-></p>
-<p>从群 $&lt;N_6,+_6&gt;$ 中选出选出所有元素$0,1,2,3,4,5$，分别和子群集合 $H_2$ 做运算，得到如上结果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131913095.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="cd800c3fc6854a7eea1132ce41499b03"
-	
-	
-></p>
-<p>由此可以看出，<strong>任意的两个左陪集</strong>，<strong>要么相等，要么不相交</strong></p>
+    <h1 id="代数系统的同态和同构">代数系统的同态和同构
+</h1><h2 id="代数结构">代数结构
+</h2><h3 id="基本概念">基本概念
+</h3><p>设 $S$ 是一个<strong>非空集合</strong>，$f_1,f_2,f_3,&hellip;,f_n$是 $S$ 上的 $n$ 个代数运算，$S$ 与这 n 个代数运算所组成的结构叫做<strong>代数结构</strong>(或<strong>代数系统</strong>)，记作$&lt;S;f_1,f_2,..,f_n&gt;$</p>
+<p>一个代数结构需要满足<strong>以下两个条件</strong>：</p>
+<ul>
+<li>有一个非空集合 $S$ ，称为<strong>载体</strong></li>
+<li>一些<strong>定义在 $S$ 上的运算</strong></li>
+</ul>
 <blockquote>
-<p>上述 $+_6$ 为模6加法运算，参考代数结构的内容</p>
+<p>若 $S$ 为<strong>有限集</strong>，则称该代数结构为<strong>有限代数结构</strong></p>
 </blockquote>
+<p>举例说明：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161455618.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cbb4e8a6dd2d60f99843872ffabcb675"
+	
+	
+></p>
+<h3 id="子代数">子代数
+</h3><p>设代数结构 $V=&lt;S;<em>&gt;，S&rsquo;\subseteq S$，如果运算 * 在 $S&rsquo;$ 上封闭，**则 $&lt;S&rsquo;;</em>&gt;$ 为V的子代数结构**，简称为 <strong>$V$ 的子代数</strong>。</p>
+<p>满足子代数的条件：</p>
+<ul>
+<li>$S&rsquo;$ 是 $S$ 的子集，即 $S&rsquo;\subseteq S$</li>
+<li><strong>运算继承性</strong>： $S$ 中的运算与 $A$ 中的运算一致，不能引入新的运算规则。</li>
+</ul>
 <hr>
-<h2 id="拉格朗日定理">拉格朗日定理
-</h2><h3 id="内容">内容
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131921902.png"
+<h2 id="同态和同构">同态和同构
+</h2><h3 id="基本概念-1">基本概念
+</h3><p>设 $&lt;X,★&gt;$ , $&lt;Y,\circ&gt;$ 是两个代数系统， ★ 和 $\circ$ 都是二元运算</p>
+<p>如果存在映射 $f:X→Y$，使得对任何 $x_1,x_2\in X$，有 $f(x_1★x_2)=f(x_1)\circ f(x_2)$ 则称 <strong>$f$ 是从 $&lt;X,★&gt;$ 到 $&lt;Y,\circ &gt;$ 的同态映射</strong>，简称这<strong>两个代数系统同态</strong>。记作 $X\sim Y$ ，<strong>并将$&lt;f(X),\circ&gt;$ 称为 $&lt;X,★&gt;$ 的同态像</strong></p>
+<p>对于不同的映射有不同的同态，例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161525403.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="ba31a0921cc485d8bb64aaf701dba286"
-	
-	
-></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131922787.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="edff111fedd93a5156ba52907e8a3c08"
+		alt="48533da9e3ced7e4c3480ab1af37c1ca"
 	
 	
 ></p>
 <blockquote>
-<p>拉格朗日定理证明：<strong>子群的阶数</strong>是<strong>群阶数</strong>的<strong>因子</strong></p>
+<p>注意当 $f$ 是双射的情况，一般称为<strong>同构</strong></p>
 </blockquote>
-<h4 id="例题拉格朗日定理的应用">例题：拉格朗日定理的应用
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131930189.png"
+<p><strong>同构的满足条件：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161814794.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="842261d8c6b6478241fa71cae47eb508"
+		alt="a4e71cffbd237add4068151e81d43e2b"
 	
 	
 ></p>
-<p>由<strong>子群的定义</strong>， $H1\cap H2$ 与★运算构成的群同时是H1和H2构成的群的<strong>子群</strong>，由<strong>拉格朗日定理</strong>， $|H1\cap H2|$同时是$|H1|$和$|H2|$的<strong>因子</strong>，因此可以求出 $|H1\cap H2|=1$</p>
-<p> </p>
-<h3 id="推论">推论
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131938897.png"
+<h4 id="含有两个运算的代数系统的同构">含有两个运算的代数系统的同构
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161534295.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="fe266387ab75f32c08c5802072dfa4ce"
+		alt="514c44f2752303065efab34c51bbc6ed"
 	
 	
 ></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131938419.png"
+<h3 id="基本性质">基本性质
+</h3><p>在两个<strong>同构</strong>的代数系统中，一些运算性质是可以保持的</p>
+<h4 id="保持可结合性">保持可结合性
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161830342.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="9628f8ffa5fa4f12bab88ae57932cfa1"
+		alt="d4ad70c9eecc9f62967509e0fda3ba5c"
+	
+	
+></p>
+<h4 id="保持可交换性">保持可交换性
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161832025.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="18465223b7558084c4992f846e279afb"
+	
+	
+></p>
+<h4 id="保持单位元存在">保持单位元存在
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161833868.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2673be16852fb37b03d1a02ebbae3345"
+	
+	
+></p>
+<h4 id="保持零元存在">保持零元存在
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161834602.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="e6c447471626f34e2dbff2c4e90add2e"
+	
+	
+></p>
+<h4 id="保持逆元存在性">保持逆元存在性
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161834288.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="9cb702fe7a14b6eabb0b4fac231bdb11"
+	
+	
+></p>
+<h4 id="保持分配率">保持分配率
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161842289.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="e9b2d28fe3f7d3b4273f1f0b5e18e596"
+	
+	
+></p>
+<h4 id="保持吸收率">保持吸收率
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161842136.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="a5716eb350fc2d4081fd82a205206941"
+	
+	
+></p>
+<h4 id="同态代数系统的运算性质保持">同态代数系统的运算性质保持
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161843912.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6765240fae4fd7c1c78ed119b7ed9cc1"
+	
+	
+></p>
+<h4 id="同态核">同态核
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161844656.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="275e8eae4d3b32668303263d55a66076"
+	
+	
+></p>
+<p>同态核举例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412161844949.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="e9df8f9e9a922b973b117f15d9d9d5bf"
 	
 	
 ></p>
@@ -619,12 +647,12 @@
             
                 
 <article class="">
-    <a href="/posts/post_257171104625204/">
+    <a href="/posts/post_71003175730271/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">代数系统的同态和同构</h2>
+            <h2 class="article-title">正规子群及拉格朗日定理</h2>
         </div>
     </a>
 </article>
