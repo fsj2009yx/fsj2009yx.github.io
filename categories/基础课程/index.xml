@@ -7,7 +7,311 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Tue, 17 Dec 2024 08:55:49 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 18 Dec 2024 15:21:45 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>假设检验</title>
+        <link>https://fsj2009yx.github.io/posts/post_23020238312116/</link>
+        <pubDate>Wed, 18 Dec 2024 15:21:45 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_23020238312116/</guid>
+        <description>&lt;h1 id=&#34;假设检验&#34;&gt;假设检验
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;假设检验(hypothesis testing)&lt;/strong&gt;，又称统计假设检验，是用来判断&lt;strong&gt;样本与样本、样本与总体的差异&lt;/strong&gt;是由&lt;strong&gt;抽样误差引起&lt;/strong&gt;还是&lt;strong&gt;本质差别造成&lt;/strong&gt;的统计推断方法。&lt;/p&gt;
+&lt;p&gt;显著性检验是假设检验中最常用的一种方法，也是一种最基本的统计推断形式，其基本原理是先对总体的特征做出某种假设，然后通过抽样研究的统计推理，对此假设应该被拒绝还是接受做出推断。&lt;/p&gt;
+&lt;p&gt;常用的假设检验方法有&lt;strong&gt;Z检验、t检验、卡方检验、F检验&lt;/strong&gt;等。&lt;/p&gt;
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
+&lt;/h2&gt;&lt;p&gt;以下面的场景为例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;我们提出两个&lt;strong&gt;对立假设&lt;/strong&gt;，即：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$H_0:\mu=\mu_0=0.5$&lt;/li&gt;
+&lt;li&gt;$H_1:\mu \neq\mu_0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/6.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由于要验证的假设是&lt;strong&gt;总体均值&lt;/strong&gt;，我们可以用&lt;strong&gt;样本均值&lt;/strong&gt;来判断&lt;/p&gt;
+&lt;p&gt;又因为$\overline X$是$\mu$的无偏估计量，如果$H_0$位真，则应该$|\overline x-\mu_0|$相差不大&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181421879.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1fe74c0b6f5c25dc44b36b0252010627&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/8.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;基本概念-1&#34;&gt;基本概念
+&lt;/h2&gt;&lt;h3 id=&#34;原假设和备选假设&#34;&gt;原假设和备选假设
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181423703.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;32ea1df8f650666e21d62ed019198e5a&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;拒绝域和临界点&#34;&gt;拒绝域和临界点
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/11.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;两类错误&#34;&gt;两类错误
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;假设检验的一般步骤&#34;&gt;假设检验的一般步骤
+&lt;/h2&gt;&lt;h3 id=&#34;检验假设h_0mumu_0&#34;&gt;检验假设$H_0:\mu=\mu_0$
+&lt;/h3&gt;&lt;h4 id=&#34;sigma2已知时关于mu-的检验u检验&#34;&gt;$\sigma^2$已知时，关于$\mu $的检验(U检验)
+&lt;/h4&gt;&lt;p&gt;$\sigma^2$已知时，选择&lt;strong&gt;U统计量&lt;/strong&gt;进行假设检验&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181428746.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;332ad6de715d09eb1d9fd6b3e9a31359&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181428555.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;a48019884fd2f8e843920143dcceb5cb&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;例题&#34;&gt;例题
+&lt;/h5&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/18.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/19.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由公式可得：算出统计量U得-0.516后，将其绝对值与$u_{2/\alpha}$即$u_{0.05}$所对应的值做比较，如果此处$U&amp;lt;u_{2/\alpha}$，则工作正常&lt;/p&gt;
+&lt;h4 id=&#34;sigma-2未知关于mu的检验t检验&#34;&gt;$\sigma ^2$未知，关于$\mu$的检验(t检验)
+&lt;/h4&gt;&lt;p&gt;$\sigma ^2$未知时，选择&lt;strong&gt;t统计量&lt;/strong&gt;假设检验&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181439849.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2957b0c1a3d9ccd2fd29395832c61adb&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/21.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;例题-1&#34;&gt;例题
+&lt;/h5&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/22.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;检验假设h_0muleqmu_0&#34;&gt;检验假设$H_0:\mu\leq\mu_0$
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181445982.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;9a2d197f299358be0d0ea8f6741fb359&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/24.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$H_0:\mu\leq\mu_0$的做法与其相同，只是原假设的方向相反&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;例题-2&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/25.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由题，由构造T统计量并求出$\mu&amp;lt;10$时的拒绝域&lt;/p&gt;
+&lt;p&gt;带入参数，得到数值在&lt;strong&gt;拒绝域&lt;/strong&gt;内，所以&lt;strong&gt;拒绝$\mu&amp;lt;10$的假设&lt;/strong&gt;，所以产品应该合格&lt;/p&gt;
+&lt;h3 id=&#34;检验假设sigma2sigma_0--2&#34;&gt;检验假设$\sigma^2=\sigma_0 \ ^2$
+&lt;/h3&gt;&lt;h4 id=&#34;mu-未知sigma2sigma_0--2的检验chi2检验&#34;&gt;$\mu $未知，$\sigma^2=\sigma_0 \ ^2$的检验($\chi^2$检验)
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181500726.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;391435d9d8a27bcdf6efacb8330015a9&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/27.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-3&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/28.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由题，题目中原假设$H_0$为$\sigma^2=5000$，根据公式构建$\chi^2$ 统计量&lt;/p&gt;
+&lt;p&gt;代入数据，判断与$\chi^2_{1-\alpha/2}$和$\chi^2_{\alpha/2}$的大小，判断是否在拒绝域内&lt;/p&gt;
+&lt;p&gt;结果在拒绝域内，所以波动性有显著变化&lt;/p&gt;
+&lt;h3 id=&#34;检验假设sigma2leqsigma_0--2&#34;&gt;检验假设$\sigma^2\leq\sigma_0 \ ^2$
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181510962.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;7450fde7c08c0b6d963531c986088d1b&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/31.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题-4&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/32.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;做法和前者相同，只是$\chi^2$的参数换成了$\alpha$&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>代数系统的同态和同构</title>
         <link>https://fsj2009yx.github.io/posts/post_257171104625204/</link>
         <pubDate>Tue, 17 Dec 2024 08:55:49 +0800</pubDate>
@@ -37,7 +341,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;子代数&#34;&gt;子代数
-&lt;/h3&gt;&lt;p&gt;设代数结构 $V=&amp;lt;S;&lt;em&gt;&amp;gt;，S&amp;rsquo;\subseteq S$，如果运算 * 在 $S&amp;rsquo;$ 上封闭，**则 $&amp;lt;S&amp;rsquo;;&lt;/em&gt;&amp;gt;$ 为V的子代数结构**，简称为 &lt;strong&gt;$V$ 的子代数&lt;/strong&gt;。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;设代数结构 $V=&amp;lt;S;&lt;em&gt;&amp;gt;$，$S&amp;rsquo; \subseteq S$，如果运算 * 在 $S&amp;rsquo;$ 上封闭，则 $&amp;lt;S&amp;rsquo;;&lt;/em&gt;&amp;gt;$ 为&lt;strong&gt;V的子代数结构&lt;/strong&gt;，简称为 &lt;strong&gt;$V$ 的子代数&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;满足子代数的条件：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$S&amp;rsquo;$ 是 $S$ 的子集，即 $S&amp;rsquo;\subseteq S$&lt;/li&gt;

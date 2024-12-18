@@ -37,7 +37,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;子代数&#34;&gt;子代数
-&lt;/h3&gt;&lt;p&gt;设代数结构 $V=&amp;lt;S;&lt;em&gt;&amp;gt;，S&amp;rsquo;\subseteq S$，如果运算 * 在 $S&amp;rsquo;$ 上封闭，**则 $&amp;lt;S&amp;rsquo;;&lt;/em&gt;&amp;gt;$ 为V的子代数结构**，简称为 &lt;strong&gt;$V$ 的子代数&lt;/strong&gt;。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;设代数结构 $V=&amp;lt;S;&lt;em&gt;&amp;gt;$，$S&amp;rsquo; \subseteq S$，如果运算 * 在 $S&amp;rsquo;$ 上封闭，则 $&amp;lt;S&amp;rsquo;;&lt;/em&gt;&amp;gt;$ 为&lt;strong&gt;V的子代数结构&lt;/strong&gt;，简称为 &lt;strong&gt;$V$ 的子代数&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;满足子代数的条件：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$S&amp;rsquo;$ 是 $S$ 的子集，即 $S&amp;rsquo;\subseteq S$&lt;/li&gt;

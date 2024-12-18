@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="正规子群及拉格朗日定理">
-<meta name="keywords" content="离散数学"><title>正规子群及拉格朗日定理</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="假设检验">
+<meta name="keywords" content="概率论"><title>假设检验</title>
 
-<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_71003175730271/'>
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_23020238312116/'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="正规子群及拉格朗日定理">
-<meta property='og:description' content="正规子群及拉格朗日定理">
-<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_71003175730271/'>
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="假设检验">
+<meta property='og:description' content="假设检验">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_23020238312116/'>
 <meta property='og:site_name' content='fsj2009yx'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='离散数学' /><meta property='article:published_time' content='2024-12-14T18:01:31&#43;08:00'/><meta property='article:modified_time' content='2024-12-14T18:01:31&#43;08:00'/>
-<meta name="twitter:title" content="正规子群及拉格朗日定理">
-<meta name="twitter:description" content="正规子群及拉格朗日定理">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='概率论' /><meta property='article:published_time' content='2024-12-18T15:21:45&#43;08:00'/><meta property='article:modified_time' content='2024-12-18T15:21:45&#43;08:00'/>
+<meta name="twitter:title" content="假设检验">
+<meta name="twitter:description" content="假设检验">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
       <script>
         var doNotTrack = false;
@@ -286,27 +286,38 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#子群的陪集">子群的陪集</a>
+    <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#基本概念-1">基本概念</a>
       <ol>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#性质">性质</a>
-          <ol>
-            <li><a href="#定理一">定理一</a></li>
-            <li><a href="#定理二">定理二</a></li>
-            <li><a href="#定理三">定理三</a></li>
-          </ol>
-        </li>
-        <li><a href="#例题">例题</a></li>
+        <li><a href="#原假设和备选假设">原假设和备选假设</a></li>
+        <li><a href="#拒绝域和临界点">拒绝域和临界点</a></li>
+        <li><a href="#两类错误">两类错误</a></li>
       </ol>
     </li>
-    <li><a href="#拉格朗日定理">拉格朗日定理</a>
+    <li><a href="#假设检验的一般步骤">假设检验的一般步骤</a>
       <ol>
-        <li><a href="#内容">内容</a>
+        <li><a href="#检验假设h_0mumu_0">检验假设$H_0:\mu=\mu_0$</a>
           <ol>
-            <li><a href="#例题拉格朗日定理的应用">例题：拉格朗日定理的应用</a></li>
+            <li><a href="#sigma2已知时关于mu-的检验u检验">$\sigma^2$已知时，关于$\mu $的检验(U检验)</a></li>
+            <li><a href="#sigma-2未知关于mu的检验t检验">$\sigma ^2$未知，关于$\mu$的检验(t检验)</a></li>
           </ol>
         </li>
-        <li><a href="#推论">推论</a></li>
+        <li><a href="#检验假设h_0muleqmu_0">检验假设$H_0:\mu\leq\mu_0$</a>
+          <ol>
+            <li><a href="#例题-2">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#检验假设sigma2sigma_0--2">检验假设$\sigma^2=\sigma_0 \ ^2$</a>
+          <ol>
+            <li><a href="#mu-未知sigma2sigma_0--2的检验chi2检验">$\mu $未知，$\sigma^2=\sigma_0 \ ^2$的检验($\chi^2$检验)</a></li>
+            <li><a href="#例题-3">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#检验假设sigma2leqsigma_0--2">检验假设$\sigma^2\leq\sigma_0 \ ^2$</a>
+          <ol>
+            <li><a href="#例题-4">例题</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -336,12 +347,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/post_71003175730271/">正规子群及拉格朗日定理</a>
+            <a href="/posts/post_23020238312116/">假设检验</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            正规子群及拉格朗日定理
+            假设检验
         </h3>
         
     </div>
@@ -362,7 +373,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 14, 2024</time>
+                <time class="article-time--published">Dec 18, 2024</time>
             </div>
         
 
@@ -392,166 +403,302 @@
     <section class="article-content">
     
     
-    <h1 id="正规子群及拉格朗日定理">正规子群及拉格朗日定理
-</h1><h2 id="子群的陪集">子群的陪集
-</h2><h3 id="定义">定义
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131847576.png"
+    <h1 id="假设检验">假设检验
+</h1><p><strong>假设检验(hypothesis testing)</strong>，又称统计假设检验，是用来判断<strong>样本与样本、样本与总体的差异</strong>是由<strong>抽样误差引起</strong>还是<strong>本质差别造成</strong>的统计推断方法。</p>
+<p>显著性检验是假设检验中最常用的一种方法，也是一种最基本的统计推断形式，其基本原理是先对总体的特征做出某种假设，然后通过抽样研究的统计推理，对此假设应该被拒绝还是接受做出推断。</p>
+<p>常用的假设检验方法有<strong>Z检验、t检验、卡方检验、F检验</strong>等。</p>
+<h2 id="基本概念">基本概念
+</h2><p>以下面的场景为例：</p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/5.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="8b4ebdcf02c0340d7a3b3e79063b37ee"
+		alt="img"
 	
 	
 ></p>
-<p> </p>
-<h3 id="性质">性质
-</h3><h4 id="定理一">定理一
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131914510.png"
+<p>我们提出两个<strong>对立假设</strong>，即：</p>
+<ul>
+<li>$H_0:\mu=\mu_0=0.5$</li>
+<li>$H_1:\mu \neq\mu_0$</li>
+</ul>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/6.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="95e0e9e11a3d5637659473fee735a33e"
+		alt="img"
 	
 	
 ></p>
-<p>用文字解释即：<u><strong>一个子群的任意的两个左陪集，要么相等，要么不相交</strong></u></p>
-<h4 id="定理二">定理二
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131916037.png"
+<p>由于要验证的假设是<strong>总体均值</strong>，我们可以用<strong>样本均值</strong>来判断</p>
+<p>又因为$\overline X$是$\mu$的无偏估计量，如果$H_0$位真，则应该$|\overline x-\mu_0|$相差不大</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181421879.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="5347c90cebffd25f6f4c51069e60c17d"
+		alt="1fe74c0b6f5c25dc44b36b0252010627"
 	
 	
 ></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131918477.png"
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/8.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="079dfbcca60702ce618e5fa9e9e95423"
+		alt="img"
 	
 	
 ></p>
-<h4 id="定理三">定理三
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131918451.png"
+<h2 id="基本概念-1">基本概念
+</h2><h3 id="原假设和备选假设">原假设和备选假设
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181423703.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="856a0c7f86bce4246de83d9cf1339bf9"
+		alt="32ea1df8f650666e21d62ed019198e5a"
 	
 	
 ></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131919486.png"
+<h3 id="拒绝域和临界点">拒绝域和临界点
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/11.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="4fddcd4a1fe0d9f700ed1096d0c0b752"
+		alt="img"
 	
 	
 ></p>
-<p> </p>
-<h3 id="例题">例题
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131900282.png"
+<h3 id="两类错误">两类错误
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/12.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="7f8f0fa278308b9de020fa837bbc75ad"
+		alt="img"
 	
 	
 ></p>
-<p>从群 $&lt;N_6,+_6&gt;$ 中选出选出所有元素$0,1,2,3,4,5$，分别和子群集合 $H_2$ 做运算，得到如上结果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131913095.png"
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/13.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="cd800c3fc6854a7eea1132ce41499b03"
+		alt="img"
 	
 	
 ></p>
-<p>由此可以看出，<strong>任意的两个左陪集</strong>，<strong>要么相等，要么不相交</strong></p>
-<blockquote>
-<p>上述 $+_6$ 为模6加法运算，参考代数结构的内容</p>
-</blockquote>
 <hr>
-<h2 id="拉格朗日定理">拉格朗日定理
-</h2><h3 id="内容">内容
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131921902.png"
+<h2 id="假设检验的一般步骤">假设检验的一般步骤
+</h2><h3 id="检验假设h_0mumu_0">检验假设$H_0:\mu=\mu_0$
+</h3><h4 id="sigma2已知时关于mu-的检验u检验">$\sigma^2$已知时，关于$\mu $的检验(U检验)
+</h4><p>$\sigma^2$已知时，选择<strong>U统计量</strong>进行假设检验</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181428746.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="ba31a0921cc485d8bb64aaf701dba286"
+		alt="332ad6de715d09eb1d9fd6b3e9a31359"
 	
 	
 ></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131922787.png"
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181428555.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="edff111fedd93a5156ba52907e8a3c08"
+		alt="a48019884fd2f8e843920143dcceb5cb"
+	
+	
+></p>
+<h5 id="例题">例题
+</h5><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/18.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/19.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>由公式可得：算出统计量U得-0.516后，将其绝对值与$u_{2/\alpha}$即$u_{0.05}$所对应的值做比较，如果此处$U&lt;u_{2/\alpha}$，则工作正常</p>
+<h4 id="sigma-2未知关于mu的检验t检验">$\sigma ^2$未知，关于$\mu$的检验(t检验)
+</h4><p>$\sigma ^2$未知时，选择<strong>t统计量</strong>假设检验</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181439849.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2957b0c1a3d9ccd2fd29395832c61adb"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/21.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h5 id="例题-1">例题
+</h5><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/22.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="检验假设h_0muleqmu_0">检验假设$H_0:\mu\leq\mu_0$
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181445982.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="9a2d197f299358be0d0ea8f6741fb359"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/24.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
 	
 	
 ></p>
 <blockquote>
-<p>拉格朗日定理证明：<strong>子群的阶数</strong>是<strong>群阶数</strong>的<strong>因子</strong></p>
+<p>$H_0:\mu\leq\mu_0$的做法与其相同，只是原假设的方向相反</p>
 </blockquote>
-<h4 id="例题拉格朗日定理的应用">例题：拉格朗日定理的应用
-</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131930189.png"
+<h4 id="例题-2">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/25.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="842261d8c6b6478241fa71cae47eb508"
+		alt="img"
 	
 	
 ></p>
-<p>由<strong>子群的定义</strong>， $H1\cap H2$ 与★运算构成的群同时是H1和H2构成的群的<strong>子群</strong>，由<strong>拉格朗日定理</strong>， $|H1\cap H2|$同时是$|H1|$和$|H2|$的<strong>因子</strong>，因此可以求出 $|H1\cap H2|=1$</p>
-<p> </p>
-<h3 id="推论">推论
-</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131938897.png"
+<p>由题，由构造T统计量并求出$\mu&lt;10$时的拒绝域</p>
+<p>带入参数，得到数值在<strong>拒绝域</strong>内，所以<strong>拒绝$\mu&lt;10$的假设</strong>，所以产品应该合格</p>
+<h3 id="检验假设sigma2sigma_0--2">检验假设$\sigma^2=\sigma_0 \ ^2$
+</h3><h4 id="mu-未知sigma2sigma_0--2的检验chi2检验">$\mu $未知，$\sigma^2=\sigma_0 \ ^2$的检验($\chi^2$检验)
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181500726.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="fe266387ab75f32c08c5802072dfa4ce"
+		alt="391435d9d8a27bcdf6efacb8330015a9"
 	
 	
 ></p>
-<p>证明：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412131938419.png"
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/27.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="9628f8ffa5fa4f12bab88ae57932cfa1"
+		alt="img"
 	
 	
 ></p>
+<h4 id="例题-3">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/28.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/29.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>由题，题目中原假设$H_0$为$\sigma^2=5000$，根据公式构建$\chi^2$ 统计量</p>
+<p>代入数据，判断与$\chi^2_{1-\alpha/2}$和$\chi^2_{\alpha/2}$的大小，判断是否在拒绝域内</p>
+<p>结果在拒绝域内，所以波动性有显著变化</p>
+<h3 id="检验假设sigma2leqsigma_0--2">检验假设$\sigma^2\leq\sigma_0 \ ^2$
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412181510962.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="7450fde7c08c0b6d963531c986088d1b"
+	
+	
+></p>
+<p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/31.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题-4">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/32.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<blockquote>
+<p>做法和前者相同，只是$\chi^2$的参数换成了$\alpha$</p>
+</blockquote>
 
 </section>
 
@@ -560,7 +707,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
+            <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">概率论</a>
         
     </section>
 
@@ -619,6 +766,32 @@
             
                 
 <article class="">
+    <a href="/posts/post_501199214716/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">样本与抽样分布</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_4465171773288/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">参数估计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/post_257171104625204/">
         
         
@@ -632,25 +805,12 @@
             
                 
 <article class="">
-    <a href="/posts/post_208132376826979/">
+    <a href="/posts/post_71003175730271/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">群论</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/post_23020238312116/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">假设检验</h2>
+            <h2 class="article-title">正规子群及拉格朗日定理</h2>
         </div>
     </a>
 </article>
@@ -664,19 +824,6 @@
 
         <div class="article-details">
             <h2 class="article-title">图论</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/post_501199214716/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">样本与抽样分布</h2>
         </div>
     </a>
 </article>
