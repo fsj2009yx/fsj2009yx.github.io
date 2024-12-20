@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://fsj2009yx.github.io/categories/</loc>
-    <lastmod>2024-12-18T15:21:45+08:00</lastmod>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://fsj2009yx.github.io/</loc>
-    <lastmod>2024-12-18T15:21:45+08:00</lastmod>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,11 +28,14 @@
                 href="https://fsj2009yx.github.io/"
                 />
   </url><url>
+    <loc>https://fsj2009yx.github.io/categories/jic/</loc>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
+  </url><url>
     <loc>https://fsj2009yx.github.io/posts/</loc>
-    <lastmod>2024-12-18T15:21:45+08:00</lastmod>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
   </url><url>
     <loc>https://fsj2009yx.github.io/tags/</loc>
-    <lastmod>2024-12-18T15:21:45+08:00</lastmod>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -44,6 +47,12 @@
                 href="https://fsj2009yx.github.io/tags/"
                 />
   </url><url>
+    <loc>https://fsj2009yx.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
+  </url><url>
+    <loc>https://fsj2009yx.github.io/posts/post_117111058330603/</loc>
+    <lastmod>2024-12-20T13:47:04+08:00</lastmod>
+  </url><url>
     <loc>https://fsj2009yx.github.io/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
     <lastmod>2024-12-18T15:21:45+08:00</lastmod>
   </url><url>
@@ -54,9 +63,6 @@
     <lastmod>2024-12-18T15:21:45+08:00</lastmod>
   </url><url>
     <loc>https://fsj2009yx.github.io/posts/post_257171104625204/</loc>
-    <lastmod>2024-12-17T08:55:49+08:00</lastmod>
-  </url><url>
-    <loc>https://fsj2009yx.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2024-12-17T08:55:49+08:00</lastmod>
   </url><url>
     <loc>https://fsj2009yx.github.io/tags/vue/</loc>

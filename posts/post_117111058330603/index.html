@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="子群\r子群、循环群\r循环群的类别\r根据生成元的阶，我们可以把循环元&lt;G,※&gt;分为两类：\ng的阶是n1，则&lt;G,※&gt;为n阶循环群，$G={g^1,g^2,&hellip;,g^n=e}$，并且称$&lt;G,※&gt;$的循环周期为n g是无限阶元，则&lt;G,※&gt;是无限循环群，&lt;G,※&gt;的循环周期是无限的 循环群的定理\r定理一\r定理二\r定理三\r循环群的子群\r对于循环群，我们可以直接地求出它的所有子群\n有如下一些性质：\n下面我们对此一一证明：\n性质一\r性质二\r性质三\r置换群\r轮换\r假设有限集合S包含n个元素，以（a1，a2…，ar，）表示S的一个如下置换：\n将a1映射为a2，将a2映射为a3，.…将ar-1映射为ar，将ar映射为a1，同时将其它元素映射到自身。\n（a1，a2，…，a，）称为一个r-轮换或简称轮换（cycle permutation）。r称作该轮换的长度。\n长度为2的轮换也就是2-轮换，一般称为对换\n举例如下：\n由图，1-&gt;2,2-&gt;3,3-&gt;5,5-&gt;8,而8-&gt;1,到8为止完成了一个轮换，而没有4-&gt;7,7-&gt;6,6-&gt;1又是一个轮换，所以该集合有两个不同的轮换，表示为**(1,2,3,5,8)(4,7,6)**\n轮换的逆向定理\r轮换的不相交\r轮换的阶\r置换群的定义\r一个置换群是一个群 $G$，其元素是一个集合上的置换，群的运算是这些置换的复合（即函数复合）\n群运算：对于两个置换 $σ,τ∈G$,定义 $σ∘τ$ 为复合置换，即$ (σ∘τ)(x)=σ(τ(x))$ 单位元：单位置换 $e$ 是让所有元素保持不变的置换：$e(x)=x,\u2009∀x∈X$ 逆元：每个置换 $σ$ 都有唯一的逆置换 $σ^{−1}$，满足 $σ∘σ^{−1}=e$ 凯莱定理(Cayley定理)\r不动点定理\r例题\rPloya计数定理\r">
+<meta name="keywords" content="子群"><title>子群</title>
+
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_117111058330603/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="子群">
+<meta property='og:description' content="子群\r子群、循环群\r循环群的类别\r根据生成元的阶，我们可以把循环元&lt;G,※&gt;分为两类：\ng的阶是n1，则&lt;G,※&gt;为n阶循环群，$G={g^1,g^2,&hellip;,g^n=e}$，并且称$&lt;G,※&gt;$的循环周期为n g是无限阶元，则&lt;G,※&gt;是无限循环群，&lt;G,※&gt;的循环周期是无限的 循环群的定理\r定理一\r定理二\r定理三\r循环群的子群\r对于循环群，我们可以直接地求出它的所有子群\n有如下一些性质：\n下面我们对此一一证明：\n性质一\r性质二\r性质三\r置换群\r轮换\r假设有限集合S包含n个元素，以（a1，a2…，ar，）表示S的一个如下置换：\n将a1映射为a2，将a2映射为a3，.…将ar-1映射为ar，将ar映射为a1，同时将其它元素映射到自身。\n（a1，a2，…，a，）称为一个r-轮换或简称轮换（cycle permutation）。r称作该轮换的长度。\n长度为2的轮换也就是2-轮换，一般称为对换\n举例如下：\n由图，1-&gt;2,2-&gt;3,3-&gt;5,5-&gt;8,而8-&gt;1,到8为止完成了一个轮换，而没有4-&gt;7,7-&gt;6,6-&gt;1又是一个轮换，所以该集合有两个不同的轮换，表示为**(1,2,3,5,8)(4,7,6)**\n轮换的逆向定理\r轮换的不相交\r轮换的阶\r置换群的定义\r一个置换群是一个群 $G$，其元素是一个集合上的置换，群的运算是这些置换的复合（即函数复合）\n群运算：对于两个置换 $σ,τ∈G$,定义 $σ∘τ$ 为复合置换，即$ (σ∘τ)(x)=σ(τ(x))$ 单位元：单位置换 $e$ 是让所有元素保持不变的置换：$e(x)=x,\u2009∀x∈X$ 逆元：每个置换 $σ$ 都有唯一的逆置换 $σ^{−1}$，满足 $σ∘σ^{−1}=e$ 凯莱定理(Cayley定理)\r不动点定理\r例题\rPloya计数定理\r">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_117111058330603/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='离散数学' /><meta property='article:published_time' content='2024-12-20T13:47:04&#43;08:00'/><meta property='article:modified_time' content='2024-12-20T13:47:04&#43;08:00'/>
+<meta name="twitter:title" content="子群">
+<meta name="twitter:description" content="子群\r子群、循环群\r循环群的类别\r根据生成元的阶，我们可以把循环元&lt;G,※&gt;分为两类：\ng的阶是n1，则&lt;G,※&gt;为n阶循环群，$G={g^1,g^2,&hellip;,g^n=e}$，并且称$&lt;G,※&gt;$的循环周期为n g是无限阶元，则&lt;G,※&gt;是无限循环群，&lt;G,※&gt;的循环周期是无限的 循环群的定理\r定理一\r定理二\r定理三\r循环群的子群\r对于循环群，我们可以直接地求出它的所有子群\n有如下一些性质：\n下面我们对此一一证明：\n性质一\r性质二\r性质三\r置换群\r轮换\r假设有限集合S包含n个元素，以（a1，a2…，ar，）表示S的一个如下置换：\n将a1映射为a2，将a2映射为a3，.…将ar-1映射为ar，将ar映射为a1，同时将其它元素映射到自身。\n（a1，a2，…，a，）称为一个r-轮换或简称轮换（cycle permutation）。r称作该轮换的长度。\n长度为2的轮换也就是2-轮换，一般称为对换\n举例如下：\n由图，1-&gt;2,2-&gt;3,3-&gt;5,5-&gt;8,而8-&gt;1,到8为止完成了一个轮换，而没有4-&gt;7,7-&gt;6,6-&gt;1又是一个轮换，所以该集合有两个不同的轮换，表示为**(1,2,3,5,8)(4,7,6)**\n轮换的逆向定理\r轮换的不相交\r轮换的阶\r置换群的定义\r一个置换群是一个群 $G$，其元素是一个集合上的置换，群的运算是这些置换的复合（即函数复合）\n群运算：对于两个置换 $σ,τ∈G$,定义 $σ∘τ$ 为复合置换，即$ (σ∘τ)(x)=σ(τ(x))$ 单位元：单位置换 $e$ 是让所有元素保持不变的置换：$e(x)=x,\u2009∀x∈X$ 逆元：每个置换 $σ$ 都有唯一的逆置换 $σ^{−1}$，满足 $σ∘σ^{−1}=e$ 凯莱定理(Cayley定理)\r不动点定理\r例题\rPloya计数定理\r">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4MJKRHG3RF');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://fsj2009yx.github.io/en/" >English</option>
+                                
+                                    <option value="https://fsj2009yx.github.io/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#子群循环群">子群、循环群</a>
+      <ol>
+        <li><a href="#循环群的类别">循环群的类别</a></li>
+        <li><a href="#循环群的定理">循环群的定理</a>
+          <ol>
+            <li><a href="#定理一">定理一</a></li>
+            <li><a href="#定理二">定理二</a></li>
+            <li><a href="#定理三">定理三</a></li>
+          </ol>
+        </li>
+        <li><a href="#循环群的子群">循环群的子群</a>
+          <ol>
+            <li><a href="#性质一">性质一</a></li>
+            <li><a href="#性质二">性质二</a></li>
+            <li><a href="#性质三">性质三</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#置换群">置换群</a>
+      <ol>
+        <li><a href="#轮换">轮换</a>
+          <ol>
+            <li><a href="#轮换的逆向定理">轮换的逆向定理</a></li>
+            <li><a href="#轮换的不相交">轮换的不相交</a></li>
+            <li><a href="#轮换的阶">轮换的阶</a></li>
+          </ol>
+        </li>
+        <li><a href="#置换群的定义">置换群的定义</a></li>
+        <li><a href="#凯莱定理cayley定理">凯莱定理(Cayley定理)</a></li>
+        <li><a href="#不动点定理">不动点定理</a>
+          <ol>
+            <li><a href="#例题">例题</a></li>
+          </ol>
+        </li>
+        <li><a href="#ploya计数定理">Ploya计数定理</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/jic/" >
+                Ji&#39;c
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_117111058330603/">子群</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 20, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="子群">子群
+</h1><h2 id="子群循环群">子群、循环群
+</h2><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121826875.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="f8e1618eb3627ff12982e889397a157a"
+	
+	
+></p>
+<h3 id="循环群的类别">循环群的类别
+</h3><p>根据<strong>生成元的阶</strong>，我们可以把循环元&lt;G,※&gt;分为两类：</p>
+<ul>
+<li>g的阶是n<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，则&lt;G,※&gt;为<strong>n阶循环群</strong>，$G={g^1,g^2,&hellip;,g^n=e}$，并且称$&lt;G,※&gt;$的<strong>循环周期为n</strong></li>
+<li>g是<strong>无限阶元</strong>，则&lt;G,※&gt;是<strong>无限循环群</strong>，&lt;G,※&gt;的<strong>循环周期是无限的</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171247141.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1875c7b3454b00e01aa6867fdbe39c7e"
+	
+	
+></p>
+<h3 id="循环群的定理">循环群的定理
+</h3><h4 id="定理一">定理一
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171251762.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="980224c9408eb283ccec405fe5985b0d"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171252891.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="e7c4ef6c6e14c09dc36e488dd9337ef0"
+	
+	
+></p>
+<h4 id="定理二">定理二
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171255399.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="b227f213cdb4fe7898ec3d919adace60"
+	
+	
+></p>
+<h4 id="定理三">定理三
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171258240.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="030217cd2f3ce2532685a6a78c742415"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171258530.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="515a58921d3ccb61546faa62df512067"
+	
+	
+></p>
+<h3 id="循环群的子群">循环群的子群
+</h3><p>对于循环群，我们可以直接地求出它的<strong>所有子群</strong></p>
+<p>有如下一些性质：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171309187.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6cef2a5ec0747a41de3427a3eeaa275b"
+	
+	
+></p>
+<p>下面我们对此一一证明：</p>
+<h4 id="性质一">性质一
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171312797.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="b943f268836e1d682d3eb6fae7886628"
+	
+	
+></p>
+<h4 id="性质二">性质二
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171312226.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2b483a22987a04945fb0a03b0f514553"
+	
+	
+></p>
+<h4 id="性质三">性质三
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171313416.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="f4489402b0fb40da9c6a50c32dbc9759"
+	
+	
+></p>
+<hr>
+<h2 id="置换群">置换群
+</h2><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121832639.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="7497aafbbfd26767c1a598e544e745c3"
+	
+	
+></p>
+<h3 id="轮换">轮换
+</h3><p>假设有限集合S包含n个元素，以（a1，a2…，ar，）表示S的一个如下置换：</p>
+<p>将a1映射为a2，将a2映射为a3，.…将ar-1映射为ar，将ar映射为a1，同时将其它元素映射到自身。</p>
+<p>（a1，a2，…，a，）称为一个<strong>r-轮换</strong>或简称<strong>轮换（cycle permutation）</strong>。r称作该轮换的<strong>长度。</strong></p>
+<blockquote>
+<p>长度为2的轮换也就是<strong>2-轮换</strong>，一般称为<strong>对换</strong></p>
+</blockquote>
+<p>举例如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121834590.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6f7d9f5338658b47f4d5e30426599c44"
+	
+	
+></p>
+<p>由图，1-&gt;2,2-&gt;3,3-&gt;5,5-&gt;8,<strong>而8-&gt;1</strong>,到8为止完成了一个轮换，而没有4-&gt;7,7-&gt;6,6-&gt;1又是一个轮换，所以该集合<strong>有两个不同的轮换</strong>，表示为**(1,2,3,5,8)(4,7,6)**</p>
+<h4 id="轮换的逆向定理">轮换的逆向定理
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121847373.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="c1f69aae6f76d361f7a2ffe2a6f8679d"
+	
+	
+></p>
+<h4 id="轮换的不相交">轮换的不相交
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121849542.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="652417a09ecf6257554b8f402ab532ed"
+	
+	
+></p>
+<h4 id="轮换的阶">轮换的阶
+</h4><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121849664.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="60d673ba3b2c31e94838052642310e32"
+	
+	
+></p>
+<p> </p>
+<h3 id="置换群的定义">置换群的定义
+</h3><p>一个<strong>置换群</strong>是一个群 $G$，其元素是一个集合上的置换，群的运算是这些置换的复合（即函数复合）</p>
+<ul>
+<li><strong>群运算</strong>：对于<strong>两个置换</strong> $σ,τ∈G$,定义 $σ∘τ$ 为<strong>复合置换</strong>，即$ (σ∘τ)(x)=σ(τ(x))$</li>
+<li><strong>单位元</strong>：<strong>单位置换</strong> $e$ 是<strong>让所有元素保持不变的置换</strong>：$e(x)=x, ∀x∈X$</li>
+<li><strong>逆元</strong>：<strong>每个置换 $σ$ 都有唯一的逆置换</strong> $σ^{−1}$，满足 $σ∘σ^{−1}=e$</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121900343.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="effaf5bb8114a02accbba3bcf47f6a10_720"
+	
+	
+></p>
+<p> </p>
+<h3 id="凯莱定理cayley定理">凯莱定理(Cayley定理)
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/29.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="不动点定理">不动点定理
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/31.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="例题">例题
+</h4><p><img src="https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/40.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p> </p>
+<h3 id="ploya计数定理">Ploya计数定理
+</h3><p><img src="https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/45.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<hr>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>在一个群中，一个元素 g 的<strong>阶（order）</strong> 是指满足以下性质的最小正整数 n：$g^n=e$，其中，e 是群中的单位元素&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili"],"lang":"zh-cn","locale":{"admin":"289137665@qq.com","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://waline-blog-test.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

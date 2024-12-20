@@ -7,7 +7,282 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Wed, 18 Dec 2024 15:21:45 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 20 Dec 2024 13:47:04 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>子群</title>
+        <link>https://fsj2009yx.github.io/posts/post_117111058330603/</link>
+        <pubDate>Fri, 20 Dec 2024 13:47:04 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_117111058330603/</guid>
+        <description>&lt;h1 id=&#34;子群&#34;&gt;子群
+&lt;/h1&gt;&lt;h2 id=&#34;子群循环群&#34;&gt;子群、循环群
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121826875.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;f8e1618eb3627ff12982e889397a157a&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;循环群的类别&#34;&gt;循环群的类别
+&lt;/h3&gt;&lt;p&gt;根据&lt;strong&gt;生成元的阶&lt;/strong&gt;，我们可以把循环元&amp;lt;G,※&amp;gt;分为两类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;g的阶是n&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，则&amp;lt;G,※&amp;gt;为&lt;strong&gt;n阶循环群&lt;/strong&gt;，$G={g^1,g^2,&amp;hellip;,g^n=e}$，并且称$&amp;lt;G,※&amp;gt;$的&lt;strong&gt;循环周期为n&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;g是&lt;strong&gt;无限阶元&lt;/strong&gt;，则&amp;lt;G,※&amp;gt;是&lt;strong&gt;无限循环群&lt;/strong&gt;，&amp;lt;G,※&amp;gt;的&lt;strong&gt;循环周期是无限的&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171247141.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1875c7b3454b00e01aa6867fdbe39c7e&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;循环群的定理&#34;&gt;循环群的定理
+&lt;/h3&gt;&lt;h4 id=&#34;定理一&#34;&gt;定理一
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171251762.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;980224c9408eb283ccec405fe5985b0d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171252891.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;e7c4ef6c6e14c09dc36e488dd9337ef0&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;定理二&#34;&gt;定理二
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171255399.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;b227f213cdb4fe7898ec3d919adace60&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;定理三&#34;&gt;定理三
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171258240.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;030217cd2f3ce2532685a6a78c742415&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171258530.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;515a58921d3ccb61546faa62df512067&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;循环群的子群&#34;&gt;循环群的子群
+&lt;/h3&gt;&lt;p&gt;对于循环群，我们可以直接地求出它的&lt;strong&gt;所有子群&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有如下一些性质：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171309187.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6cef2a5ec0747a41de3427a3eeaa275b&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;下面我们对此一一证明：&lt;/p&gt;
+&lt;h4 id=&#34;性质一&#34;&gt;性质一
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171312797.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;b943f268836e1d682d3eb6fae7886628&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质二&#34;&gt;性质二
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171312226.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2b483a22987a04945fb0a03b0f514553&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;性质三&#34;&gt;性质三
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412171313416.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;f4489402b0fb40da9c6a50c32dbc9759&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;置换群&#34;&gt;置换群
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121832639.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;7497aafbbfd26767c1a598e544e745c3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;轮换&#34;&gt;轮换
+&lt;/h3&gt;&lt;p&gt;假设有限集合S包含n个元素，以（a1，a2…，ar，）表示S的一个如下置换：&lt;/p&gt;
+&lt;p&gt;将a1映射为a2，将a2映射为a3，.…将ar-1映射为ar，将ar映射为a1，同时将其它元素映射到自身。&lt;/p&gt;
+&lt;p&gt;（a1，a2，…，a，）称为一个&lt;strong&gt;r-轮换&lt;/strong&gt;或简称&lt;strong&gt;轮换（cycle permutation）&lt;/strong&gt;。r称作该轮换的&lt;strong&gt;长度。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;长度为2的轮换也就是&lt;strong&gt;2-轮换&lt;/strong&gt;，一般称为&lt;strong&gt;对换&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;举例如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121834590.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6f7d9f5338658b47f4d5e30426599c44&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;由图，1-&amp;gt;2,2-&amp;gt;3,3-&amp;gt;5,5-&amp;gt;8,&lt;strong&gt;而8-&amp;gt;1&lt;/strong&gt;,到8为止完成了一个轮换，而没有4-&amp;gt;7,7-&amp;gt;6,6-&amp;gt;1又是一个轮换，所以该集合&lt;strong&gt;有两个不同的轮换&lt;/strong&gt;，表示为**(1,2,3,5,8)(4,7,6)**&lt;/p&gt;
+&lt;h4 id=&#34;轮换的逆向定理&#34;&gt;轮换的逆向定理
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121847373.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;c1f69aae6f76d361f7a2ffe2a6f8679d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;轮换的不相交&#34;&gt;轮换的不相交
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121849542.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;652417a09ecf6257554b8f402ab532ed&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;轮换的阶&#34;&gt;轮换的阶
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121849664.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;60d673ba3b2c31e94838052642310e32&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;置换群的定义&#34;&gt;置换群的定义
+&lt;/h3&gt;&lt;p&gt;一个&lt;strong&gt;置换群&lt;/strong&gt;是一个群 $G$，其元素是一个集合上的置换，群的运算是这些置换的复合（即函数复合）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;群运算&lt;/strong&gt;：对于&lt;strong&gt;两个置换&lt;/strong&gt; $σ,τ∈G$,定义 $σ∘τ$ 为&lt;strong&gt;复合置换&lt;/strong&gt;，即$ (σ∘τ)(x)=σ(τ(x))$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单位元&lt;/strong&gt;：&lt;strong&gt;单位置换&lt;/strong&gt; $e$ 是&lt;strong&gt;让所有元素保持不变的置换&lt;/strong&gt;：$e(x)=x, ∀x∈X$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逆元&lt;/strong&gt;：&lt;strong&gt;每个置换 $σ$ 都有唯一的逆置换&lt;/strong&gt; $σ^{−1}$，满足 $σ∘σ^{−1}=e$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412121900343.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;effaf5bb8114a02accbba3bcf47f6a10_720&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;凯莱定理cayley定理&#34;&gt;凯莱定理(Cayley定理)
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;不动点定理&#34;&gt;不动点定理
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/31.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例题&#34;&gt;例题
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/40.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;ploya计数定理&#34;&gt;Ploya计数定理
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w8/doc/ee/db/1d/305bd31aa5bcf44567312eb93a99fd59/thumb/45.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;在一个群中，一个元素 g 的&lt;strong&gt;阶（order）&lt;/strong&gt; 是指满足以下性质的最小正整数 n：$g^n=e$，其中，e 是群中的单位元素&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>假设检验</title>
         <link>https://fsj2009yx.github.io/posts/post_23020238312116/</link>
         <pubDate>Wed, 18 Dec 2024 15:21:45 +0800</pubDate>
