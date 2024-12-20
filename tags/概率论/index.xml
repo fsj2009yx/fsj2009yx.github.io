@@ -18,7 +18,11 @@
 &lt;p&gt;显著性检验是假设检验中最常用的一种方法，也是一种最基本的统计推断形式，其基本原理是先对总体的特征做出某种假设，然后通过抽样研究的统计推理，对此假设应该被拒绝还是接受做出推断。&lt;/p&gt;
 &lt;p&gt;常用的假设检验方法有&lt;strong&gt;Z检验、t检验、卡方检验、F检验&lt;/strong&gt;等。&lt;/p&gt;
 &lt;h2 id=&#34;基本概念&#34;&gt;基本概念
-&lt;/h2&gt;&lt;p&gt;以下面的场景为例：&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;如何利用样本值对一个具体的假设进行检验？&lt;/p&gt;
+&lt;p&gt;通常借助于直观分析和理论分析相结合的做法，其基本原理就是人们在实际问题中经常采用的所谓&lt;strong&gt;小概率原理&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;即**“一个小概率事件在一次试验中几乎是不可能发生的”**&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;以下面的场景为例：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w7/doc/7d/26/46/7370df5379210ae9f6aef1feec7e3b02/thumb/5.png&#34;
 	
 	
