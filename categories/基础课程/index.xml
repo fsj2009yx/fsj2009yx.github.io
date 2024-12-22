@@ -3130,7 +3130,8 @@
 &gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;四种统计量及其分布&#34;&gt;四种统计量及其分布
-&lt;/h2&gt;&lt;h3 id=&#34;上侧分位数和双侧分位数&#34;&gt;上侧分位数和双侧分位数
+&lt;/h2&gt;&lt;p&gt;很多统计推断都是基于正态总体这一假定的，本节将介绍几个重要的由来自正态总体的样本构成的统计量及其抽样分布&lt;/p&gt;
+&lt;h3 id=&#34;上侧分位数和双侧分位数&#34;&gt;上侧分位数和双侧分位数
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/36.png&#34;
 	
 	
@@ -3141,7 +3142,6 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
 &lt;h3 id=&#34;伽马函数&#34;&gt;伽马函数
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/34.png&#34;
 	
@@ -3153,7 +3153,30 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;u统计量及其分布&#34;&gt;U统计量及其分布
+&lt;/h3&gt;&lt;p&gt;设总体$X\sim N(\mu,\sigma^2)$，而$X_1,X_2,&amp;hellip;,X_n$是它的一个&lt;strong&gt;样本&lt;/strong&gt;，则&lt;strong&gt;样本均值&lt;/strong&gt;为 $\overline X=(\sum_{i=1}^nX_i)/n$，它是正态分布的线性组合，故&lt;strong&gt;样本均值也服从正态分布&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;它的期望和方差分别为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412221122072.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ea32961e32f987d6a9f5937ddb1c2c39&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;u分布的定义&#34;&gt;U分布的定义
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/31.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;卡方分布及其性质&#34;&gt;卡方分布及其性质
 &lt;/h3&gt;&lt;h4 id=&#34;定义-1&#34;&gt;定义
 &lt;/h4&gt;&lt;p&gt;卡方分布是&lt;strong&gt;多个独立&lt;/strong&gt;的&lt;strong&gt;标准正态随机变量&lt;/strong&gt;的&lt;strong&gt;平方和&lt;/strong&gt;的分布。&lt;/p&gt;
@@ -3187,8 +3210,9 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;性质-1&#34;&gt;性质
-&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111718768.png&#34;
+&lt;h4 id=&#34;卡方分布的性质&#34;&gt;卡方分布的性质
+&lt;/h4&gt;&lt;p&gt;对于&lt;strong&gt;两个卡方分布&lt;/strong&gt;，有：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412111718768.png&#34;
 	
 	
 	
@@ -3198,26 +3222,21 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/35.png&#34;
+&lt;p&gt;对此，可以得到&lt;strong&gt;卡方分布的推论&lt;/strong&gt;，即：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412221124560.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;img&#34;
+		alt=&#34;772c4dd12eab2afa5eb947728373ac8b&#34;
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/36.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;同时，推论也证明了&lt;strong&gt;样本方差 $S^2$ 服从的卡方分布&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;定义和推论都可以求参数的卡方分布&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;注意：对于卡方分布的&lt;strong&gt;自由度n过大&lt;/strong&gt;的情况：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/37.png&#34;
 	
@@ -3229,6 +3248,29 @@
 	
 	
 &gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h4 id=&#34;样本均值的卡方分布&#34;&gt;样本均值的卡方分布
+&lt;/h4&gt;&lt;p&gt;样本均值和样本方差在&lt;strong&gt;正态分布总体&lt;/strong&gt;下有特定的分布规律&lt;/p&gt;
+&lt;h5 id=&#34;1-样本均值-barx-的分布&#34;&gt;1. &lt;strong&gt;样本均值&lt;/strong&gt; $\bar{X}$ 的分布
+&lt;/h5&gt;&lt;p&gt;对于来自正态总体 $N(\mu, \sigma^2)$ 的简单随机样本 $X_1, X_2, \ldots, X_n$，样本均值的性质如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;样本均值 $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$ 服从正态分布： $\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)$&lt;/li&gt;
+&lt;li&gt;样本均值的平方&lt;strong&gt;无法直接服从 $\chi^2$ 分布&lt;/strong&gt;，只有当&lt;strong&gt;标准化后&lt;/strong&gt; $\frac{\bar{X}^2}{\sigma^2 / n}$ 的情况下，它才服从&lt;strong&gt;自由度为 1 的 $\chi^2$ 分布&lt;/strong&gt;： $\frac{n(\bar{X} - \mu)^2}{\sigma^2} \sim \chi^2(1)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总结：&lt;strong&gt;标准化后的&lt;/strong&gt;样本均值$\overline X$服从&lt;strong&gt;自由度为 1 的 $\chi^2$ 分布&lt;/strong&gt;： $\frac{n(\bar{X} - \mu)^2}{\sigma^2} \sim \chi^2(1)$ &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;2-样本方差-s2-的分布&#34;&gt;2. &lt;strong&gt;样本方差&lt;/strong&gt; $S^2$ 的分布
+&lt;/h5&gt;&lt;p&gt;样本方差的定义是：&lt;/p&gt;
+&lt;p&gt;$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$&lt;/p&gt;
+&lt;p&gt;在正态总体 $N(\mu, \sigma^2)$ 下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$(n-1)S^2$ 服从 $\chi^2$ 分布，其自由度为 n-1： $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这一性质是推导许多统计检验的基础 &lt;/p&gt;
+&lt;h5 id=&#34;样本均值与样本方差的独立性&#34;&gt;样本均值与样本方差的独立性
+&lt;/h5&gt;&lt;p&gt;对于正态总体 $N(\mu, \sigma^2)$，样本均值 $\bar{X}$ 和样本方差 $S^2$ 是&lt;strong&gt;独立的&lt;/strong&gt;。这种独立性使得在正态分布下能够方便地构造各种统计量。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
 &lt;h4 id=&#34;例题&#34;&gt;例题
 &lt;/h4&gt;&lt;p&gt;下面我们用卡方分布的性质解题：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/38.png&#34;
@@ -3340,7 +3382,7 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;性质-2&#34;&gt;性质
+&lt;h4 id=&#34;性质-1&#34;&gt;性质
 &lt;/h4&gt;&lt;p&gt;对于&lt;strong&gt;自由度为$n_1,n_2$的两个F分布&lt;/strong&gt;的关系，有：&lt;/p&gt;
 $$F\sim F(n1,n2)=\frac{1}{F\sim F(n_2,n_1)}$$&lt;p&gt;&lt;img src=&#34;https://s3.ananas.chaoxing.com/sv-w9/doc/8d/ba/1e/ea20e6bdc967d079fa1d72fb8beab81a/thumb/45.png&#34;
 	
