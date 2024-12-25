@@ -6,7 +6,7 @@
         <description>Recent content in Posts on fsj2009yx</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Example Person</copyright>
+        <copyright>fsj2009yx</copyright>
         <lastBuildDate>Mon, 23 Dec 2024 21:52:33 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>堆</title>
         <link>https://fsj2009yx.github.io/posts/post_3010209578201/</link>
@@ -11416,7 +11416,7 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
 &lt;p&gt;以图示流程帮助理解：&lt;/p&gt;
 &lt;p&gt;我们的目标依然是要保证&lt;strong&gt;删除结点8后，再次中序遍历它，仍不改变其升序的排列方式&lt;/strong&gt;。 那么我们只有&lt;strong&gt;用7或者10来替换8原来的位置&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;我们先看7来顶替位置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/908eb1f8b3c2057ebceeadac793463a4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412251555592.png&#34;
 	
 	
 	
@@ -11425,7 +11425,7 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;我们再看10来顶替位置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/55cae8538713f74d0ba97f69a4aaf3f4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412251555403.png&#34;
 	
 	
 	
@@ -11638,7 +11638,7 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/e865c3eb1ff27e6bf59df3cc746e3b93.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412251555916.gif&#34;
 	
 	
 	
@@ -11706,7 +11706,7 @@ c. 恢复到最大窗口需要：&lt;strong&gt;9.375 秒&lt;/strong&gt;&lt;/p&gt
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i-blog.csdnimg.cn/blog_migrate/5e8cefa5dfb0af8fed42599c2a42df44.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202412251555069.gif&#34;
 	
 	
 	
