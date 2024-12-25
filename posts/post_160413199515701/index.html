@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数据结构集合与散列">
+<meta name="keywords" content="散列, 哈希, 集合"><title>集合与散列</title>
+
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_160413199515701/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="集合与散列">
+<meta property='og:description' content="数据结构集合与散列">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_160413199515701/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='数据结构' /><meta property='article:published_time' content='2024-12-25T16:47:39&#43;08:00'/><meta property='article:modified_time' content='2024-12-25T16:47:39&#43;08:00'/>
+<meta name="twitter:title" content="集合与散列">
+<meta name="twitter:description" content="数据结构集合与散列">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4MJKRHG3RF');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://fsj2009yx.github.io/en/" >English</option>
+                                
+                                    <option value="https://fsj2009yx.github.io/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#集合的概念">集合的概念</a>
+      <ol>
+        <li><a href="#集合的抽象数据类型">集合的抽象数据类型</a></li>
+        <li><a href="#集合的表示方法">集合的表示方法</a></li>
+        <li><a href="#完整代码实现">完整代码实现：</a></li>
+      </ol>
+    </li>
+    <li><a href="#并查集">并查集</a>
+      <ol>
+        <li><a href="#等价关系和等价类">等价关系和等价类</a></li>
+        <li><a href="#并查集-1">并查集</a></li>
+        <li><a href="#加权规则按秩求并启发式策略">加权规则（按秩求并启发式策略）</a>
+          <ol>
+            <li><a href="#加权合并的代码实现示例">加权合并的代码实现（示例）：</a></li>
+          </ol>
+        </li>
+        <li><a href="#使用折叠规则压缩路径启发式策略">使用折叠规则压缩路径启发式策略</a></li>
+        <li><a href="#完整代码实现-1">完整代码实现：</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#字典的概念">字典的概念</a>
+      <ol>
+        <li><a href="#字典的抽象数据类型">字典的抽象数据类型</a></li>
+      </ol>
+    </li>
+    <li><a href="#跳表">跳表</a></li>
+    <li><a href="#散列表hash">散列表（Hash）</a>
+      <ol>
+        <li><a href="#hash表的基本概念">Hash表的基本概念</a></li>
+        <li><a href="#hash函数的构造方法">Hash函数的构造方法</a></li>
+        <li><a href="#除留余数法">除留余数法</a>
+          <ol>
+            <li><a href="#主要原理">主要原理：</a></li>
+            <li><a href="#构造方法">构造方法：</a></li>
+            <li><a href="#示例">示例：</a></li>
+          </ol>
+        </li>
+        <li><a href="#直接定址法">直接定址法</a></li>
+        <li><a href="#数据分析法">数据分析法</a></li>
+        <li><a href="#冲突">冲突</a></li>
+        <li><a href="#闭散列法">闭散列法</a>
+          <ol>
+            <li><a href="#线性探查">线性探查</a></li>
+            <li><a href="#二次探查">二次探查</a></li>
+            <li><a href="#伪随机探查再散列">伪随机探查再散列</a></li>
+          </ol>
+        </li>
+        <li><a href="#开散列法">开散列法</a>
+          <ol>
+            <li><a href="#开散列法的工作原理">开散列法的工作原理</a></li>
+            <li><a href="#开散列法的代码实现">开散列法的代码实现</a></li>
+          </ol>
+        </li>
+        <li><a href="#装载因子α-nm">装载因子α= n/m</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E6%9C%AC%E8%AF%BE%E7%A8%8B/" >
+                基本课程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_160413199515701/">集合与散列</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            数据结构集合与散列
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 25, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 11 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="集合与散列">集合与散列
+</h1><hr>
+<h2 id="集合的概念">集合的概念
+</h2><p>集合是成员(元素)的一个群集。集合中的成员<strong>可以是原子(单元素)，也可以是集合</strong>。</p>
+<p>集合的成员必须<strong>互不相同</strong></p>
+<hr>
+<h3 id="集合的抽象数据类型">集合的抽象数据类型
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Set</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="k">virtual</span> <span class="n">Set</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		    <span class="c1">//构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">virtual</span> <span class="nf">makeEmpty</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	    <span class="c1">//置空集合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">addMember</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	  <span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">delMember</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">virtual</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">intersectWith</span> <span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>				<span class="c1">//集合的交运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">virtual</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">unionWith</span> <span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">                             	<span class="c1">//集合的并运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">virtual</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">differenceFrom</span> <span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">                             	<span class="c1">//集合的差运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">Contains</span> <span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">subSet</span> <span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">virtual</span> <span class="kt">bool</span> <span class="k">operator</span> <span class="o">==</span> <span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                           	<span class="c1">//判集合是否相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="集合的表示方法">集合的表示方法
+</h3><p>用有序链表来表示集合时，链表中的每个结点表示集合的一个成员。</p>
+<p>各结点所表示的成员 <em>e</em>0, <em>e</em>1, …, <em>e**n</em> 在链表中按升序排列，即 <em>e</em>0 &lt; <em>e</em>1 &lt; … &lt; <em>e**n</em>。</p>
+<p>集合成员可以无限增加。因此，用有序链表可以表示无穷全集合的子集。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282031825.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="a60bdc62ddc0dfe8108f75b54f079090"
+	
+	
+></p>
+<h3 id="完整代码实现">完整代码实现：
+</h3><p>在 C++ 中，类模板 <code>Set</code> 的实现可以通过多种方式实现集合的基本操作。</p>
+<p>以下是一个基于<strong>链表</strong>（<code>std::list</code>）的实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;list&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Set</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Set</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// 默认构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 清空集合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">makeEmpty</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">members</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 添加元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="nf">addMember</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">Contains</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>  <span class="c1">// 如果元素已经存在，则不添加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">members</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 删除元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="nf">delMember</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">members</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">members</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">members</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">members</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 集合交运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">intersectWith</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">elem</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 集合并运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">unionWith</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>  <span class="c1">// 先加入当前集合的元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="n">R</span><span class="p">.</span><span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 集合差运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">differenceFrom</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">R</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">elem</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断元素是否在集合中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="nf">Contains</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">members</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">members</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">members</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断当前集合是否是集合R的子集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="nf">subSet</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">R</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">elem</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断当前集合与集合R是否相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">==</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">members</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="n">R</span><span class="p">.</span><span class="n">members</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">R</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">elem</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 输出集合的内容（便于调试）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">elem</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">members</span><span class="p">;</span>  <span class="c1">// 使用list来存储集合元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">setA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">setB</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 向集合A添加元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">setA</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setA</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setA</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 向集合B添加元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">setB</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setB</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setB</span><span class="p">.</span><span class="n">addMember</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印集合A和集合B
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Set A: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setA</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Set B: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setB</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 集合并运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">unionSet</span> <span class="o">=</span> <span class="n">setA</span><span class="p">.</span><span class="n">unionWith</span><span class="p">(</span><span class="n">setB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A union B: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unionSet</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 集合交运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">intersectSet</span> <span class="o">=</span> <span class="n">setA</span><span class="p">.</span><span class="n">intersectWith</span><span class="p">(</span><span class="n">setB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A intersect B: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">intersectSet</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 集合差运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">diffSet</span> <span class="o">=</span> <span class="n">setA</span><span class="p">.</span><span class="n">differenceFrom</span><span class="p">(</span><span class="n">setB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A difference B: &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">diffSet</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断子集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A is subset of B: &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">setA</span><span class="p">.</span><span class="n">subSet</span><span class="p">(</span><span class="n">setB</span><span class="p">)</span> <span class="o">?</span> <span class="s">&#34;True&#34;</span> <span class="o">:</span> <span class="s">&#34;False&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断相等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;A == B: &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">setA</span> <span class="o">==</span> <span class="n">setB</span> <span class="o">?</span> <span class="s">&#34;True&#34;</span> <span class="o">:</span> <span class="s">&#34;False&#34;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>运行结果：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nf">Set A</span><span class="o">:</span> 1 2 3 
+</span></span><span class="line"><span class="cl"><span class="nf">Set B</span><span class="o">:</span> 2 3 4 
+</span></span><span class="line"><span class="cl"><span class="nf">A union B</span><span class="o">:</span> 1 2 3 4 
+</span></span><span class="line"><span class="cl"><span class="nf">A intersect B</span><span class="o">:</span> 2 3 
+</span></span><span class="line"><span class="cl"><span class="nf">A difference B</span><span class="o">:</span> 1 
+</span></span><span class="line"><span class="cl"><span class="nf">A is subset of B</span><span class="o">:</span> <span class="n">False</span>
+</span></span><span class="line"><span class="cl"><span class="nv">A</span> <span class="o">==</span> B: False
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="并查集">并查集
+</h2><h3 id="等价关系和等价类">等价关系和等价类
+</h3><p><strong>等价关系(equivalence relation)</strong>：假定有一个具有n个元素的非空集合$S={1,2,\cdots, n}$，另有一个具有r个关系的集合R=${(i1, j1), (i2, j2), \cdots, (ir, jr)}$，若R满足：</p>
+<ul>
+<li>对所有的$i\in S$,有$(i, i)\in R$ 时，即关系是自反的</li>
+<li>对所有的$i, j\in S$,当且仅当$(i, j)\in R$ 时$(j, i)\in R$，即关系是对称的</li>
+<li>对所有的$i, j\in S$，若$(i, j)\in R$ 且 $(j, k)\in R$，则有$(i, k)\in R$，即关系是传递的</li>
+</ul>
+<p>则称关系R是定义在S上的一个等价关系，其中，. $i1$等价于$j1$,$i2$等价于$j2$,$\cdots \cdots$,$ir$等价于$jr$。</p>
+<p>**等价类（Equivalence Class）**是指在某些特定的等价关系下，将一个集合中的元素分组，每一组包含一些彼此等价的元素。换句话说，等价类是基于某种特定关系对元素进行分类的结果，每个等价类中的元素是“等价”的。</p>
+<hr>
+<h3 id="并查集-1">并查集
+</h3><p>并查集（Union-Find）是一种数据结构，用于处理一些不交集的合并及查询问题，常用于解决图的连通性、网络中节点的连通性、以及动态连通性等问题。并查集的核心思想是<strong>将集合分组并能够有效地合并（Union）和查询（Find）这些集合</strong>。</p>
+<p>并查集的主要操作有：</p>
+<ol>
+<li><strong>Find（查找）</strong>：判断某个元素所在的集合，或者查找某个元素的“根”节点。它帮助确定两个元素是否属于同一个集合。</li>
+<li><strong>Union（合并）</strong>：将两个元素所在的集合合并成一个集合。即让这两个元素具有相同的根节点。</li>
+</ol>
+<p>并查集的实现方法：<strong>森林表示法</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282106067.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="79786ff84629b0fa3a612c3e293b7695"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282107541.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="0f891dc108ab41775ba7c63ff0e405fb"
+	
+	
+></p>
+<p>下面给出代码示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">DefaultSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UFSets</span> <span class="p">{</span>	<span class="c1">//集合中的各个子集合互不相交
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="n">UFSets</span> <span class="p">(</span><span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">DefaultSize</span><span class="p">);</span>	<span class="c1">//构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	 <span class="err">～</span><span class="n">UFSets</span><span class="p">()</span> <span class="p">{</span> <span class="k">delete</span> <span class="p">[]</span><span class="n">parent</span><span class="p">;</span> <span class="p">}</span>	<span class="c1">//析构函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">UFSets</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">=</span> <span class="p">(</span><span class="n">UFSets</span><span class="o">&amp;</span> <span class="n">R</span><span class="p">);</span>    <span class="c1">//集合赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">void</span> <span class="nf">Union</span> <span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">);</span>	     <span class="c1">//子集合并
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">int</span> <span class="nf">Find</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>				<span class="c1">//查找x的根
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">void</span> <span class="nf">UnionByHeight</span> <span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//改进例程:压缩高度的合并算法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">int</span> <span class="o">*</span><span class="n">parent</span><span class="p">;</span>		  <span class="c1">//集合元素数组(双亲表示)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>			  <span class="c1">//集合元素的数目
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>并查集初始化算法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">UFSets</span><span class="o">::</span><span class="n">UFSets</span> <span class="p">(</span><span class="kt">int</span> <span class="n">sz</span><span class="p">)</span> <span class="p">{</span>	
+</span></span><span class="line"><span class="cl"><span class="c1">//构造函数：sz 是集合元素个数，双亲数组的范围
+</span></span></span><span class="line"><span class="cl"><span class="c1">//为parent[0]～parent[size-1]。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">size</span> <span class="o">=</span> <span class="n">sz</span><span class="p">;</span>			  <span class="c1">//集合元素个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span>  <span class="c1">//创建双亲数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl">		<span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>               <span class="c1">//每个自成单元素集合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查找算法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">Find</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>        <span class="c1">//非递归算法
+</span></span></span><span class="line"><span class="cl"><span class="c1">//函数搜索并返回包含元素x的树的根。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">while</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">x</span><span class="o">=</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>   <span class="c1">//循环寻找x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">Find</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>        <span class="c1">//递归算法
+</span></span></span><span class="line"><span class="cl"><span class="c1">//函数搜索并返回包含元素x的树的根。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>   <span class="c1">//根的parent[]值小于0  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">else</span> <span class="nf">return</span> <span class="p">(</span><span class="n">Find</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>并查集合并算法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">Union</span> <span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//求两个不相交集合Root1与Root2的并，要求Root1与Root2不同，并且表示子集合名字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">parent</span><span class="p">[</span><span class="n">Root1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">parent</span><span class="p">[</span><span class="n">Root2</span><span class="p">];</span>	<span class="c1">//更新集合元素个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">parent</span><span class="p">[</span><span class="n">Root2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Root1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                     <span class="c1">//将Root2连接到Root1下面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="加权规则按秩求并启发式策略">加权规则（按秩求并启发式策略）
+</h3><p>假设每个等价类的树中增加<strong>树中结点个数</strong>的信息**（秩）**</p>
+<p>在执行<strong>union</strong>操作时总是把<strong>包含较少结点的树的根指向包含较多结点的树的根</strong>，这可以把树的整体深度限制在<strong>O(logn)</strong></p>
+<p>因此，<strong>Find</strong>操作的效率<strong>O(logn)</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282116477.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="d575fac69bedd2c956cc865d81cc8862"
+	
+	
+></p>
+<p>使用加权规则得到的改进合并程序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">WeightedUnion</span><span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root1</span><span class="p">),</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root2</span><span class="p">),</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">r1</span> <span class="o">!=</span> <span class="n">r2</span><span class="p">)</span> <span class="p">{</span>    
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span> <span class="o">+</span> <span class="n">parent</span><span class="p">[</span><span class="n">r2</span><span class="p">];</span>  <span class="c1">// 计算合并后的新大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">parent</span><span class="p">[</span><span class="n">r1</span><span class="p">])</span> <span class="p">{</span>   <span class="c1">// 如果r2的集合（负值）比r1的集合大
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">parent</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2</span><span class="p">;</span>             <span class="c1">// 将r1的根指向r2，r1的根指向r2，表示r1合并到r2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">parent</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>           <span class="c1">// 更新r2的根为新的大小，负值表示集合的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="p">;</span>             <span class="c1">// 将r2的根指向r1，表示r2合并到r1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">parent</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>           <span class="c1">// 更新r1的根为新的大小，负值表示集合的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在并查集（Union-Find）算法中，<strong>按高度合并</strong>和<strong>加权规则</strong>是两种常见的优化策略，它们的目标是减少树的高度，优化后续的查找操作。尽管这两种策略的目的是相似的，但它们的具体实现有所不同。</p>
+<hr>
+<p><strong>按高度合并</strong>和<strong>加权规则</strong>的区别：</p>
+<p><strong>按高度合并（Union by Rank or Height）</strong>：</p>
+<p><strong>按高度合并</strong>（有时也叫<strong>按秩合并</strong>）指的是在执行 <code>Union</code> 操作时，选择将<strong>高度较小的树挂到高度较大的树上</strong>。通过这种方式，可以防止树的高度增长过高，从而保持查找操作的高效性。</p>
+<ul>
+<li><strong>高度（rank）</strong>：每个节点记录它的“高度”，即从该节点到叶子节点的最大距离。合并时，较小高度的树会被挂到较大高度的树上。</li>
+<li><strong>原理</strong>：当两个树的高度相同时，我们可以随便选择将哪棵树作为根，但通常会选择将其中一个树的根作为另一个树的子节点，并更新根节点的高度。</li>
+</ul>
+<p>按高度合并的代码实现（示例）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">UnionByHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">root1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">root2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root1</span> <span class="o">!=</span> <span class="n">root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">[</span><span class="n">root2</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">=</span> <span class="n">root2</span><span class="p">;</span>  <span class="c1">// 将root1挂到root2下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">[</span><span class="n">root2</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">]</span> <span class="o">=</span> <span class="n">root1</span><span class="p">;</span>  <span class="c1">// 将root2挂到root1下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">]</span> <span class="o">=</span> <span class="n">root1</span><span class="p">;</span>  <span class="c1">// 将root2挂到root1下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">height</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 如果高度相等，root1的高度加1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><strong>加权合并（Union by Size or Weight）</strong>：</li>
+</ol>
+<p>加权合并的基本思想是根据<strong>树的大小</strong>来决定哪个树作为根。较小的树会被合并到较大的树下面，从而避免形成高度过大的树。这种方法用的是<strong>树的大小</strong>来判断，而不是树的高度。</p>
+<ul>
+<li><strong>大小（size）</strong>：每个集合会维护一个大小（即<strong>树中节点的数量</strong>）。合并时，我们将节点数较少的树合并到节点数较多的树下。</li>
+<li><strong>原理</strong>：当两个树的大小不同，我们将小树合并到大树中。大小相同的情况下，可以任选一个树作为根。</li>
+</ul>
+<h4 id="加权合并的代码实现示例">加权合并的代码实现（示例）：
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">WeightedUnion</span><span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">root1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">root2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">root1</span> <span class="o">!=</span> <span class="n">root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">])</span> <span class="p">{</span>  <span class="c1">// parent[x] 存储的是负数，表示集合的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">=</span> <span class="n">root2</span><span class="p">;</span>  <span class="c1">// 将root1合并到root2下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">];</span>  <span class="c1">// 更新root2的集合大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">]</span> <span class="o">=</span> <span class="n">root1</span><span class="p">;</span>  <span class="c1">// 将root2合并到root1下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">];</span>  <span class="c1">// 更新root1的集合大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>比较：</strong></p>
+<ul>
+<li><strong>按高度合并</strong>（Union by Height）：基于树的高度来选择合并方式。它保持树的平衡，避免树的高度过高。通常使用一个额外的数组 <code>height[]</code> 来维护每个节点的高度。</li>
+<li><strong>加权合并</strong>（Union by Size）：基于树的大小来选择合并方式。它维护树的节点数，确保较小的树总是合并到较大的树下，从而避免树的深度增加。</li>
+</ul>
+<hr>
+<h3 id="使用折叠规则压缩路径启发式策略">使用折叠规则压缩路径启发式策略
+</h3><p>**折叠规则（Path Compression）*<em>是一种优化策略，目的是加速后续的查找（<code>Find</code>）操作。通过*<em>折叠路径</em></em>，我们可以将树的高度减少，从而使得树更加扁平，提升查找的效率。</p>
+<p><strong>路径压缩的原理</strong>：</p>
+<p>在执行 <code>Find</code> 操作时，我们沿着路径向上查找根节点。<strong>路径压缩</strong>的思想是：在查找过程中，<strong>将路径上的所有节点直接连接到根节点</strong>。这样，<strong>在以后的查找操作中，能够更快地找到根节点</strong>。</p>
+<p>具体来说，路径压缩会将查询过程中经过的每个节点的父节点直接设置为根节点，从而让整个路径缩短。这样，<strong>随着多次 <code>Find</code> 操作的执行，树会变得越来越扁平</strong>，查找操作的复杂度接近于常数时间（尽管严格来说，时间复杂度是非常接近常数的，即接近于 <strong>O(α(n))</strong>，其中 α 是阿克曼函数的反函数）。</p>
+<p>代码实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">UFSets</span><span class="o">::</span><span class="n">CollapsingFind</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用折叠规则的搜索算法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 第一部分：查找根节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">parent</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 让 j 循环通过父亲指针走到根
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 第二部分：路径压缩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// 当i的父节点不是根时，执行路径压缩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>           <span class="c1">// 将i的父节点设置为根节点j
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">i</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>                <span class="c1">// 更新i为其父节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">j</span><span class="p">;</span>  <span class="c1">// 返回根节点j
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282135051.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5102e3c24906b622a537e76137d5fad6"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282135484.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="e4718df4511b8cf2d0bcfa07003970aa"
+	
+	
+></p>
+<hr>
+<h3 id="完整代码实现-1">完整代码实现：
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">DefaultSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UFSets</span> <span class="p">{</span>  <span class="c1">// 集合中的各个子集合互不相交
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 构造函数，初始化并查集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UFSets</span><span class="p">(</span><span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">DefaultSize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="n">sz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span>  <span class="c1">// 动态分配内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 初始化，每个节点的父节点是它自己
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 析构函数，释放内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">~</span><span class="n">UFSets</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">delete</span><span class="p">[]</span> <span class="n">parent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 赋值操作符，深拷贝
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UFSets</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">=</span> <span class="p">(</span><span class="k">const</span> <span class="n">UFSets</span><span class="o">&amp;</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">delete</span><span class="p">[]</span> <span class="n">parent</span><span class="p">;</span>  <span class="c1">// 删除当前的parent数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">size</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">parent</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 查找操作：查找并返回x的根，并进行路径压缩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="nf">Find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>  <span class="c1">// 路径压缩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">parent</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 合并操作：将两个集合合并
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">Union</span><span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">root1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">root2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root1</span> <span class="o">!=</span> <span class="n">root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">=</span> <span class="n">root2</span><span class="p">;</span>  <span class="c1">// 将root1的根指向root2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 改进的合并操作：按高度合并
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">UnionByHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">Root1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">root1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">root2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">Root2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root1</span> <span class="o">!=</span> <span class="n">root2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 按高度合并，较小的树挂到较大的树下面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">[</span><span class="n">root2</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">=</span> <span class="n">root2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">[</span><span class="n">root2</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">]</span> <span class="o">=</span> <span class="n">root1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent</span><span class="p">[</span><span class="n">root2</span><span class="p">]</span> <span class="o">=</span> <span class="n">root1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">height</span><span class="p">[</span><span class="n">root1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 如果高度相等，则root1的高度加1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">*</span> <span class="n">parent</span><span class="p">;</span>   <span class="c1">// 集合元素数组（双亲表示）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span><span class="o">*</span> <span class="n">height</span><span class="p">;</span>   <span class="c1">// 存储每个节点的高度，用于按高度合并
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>      <span class="c1">// 集合元素的数目
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UFSets</span> <span class="n">uf</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>  <span class="c1">// 创建一个大小为10的并查集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 合并一些集合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">uf</span><span class="p">.</span><span class="n">Union</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uf</span><span class="p">.</span><span class="n">Union</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uf</span><span class="p">.</span><span class="n">Union</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uf</span><span class="p">.</span><span class="n">Union</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 查找并检查集合是否相连
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;0 and 2 are connected: &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">uf</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 应输出1（true）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;0 and 3 are connected: &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">uf</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 应输出0（false）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>代码解释：</strong></p>
+<ol>
+<li><strong>构造函数</strong> <code>UFSets(int sz = DefaultSize)</code>：
+<ul>
+<li>使用<strong>动态内存分配</strong> <code>new int[size]</code> 来初始化 <code>parent</code> 数组，并设置每个节点的父节点为其自身。</li>
+</ul>
+</li>
+<li><strong>析构函数</strong> <code>~UFSets()</code>：
+<ul>
+<li>在对象销毁时释放 <code>parent</code> 数组的内存。</li>
+</ul>
+</li>
+<li><strong>赋值操作符</strong> <code>operator = (const UFSets&amp; R)</code>：
+<ul>
+<li>为了支持并查集的深拷贝，当进行赋值操作时，首先删除当前 <code>parent</code> 数组的内存，然后复制传入对象的 <code>parent</code> 数组。</li>
+</ul>
+</li>
+<li><strong>查找操作</strong> <code>Find(int x)</code>：
+<ul>
+<li>查找元素 <code>x</code> 的根节点，并应用路径压缩。路径压缩的目的是减少树的深度，使得以后查找操作更高效。</li>
+</ul>
+</li>
+<li><strong>常规合并操作</strong> <code>Union(int Root1, int Root2)</code>：
+<ul>
+<li>将两个集合合并。这里直接将 <code>Root1</code> 的根指向 <code>Root2</code>，这是最基本的合并方法。</li>
+</ul>
+</li>
+<li><strong>按高度合并</strong> <code>UnionByHeight(int Root1, int Root2)</code>：
+<ul>
+<li>这是改进版的合并操作，<strong>按树的高度合并</strong>。较小高度的树挂到较大高度的树下面。如果两个树的高度相等，则将其中一棵树的高度增加。</li>
+</ul>
+</li>
+<li><strong><code>parent</code> 和 <code>height</code></strong>：
+<ul>
+<li><code>parent</code> 数组保存每个节点的父节点。</li>
+<li><code>height</code> 数组用于存储树的高度，用于优化合并操作。</li>
+</ul>
+</li>
+</ol>
+<p><strong>使用说明：</strong></p>
+<ul>
+<li><code>Find(x)</code> 返回节点 <code>x</code> 所属集合的根节点，并且进行路径压缩以优化后续查找。</li>
+<li><code>Union(Root1, Root2)</code> 将两个集合合并，但没有优化合并顺序，效率较低。</li>
+<li><code>UnionByHeight(Root1, Root2)</code> 使用按高度合并的策略，合并效率更高。</li>
+</ul>
+<hr>
+<h1 id="字典和散列表">字典和散列表
+</h1><h2 id="字典的概念">字典的概念
+</h2><p>字典是一些元素的集合，每个元素有一个称作关键码（key）的域，不同元素的关键码互不相同。</p>
+<p>在python中，字典的实现有<code>dict</code>数据结构</p>
+<p>在c++中，字典的实现有STL中的<code>map</code>和<code>unordered_map</code>，前者基于<strong>红黑树</strong>，后者基于<strong>哈希表</strong></p>
+<h3 id="字典的抽象数据类型">字典的抽象数据类型
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">DefaultSize</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Name</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Attribute</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dictionary</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//对象: 一组&lt;名字-属性&gt;对, 其中, 名字是唯一的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Dictionary</span> <span class="p">(</span><span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">DefaultSize</span><span class="p">);</span>      <span class="c1">//构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">bool</span> <span class="nf">Member</span> <span class="p">(</span><span class="n">Name</span> <span class="n">name</span><span class="p">);</span>	<span class="c1">//判name是否在字典中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">Attribute</span> <span class="o">*</span><span class="nf">Search</span> <span class="p">(</span><span class="n">Name</span> <span class="n">name</span><span class="p">);</span>           <span class="c1">//在字典中搜索关键码与name匹配的表项 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 	 <span class="kt">void</span> <span class="nf">Insert</span> <span class="p">(</span><span class="n">Name</span> <span class="n">name</span><span class="p">,</span> <span class="n">Attribute</span> <span class="n">attr</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">       <span class="c1">//若name在字典中, 则修改相应&lt;name, Attr&gt;对的attr项; 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	    <span class="c1">//否则插入&lt;name, Attr&gt;到字典中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">void</span> <span class="nf">Remove</span> <span class="p">(</span><span class="n">Name</span> <span class="n">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	   <span class="c1">//若name在字典中, 则在字典中删除相应的&lt;name, Attr&gt;对
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>字典可以保存在线性序列 (e1,e2,…) 中，其中ei 是字典中的元素，其关键码从左到右依次增大。为了适应这种描述方式，可以定义<strong>有序顺序表和有序链表</strong>。</p>
+</li>
+<li>
+<p>用有序链表来表示字典时，链表中的每个结点表示字典中的一个元素，<strong>各个结点按照结点中保存的数据值非递减链接</strong>，即e1≤e2 ≤ …。因此，在一个有序链表中寻找一个指定元素时，一般不用搜索整个链表。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282148013.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="f23c55ca62d965914baf3929ef174707"
+	
+	
+></p>
+<hr>
+<h2 id="跳表">跳表
+</h2><p>在一个有序顺序表中进行折半搜索，时间效率很高。</p>
+<p>但是在有序链表中进行搜索，只能顺序搜索，需要执行O(<em>n</em>)次关键码比较。</p>
+<p>如果在链表中部结点中增加一个指针，则比较次数可以减少到 <strong><em>n</em>/2+1</strong>。在搜索时，首先用要搜索元素与中间元素进行比较，<strong>如果要搜索元素小于中间元素，则仅需搜索链表的前半部分，否则只要在链表的后半部分进行比较即可</strong>。（二分思想）</p>
+<p><a class="link" href="https://blog.csdn.net/weixin_45480785/article/details/116293416?ops_request_misc=%7B%22request%5Fid%22%3A%220e66af6b352a4373482678a42127aeeb%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=0e66af6b352a4373482678a42127aeeb&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-116293416-null-null.142%5ev100%5epc_search_result_base3&amp;utm_term=%e8%b7%b3%e8%a1%a8&amp;spm=1018.2226.3001.4187"  target="_blank" rel="noopener"
+    >跳表（Skip List）-CSDN博客</a></p>
+<hr>
+<h2 id="散列表hash">散列表（Hash）
+</h2><p>散列表（Hash Table）是一种用于存储和快速查找数据的数据结构。它通过将<strong>数据映射到一个固定大小的数组中</strong>，从而能够在<strong>常数时间 O(1) 内</strong>进行插入、删除和查找操作。散列表的核心思想是<strong>使用一个哈希函数将数据（通常是键）转换为数组的索引（或位置）</strong>。</p>
+<h3 id="hash表的基本概念">Hash表的基本概念
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282200470.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="420bc3f6b0e606177da326ffd0a90d7a"
+	
+	
+></p>
+<hr>
+<h3 id="hash函数的构造方法">Hash函数的构造方法
+</h3><p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282201731.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5a4d3f4b95122b7774909abc54f13222"
+	
+	
+></p>
+<h3 id="除留余数法">除留余数法
+</h3><p><strong>除留余数法</strong>（Division method）是常见的散列函数构造方法之一，通常用于将输入的数据（如字符串、整数等）映射到散列表中的一个位置。其基本思想是通过对输入数据进行除法运算，然后取余数来确定数组的索引位置。</p>
+<h4 id="主要原理">主要原理：
+</h4><p>假设我们有一个散列表（数组）<code>H</code>，其大小为 <code>m</code>。给定一个输入的键 <code>k</code>，我们通过以下步骤来计算它在散列表中的位置（索引）：</p>
+<p>$Hash(k)=k\mod  m$</p>
+<p>这里，<code>k</code> 是输入的键，<code>m</code> 是散列表的大小，<code>mod</code> 表示取余操作。</p>
+<h4 id="构造方法">构造方法：
+</h4><ol>
+<li><strong>选择合适的模数 <code>m</code></strong>：
+<ul>
+<li>通常，<strong><code>m</code> 是一个大于或等于元素数量的素数</strong>，以减少碰撞的概率。素数常常被选择因为它们能够减少对某些特殊数据的碰撞。</li>
+</ul>
+</li>
+<li><strong>哈希函数</strong>：
+<ul>
+<li>计算哈希值时，<code>k mod m</code> 将会返回一个从 0 到 <code>m-1</code> 之间的数值，用作散列表的索引位置。</li>
+</ul>
+</li>
+</ol>
+<h4 id="示例">示例：
+</h4><p>假设我们有一个包含 10 个槽（位置）的散列表，即 <code>m = 10</code>，并且我们要将一些整数键 <code>k</code> 插入到这个散列表中。我们选择的哈希函数是：</p>
+<p>${Hash}(k) = k \mod 10$</p>
+<p>对于键 <code>k</code>，我们通过取余操作确定其在散列表中的索引位置：</p>
+<ul>
+<li>对于键 <code>k = 23</code>，我们计算 <code>23 mod 10 = 3</code>，因此将键 <code>23</code> 存储在位置 <code>3</code>。</li>
+<li>对于键 <code>k = 45</code>，我们计算 <code>45 mod 10 = 5</code>，因此将键 <code>45</code> 存储在位置 <code>5</code>。</li>
+<li>对于键 <code>k = 12</code>，我们计算 <code>12 mod 10 = 2</code>，因此将键 <code>12</code> 存储在位置 <code>2</code>。</li>
+<li>对于键 <code>k = 37</code>，我们计算 <code>37 mod 10 = 7</code>，因此将键 <code>37</code> 存储在位置 <code>7</code>。</li>
+</ul>
+<p><strong>优点：</strong></p>
+<ul>
+<li><strong>简单</strong>：除留余数法实现非常简单，计算效率高，适合用来构造散列函数。</li>
+<li><strong>计算快</strong>：计算哈希值时，只需要进行一个除法和取余操作，时间复杂度为 O(1)，非常快速。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li><strong>碰撞问题</strong>：如果选择的模数 <code>m</code> 不合适，或者输入数据的分布不均匀，可能会导致大量的哈希冲突（不同的键映射到相同的索引）。例如，如果 <code>m</code> 是 10，所有以 10 的倍数为结尾的数字（如 10、20、30）都会被映射到相同的位置。</li>
+<li><strong>选择 <code>m</code> 的困难</strong>：为避免碰撞，通常需要选择一个合适的模数 <code>m</code>。如果 <code>m</code> 选择不当，碰撞的概率会增大。</li>
+</ul>
+<hr>
+<h3 id="直接定址法">直接定址法
+</h3><p>直接定址法的核心思想是：<strong>通过键本身作为索引，直接存取数据</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282207033.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="4f50bfde8f81bdf79ee46097fe1f407e"
+	
+	
+></p>
+<p><strong>优点：</strong></p>
+<ol>
+<li><strong>简单且高效</strong>：由于不需要复杂的哈希函数，直接定址法可以在常数时间内进行查找、插入和删除操作（O(1)）。</li>
+<li><strong>快速查找</strong>：查找操作的时间复杂度为 O(1)，因为可以直接通过索引访问数组。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li><strong>空间浪费</strong>：如果键空间 UUU 很大，而实际存储的数据很少，直接定址法会浪费大量内存。例如，如果键空间是 0 到 1000，但是只存储了 10 个元素，那么数组大小是 1001，绝大部分位置会为空。</li>
+<li><strong>键空间必须固定</strong>：直接定址法要求键空间 UUU 是已知且固定的。对于动态变化或非常大的键空间，这种方法并不适用。</li>
+<li><strong>无法处理非整数键</strong>：直接定址法通常只能处理整数类型的键，对于其他类型（如字符串或浮点数）的键，使用起来较为困难，必须先进行映射。</li>
+</ol>
+<hr>
+<h3 id="数据分析法">数据分析法
+</h3><p>数字分析法通过直接操作数据的数字特性（如位运算）来构建哈希函数。这些方法通常用于处理较长的数字或字符数据，利用其各个数字或字符的位置、数值特征，逐步构建散列值。</p>
+<p>在这种方法中，数据的每一部分（例如一个数字或字符串的字符）都会影响最终的哈希值，而不是仅仅依赖于数据的整体值。这使得散列函数能更好地分散数据，从而减少碰撞。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282259972.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1385bf643a94a6362d713beeb488cd3a"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282300061.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="88710adb05c9fb4e4f0982a34daeac85"
+	
+	
+></p>
+<hr>
+<h3 id="冲突">冲突
+</h3><p>在<strong>哈希表</strong>（Hash Table）和其他基于哈希的数据结构中，<strong>冲突（Collision）是指不同的输入数据</strong>被哈希函数映射到<strong>相同的哈希值</strong>，即它们的散列值相同。</p>
+<p>哈希函数的目标是将数据映射到一个固定大小的数组中，称为<strong>哈希表</strong>。哈希函数通过输入的键生成一个哈希值，这个哈希值对应哈希表中的一个位置（桶）。然而，由于哈希表的大小有限，存在的输入数据种类（键）通常远远多于哈希表的桶的数量。这样就不可避免地会出现不同的键被映射到同一个桶的位置，从而发生<strong>哈希冲突</strong>。</p>
+<p>处理冲突一般有三种方法：<strong>闭散列法</strong>，<strong>开散列法</strong>，<strong>双Hash法</strong></p>
+<hr>
+<h3 id="闭散列法">闭散列法
+</h3><p><strong>闭散列法</strong>（Closed Hashing），也叫做<strong>开放定址法</strong>（Open Addressing），是一种解决哈希冲突的方法。在闭散列法中，当哈希函数计算的桶已经被占用时，<strong>不会</strong>使用链表或其他外部结构来存储数据，而是<strong>在哈希表内</strong>寻找其他空位来存储发生冲突的元素。所有的元素都存储在哈希表的内部，不使用额外的数据结构，因此称为**“闭散列”**。</p>
+<p>当发生哈希冲突时，闭散列法通过一种预定义的方式来查找哈希表中下一个可用的位置，直到找到一个空桶来存储数据。常见的查找策略包括：</p>
+<ul>
+<li><strong>线性探查</strong>（Linear Probing）</li>
+<li><strong>二次探查</strong>（Quadratic Probing）</li>
+<li><strong>双重散列</strong>（Double Hashing）</li>
+</ul>
+<hr>
+<h4 id="线性探查">线性探查
+</h4><p>在<strong>线性探查</strong>中，当哈希冲突发生时，会按照顺序线性地检查哈希表的下一个桶，直到找到一个空桶为止。例如，如果哈希表的某个位置已被占用，<strong>就检查该位置后面的第一个桶（即索引加1）</strong>，<strong>如果该位置也被占用，就继续检查下一个位置</strong>，依此类推，直到找到空位置。</p>
+<p><strong>例子：</strong></p>
+<p>假设哈希表大小为 10，元素分别为 12, 22, 32。</p>
+<ul>
+<li><code>H(12) = 12 % 10 = 2</code>（放入位置 2）</li>
+<li><code>H(22) = 22 % 10 = 2</code>（位置 2 已被占用，检查位置 3，位置 3 空，放入位置 3）</li>
+<li><code>H(32) = 32 % 10 = 2</code>（位置 2 和 3 都已占用，检查位置 4，位置 4 空，放入位置 4）</li>
+</ul>
+<p><strong>线性探查的优点：</strong></p>
+<ul>
+<li>简单易懂，易于实现。</li>
+<li>在负载因子较低时，性能较好。</li>
+</ul>
+<p><strong>线性探查的缺点：</strong></p>
+<ul>
+<li><strong>聚集问题</strong>（Clustering）：当多个元素被映射到相邻的位置时，它们可能会集中在一起，导致查找效率变低。</li>
+<li>当负载因子增大时，线性探查的性能会迅速下降，因为需要查找的空桶越来越少。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282305966.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="272051e852d41c983a08fd4ea8aea700"
+	
+	
+></p>
+<hr>
+<h4 id="二次探查">二次探查
+</h4><p><strong>二次探查</strong>是一种解决聚集问题的改进方法。在二次探查中，当发生冲突时，检查的位置不再是连续的，而是按照二次方的方式进行跳跃。具体地，如果位置 <code>h(key)</code> 已经被占用，则尝试位置 <code>h(key) + 1^2</code>，然后是 <code>h(key) + 2^2</code>，依此类推。</p>
+<p>简要而言，二次探查以<strong>平方数的间距</strong>进行跳跃</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282315912.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="492f4e0245d42d2ec4b3061c67146575"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282316247.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="c4ac6e9bc2e0ef1d4507ac7483cf5086"
+	
+	
+></p>
+<hr>
+<h4 id="伪随机探查再散列">伪随机探查再散列
+</h4><p>在伪随机探查中，当发生冲突时，我们不再简单地按顺序查找下一个位置（如线性探查），而是<strong>使用一个伪随机数生成器</strong>来生成下一个探查位置。这个生成器根据当前的探查位置生成一个新的位置，通常这个过程会使用一个简单的公式来生成探查步长。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282318901.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="015742547a1e55a7db41cc381f95e834"
+	
+	
+></p>
+<hr>
+<h3 id="开散列法">开散列法
+</h3><p><strong>开散列法</strong>（Open Hashing）是一种处理哈希冲突的解决方法，它与<strong>闭散列法</strong>（开放定址法）不同，开散列法并不会在哈希表内部继续探查空位置，而是<strong>使用外部的数据结构</strong>（通常是链表）来存储那些发生冲突的元素。换句话说，开散列法通过将冲突的元素链在一起，来避免冲突时的元素丢失。</p>
+<p><strong>基本思想</strong>：<strong>为每一个Hash地址建立一个链表</strong>，凡散列地址为 <strong>i</strong> 的记录都插入到第 <strong>i</strong> 个链表中。</p>
+<h4 id="开散列法的工作原理">开散列法的工作原理
+</h4><ol>
+<li><strong>计算哈希值</strong>：使用哈希函数将元素的键映射到哈希表中的一个位置。</li>
+<li><strong>检查桶</strong>：如果该位置为空（没有冲突），则直接将元素存入该位置。</li>
+<li><strong>处理冲突</strong>：如果该位置已经有元素（发生冲突），则在该位置的链表中插入新的元素。每个桶都有一个链表，所有映射到同一桶的元素将按照某种规则被插入到链表中。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282321695.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="8a5bd9876c46b17a3e9ce8356f33c8dc"
+	
+	
+></p>
+<h4 id="开散列法的代码实现">开散列法的代码实现
+</h4><p>使用链表存储相同冲突位置的元素</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">defaultSize</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">E</span><span class="p">,</span> <span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">ChainNode</span> <span class="p">{</span>			<span class="c1">//各桶中同义词子表的链结点定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">E</span> <span class="n">data</span><span class="p">;</span>	   	 	<span class="c1">//元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">ChainNode</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">link</span><span class="p">;</span>  		<span class="c1">//链指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">E</span><span class="p">,</span> <span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HashTable</span> <span class="p">{</span>	       			<span class="c1">//散列表(表头指针向量)定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="n">HashTable</span> <span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">defaultSize</span><span class="p">);</span>	<span class="c1">//散列表的构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="err">～</span><span class="n">HashTable</span><span class="p">()</span> <span class="p">{</span> <span class="k">delete</span> <span class="p">[]</span> <span class="n">ht</span><span class="p">;</span> <span class="p">}</span>	    	<span class="c1">//析构函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">bool</span> <span class="nf">Search</span> <span class="p">(</span><span class="n">K</span> <span class="n">k1</span><span class="p">,</span> <span class="n">E</span><span class="o">&amp;</span> <span class="n">e1</span><span class="p">);</span>		<span class="c1">//搜索
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">bool</span> <span class="nf">Insert</span> <span class="p">(</span><span class="n">K</span> <span class="n">k1</span><span class="p">,</span> <span class="n">E</span><span class="o">&amp;</span> <span class="n">e1</span><span class="p">);</span>		    	<span class="c1">//插入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="kt">bool</span> <span class="nf">Remove</span> <span class="p">(</span><span class="n">K</span> <span class="n">k1</span><span class="p">,</span> <span class="n">E</span><span class="o">&amp;</span> <span class="n">e1</span><span class="p">);</span>	    	<span class="c1">//删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">int</span> <span class="n">divisor</span><span class="p">;</span>		       		<span class="c1">//除数（必须是质数） 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">TableSize</span><span class="p">;</span>		       		<span class="c1">//容量(桶的个数)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">ChainNode</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;</span> <span class="o">**</span><span class="n">ht</span><span class="p">;</span>    		<span class="c1">//散列表定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ChainNode</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">FindPos</span> <span class="p">(</span><span class="n">K</span> <span class="n">k1</span><span class="p">);</span>	<span class="c1">//散列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong><code>FindPos</code> 函数</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">ChainNode</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;*</span> <span class="n">HashTable</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;::</span><span class="n">FindPos</span><span class="p">(</span><span class="n">K</span> <span class="n">k1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">k1</span> <span class="o">%</span> <span class="n">divisor</span><span class="p">;</span> <span class="c1">// 基于除留余数法计算哈希值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ChainNode</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;*</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">ht</span><span class="p">[</span><span class="n">index</span><span class="p">];</span> <span class="c1">// 获取桶的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">pos</span><span class="p">;</span> <span class="c1">// 返回该位置的链表头指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>FindPos</code> 函数是一个简单的哈希函数，使用了<strong>除留余数法</strong>（Modular Division Method）来计算元素 <code>k1</code> 的哈希值，具体做法是用 <code>k1</code> 对 <code>divisor</code>（通常是质数）取模。</li>
+<li>通过模运算可以得到哈希表中的桶索引（位置），然后返回该位置的链表头指针。</li>
+</ul>
+<p><strong>构造函数和析构函数</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HashTable</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">defaultSize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">divisor</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>                <span class="c1">// 设置除数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">TableSize</span> <span class="o">=</span> <span class="n">sz</span><span class="p">;</span>             <span class="c1">// 设置桶的数量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ht</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChainNode</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;*</span><span class="p">[</span><span class="n">sz</span><span class="p">];</span> <span class="c1">// 为桶分配内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>  <span class="c1">// 初始化每个桶为空链表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">~</span><span class="n">HashTable</span><span class="p">()</span> <span class="p">{</span> <span class="k">delete</span> <span class="p">[]</span> <span class="n">ht</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// 释放散列表内存
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>构造函数</strong>：初始化散列表时，构造函数接受一个除数 <code>d</code> 和一个桶的数量 <code>sz</code>。它为散列表的头指针数组 <code>ht</code> 分配内存，并将每个桶初始化为空链表（<code>nullptr</code>）。</p>
+<p><strong>析构函数</strong>：析构函数用于释放散列表的内存，使用 <code>delete [] ht</code> 来释放动态分配的内存。</p>
+<p><strong>搜索、插入和删除操作</strong>：</p>
+<ul>
+<li><strong>Search</strong>：该函数根据键 <code>k1</code> 查找散列表中是否存在对应的元素。如果找到了对应的元素，将其值赋给 <code>e1</code>，并返回 <code>true</code>，否则返回 <code>false</code>。</li>
+<li><strong>Insert</strong>：该函数通过哈希函数将元素插入到对应的桶（链表）。若该位置已有元素（发生冲突），则将新元素添加到链表的头部或尾部。</li>
+<li><strong>Remove</strong>：该函数根据键 <code>k1</code> 查找对应的元素，并将其从链表中删除。</li>
+</ul>
+<hr>
+<h3 id="装载因子α-nm">装载因子α= n/m
+</h3><p>散列方法预期的代价与<strong>装载因子α= n/m</strong>有关</p>
+<ul>
+<li><strong>α 较小时，散列表比较空</strong>，所插入的记录比较容易插入到其空闲的基地址。</li>
+<li>α 较大时，<strong>插入记录很可能要靠冲突解决策略</strong>来寻找探查序列中合适的另一个单元。</li>
+</ul>
+<p>随着α增加，越来越多的记录有可能放到离其基地址更远的地方。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282328542.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3a78d260eae2a757345c04e20a24b7dc"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fsj2009yx/picServer@main/202411282328493.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="72472c1ce50a727fdd81b27416c8c1ee"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili"],"lang":"zh-cn","locale":{"admin":"289137665@qq.com","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://waline-blog-test.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 fsj2009yx
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
