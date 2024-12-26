@@ -2,6 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://fsj2009yx.github.io/</loc>
+    <lastmod>2024-12-26T13:54:18+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://fsj2009yx.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://fsj2009yx.github.io/"
+                />
+  </url><url>
+    <loc>https://fsj2009yx.github.io/posts/post_20782666031092/</loc>
+    <lastmod>2024-12-26T13:54:18+08:00</lastmod>
+  </url><url>
+    <loc>https://fsj2009yx.github.io/posts/</loc>
+    <lastmod>2024-12-26T13:54:18+08:00</lastmod>
+  </url><url>
     <loc>https://fsj2009yx.github.io/categories/</loc>
     <lastmod>2024-12-26T08:47:16+08:00</lastmod>
     <xhtml:link
@@ -14,22 +33,6 @@
                 hreflang="zh-cn"
                 href="https://fsj2009yx.github.io/categories/"
                 />
-  </url><url>
-    <loc>https://fsj2009yx.github.io/</loc>
-    <lastmod>2024-12-26T08:47:16+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://fsj2009yx.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://fsj2009yx.github.io/"
-                />
-  </url><url>
-    <loc>https://fsj2009yx.github.io/posts/</loc>
-    <lastmod>2024-12-26T08:47:16+08:00</lastmod>
   </url><url>
     <loc>https://fsj2009yx.github.io/tags/</loc>
     <lastmod>2024-12-26T08:47:16+08:00</lastmod>
