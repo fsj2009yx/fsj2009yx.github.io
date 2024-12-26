@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="test">
+<title>数据结构计算知识点</title>
+
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_74491504423389/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="数据结构计算知识点">
+<meta property='og:description' content="test">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_74491504423389/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='数据结构' /><meta property='article:published_time' content='2024-12-26T08:47:16&#43;08:00'/><meta property='article:modified_time' content='2024-12-26T08:47:16&#43;08:00'/>
+<meta name="twitter:title" content="数据结构计算知识点">
+<meta name="twitter:description" content="test">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4MJKRHG3RF');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://fsj2009yx.github.io/en/" >English</option>
+                                
+                                    <option value="https://fsj2009yx.github.io/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#线性表">线性表</a></li>
+    <li><a href="#栈和队列">栈和队列</a></li>
+    <li><a href="#串">串</a></li>
+    <li><a href="#树">树</a></li>
+    <li><a href="#堆">堆</a></li>
+    <li><a href="#散列">散列</a></li>
+    <li><a href="#搜索结构">搜索结构</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/" >
+                基础课程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_74491504423389/">数据结构计算知识点</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            test
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 26, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="数据结构计算知识点">数据结构计算知识点
+</h1><h2 id="线性表">线性表
+</h2><ol>
+<li>顺序表插入,删除和查找时间复杂度均为O(n)</li>
+<li>头指针和头结点区分：不管带不带头结点，头指针都始终指向链表的第一个结点，而头结点是带头结点的链表中的第一个结点，结点内通常不存储信息</li>
+<li>循环单链表中没有指针域为NULL的结点，故循环单链表的判空条件为它是否等于头指针</li>
+<li>在<strong>循环双链表</strong>L中，某结点*p为尾结点时，p-&gt;next==L;当循环双链表为空表时，其头结点的prior域和next域都等于L</li>
+<li>静态链表借助数组来描述线性表的链式存储结构，结点也有数据域data和指针域next，这里的指针是结点的相对地址（数组下标）</li>
+</ol>
+<h2 id="栈和队列">栈和队列
+</h2><ol>
+<li>
+<p>n个不同元素进栈，出栈元素不同排列的个数为C(n:2n)/n+1，即卡特兰数</p>
+</li>
+<li>
+<p>采用顺序存储的栈称为顺序栈；栈空：<code>S.top==-1</code>;<code>栈满：S.top==MaxSize-1</code>；栈长：<code>S.top+1</code></p>
+</li>
+<li>
+<p>利用栈底位置相对不变的特性，可让两个顺序栈共享一个一维数组空间，将两个栈的栈底分别设置在共享空间的两端，两个栈顶向共享空间的中间延伸</p>
+</li>
+<li>
+<p>采用<strong>连式存储的栈称为链栈</strong>，链栈的优点是便于多个栈共享存储空间和提高其效率，且不存在<strong>栈满上溢</strong>的情况，通常采用单链表实现</p>
+</li>
+<li>
+<p>顺序栈基本实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">下面是顺序栈上常用的基本运算的实现</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1.</span><span class="err">初始化</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">void</span> <span class="n">InitStack</span><span class="p">(</span><span class="n">SqStack</span> <span class="o">&amp;</span><span class="n">S</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2.</span><span class="err">栈判空</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">StackEmpty</span><span class="p">(</span><span class="n">SqStack</span> <span class="n">S</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span>	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="err">进栈</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">Push</span><span class="p">(</span><span class="n">SqStack</span> <span class="o">&amp;</span><span class="n">S</span><span class="p">,</span><span class="n">ElemType</span> <span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">==</span><span class="n">MaxSize</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">S</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="o">++</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span><span class="err">出栈</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">Pop</span><span class="p">(</span><span class="n">SqStack</span> <span class="o">&amp;</span><span class="n">S</span><span class="p">,</span><span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">x</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">--</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">5.</span><span class="err">读栈顶元素</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">GetTop</span><span class="p">(</span><span class="n">SqStack</span> <span class="n">S</span><span class="p">,</span><span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">x</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>循环队列</strong>队空：<code>Q.front==Q.rear</code> ； 队满<code>(Q.rear+1）%MaxSize == Q.front</code>；</p>
+</li>
+<li>
+<p>循环队列基本实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">循环队列的操作</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1.</span><span class="err">初始化</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">void</span> <span class="n">InitQueue</span><span class="p">(</span><span class="n">SqQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">=</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2.</span><span class="err">判队空</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">isEmpty</span><span class="p">(</span><span class="n">SqQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">==</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="err">入队</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">EnQueue</span><span class="p">(</span><span class="n">SqQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">,</span><span class="n">ElemType</span> <span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">((</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">MaxSize</span><span class="o">==</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">=</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">MaxSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span><span class="err">出队</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">DeQueue</span><span class="p">(</span><span class="n">SqQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">,</span><span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">==</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">)</span>	<span class="k">return</span> <span class="n">fasle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">x</span><span class="o">=</span><span class="n">Q</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">=</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">MaxSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>队列的链式表示称为链队列，它实际上是一个同时带有队头指针和队尾指针的单链表。当<code>Q.front== NULL且Q.rear==NULL</code>时，链表队列为空</p>
+</li>
+<li>
+<p>通常将链式队列设计成一个带头结点的单链表</p>
+</li>
+<li>
+<p>用链式存储方式的队列进行删除操作时头尾指针可能都要修改</p>
+</li>
+<li>
+<p>链式队列基本实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="err">链式队列的基本操作</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1.</span><span class="err">初始化</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">void</span> <span class="n">InitQueue</span><span class="p">(</span><span class="n">LinkQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">=</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">=</span><span class="p">(</span><span class="n">LinkNode</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LinkNode</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="err">，判队空</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">IsEmpty</span><span class="p">(</span><span class="n">LinkQueue</span> <span class="n">Q</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">==</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="p">)</span>	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="err">入队</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">void</span> <span class="n">EnQueue</span><span class="p">(</span><span class="n">LinkQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">,</span><span class="n">ElemType</span> <span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">LinkNode</span> <span class="o">*</span><span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="n">LinkNode</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">LinkNode</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span><span class="o">=</span><span class="n">x</span><span class="p">;</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">s</span><span class="p">;</span> <span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">=</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="err">，出队</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">bool</span> <span class="n">DeQueue</span><span class="p">(</span><span class="n">LinkQueue</span> <span class="o">&amp;</span><span class="n">Q</span><span class="p">,</span><span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">==</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="p">)</span>	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">LinkNode</span> <span class="o">*</span><span class="n">p</span><span class="o">=</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">==</span><span class="n">p</span><span class="p">)</span>	<span class="n">Q</span><span class="p">.</span><span class="n">rear</span><span class="o">=</span><span class="n">Q</span><span class="p">.</span><span class="n">front</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span><span class="err">串</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>前缀、中缀和后缀表达式的转换</strong></p>
+</li>
+</ol>
+<h2 id="串">串
+</h2><p>重点看<strong>朴素匹配</strong>和<strong>KMP</strong></p>
+<h2 id="树">树
+</h2><ol>
+<li>树是n个结点的有限集，当n=0时，称为空树。</li>
+<li><strong>树的结点数等于<code>所有结点度数和加1</code></strong>（<strong>任意树的总结点数==总边数+1</strong>）</li>
+<li><strong>度为m的树中第i层</strong>上<strong>至多</strong>有<code>pow(m,i-1)</code>个结点</li>
+<li><strong>高度为h的m叉树</strong>至多有<code>pow(m,h)-1/(m-1)</code>个结点</li>
+<li>一颗<strong>高度为h</strong>且含有pow(2,h)-1个结点的二叉树为<strong>满二叉树</strong>，每层结点为<code>pow(2,h-1)</code></li>
+<li>完全二叉树叶子结点只可能出现在最大的两层上；若有度为1的结点只可能有一个且在左孩子上</li>
+<li><strong>非空二叉树上的叶子结点数等于<code>度为2的结点数加1</code>，即<code>n0=n2+1</code></strong></li>
+<li><strong>具有n个结点的完全二叉树的高度为<code>log(n+1)或logn+1</code></strong></li>
+<li>二叉树的遍历分为先序、中序、后序遍历
+<ul>
+<li>前序：根-&gt;左-&gt;右</li>
+<li>中序：左-&gt;根-&gt;右</li>
+<li>后序：左-&gt;右-&gt;根</li>
+</ul>
+</li>
+<li><strong>计算具有n个结点的不同二叉树的棵数：卡特兰数（Catalan number）</strong></li>
+<li><strong>哈夫曼树的结构和建立</strong></li>
+</ol>
+<h2 id="堆">堆
+</h2><ol>
+<li><strong>小根堆</strong>：每个节点的值都<strong>小于等于其子节点</strong>的值，根节点是最小值</li>
+<li><strong>大根堆</strong>：每个节点的值都<strong>大于等于其子节点</strong>的值，根节点是最大值</li>
+<li>堆中某个节点的值总是不大于或不小于其父节点的值（保持大小根堆）</li>
+<li>堆总是一棵<strong>完全二叉树</strong></li>
+<li><strong>向下调整算法和向上调整算法</strong></li>
+<li><u><strong>建堆的核心是向下调整</strong>，<strong>向上调整用于插入操作</strong></u></li>
+<li><strong>top K问题</strong>：
+比如找<strong>前k个最大的元素</strong>，就要建立小根堆。<strong>先把K个元素入堆</strong>，建立小根堆，然后<strong>遍历数组</strong>，如果<strong>遍历中的元素比堆顶大就将堆顶元素弹出然后将元素插入进去（不要将所有元素都放入堆中再排序）</strong></li>
+</ol>
+<h2 id="散列">散列
+</h2><ol>
+<li>散列的平均搜索长度$ASL_{succ}$和$ASL_{unsucc}$的计算</li>
+<li>三种解决冲突的方法：开散列，闭散列，伪随机</li>
+<li>装载因子$\alpha $</li>
+</ol>
+<h2 id="搜索结构">搜索结构
+</h2><ol>
+<li>
+<p>BST、AVL旋转、m路搜索树和B-树</p>
+</li>
+<li>
+<p>m路搜索树中，<strong>每个结点最多m棵子树，m-1个关键码</strong>
+<strong>每个结点最少0棵子树，1个关键码</strong></p>
+</li>
+<li>
+<p>由于高度为h的m叉搜索树中元素的个数在h到$m^h−1$之间，所以一棵n元素的m叉搜索树的高度在$log_m(n+1)$到$n$之间。</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/post_3010209578201/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">堆</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_4562331710674/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">图论</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_251061473025222/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">排序算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_114514/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">搜索结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/post_117111058330603/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">子群</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili"],"lang":"zh-cn","locale":{"admin":"289137665@qq.com","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://waline-blog-test.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 fsj2009yx
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
