@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Vue3项目实战">
-<meta name="keywords" content="vue3"><title>Vue3项目基础</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="汇编程序设计前置">
+<meta name="keywords" content="汇编"><title>寄存器和数据存储</title>
 
-<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_164743043518379/'>
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_206031500911627/'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Vue3项目基础">
-<meta property='og:description' content="Vue3项目实战">
-<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_164743043518379/'>
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="寄存器和数据存储">
+<meta property='og:description' content="汇编程序设计前置">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_206031500911627/'>
 <meta property='og:site_name' content='fsj2009yx'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Vue' /><meta property='article:tag' content='前端' /><meta property='article:published_time' content='2024-12-16T12:37:57&#43;08:00'/><meta property='article:modified_time' content='2024-12-16T12:37:57&#43;08:00'/>
-<meta name="twitter:title" content="Vue3项目基础">
-<meta name="twitter:description" content="Vue3项目实战">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='汇编' /><meta property='article:published_time' content='2025-01-22T16:55:39&#43;08:00'/><meta property='article:modified_time' content='2025-01-22T16:55:39&#43;08:00'/>
+<meta name="twitter:title" content="寄存器和数据存储">
+<meta name="twitter:description" content="汇编程序设计前置">
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
       <script>
         var doNotTrack = false;
@@ -286,19 +286,26 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#axios封装和引入">axios封装和引入</a>
+    <li><a href="#寄存器">寄存器</a></li>
+    <li><a href="#8086cpu-的寄存器">8086CPU 的寄存器</a>
       <ol>
-        <li><a href="#拦截器">拦截器</a>
-          <ol>
-            <li><a href="#请求拦截器的作用">请求拦截器的作用</a></li>
-            <li><a href="#响应拦截器的作用">响应拦截器的作用</a></li>
-            <li><a href="#总结">总结</a></li>
-          </ol>
-        </li>
+        <li><a href="#通用寄存器">通用寄存器</a></li>
+        <li><a href="#8086-中字的存储">8086 中“字”的存储</a></li>
+        <li><a href="#csip-寄存器">CS，IP 寄存器</a></li>
       </ol>
     </li>
-    <li><a href="#api接口封装">API接口封装</a></li>
-    <li><a href="#阿里图标库的引入">阿里图标库的引入</a></li>
+    <li><a href="#用-ds-和-address-实现字的传送">用 DS 和 [address] 实现字的传送</a>
+      <ol>
+        <li><a href="#案例">案例</a></li>
+        <li><a href="#ds-和数据段">DS 和数据段</a></li>
+      </ol>
+    </li>
+    <li><a href="#栈和栈操作">栈和栈操作</a>
+      <ol>
+        <li><a href="#ss-和-sp-的使用">ss 和 sp 的使用</a></li>
+      </ol>
+    </li>
+    <li><a href="#各种段的总结">各种“段”的总结</a></li>
   </ol>
 </nav>
         </div>
@@ -326,12 +333,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/post_164743043518379/">Vue3项目基础</a>
+            <a href="/posts/post_206031500911627/">寄存器和数据存储</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            Vue3项目实战
+            汇编程序设计前置
         </h3>
         
     </div>
@@ -352,7 +359,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Dec 16, 2024</time>
+                <time class="article-time--published">Jan 22, 2025</time>
             </div>
         
 
@@ -382,9 +389,182 @@
     <section class="article-content">
     
     
-    <h1 id="vue3项目基础">Vue3项目基础
-</h1><h2 id="axios封装和引入">axios封装和引入
-</h2><p>首先定义一个<code>http.js</code>文件，作为对<code>axios</code>的基本配置和封装：</p>
+    <h1 id="寄存器和数据存储">寄存器和数据存储
+</h1><h2 id="寄存器">寄存器
+</h2><p>首先认识 CPU 的构造</p>
+<p><img src="https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501172252354.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>CPU 从逻辑上可以分为 3 个模块，分别是控制单元、运算单元和存储单元，这三部分由 CPU 内部总线连接起来。</p>
+<p>而 <strong>寄存器</strong> 是一块速度非常快的计算机内存，下面是现代计算机中具有存储功能的部件比对，可以看到，<strong>寄存器的速度是最快的，同时也是造价最高昂的</strong></p>
+<p>寄存器是 <strong>CPU 内部的信息存储单元</strong>。它们是 CPU 中的一种高速存储器，用于临时存储指令和数据。寄存器的访问速度远快于外部内存（如 RAM），因此它们是实现高效指令处理的关键部分。</p>
+<hr>
+<h2 id="8086cpu-的寄存器">8086CPU 的寄存器
+</h2><p>8086 共有 <strong>14</strong> 个寄存器，它们分别是:</p>
+<ul>
+<li>通用寄存器: AX, BX, CX, DX</li>
+<li>变址寄存器: SI、DI</li>
+<li>指针寄存器: SP、BP</li>
+<li>指令指针寄存器: IP</li>
+<li>段寄存器：CS、SS、DS、ES</li>
+<li>标志寄存器：PSW</li>
+</ul>
+<p>对寄存器的掌握是 <strong>汇编语言的基础</strong></p>
+<h3 id="通用寄存器">通用寄存器
+</h3><p>以 AX 为例：</p>
+<p>AX 寄存器的位数是 16 位，每一位可以保存一个二进制位</p>
+<p>如图：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501181317556.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bfbd55e5686146ff58ceaec4106d584c"
+	
+	
+></p>
+<p>这个存储器的最大值为 $2^{16}-1$，用十六进制表示为 <strong>FFFFH</strong> (H 是 16 进制标志位)</p>
+<p>如果要存储一个十进制数，先将它转为二进制，然后让寄存器中对应的位由 0 变为 1 即可</p>
+<p> </p>
+<p>在 8086 的上一代 CPU 中，寄存器只有 8 位。为了保证程序的兼容性，可以将 16 位通用寄存器分为两个 8 位寄存器使用，比如 <strong>将 16 位寄存器 AX 分为 AH 和 AL，将 BX 分为 BH 和 BL</strong></p>
+<h3 id="8086-中字的存储">8086 中“字”的存储
+</h3><p>8086 是 16 位 CPU，所以 8086 的 <strong>字长</strong> 为 <strong>16bit</strong></p>
+<p>一个字可以存在一个 16 位的寄存器中：</p>
+<ul>
+<li>这个字的 <strong>高位字节</strong> 存在寄存器的 <strong>高 8 位寄存器</strong></li>
+<li>这个字的 <strong>低位字节</strong> 存在寄存器的 <strong>低 8 位寄存器</strong></li>
+</ul>
+<p>例如通用寄存器 AX，高 8 位寄存器为 AH(High Byte)，低 8 位寄存器为 AL(Low Byte)</p>
+<ul>
+<li>如果你只需要操作整个寄存器，即 AX，则不需要考虑高低字节的存储</li>
+<li>如果要精确操作 AH 和 AL，则需要考虑字节的存储问题</li>
+</ul>
+<p>例如， <code>AX = 0x3412</code>，那么高位 <code>AH = 0x34</code>，低位 <code>AL = 0x12</code></p>
+<h3 id="csip-寄存器">CS，IP 寄存器
+</h3><p>CS 和 IP 是 8086CPU 中两个最关键的寄存器，它们指示了 <strong>CPU 当前要读取的指令的地址</strong></p>
+<p>其中，<strong>CS 是代码段寄存器</strong>，<strong>IP 是指令指针寄存器</strong></p>
+<p>在 8086 机中，设 CS 的内容为 M，IP 内容为 N，8086CPU 从内存的<strong>M *16+N</strong>单元开始，读取指令并执行</p>
+<p>也就是说，8086 机 <strong>在任意时刻</strong>，<strong>CPU 将 CS: IP 指向的内容当作指令执行</strong></p>
+<hr>
+<h2 id="用-ds-和-address-实现字的传送">用 DS 和 [address] 实现字的传送
+</h2><p>CPU 要读取一个内存单元的时候，必须先给出内存单元的地址</p>
+<p>为了操作内存，我们使用 <code>段存储器DS</code> 存放 <code>数据的段地址</code></p>
+<blockquote>
+<p>CS, IP 是存储 <strong>指令</strong> 的地址，而 DS 存放的是 <strong>数据</strong> 的段的地址</p>
+</blockquote>
+<p>示例汇编代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov bx,1000H
+</span></span><span class="line"><span class="cl">mov ds,bx
+</span></span><span class="line"><span class="cl">mob al,[0]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段代码的作用是：</p>
+<ol>
+<li>设置数据段基址为 <code>1000H</code>。</li>
+<li>从数据段内偏移地址 <code>0</code>（物理地址 <code>10000H</code>）处读取一个字节的数据到 <strong>AL</strong>。</li>
+</ol>
+<blockquote>
+<p>注意：在 x86 汇编中，直接使用 <code>MOV DS, 1000H</code> 是 <strong>不合法的</strong>，因为在保护模式或实模式下，<code>DS</code>（数据段寄存器）这样的段寄存器不能直接赋值一个立即数。<strong>这是因为段寄存器必须通过寄存器间接加载</strong>。</p>
+</blockquote>
+<p>8086CPU 可以一次性传送一个 <strong>字</strong>，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov bx,1000H
+</span></span><span class="line"><span class="cl">mov ds,bx
+</span></span><span class="line"><span class="cl">mov ax,[0] ;1000:0处的字型数据送入ax
+</span></span><span class="line"><span class="cl">mov [0],cx ;cx中的16位数据送到1000:0处
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="案例">案例
+</h3><p><img src="https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501212351281.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="a139029d32616130d4653bc49b40f3f3"
+	
+	
+></p>
+<blockquote>
+<p>注意：一个字(16 位)是两个字节(8 位)，一个存储单元只存储一个字节</p>
+<p>所以 <strong>一个字占用了两个存储单元</strong></p>
+<p>字的存储按照 <strong>小端序</strong>，即 <strong>高位地址存高位，低位地址存低位</strong></p>
+</blockquote>
+<h3 id="ds-和数据段">DS 和数据段
+</h3><p>8086 机可以根据需要将一组内存单元定义为一个段</p>
+<ul>
+<li>物理地址 = 段地址 ×16+偏移地址</li>
+<li>将一组长度位 <strong>N(N &lt;= 64K)</strong>、<strong>地址连续、起始地址为 16 的倍数</strong> 的内存单元当作专门存储数据的内存空间，从而定义了一个数据段</li>
+</ul>
+<hr>
+<h2 id="栈和栈操作">栈和栈操作
+</h2><p>和数据结构中的栈的性质相同</p>
+<p>我们将 10000H~1000FH 内存当作栈来使用，代码如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov ax,0123H
+</span></span><span class="line"><span class="cl">push ax
+</span></span><span class="line"><span class="cl">mov bx,2266H
+</span></span><span class="line"><span class="cl">push bx
+</span></span><span class="line"><span class="cl">mov cx,1122H
+</span></span><span class="line"><span class="cl">push cx
+</span></span><span class="line"><span class="cl">pop ax
+</span></span><span class="line"><span class="cl">pop bx
+</span></span><span class="line"><span class="cl">pop cx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行代码，内存结构如下：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501221432095.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="eb3af4cd1f923c1242ef5d85cf0c09d6"
+	
+	
+></p>
+<p>8086 寄存器中有两个与栈相关的寄存器：</p>
+<ul>
+<li>栈顶寄存器 SS    -存放 <strong>栈顶的段地址</strong></li>
+<li>栈顶指针寄存器 SP -存放 <strong>栈顶的偏移地址</strong></li>
+</ul>
+<p>SS 和 SP 用于确定被用作栈的内存的栈顶地址</p>
+<h3 id="ss-和-sp-的使用">ss 和 sp 的使用
+</h3><p>示例代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -399,288 +579,47 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">//http.js
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s2">&#34;axios&#34;</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov ax,1000H
+</span></span><span class="line"><span class="cl">mov ss,ax
+</span></span><span class="line"><span class="cl">mov sp,0010H
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 创建axios实例
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">httpInstance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// 后端由黑马提供
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">baseURL</span><span class="o">:</span> <span class="s2">&#34;http://pcapi-xiaotuxian-front-devtest.itheima.net&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">mov ax,001AH
+</span></span><span class="line"><span class="cl">mov bx,001BH
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/*
-</span></span></span><span class="line"><span class="cl"><span class="cm">请求和响应拦截器可以用来在请求发送到服务器之前或响应返回给客户端之前，对请求和响应进行统一的预处理操作
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">push ax
+</span></span><span class="line"><span class="cl">push bx
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// axios请求拦截器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">httpInstance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">e</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// axios响应式拦截器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">httpInstance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">httpInstance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">pop ax
+</span></span><span class="line"><span class="cl">pop bx
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>该js文件通过<code>export</code>暴露出实例<code>httpInstance</code>，以后对不同路由的接口封装可以引用这个实例封装API函数接口</p>
-<h3 id="拦截器">拦截器
-</h3><p>这里定义了axios的请求拦截器和响应拦截器</p>
-<p>在使用 <code>axios</code> 时，请求和响应拦截器可以用来在请求发送到服务器之前或响应返回给客户端之前，对请求和响应进行统一的预处理操作。以下是它们的主要作用：</p>
-<h4 id="请求拦截器的作用">请求拦截器的作用
-</h4><ol>
-<li>
-<p><strong>统一处理请求配置</strong>
-在每个请求发送前修改请求头、请求参数等，例如添加认证 token、设置全局的 <code>Content-Type</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 在发送请求前做些什么
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">Authorization</span> <span class="o">=</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 对请求错误做些什么
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><strong>添加全局 loading 动画</strong>
-可以在请求发送前开启加载动画，确保用户知道有操作正在进行。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">showLoading</span><span class="p">();</span> <span class="c1">// 开启loading动画
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><strong>参数校验和规范化</strong>
-在请求发送前对参数进行校验，或者将其格式化为服务器所需的结构。</p>
-</li>
+</div><p>代码分析：</p>
+<ol>
+<li>初始化栈段和栈指针，设置栈的起始位置。栈段基址是 <code>1000H</code>，栈指针为 <code>0010H</code>。</li>
+<li>将两个值（26 和 27）分别存入 AX 和 BX 寄存器，准备后续操作(小端序)</li>
+<li>将寄存器 ax, bx 中的值压入栈</li>
+<li>将栈顶的数据分别弹回到寄存器 ax 和 bx</li>
 </ol>
-<h4 id="响应拦截器的作用">响应拦截器的作用
-</h4><ol>
-<li>
-<p><strong>统一处理响应数据</strong>
-对所有响应进行统一处理，例如只返回业务需要的部分数据，剥离掉不必要的信息。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 只返回实际业务数据部分
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><strong>全局错误处理</strong>
-拦截服务器返回的错误（如 HTTP 状态码 4xx 或 5xx），进行统一处理，如弹出错误提示、跳转到登录页等。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">401</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">redirectToLogin</span><span class="p">();</span> <span class="c1">// 未授权，跳转登录
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><strong>自动刷新 Token</strong>
-如果服务器返回 Token 过期错误，可以在响应拦截器中拦截此错误，发起刷新 Token 的请求后重新尝试原来的请求。</p>
-</li>
-<li>
-<p><strong>关闭全局 loading 动画</strong>
-请求完成后关闭 loading 动画。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">hideLoading</span><span class="p">();</span> <span class="c1">// 关闭loading动画
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">hideLoading</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h4 id="总结">总结
-</h4><ul>
-<li><strong>请求拦截器</strong>：主要用于在请求发出前进行 token 注入、参数校验、设置全局配置等。</li>
-<li><strong>响应拦截器</strong>：主要用于统一处理响应数据、错误处理、业务逻辑预处理等。</li>
-</ul>
-<p>这种机制极大地方便了全局管理 HTTP 请求和响应逻辑。</p>
+<p>该代码实现了一个 <strong>寄存器 ax 和 bx 的数据交换</strong>，意义等同于 c 语言中交换变量值的操作</p>
+<blockquote>
+<p>在汇编语言中，8086CPU <strong>不会保证对栈的操作不会越界</strong>，因为 8086CPU 只知道栈顶的位置，不知道程序安排的栈空间是多大</p>
+<p>栈顶超界的问题需要我们自己操心，要根据可能用到的最大栈空间，安排栈的大小</p>
+</blockquote>
 <hr>
-<h2 id="api接口封装">API接口封装
-</h2><p>下面封装一个<code>testAPI</code>接口作为测试，代码如下：</p>
-<p><code>testAPI.js</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">httpInstance</span> <span class="nx">from</span> <span class="s2">&#34;@/utils/http.js&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">testAPI</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">httpInstance</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">url</span><span class="o">:</span> <span class="s2">&#34;home/category/head&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>通过<code>export</code>关键字，在<code>testAPI.js</code>中暴露出接口函数<code>testAPI()</code></p>
-<p> </p>
-<p><strong>API调用：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">testAPI</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@/apis/testAPI.js&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">testAPI</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>通过<code>import</code>函数对象<code>testAPI</code>，在需要调用的组件中进行接口调用</p>
-<hr>
-<h2 id="阿里图标库的引入">阿里图标库的引入
-</h2><p>有<strong>本地引入</strong>和<strong>在线引入</strong>两种</p>
-
-
-
-
-
-
-    
-
-
-<div class="video-wrapper">
-    <iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;high_quality=1&amp;page=30&bvid=BV1Ac411K7EQ"
-            scrolling="no"
-            frameborder="no"
-            framespacing="0"
-            allowfullscreen="true"
-    >
-    </iframe>
-</div>
-
+<h2 id="各种段的总结">各种“段”的总结
+</h2><p><strong>数据段，代码段和栈段：</strong></p>
+<p><img src="https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501221651743.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="82d411f69b07639f994a99c66c5c552c"
+	
+	
+></p>
 
 </section>
 
@@ -689,9 +628,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/vue/">Vue</a>
-        
-            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
         
     </section>
 
@@ -750,6 +687,19 @@
             
                 
 <article class="">
+    <a href="/posts/post_164743043518379/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue3项目基础</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/post_79402095622824/">
         
         
@@ -769,19 +719,6 @@
 
         <div class="article-details">
             <h2 class="article-title">Vue组件基础及特性</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/post_206031500911627/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">寄存器和数据存储</h2>
         </div>
     </a>
 </article>

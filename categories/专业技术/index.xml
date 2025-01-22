@@ -7,7 +7,246 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>fsj2009yx</copyright>
-        <lastBuildDate>Mon, 16 Dec 2024 12:37:57 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 22 Jan 2025 16:55:39 +0800</lastBuildDate><atom:link href="https://fsj2009yx.github.io/categories/%E4%B8%93%E4%B8%9A%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>寄存器和数据存储</title>
+        <link>https://fsj2009yx.github.io/posts/post_206031500911627/</link>
+        <pubDate>Wed, 22 Jan 2025 16:55:39 +0800</pubDate>
+        
+        <guid>https://fsj2009yx.github.io/posts/post_206031500911627/</guid>
+        <description>&lt;h1 id=&#34;寄存器和数据存储&#34;&gt;寄存器和数据存储
+&lt;/h1&gt;&lt;h2 id=&#34;寄存器&#34;&gt;寄存器
+&lt;/h2&gt;&lt;p&gt;首先认识 CPU 的构造&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501172252354.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;CPU 从逻辑上可以分为 3 个模块，分别是控制单元、运算单元和存储单元，这三部分由 CPU 内部总线连接起来。&lt;/p&gt;
+&lt;p&gt;而 &lt;strong&gt;寄存器&lt;/strong&gt; 是一块速度非常快的计算机内存，下面是现代计算机中具有存储功能的部件比对，可以看到，&lt;strong&gt;寄存器的速度是最快的，同时也是造价最高昂的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;寄存器是 &lt;strong&gt;CPU 内部的信息存储单元&lt;/strong&gt;。它们是 CPU 中的一种高速存储器，用于临时存储指令和数据。寄存器的访问速度远快于外部内存（如 RAM），因此它们是实现高效指令处理的关键部分。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;8086cpu-的寄存器&#34;&gt;8086CPU 的寄存器
+&lt;/h2&gt;&lt;p&gt;8086 共有 &lt;strong&gt;14&lt;/strong&gt; 个寄存器，它们分别是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通用寄存器: AX, BX, CX, DX&lt;/li&gt;
+&lt;li&gt;变址寄存器: SI、DI&lt;/li&gt;
+&lt;li&gt;指针寄存器: SP、BP&lt;/li&gt;
+&lt;li&gt;指令指针寄存器: IP&lt;/li&gt;
+&lt;li&gt;段寄存器：CS、SS、DS、ES&lt;/li&gt;
+&lt;li&gt;标志寄存器：PSW&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对寄存器的掌握是 &lt;strong&gt;汇编语言的基础&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;通用寄存器&#34;&gt;通用寄存器
+&lt;/h3&gt;&lt;p&gt;以 AX 为例：&lt;/p&gt;
+&lt;p&gt;AX 寄存器的位数是 16 位，每一位可以保存一个二进制位&lt;/p&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501181317556.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bfbd55e5686146ff58ceaec4106d584c&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这个存储器的最大值为 $2^{16}-1$，用十六进制表示为 &lt;strong&gt;FFFFH&lt;/strong&gt; (H 是 16 进制标志位)&lt;/p&gt;
+&lt;p&gt;如果要存储一个十进制数，先将它转为二进制，然后让寄存器中对应的位由 0 变为 1 即可&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;在 8086 的上一代 CPU 中，寄存器只有 8 位。为了保证程序的兼容性，可以将 16 位通用寄存器分为两个 8 位寄存器使用，比如 &lt;strong&gt;将 16 位寄存器 AX 分为 AH 和 AL，将 BX 分为 BH 和 BL&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;8086-中字的存储&#34;&gt;8086 中“字”的存储
+&lt;/h3&gt;&lt;p&gt;8086 是 16 位 CPU，所以 8086 的 &lt;strong&gt;字长&lt;/strong&gt; 为 &lt;strong&gt;16bit&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个字可以存在一个 16 位的寄存器中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这个字的 &lt;strong&gt;高位字节&lt;/strong&gt; 存在寄存器的 &lt;strong&gt;高 8 位寄存器&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;这个字的 &lt;strong&gt;低位字节&lt;/strong&gt; 存在寄存器的 &lt;strong&gt;低 8 位寄存器&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如通用寄存器 AX，高 8 位寄存器为 AH(High Byte)，低 8 位寄存器为 AL(Low Byte)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你只需要操作整个寄存器，即 AX，则不需要考虑高低字节的存储&lt;/li&gt;
+&lt;li&gt;如果要精确操作 AH 和 AL，则需要考虑字节的存储问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如， &lt;code&gt;AX = 0x3412&lt;/code&gt;，那么高位 &lt;code&gt;AH = 0x34&lt;/code&gt;，低位 &lt;code&gt;AL = 0x12&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;csip-寄存器&#34;&gt;CS，IP 寄存器
+&lt;/h3&gt;&lt;p&gt;CS 和 IP 是 8086CPU 中两个最关键的寄存器，它们指示了 &lt;strong&gt;CPU 当前要读取的指令的地址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;其中，&lt;strong&gt;CS 是代码段寄存器&lt;/strong&gt;，&lt;strong&gt;IP 是指令指针寄存器&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 8086 机中，设 CS 的内容为 M，IP 内容为 N，8086CPU 从内存的&lt;strong&gt;M *16+N&lt;/strong&gt;单元开始，读取指令并执行&lt;/p&gt;
+&lt;p&gt;也就是说，8086 机 &lt;strong&gt;在任意时刻&lt;/strong&gt;，&lt;strong&gt;CPU 将 CS: IP 指向的内容当作指令执行&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;用-ds-和-address-实现字的传送&#34;&gt;用 DS 和 [address] 实现字的传送
+&lt;/h2&gt;&lt;p&gt;CPU 要读取一个内存单元的时候，必须先给出内存单元的地址&lt;/p&gt;
+&lt;p&gt;为了操作内存，我们使用 &lt;code&gt;段存储器DS&lt;/code&gt; 存放 &lt;code&gt;数据的段地址&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CS, IP 是存储 &lt;strong&gt;指令&lt;/strong&gt; 的地址，而 DS 存放的是 &lt;strong&gt;数据&lt;/strong&gt; 的段的地址&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;示例汇编代码如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov bx,1000H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ds,bx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mob al,[0]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这段代码的作用是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设置数据段基址为 &lt;code&gt;1000H&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;从数据段内偏移地址 &lt;code&gt;0&lt;/code&gt;（物理地址 &lt;code&gt;10000H&lt;/code&gt;）处读取一个字节的数据到 &lt;strong&gt;AL&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：在 x86 汇编中，直接使用 &lt;code&gt;MOV DS, 1000H&lt;/code&gt; 是 &lt;strong&gt;不合法的&lt;/strong&gt;，因为在保护模式或实模式下，&lt;code&gt;DS&lt;/code&gt;（数据段寄存器）这样的段寄存器不能直接赋值一个立即数。&lt;strong&gt;这是因为段寄存器必须通过寄存器间接加载&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;8086CPU 可以一次性传送一个 &lt;strong&gt;字&lt;/strong&gt;，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov bx,1000H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ds,bx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ax,[0] ;1000:0处的字型数据送入ax
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov [0],cx ;cx中的16位数据送到1000:0处
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;案例&#34;&gt;案例
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501212351281.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;a139029d32616130d4653bc49b40f3f3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：一个字(16 位)是两个字节(8 位)，一个存储单元只存储一个字节&lt;/p&gt;
+&lt;p&gt;所以 &lt;strong&gt;一个字占用了两个存储单元&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;字的存储按照 &lt;strong&gt;小端序&lt;/strong&gt;，即 &lt;strong&gt;高位地址存高位，低位地址存低位&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;ds-和数据段&#34;&gt;DS 和数据段
+&lt;/h3&gt;&lt;p&gt;8086 机可以根据需要将一组内存单元定义为一个段&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;物理地址 = 段地址 ×16+偏移地址&lt;/li&gt;
+&lt;li&gt;将一组长度位 &lt;strong&gt;N(N &amp;lt;= 64K)&lt;/strong&gt;、&lt;strong&gt;地址连续、起始地址为 16 的倍数&lt;/strong&gt; 的内存单元当作专门存储数据的内存空间，从而定义了一个数据段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;栈和栈操作&#34;&gt;栈和栈操作
+&lt;/h2&gt;&lt;p&gt;和数据结构中的栈的性质相同&lt;/p&gt;
+&lt;p&gt;我们将 10000H~1000FH 内存当作栈来使用，代码如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ax,0123H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push ax
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov bx,2266H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push bx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov cx,1122H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push cx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pop ax
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pop bx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pop cx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;执行代码，内存结构如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501221432095.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eb3af4cd1f923c1242ef5d85cf0c09d6&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;8086 寄存器中有两个与栈相关的寄存器：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;栈顶寄存器 SS    -存放 &lt;strong&gt;栈顶的段地址&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;栈顶指针寄存器 SP -存放 &lt;strong&gt;栈顶的偏移地址&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SS 和 SP 用于确定被用作栈的内存的栈顶地址&lt;/p&gt;
+&lt;h3 id=&#34;ss-和-sp-的使用&#34;&gt;ss 和 sp 的使用
+&lt;/h3&gt;&lt;p&gt;示例代码如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ax,1000H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ss,ax
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov sp,0010H
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov ax,001AH
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov bx,001BH
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push ax
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push bx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pop ax
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pop bx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;代码分析：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化栈段和栈指针，设置栈的起始位置。栈段基址是 &lt;code&gt;1000H&lt;/code&gt;，栈指针为 &lt;code&gt;0010H&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;将两个值（26 和 27）分别存入 AX 和 BX 寄存器，准备后续操作(小端序)&lt;/li&gt;
+&lt;li&gt;将寄存器 ax, bx 中的值压入栈&lt;/li&gt;
+&lt;li&gt;将栈顶的数据分别弹回到寄存器 ax 和 bx&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;该代码实现了一个 &lt;strong&gt;寄存器 ax 和 bx 的数据交换&lt;/strong&gt;，意义等同于 c 语言中交换变量值的操作&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在汇编语言中，8086CPU &lt;strong&gt;不会保证对栈的操作不会越界&lt;/strong&gt;，因为 8086CPU 只知道栈顶的位置，不知道程序安排的栈空间是多大&lt;/p&gt;
+&lt;p&gt;栈顶超界的问题需要我们自己操心，要根据可能用到的最大栈空间，安排栈的大小&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;各种段的总结&#34;&gt;各种“段”的总结
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;数据段，代码段和栈段：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://fastly.jsdelivr.net/gh/fsj2009yx/picServer@main/202501221651743.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;82d411f69b07639f994a99c66c5c552c&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Vue3项目基础</title>
         <link>https://fsj2009yx.github.io/posts/post_164743043518379/</link>
         <pubDate>Mon, 16 Dec 2024 12:37:57 +0800</pubDate>
