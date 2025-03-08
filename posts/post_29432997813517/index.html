@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="汇编语言初步">
+<meta name="keywords" content="汇编"><title>汇编指令</title>
+
+<link rel='canonical' href='https://fsj2009yx.github.io/posts/post_29432997813517/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="汇编指令">
+<meta property='og:description' content="汇编语言初步">
+<meta property='og:url' content='https://fsj2009yx.github.io/posts/post_29432997813517/'>
+<meta property='og:site_name' content='fsj2009yx'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='汇编' /><meta property='article:published_time' content='2025-03-08T21:56:49&#43;08:00'/><meta property='article:modified_time' content='2025-03-08T21:56:49&#43;08:00'/>
+<meta name="twitter:title" content="汇编指令">
+<meta name="twitter:description" content="汇编语言初步">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MJKRHG3RF"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4MJKRHG3RF');
+        }
+      </script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10453366465891403479.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😄</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fsj2009yx</a></h1>
+            <h2 class="site-description">Be myself</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/287347892?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565218644"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1562"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M977.2 208.2c33.4 36.2 48.8 79.4 46.6 131.4v404.8c-0.8 52.8-18.4 96.2-53 130.2-34.4 34-78.2 51.8-131 53.4H184.04c-52.9-1.6-96.42-19.6-130.56-54.4C19.364 838.8 1.534 793 0 736.4V339.6c1.534-52 19.364-95.2 53.48-131.4C87.62 175.5 131.14 157.54 184.04 156h58.76L192.1 104.38c-11.5-11.46-17.26-26-17.26-43.58 0-17.6 5.76-32.12 17.26-43.594C203.6 5.736 218.2 0 235.8 0s32.2 5.736 43.8 17.206L426.2 156h176l149-138.794C763.4 5.736 778.4 0 796 0c17.6 0 32.2 5.736 43.8 17.206 11.4 11.474 17.2 25.994 17.2 43.594 0 17.58-5.8 32.12-17.2 43.58L789.2 156h58.6c52.8 1.54 96 19.5 129.4 52.2z m-77.6 139.4c-0.8-19.2-7.4-34.8-21.4-47-10.4-12.2-28-18.8-45.4-19.6H192.1c-19.18 0.8-34.9 7.4-47.16 19.6-12.28 12.2-18.8 27.8-19.56 47v388.8c0 18.4 6.52 34 19.56 47s28.76 19.6 47.16 19.6H832.8c18.4 0 34-6.6 46.6-19.6 12.6-13 19.4-28.6 20.2-47V347.6z m-528.6 85.4c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.4 12.6-28 19-47.2 19-19.2 0-35-6.4-47.2-19-12.2-12.6-18.8-28-19.6-46.4v-66.6c0.8-18.2 7.6-33.8 20.2-46.4 12.6-12.6 26.4-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z m383 0c12.6 12.6 19.4 28.2 20.2 46.4V546c-0.8 18.4-7.4 33.8-19.6 46.4-12.2 12.6-28 19-47.2 19-19.2 0-34.8-6.4-47.2-19-14-12.6-18.8-28-19.4-46.4v-66.6c0.6-18.2 7.4-33.8 20-46.4 12.6-12.6 28.2-19.2 46.6-20 18.4 0.8 34 7.4 46.6 20z"
+        fill="currentColor" p-id="1563"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://codeforces.com/profile/fsj2009yx'
+                        target="_blank"
+                        title="codeforces"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565681656"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2572"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M192 320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V384a64 64 0 0 1 64-64h128z m384-192a64 64 0 0 1 64 64v640a64 64 0 0 1-64 64H448a64 64 0 0 1-64-64V192a64 64 0 0 1 64-64h128z m384 320a64 64 0 0 1 64 64v320a64 64 0 0 1-64 64h-128a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h128z"
+        fill="currentColor" p-id="2573"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fsj2009yx'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1733565903591"
+    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+    <path
+        d="M64 512c0 195.2 124.8 361.6 300.8 422.4 22.4 6.4 19.2-9.6 19.2-22.4v-76.8c-134.4 16-140.8-73.6-150.4-89.6-19.2-32-60.8-38.4-48-54.4 32-16 64 3.2 99.2 57.6 25.6 38.4 76.8 32 105.6 25.6 6.4-22.4 19.2-44.8 35.2-60.8-144-22.4-201.6-108.8-201.6-211.2 0-48 16-96 48-131.2-22.4-60.8 0-115.2 3.2-121.6 57.6-6.4 118.4 41.6 124.8 44.8 32-9.6 70.4-12.8 112-12.8 41.6 0 80 6.4 112 12.8 12.8-9.6 67.2-48 121.6-44.8 3.2 6.4 25.6 57.6 6.4 118.4 32 38.4 48 83.2 48 131.2 0 102.4-57.6 188.8-201.6 214.4 22.4 22.4 38.4 54.4 38.4 92.8v112c0 9.6 0 19.2 16 19.2C832 876.8 960 710.4 960 512c0-246.4-201.6-448-448-448S64 265.6 64 512z"
+        fill="currentColor" p-id="2385"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://fsj2009yx.github.io/en/" >English</option>
+                                
+                                    <option value="https://fsj2009yx.github.io/" selected>中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mov-和-add-指令">mov 和 add 指令</a></li>
+    <li><a href="#转移指令-jmp">转移指令 jmp</a></li>
+    <li><a href="#汇编语言程序设计">汇编语言程序设计</a>
+      <ol>
+        <li><a href="#三种伪指令">三种伪指令</a></li>
+        <li><a href="#汇编语言代码示例">汇编语言代码示例</a></li>
+      </ol>
+    </li>
+    <li><a href="#和的语法规定">[&hellip;]和(&hellip;)的语法规定</a></li>
+    <li><a href="#loop指令">Loop指令</a>
+      <ol>
+        <li><a href="#mov-al0的异常情况和段前缀的应用">mov al,[0]的异常情况和段前缀的应用</a></li>
+        <li><a href="#连续内存单元的求和ffff0ffffb">连续内存单元的求和(ffff:0~ffff:b)</a></li>
+        <li><a href="#利用段前缀实现连续内存单元的拷贝">利用段前缀实现连续内存单元的拷贝</a></li>
+      </ol>
+    </li>
+    <li><a href="#在代码段中使用数据">在代码段中使用数据</a></li>
+    <li><a href="#在代码段中使用栈">在代码段中使用栈</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E9%80%86%E5%90%91/" >
+                逆向
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/post_29432997813517/">汇编指令</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            汇编语言初步
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="汇编指令">汇编指令
+</h1><h2 id="mov-和-add-指令">mov 和 add 指令
+</h2><p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd3803d93.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140124584"
+	
+	
+></p>
+<h2 id="转移指令-jmp">转移指令 jmp
+</h2><p><code>JMP</code> 指令是汇编语言中的 <strong>无条件转移指令</strong>，用于将程序的执行流程跳转到指定的目标地址（代码位置）。当 <code>JMP</code> 指令被执行时，CPU 会将目标地址加载到 <strong>指令指针寄存器（IP/EIP/RIP）</strong> 中，从而改变程序的执行路径。</p>
+<p>下面是 jmp 指令的用法：</p>
+<ul>
+<li>
+<p>jmp 指令用于同时修改 CS 和 IP 的内容</p>
+<ul>
+<li>
+<p>语法：<code>jmp 段地址:偏移地址</code></p>
+<ul>
+<li>jmp 2AE3:3</li>
+<li>jmp 3:0B16</li>
+</ul>
+</li>
+<li>
+<p>功能：用指令给出的段地址修改 CS, 偏移地址修改 IP</p>
+</li>
+</ul>
+</li>
+<li>
+<p>仅修改 IP 的内容</p>
+<ul>
+<li>语法：<code>jmp 某一合法寄存器</code>
+<ul>
+<li>jmp ax（类似于 mov IP, ax）</li>
+<li>jmp bx</li>
+</ul>
+</li>
+<li>功能：直接跳转到 <code>CS:某一寄存器</code> 指定的地址</li>
+</ul>
+</li>
+</ul>
+<p>举例如下：</p>
+<p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd4021545.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140135916"
+	
+	
+></p>
+<hr>
+<h2 id="汇编语言程序设计">汇编语言程序设计
+</h2><p>首先给出一段完整可执行的汇编语言程序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:codesg
+</span></span><span class="line"><span class="cl">codesg segment
+</span></span><span class="line"><span class="cl">    mov ax,0123H
+</span></span><span class="line"><span class="cl">    mov bx,0456H
+</span></span><span class="line"><span class="cl">    add ax,bx
+</span></span><span class="line"><span class="cl">    add ax,ax
+</span></span><span class="line"><span class="cl">    mov ax,4c00h
+</span></span><span class="line"><span class="cl">    int 21h
+</span></span><span class="line"><span class="cl">codesg ends
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该代码的部分：</p>
+<ol>
+<li>伪指令：编译器执行的指令，没有对应机器码</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:codesg
+</span></span><span class="line"><span class="cl">codesg segment
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">codesg ends
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>汇编指令：编译为机器码的指令</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov ax,0123H
+</span></span><span class="line"><span class="cl">mov bx,0456H
+</span></span><span class="line"><span class="cl">add ax,bx
+</span></span><span class="line"><span class="cl">add ax,ax
+</span></span><span class="line"><span class="cl">mov ax,4c00h
+</span></span><span class="line"><span class="cl">int 21h
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd4e4f999.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140148885"
+	
+	
+></p>
+<h3 id="三种伪指令">三种伪指令
+</h3><p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd593e198.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140200461"
+	
+	
+></p>
+<h3 id="汇编语言代码示例">汇编语言代码示例
+</h3><p>编写一个计算 2^3 的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:asc
+</span></span><span class="line"><span class="cl">abc segment
+</span></span><span class="line"><span class="cl">	mov ax,2
+</span></span><span class="line"><span class="cl">	add ax,ax
+</span></span><span class="line"><span class="cl">	add ax,ax
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	mov ax,4c00h
+</span></span><span class="line"><span class="cl">	int 21h
+</span></span><span class="line"><span class="cl">abc ends
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码解释：</p>
+<ol>
+<li>
+<p>伪指令</p>
+<ul>
+<li><code>assume cs:asc</code>：指令告诉汇编器当前代码段使用的段寄存器是 <code>CS</code>，且段名为 <code>asc</code>; <code>assume</code> 声明仅用来表明段寄存器的逻辑关联，方便汇编器生成正确的代码。</li>
+<li><code>abc segment</code>：声明一个名为 <code>abc</code> 的代码段。</li>
+</ul>
+</li>
+<li>
+<p>代码段</p>
+<ul>
+<li>一次 <code>mov</code> 和两次 <code>add</code> 实现了 2^3 的计算</li>
+</ul>
+</li>
+<li>
+<p>程序终止</p>
+<ul>
+<li><code>mov ax,4c00h</code>：用于将 <code>4C00h</code> 加载到寄存器 <code>AX</code>，该值是 DOS 系统调用的 <code>int 21h</code> 的<strong>功能号</strong>，用于<strong>程序终止</strong></li>
+<li><code>int 21h</code>调用中断服务例程，执行功能号 <code>4Ch</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="和的语法规定">[&hellip;]和(&hellip;)的语法规定
+</h2><p>在汇编语言中，方括号通常用于表示<strong>内存地址的访问</strong>。</p>
+<p><strong>语法：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MOV AX, [1234h]  ; 将内存地址 1234h 处的值加载到 AX 寄存器
+</span></span><span class="line"><span class="cl">MOV [BX], AL     ; 将 AL 的值存储到由 BX 指定的内存地址
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在某些汇编器（如 AT&amp;T 语法）中，圆括号用于<strong>内存操作的间接寻址</strong>，特别是在 x86 AT&amp;T 汇编语法中。</p>
+<p>圆括号(&hellip;)不属于汇编语言语法，只是表达汇编指令的一个助记符，它表示<strong>一个内存单元或者寄存器中的内容</strong></p>
+<blockquote>
+<p><strong>区分有无[ ]：</strong></p>
+<ul>
+<li>有[]时：<code>MOV AX, [BX]</code> 表示将 <code>BX</code> 寄存器中存储的**地址位置的值（即内存中的数据）**加载到 <code>AX</code> 寄存器中</li>
+<li>无[]时：直接使用寄存器的值。比如，<code>MOV AX, BX</code> 代表将寄存器 <code>BX</code> 的值复制到寄存器 <code>AX</code> 中</li>
+</ul>
+<p>可以用 C++ 语法来类比理解汇编语言中寄存器有无方括号的区别。</p>
+<ol>
+<li>
+<p><strong>无方括号</strong>：类似于直接使用变量的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cpp复制编辑int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在汇编中，相当于 <code>MOV AX, BX</code>，直接将 <code>BX</code> 寄存器的值赋给 <code>AX</code> 寄存器。</p>
+</li>
+<li>
+<p><strong>有方括号</strong>：类似于访问指针所指向的内存中的数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>  <span class="c1">// 指针 ptr 指向 a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>   <span class="c1">// 通过指针访问 a 的值
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在汇编中，相当于 <code>MOV AX, [BX]</code>，假设 <code>BX</code> 存储的是某个内存地址，那么 <code>[BX]</code> 表示访问该内存地址上的数据。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="loop指令">Loop指令
+</h2><p>语法：<code>loop 标号</code></p>
+<p>功能：实现循环（计数型循环）</p>
+<p>CPU执行Loop指令的操作：</p>
+<ul>
+<li>(cx)=(cx)-1;</li>
+<li>判断cx中的值：
+<ul>
+<li>不为零则转至<strong>标号处</strong>执行程序</li>
+<li>如果为零则向下执行</li>
+</ul>
+</li>
+</ul>
+<p>示例代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:code        ; 告诉汇编器，代码段寄存器cs指向名为&#39;code&#39;的段
+</span></span><span class="line"><span class="cl">code segment          ; 定义一个代码段，命名为&#39;code&#39;
+</span></span><span class="line"><span class="cl">    mov ax, 2         ; 将立即数2加载到AX寄存器中
+</span></span><span class="line"><span class="cl">    mov cx, 11        ; 将立即数11加载到CX寄存器中，作为循环计数器
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">s:                    ; 标签&#39;s&#39;，标记循环开始的位置
+</span></span><span class="line"><span class="cl">    add ax, ax        ; 将AX寄存器中的值加上自身（即乘以2）
+</span></span><span class="line"><span class="cl">    loop s            ; CX寄存器减1，并且如果CX不为零，则跳转到标签&#39;s&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    mov ax, 4c00h     ; 将立即数4C00h加载到AX寄存器中，准备调用DOS中断来正常退出程序
+</span></span><span class="line"><span class="cl">    int 21h           ; 调用DOS中断21h，功能号在AH寄存器中指定（这里是4Ch，表示程序终止）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">code ends             ; 结束代码段定义
+</span></span><span class="line"><span class="cl">end                   ; 汇编结束指令
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该程序的主要功能是在AX寄存器中计算 <strong>2^11 的值（即2048）</strong>，并通过DOS中断21h正常退出程序</p>
+<p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd6821ba6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140216339"
+	
+	
+></p>
+<p>例：实现123*236的一个汇编程序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:code
+</span></span><span class="line"><span class="cl">code segment 
+</span></span><span class="line"><span class="cl">	mov ax,0 ;初始化结果为0，存在ax中
+</span></span><span class="line"><span class="cl">	mov cx,236
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">s:	
+</span></span><span class="line"><span class="cl">	add ax,123
+</span></span><span class="line"><span class="cl">	loop s
+</span></span><span class="line"><span class="cl">code ends
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结合[&hellip;]语法的示例代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:code
+</span></span><span class="line"><span class="cl">code segment
+</span></span><span class="line"><span class="cl">	mov ax,0ffffh
+</span></span><span class="line"><span class="cl">	mov ds,ax
+</span></span><span class="line"><span class="cl">	mov bx,6
+</span></span><span class="line"><span class="cl">	mov al,[bx]
+</span></span><span class="line"><span class="cl">	mov ah,0
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	mov dx,0
+</span></span><span class="line"><span class="cl">	mov cx,3
+</span></span><span class="line"><span class="cl">s:	add dx,ax
+</span></span><span class="line"><span class="cl">	loop s
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	mov ax,4c00h
+</span></span><span class="line"><span class="cl">	int 21h
+</span></span><span class="line"><span class="cl">code ends
+</span></span><span class="line"><span class="cl">end
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="mov-al0的异常情况和段前缀的应用">mov al,[0]的异常情况和段前缀的应用
+</h3><p><code>mov al,[0]</code>的功能本应该是<strong>将偏移地址为0的存储单元的内容赋值给寄存器al</strong>，在编译并链接后，debug程序发现该语句被翻译成了<code>mov al ,00</code>即<strong>将0赋值给al</strong></p>
+<p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd6f4996c.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140223398"
+	
+	
+></p>
+<p>我们可以使用段前缀的方式，即<strong>在[data]前显式写上段寄存器</strong></p>
+<p>语法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov ax, DS:[1234h]  ; 使用数据段寄存器 DS
+</span></span><span class="line"><span class="cl">mov ax, ES:[1234h]  ; 使用额外段寄存器 ES
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="连续内存单元的求和ffff0ffffb">连续内存单元的求和(ffff:0~ffff:b)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">code segment                ; 定义代码段
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">         mov  ax, 0ffffh    ; 将最大16位值 (0xFFFF) 加载到 AX 寄存器
+</span></span><span class="line"><span class="cl">         mov  ds, ax        ; 将 AX 中的值赋给 DS (数据段寄存器)，设置数据段为 0xFFFF
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         mov  ax, 0         ; 初始化 AX 寄存器为 0，用于中间计算
+</span></span><span class="line"><span class="cl">         mov  dx, 0         ; 初始化 DX 寄存器为 0，用于累加结果
+</span></span><span class="line"><span class="cl">         mov  cx, 12        ; 初始化循环计数器 CX 为 12，准备执行12次循环
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    s:                      ; 定义标签 s，表示循环的开始位置
+</span></span><span class="line"><span class="cl">         mov  al, [bx]      ; 将 BX 寄存器指向的内存单元值加载到 AL（低8位寄存器）
+</span></span><span class="line"><span class="cl">         mov  ah, 0         ; 清空 AH（高8位寄存器），确保 AX 只包含 AL 的值
+</span></span><span class="line"><span class="cl">         add  dx, ax        ; 将 AX 的值累加到 DX 中
+</span></span><span class="line"><span class="cl">         inc  bx            ; BX 自增 1，指向下一个内存单元
+</span></span><span class="line"><span class="cl">         loop s             ; 循环 CX 次，每次减 1，直到 CX = 0 跳出循环
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         mov  ax, 4c00h     ; 终止程序，设置 AX = 4C00h，其中 4Ch 是退出功能号
+</span></span><span class="line"><span class="cl">         int  21h           ; 调用中断 21h，终止程序
+</span></span><span class="line"><span class="cl">code ends                   ; 结束代码段
+</span></span><span class="line"><span class="cl">end                             ; 程序结束
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="利用段前缀实现连续内存单元的拷贝">利用段前缀实现连续内存单元的拷贝
+</h3><p>注：<code>es</code>为<strong>附加段寄存器</strong>，作为额外的数据段寄存器，通常用于字符串操作或其他需要跨段数据传输的情况</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:code               ; 假设代码段寄存器 CS 指向名为 &#39;code&#39; 的段
+</span></span><span class="line"><span class="cl">code segment                 ; 定义一个代码段，命名为 &#39;code&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 设置数据段寄存器 DS 为 0FFFFh
+</span></span><span class="line"><span class="cl">    mov ax, 0ffffh           ; 将立即数 0FFFFh 加载到 AX 寄存器中
+</span></span><span class="line"><span class="cl">    mov ds, ax               ; 设置 DS 寄存器为 0FFFFh，这意味着我们将访问 0FFFF:0000 开始的内存区域
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 设置附加段寄存器 ES 为 0020h
+</span></span><span class="line"><span class="cl">    mov ax, 0020h            ; 将立即数 0020h 加载到 AX 寄存器中
+</span></span><span class="line"><span class="cl">    mov es, ax               ; 设置 ES 寄存器为 0020h，这意味着我们将写入 0020:0000 开始的内存区域
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 初始化偏移地址 BX 和循环计数器 CX
+</span></span><span class="line"><span class="cl">    mov bx, 0                ; 将立即数 0 加载到 BX 寄存器中，作为初始偏移地址
+</span></span><span class="line"><span class="cl">    mov cx, 12               ; 设置循环计数器 CX 为 12，表示要复制 12 个字节
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">s:                           ; 标签 &#39;s&#39;，标记循环开始的位置
+</span></span><span class="line"><span class="cl">    ; 从 DS:BX 处读取一个字节的数据到 DL 寄存器
+</span></span><span class="line"><span class="cl">    mov dl, [bx]             ; 从内存地址 DS:BX 处读取一个字节的数据到 DL 寄存器
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 将 DL 寄存器中的数据写入 ES:BX 处
+</span></span><span class="line"><span class="cl">    mov es:[bx], dl          ; 将 DL 寄存器中的数据写入内存地址 ES:BX 处
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 增加偏移地址 BX
+</span></span><span class="line"><span class="cl">    inc bx                   ; BX = BX + 1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 循环控制
+</span></span><span class="line"><span class="cl">    loop s                   ; CX 寄存器减 1，并且如果 CX 不为零，则跳转到标签 &#39;s&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    ; 程序终止
+</span></span><span class="line"><span class="cl">    mov ax, 4c00h            ; 设置 AX 寄存器的值为 4C00h，准备调用 DOS 中断来正常退出程序
+</span></span><span class="line"><span class="cl">    int 21h                  ; 调用 DOS 中断 21h，功能号 4Ch 表示程序终止
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">code ends                    ; 结束代码段定义
+</span></span><span class="line"><span class="cl">end                          ; 汇编结束指令
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="在代码段中使用数据">在代码段中使用数据
+</h2><p>实际上，在汇编语言中直接指明地址是<strong>非常危险</strong>的行为，现代操作系统都会为每个进程动态分配内存空间，如果手动修改了关键地址（如内存空间）的值，可能会导致<strong>访问冲突</strong>，甚至是程序崩溃</p>
+<p>此外，<strong>硬编码的地址</strong>难以理解，在后续维护中不易看出该地址数据的意义</p>
+<p>例题如下：</p>
+<p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd7aa6fb5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140234493"
+	
+	
+></p>
+<ul>
+<li><code>dw</code>关键字可以定义数据，每一个数据为一个字，占<strong>两个字节</strong>，所以存储偏移地址的寄存器<code>bx</code>每次要<code>+=2</code></li>
+</ul>
+<p>这里如果直接运行程序，代码段的起始地址在0010，而不是起始地址，如果想运行程序需要在Debug下将<code>IP</code>设置为<code>10h</code>，令<code>CS:IP</code>指向程序中的第一条指令，才能正常运行</p>
+<p>我们可以如下改进：</p>
+<p><img src="http://47.122.115.55/pic/2025/03/08/67cbdd84ebaec.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250308140243842"
+	
+	
+></p>
+<p>利用<code>start</code>标号来指定程序运行的第一条指令，后面<code>end start</code>除了启到终止程序的作用以外，还向编译器告知<strong>程序运行的入口</strong></p>
+<p>基于此，我们可以这样安排一段基本程序的框架：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:code
+</span></span><span class="line"><span class="cl">code segment
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	;定义数据
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">start:
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	;定义代码
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">code ends
+</span></span><span class="line"><span class="cl">end start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="在代码段中使用栈">在代码段中使用栈
+</h2><p>之前我们使用栈段和栈顶寄存器<code>ss</code>和<code>sp</code>将一段内存定义为栈，由于用到了<strong>真实的物理地址</strong>，而不是操作系统分配的内存空间，这种做法也应该抛弃</p>
+<p>我们可以在代码段中定义栈，示例代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assume cs:codesg
+</span></span><span class="line"><span class="cl">codesg segment
+</span></span><span class="line"><span class="cl">    dw 0123H, 0456H, 0789H, 0abcH, 0defH, 0fedH, 0cbaH, 0987H
+</span></span><span class="line"><span class="cl">    dw 0,0,0,0,0,0,0,0,0,0,0,0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">start:
+</span></span><span class="line"><span class="cl">    mov ax, cs
+</span></span><span class="line"><span class="cl">    mov ss, ax
+</span></span><span class="line"><span class="cl">    mov sp, 30h
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    mov bx,0
+</span></span><span class="line"><span class="cl">    mov cx,8
+</span></span><span class="line"><span class="cl">s:	push cs:[bx]
+</span></span><span class="line"><span class="cl">	add bx,2
+</span></span><span class="line"><span class="cl">	loop s
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	mov bx,0
+</span></span><span class="line"><span class="cl">	mov cx,8
+</span></span><span class="line"><span class="cl">s0:	pop cs:[bx]
+</span></span><span class="line"><span class="cl">	add bx,2
+</span></span><span class="line"><span class="cl">	loop s0
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	mov ax,4c00h
+</span></span><span class="line"><span class="cl">	int 21h
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">codesg ends
+</span></span><span class="line"><span class="cl">end start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码解释：</p>
+<ul>
+<li>
+<p><strong>数据段定义</strong></p>
+<ul>
+<li>前8个单元存储数据：<code>0123H</code> 到 <code>0987H</code>。</li>
+<li>后12个单元初始化为 <code>0</code>，用于存储处理后的数据。</li>
+</ul>
+</li>
+<li>
+<p><strong>初始化寄存器</strong></p>
+<ul>
+<li>设置栈段 (<code>SS</code>) 为代码段 (<code>CS</code>)，栈顶指针 (<code>SP</code>) 为 <code>30h</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>入栈过程</strong></p>
+<ul>
+<li>从偏移 <code>0-15H</code> 的8个数据依次压入栈。</li>
+<li>每次入栈后，<code>BX</code> 加 2 指向下一个数据。</li>
+</ul>
+</li>
+<li>
+<p><strong>出栈过程</strong></p>
+<ul>
+<li>从栈中依次弹出数据，覆盖原来的偏移 <code>0-15H</code> 数据。</li>
+</ul>
+</li>
+<li>
+<p><strong>程序结束</strong></p>
+<ul>
+<li>使用中断 <code>int 21h</code> 正常退出程序。</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili"],"lang":"zh-cn","locale":{"admin":"289137665@qq.com","placeholder":null},"requiredMeta":["name","email","url"],"serverURL":"https://waline-blog-test.vercel.app/","visitor":true});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 fsj2009yx
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
