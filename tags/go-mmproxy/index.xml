@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Go-Mmproxy on fsj2009yx&#39;s blog</title>
-    <link>https://fsj2009yx.github.io/tags/go-mmproxy/</link>
+    <link>https://github.com/fsj2009yx/fsj2009yx.github.io/tags/go-mmproxy/</link>
     <description>Recent content in Go-Mmproxy on fsj2009yx&#39;s blog</description>
     <image>
       <title>fsj2009yx&#39;s blog</title>
-      <url>https://fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://github.com/fsj2009yx/fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 19 Mar 2026 23:01:14 +0800</lastBuildDate>
-    <atom:link href="https://fsj2009yx.github.io/tags/go-mmproxy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/fsj2009yx/fsj2009yx.github.io/tags/go-mmproxy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Frp&#43;go Mmproxy实现透明代理式内网穿透</title>
-      <link>https://fsj2009yx.github.io/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E5%BC%8F%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E5%BC%8F%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
       <pubDate>Thu, 19 Mar 2026 23:01:14 +0800</pubDate>
-      <guid>https://fsj2009yx.github.io/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E5%BC%8F%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <guid>https://github.com/fsj2009yx/fsj2009yx.github.io/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E5%BC%8F%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
       <description>&lt;h1 id=&#34;frpgo-mmproxy-实现透明代理的内网穿透&#34;&gt;frp+go-mmproxy 实现透明代理的内网穿透&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;事前声明：该方法只在 Linux 系统有效，并且需要 linux 内核 2.6.28 或更高版本&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;

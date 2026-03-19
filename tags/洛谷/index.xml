@@ -2,23 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>洛谷 on fsj2009yx&#39;s blog</title>
-    <link>http://localhost:1313/tags/%E6%B4%9B%E8%B0%B7/</link>
+    <link>https://github.com/fsj2009yx/fsj2009yx.github.io/tags/%E6%B4%9B%E8%B0%B7/</link>
     <description>Recent content in 洛谷 on fsj2009yx&#39;s blog</description>
     <image>
       <title>fsj2009yx&#39;s blog</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://github.com/fsj2009yx/fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Mar 2026 23:01:14 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E6%B4%9B%E8%B0%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Mar 2026 23:09:29 +0800</lastBuildDate>
+    <atom:link href="https://github.com/fsj2009yx/fsj2009yx.github.io/tags/%E6%B4%9B%E8%B0%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Frp&#43;go Mmproxy实现透明代理的内网穿透</title>
-      <link>http://localhost:1313/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E7%9A%84%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
-      <pubDate>Thu, 19 Mar 2026 23:01:14 +0800</pubDate>
-      <guid>http://localhost:1313/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E7%9A%84%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
-      <description></description>
+      <title>异或和之和</title>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/posts/%E5%BC%82%E6%88%96%E5%92%8C%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Thu, 19 Mar 2026 23:09:29 +0800</pubDate>
+      <guid>https://github.com/fsj2009yx/fsj2009yx.github.io/posts/%E5%BC%82%E6%88%96%E5%92%8C%E4%B9%8B%E5%92%8C/</guid>
+      <description>&lt;h1 id=&#34;异或和之和&#34;&gt;异或和之和&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/P9236&#34;&gt;P9236 [蓝桥杯 2023 省 A] 异或和之和 - 洛谷 | 计算机科学教育新生态&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个数组 $A_i$，分别求其每个子段的异或和，并求出它们的和。或者说，对于每组满足 $1 \leq L \leq R \leq n$ 的 $L,R$，求出数组中第 $L$ 至第 $R$ 个元素的异或和。然后输出每组 $L,R$ 得到的结果加起来的值。&lt;/p&gt;
+&lt;h3 id=&#34;输入格式&#34;&gt;输入格式&lt;/h3&gt;
+&lt;p&gt;输入的第一行包含一个整数 $n$ 。&lt;/p&gt;
+&lt;p&gt;第二行包含 $n$ 个整数 $A_i$，相邻整数之间使用一个空格分隔。&lt;/p&gt;
+&lt;h3 id=&#34;输出格式&#34;&gt;输出格式&lt;/h3&gt;
+&lt;p&gt;输出一行包含一个整数表示答案。&lt;/p&gt;
+&lt;h3 id=&#34;样例-1&#34;&gt;样例 #1&lt;/h3&gt;
+&lt;h4 id=&#34;样例输入-1&#34;&gt;样例输入 #1&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;5
+1 2 3 4 5
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;样例输出-1&#34;&gt;样例输出 #1&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;39
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;提示&#34;&gt;提示&lt;/h3&gt;
+&lt;h4 id=&#34;评测用例规模与约定&#34;&gt;【评测用例规模与约定】&lt;/h4&gt;
+&lt;p&gt;对于 $30 %$ 的评测用例，$n \leq 300$；&lt;/p&gt;
+&lt;p&gt;对于 $60 %$ 的评测用例，$n \leq 5000$;&lt;/p&gt;
+&lt;p&gt;对于所有评测用例，$1 \leq n \leq 10^5$，$0 \leq A_i \leq 2^{20}$。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

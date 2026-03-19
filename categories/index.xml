@@ -2,22 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on fsj2009yx&#39;s blog</title>
-    <link>https://fsj2009yx.github.io/categories/</link>
+    <link>https://github.com/fsj2009yx/fsj2009yx.github.io/categories/</link>
     <description>Recent content in Categories on fsj2009yx&#39;s blog</description>
     <image>
       <title>fsj2009yx&#39;s blog</title>
-      <url>https://fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://github.com/fsj2009yx/fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Mar 2026 23:01:14 +0800</lastBuildDate>
-    <atom:link href="https://fsj2009yx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Mar 2026 23:09:29 +0800</lastBuildDate>
+    <atom:link href="https://github.com/fsj2009yx/fsj2009yx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>题解</title>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/categories/%E9%A2%98%E8%A7%A3/</link>
+      <pubDate>Thu, 19 Mar 2026 23:09:29 +0800</pubDate>
+      <guid>https://github.com/fsj2009yx/fsj2009yx.github.io/categories/%E9%A2%98%E8%A7%A3/</guid>
+      <description></description>
+    </item>
     <item>
       <title>折腾</title>
-      <link>https://fsj2009yx.github.io/categories/%E6%8A%98%E8%85%BE/</link>
+      <link>https://github.com/fsj2009yx/fsj2009yx.github.io/categories/%E6%8A%98%E8%85%BE/</link>
       <pubDate>Thu, 19 Mar 2026 23:01:14 +0800</pubDate>
-      <guid>https://fsj2009yx.github.io/categories/%E6%8A%98%E8%85%BE/</guid>
+      <guid>https://github.com/fsj2009yx/fsj2009yx.github.io/categories/%E6%8A%98%E8%85%BE/</guid>
       <description></description>
     </item>
   </channel>
