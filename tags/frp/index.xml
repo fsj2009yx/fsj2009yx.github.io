@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Frp on fsj2009yx&#39;s blog</title>
+    <link>https://fsj2009yx.github.io/tags/frp/</link>
+    <description>Recent content in Frp on fsj2009yx&#39;s blog</description>
+    <image>
+      <title>fsj2009yx&#39;s blog</title>
+      <url>https://fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://fsj2009yx.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 Mar 2026 23:01:14 +0800</lastBuildDate>
+    <atom:link href="https://fsj2009yx.github.io/tags/frp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Frp&#43;go Mmproxy实现透明代理式内网穿透</title>
+      <link>https://fsj2009yx.github.io/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E5%BC%8F%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Thu, 19 Mar 2026 23:01:14 +0800</pubDate>
+      <guid>https://fsj2009yx.github.io/posts/frp&#43;go-mmproxy%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E5%BC%8F%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>&lt;h1 id=&#34;frpgo-mmproxy-实现透明代理的内网穿透&#34;&gt;frp+go-mmproxy 实现透明代理的内网穿透&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;事前声明：该方法只在 Linux 系统有效，并且需要 linux 内核 2.6.28 或更高版本&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;p&gt;[&lt;a href=&#34;https://github.com/fatedier/frp/issues/4184&#34;&gt;Feature Request] Make client IP accessible to upstream by spoofing source IP · 议题 #4184 · fatedier/frp&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.cloudflare.com/mmproxy-creative-way-of-preserving-client-ips-in-spectrum/&#34;&gt;mmproxy - Creative Linux routing to preserve client IP addresses in L7 proxies&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;frp 是一个常用的内网穿透软件，支持多种协议，可以让 NAT 环境下的服务暴露到公网指定端口，以穿透 &lt;code&gt;sshd&lt;/code&gt; 为例，配置 frpc.toml:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;proxies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;ssh&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;localIP&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;localPort&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;remotePort&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;23456&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后用 &lt;code&gt;frps&lt;/code&gt; 对应公网的 ip 和端口访问：在内网机的 &lt;code&gt;var/log/auth.log&lt;/code&gt; 中查看登录记录：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Accepted publickey for fsj2009yx from 127.0.0.1 port 38866 ssh2:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以看到经过 frpc 代理转发后，源客户端 IP 被隐藏了，变成配置中的 &lt;code&gt;localIP&lt;/code&gt; 地址&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
